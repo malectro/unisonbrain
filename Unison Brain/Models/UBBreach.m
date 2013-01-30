@@ -1,19 +1,19 @@
 //
-//  Breach.m
+//  UBBreach.m
 //  Unison Brain
 //
-//  Created by Amy Piller on 1/30/13.
+//  Created by Kyle Warren on 1/30/13.
 //  Copyright (c) 2013 Kyle Warren. All rights reserved.
 //
 
-#import "Breach.h"
-#import "Code.h"
-#import "Contribution.h"
-#import "Person.h"
-#import "Session.h"
+#import "UBBreach.h"
+#import "UBCode.h"
+#import "UBContribution.h"
+#import "UBPerson.h"
+#import "UBSession.h"
 
 
-@implementation Breach
+@implementation UBBreach
 
 @dynamic time;
 @dynamic type;

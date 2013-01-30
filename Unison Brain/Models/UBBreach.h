@@ -1,40 +1,40 @@
 //
-//  Breach.h
+//  UBBreach.h
 //  Unison Brain
 //
-//  Created by Amy Piller on 1/30/13.
+//  Created by Kyle Warren on 1/30/13.
 //  Copyright (c) 2013 Kyle Warren. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Code, Contribution, Person, Session;
+@class UBCode, UBContribution, UBPerson, UBSession;
 
-@interface Breach : NSManagedObject
+@interface UBBreach : NSManagedObject
 
 @property (nonatomic, retain) NSDate * time;
 @property (nonatomic, retain) NSString * type;
 @property (nonatomic, retain) NSSet *codes;
 @property (nonatomic, retain) NSSet *contributions;
 @property (nonatomic, retain) NSSet *people;
-@property (nonatomic, retain) Session *session;
+@property (nonatomic, retain) UBSession *session;
 @end
 
-@interface Breach (CoreDataGeneratedAccessors)
+@interface UBBreach (CoreDataGeneratedAccessors)
 
-- (void)addCodesObject:(Code *)value;
-- (void)removeCodesObject:(Code *)value;
+- (void)addCodesObject:(UBCode *)value;
+- (void)removeCodesObject:(UBCode *)value;
 - (void)addCodes:(NSSet *)values;
 - (void)removeCodes:(NSSet *)values;
 
-- (void)addContributionsObject:(Contribution *)value;
-- (void)removeContributionsObject:(Contribution *)value;
+- (void)addContributionsObject:(UBContribution *)value;
+- (void)removeContributionsObject:(UBContribution *)value;
 - (void)addContributions:(NSSet *)values;
 - (void)removeContributions:(NSSet *)values;
 
-- (void)addPeopleObject:(Person *)value;
-- (void)removePeopleObject:(Person *)value;
+- (void)addPeopleObject:(UBPerson *)value;
+- (void)removePeopleObject:(UBPerson *)value;
 - (void)addPeople:(NSSet *)values;
 - (void)removePeople:(NSSet *)values;
 

@@ -1,16 +1,18 @@
 //
-//  Session.m
+//  UBSession.m
 //  Unison Brain
 //
-//  Created by Amy Piller on 1/30/13.
+//  Created by Kyle Warren on 1/30/13.
 //  Copyright (c) 2013 Kyle Warren. All rights reserved.
 //
 
-#import "Session.h"
-#import "Breach.h"
+#import "UBSession.h"
+#import "UBBreach.h"
+#import "UBPerson.h"
+#import "UBSubject.h"
 
 
-@implementation Session
+@implementation UBSession
 
 @dynamic isCoded;
 @dynamic isComplete;

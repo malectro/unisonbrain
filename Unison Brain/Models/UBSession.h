@@ -1,17 +1,17 @@
 //
-//  Session.h
+//  UBSession.h
 //  Unison Brain
 //
-//  Created by Amy Piller on 1/30/13.
+//  Created by Kyle Warren on 1/30/13.
 //  Copyright (c) 2013 Kyle Warren. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Breach;
+@class UBBreach, UBPerson, UBSubject;
 
-@interface Session : NSManagedObject
+@interface UBSession : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * isCoded;
 @property (nonatomic, retain) NSNumber * isComplete;
@@ -20,18 +20,18 @@
 @property (nonatomic, retain) NSDate * time;
 @property (nonatomic, retain) NSSet *breaches;
 @property (nonatomic, retain) NSSet *people;
-@property (nonatomic, retain) NSManagedObject *subject;
+@property (nonatomic, retain) UBSubject *subject;
 @end
 
-@interface Session (CoreDataGeneratedAccessors)
+@interface UBSession (CoreDataGeneratedAccessors)
 
-- (void)addBreachesObject:(Breach *)value;
-- (void)removeBreachesObject:(Breach *)value;
+- (void)addBreachesObject:(UBBreach *)value;
+- (void)removeBreachesObject:(UBBreach *)value;
 - (void)addBreaches:(NSSet *)values;
 - (void)removeBreaches:(NSSet *)values;
 
-- (void)addPeopleObject:(NSManagedObject *)value;
-- (void)removePeopleObject:(NSManagedObject *)value;
+- (void)addPeopleObject:(UBPerson *)value;
+- (void)removePeopleObject:(UBPerson *)value;
 - (void)addPeople:(NSSet *)values;
 - (void)removePeople:(NSSet *)values;
 

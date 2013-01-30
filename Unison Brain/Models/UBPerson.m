@@ -1,17 +1,18 @@
 //
-//  Person.m
+//  UBPerson.m
 //  Unison Brain
 //
-//  Created by Amy Piller on 1/30/13.
+//  Created by Kyle Warren on 1/30/13.
 //  Copyright (c) 2013 Kyle Warren. All rights reserved.
 //
 
-#import "Person.h"
-#import "Breach.h"
-#import "Session.h"
+#import "UBPerson.h"
+#import "UBBreach.h"
+#import "UBContribution.h"
+#import "UBSession.h"
 
 
-@implementation Person
+@implementation UBPerson
 
 @dynamic fname;
 @dynamic lname;

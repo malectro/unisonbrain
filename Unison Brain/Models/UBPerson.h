@@ -1,17 +1,17 @@
 //
-//  Person.h
+//  UBPerson.h
 //  Unison Brain
 //
-//  Created by Amy Piller on 1/30/13.
+//  Created by Kyle Warren on 1/30/13.
 //  Copyright (c) 2013 Kyle Warren. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Breach, Session;
+@class UBBreach, UBContribution, UBSession;
 
-@interface Person : NSManagedObject
+@interface UBPerson : NSManagedObject
 
 @property (nonatomic, retain) NSString * fname;
 @property (nonatomic, retain) NSString * lname;
@@ -21,20 +21,20 @@
 @property (nonatomic, retain) NSSet *sessions;
 @end
 
-@interface Person (CoreDataGeneratedAccessors)
+@interface UBPerson (CoreDataGeneratedAccessors)
 
-- (void)addBreachesObject:(Breach *)value;
-- (void)removeBreachesObject:(Breach *)value;
+- (void)addBreachesObject:(UBBreach *)value;
+- (void)removeBreachesObject:(UBBreach *)value;
 - (void)addBreaches:(NSSet *)values;
 - (void)removeBreaches:(NSSet *)values;
 
-- (void)addContributionsObject:(NSManagedObject *)value;
-- (void)removeContributionsObject:(NSManagedObject *)value;
+- (void)addContributionsObject:(UBContribution *)value;
+- (void)removeContributionsObject:(UBContribution *)value;
 - (void)addContributions:(NSSet *)values;
 - (void)removeContributions:(NSSet *)values;
 
-- (void)addSessionsObject:(Session *)value;
-- (void)removeSessionsObject:(Session *)value;
+- (void)addSessionsObject:(UBSession *)value;
+- (void)removeSessionsObject:(UBSession *)value;
 - (void)addSessions:(NSSet *)values;
 - (void)removeSessions:(NSSet *)values;
 

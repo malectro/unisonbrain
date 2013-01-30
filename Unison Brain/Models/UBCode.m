@@ -1,16 +1,17 @@
 //
-//  Code.m
+//  UBCode.m
 //  Unison Brain
 //
-//  Created by Amy Piller on 1/30/13.
+//  Created by Kyle Warren on 1/30/13.
 //  Copyright (c) 2013 Kyle Warren. All rights reserved.
 //
 
-#import "Code.h"
-#import "Breach.h"
+#import "UBCode.h"
+#import "UBBreach.h"
+#import "UBCodeScore.h"
 
 
-@implementation Code
+@implementation UBCode
 
 @dynamic name;
 @dynamic type;

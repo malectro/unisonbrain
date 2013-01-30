@@ -1,26 +1,26 @@
 //
-//  Teacher.h
+//  UBTeacher.h
 //  Unison Brain
 //
-//  Created by Amy Piller on 1/30/13.
+//  Created by Kyle Warren on 1/30/13.
 //  Copyright (c) 2013 Kyle Warren. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "Person.h"
+#import "UBPerson.h"
 
-@class Conference;
+@class UBConference;
 
-@interface Teacher : Person
+@interface UBTeacher : UBPerson
 
 @property (nonatomic, retain) NSSet *conferences;
 @end
 
-@interface Teacher (CoreDataGeneratedAccessors)
+@interface UBTeacher (CoreDataGeneratedAccessors)
 
-- (void)addConferencesObject:(Conference *)value;
-- (void)removeConferencesObject:(Conference *)value;
+- (void)addConferencesObject:(UBConference *)value;
+- (void)removeConferencesObject:(UBConference *)value;
 - (void)addConferences:(NSSet *)values;
 - (void)removeConferences:(NSSet *)values;
 

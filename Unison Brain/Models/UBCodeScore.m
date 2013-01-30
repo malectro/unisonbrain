@@ -1,17 +1,17 @@
 //
-//  CodeScore.m
+//  UBCodeScore.m
 //  Unison Brain
 //
-//  Created by Amy Piller on 1/30/13.
+//  Created by Kyle Warren on 1/30/13.
 //  Copyright (c) 2013 Kyle Warren. All rights reserved.
 //
 
-#import "CodeScore.h"
-#import "Code.h"
-#import "Conference.h"
+#import "UBCodeScore.h"
+#import "UBCode.h"
+#import "UBConference.h"
 
 
-@implementation CodeScore
+@implementation UBCodeScore
 
 @dynamic comment;
 @dynamic score;

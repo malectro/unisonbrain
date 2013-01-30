@@ -1,17 +1,17 @@
 //
-//  Code.h
+//  UBCode.h
 //  Unison Brain
 //
-//  Created by Amy Piller on 1/30/13.
+//  Created by Kyle Warren on 1/30/13.
 //  Copyright (c) 2013 Kyle Warren. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Breach;
+@class UBBreach, UBCodeScore;
 
-@interface Code : NSManagedObject
+@interface UBCode : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * type;
@@ -20,15 +20,15 @@
 @property (nonatomic, retain) NSSet *codeScores;
 @end
 
-@interface Code (CoreDataGeneratedAccessors)
+@interface UBCode (CoreDataGeneratedAccessors)
 
-- (void)addBreachesObject:(Breach *)value;
-- (void)removeBreachesObject:(Breach *)value;
+- (void)addBreachesObject:(UBBreach *)value;
+- (void)removeBreachesObject:(UBBreach *)value;
 - (void)addBreaches:(NSSet *)values;
 - (void)removeBreaches:(NSSet *)values;
 
-- (void)addCodeScoresObject:(NSManagedObject *)value;
-- (void)removeCodeScoresObject:(NSManagedObject *)value;
+- (void)addCodeScoresObject:(UBCodeScore *)value;
+- (void)removeCodeScoresObject:(UBCodeScore *)value;
 - (void)addCodeScores:(NSSet *)values;
 - (void)removeCodeScores:(NSSet *)values;
 

@@ -7,16 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2774819716B98D7100211D00 /* Conference.m in Sources */ = {isa = PBXBuildFile; fileRef = 2774819616B98D7100211D00 /* Conference.m */; };
-		2774819A16B98D7200211D00 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 2774819916B98D7200211D00 /* Session.m */; };
-		2774819D16B98D7200211D00 /* Code.m in Sources */ = {isa = PBXBuildFile; fileRef = 2774819C16B98D7200211D00 /* Code.m */; };
-		277481A016B98D7200211D00 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 2774819F16B98D7200211D00 /* Person.m */; };
-		277481A316B98D7200211D00 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 277481A216B98D7200211D00 /* Student.m */; };
-		277481A616B98D7200211D00 /* Contribution.m in Sources */ = {isa = PBXBuildFile; fileRef = 277481A516B98D7200211D00 /* Contribution.m */; };
-		277481A916B98D7200211D00 /* Breach.m in Sources */ = {isa = PBXBuildFile; fileRef = 277481A816B98D7200211D00 /* Breach.m */; };
-		277481AC16B98D7200211D00 /* Teacher.m in Sources */ = {isa = PBXBuildFile; fileRef = 277481AB16B98D7200211D00 /* Teacher.m */; };
-		277481AF16B98D7200211D00 /* CodeScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 277481AE16B98D7200211D00 /* CodeScore.m */; };
-		277481B216B98D7200211D00 /* Subject.m in Sources */ = {isa = PBXBuildFile; fileRef = 277481B116B98D7200211D00 /* Subject.m */; };
 		860268DA16B9811D002C6577 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 860268D916B9811D002C6577 /* UIKit.framework */; };
 		860268DC16B9811D002C6577 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 860268DB16B9811D002C6577 /* Foundation.framework */; };
 		860268DE16B9811D002C6577 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 860268DD16B9811D002C6577 /* CoreGraphics.framework */; };
@@ -35,6 +25,17 @@
 		8602690816B9811D002C6577 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8602690616B9811D002C6577 /* InfoPlist.strings */; };
 		8602690B16B9811D002C6577 /* Unison_BrainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8602690A16B9811D002C6577 /* Unison_BrainTests.m */; };
 		86D51E2716B9ABD200C129F6 /* UBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E2616B9ABD200C129F6 /* UBHomeViewController.m */; };
+		86D51E2C16B9B1BE00C129F6 /* UBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E2B16B9B1BE00C129F6 /* UBUser.m */; };
+		86D51E2F16B9B8ED00C129F6 /* UBSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E2E16B9B8ED00C129F6 /* UBSession.m */; };
+		86D51E3216B9B8ED00C129F6 /* UBTeacher.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E3116B9B8ED00C129F6 /* UBTeacher.m */; };
+		86D51E3516B9B8ED00C129F6 /* UBStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E3416B9B8ED00C129F6 /* UBStudent.m */; };
+		86D51E3816B9B8ED00C129F6 /* UBConference.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E3716B9B8ED00C129F6 /* UBConference.m */; };
+		86D51E3B16B9B8ED00C129F6 /* UBBreach.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E3A16B9B8ED00C129F6 /* UBBreach.m */; };
+		86D51E3E16B9B8ED00C129F6 /* UBSubject.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E3D16B9B8ED00C129F6 /* UBSubject.m */; };
+		86D51E4116B9B8ED00C129F6 /* UBPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E4016B9B8ED00C129F6 /* UBPerson.m */; };
+		86D51E4416B9B8ED00C129F6 /* UBCodeScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E4316B9B8ED00C129F6 /* UBCodeScore.m */; };
+		86D51E4716B9B8ED00C129F6 /* UBContribution.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E4616B9B8ED00C129F6 /* UBContribution.m */; };
+		86D51E4A16B9B8ED00C129F6 /* UBCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E4916B9B8ED00C129F6 /* UBCode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,26 +49,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2774819516B98D7100211D00 /* Conference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Conference.h; path = "Unison Brain/Models/Conference.h"; sourceTree = "<group>"; };
-		2774819616B98D7100211D00 /* Conference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Conference.m; path = "Unison Brain/Models/Conference.m"; sourceTree = "<group>"; };
-		2774819816B98D7200211D00 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Session.h; path = "Unison Brain/Models/Session.h"; sourceTree = "<group>"; };
-		2774819916B98D7200211D00 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Session.m; path = "Unison Brain/Models/Session.m"; sourceTree = "<group>"; };
-		2774819B16B98D7200211D00 /* Code.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Code.h; path = "Unison Brain/Models/Code.h"; sourceTree = "<group>"; };
-		2774819C16B98D7200211D00 /* Code.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Code.m; path = "Unison Brain/Models/Code.m"; sourceTree = "<group>"; };
-		2774819E16B98D7200211D00 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Person.h; path = "Unison Brain/Models/Person.h"; sourceTree = "<group>"; };
-		2774819F16B98D7200211D00 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Person.m; path = "Unison Brain/Models/Person.m"; sourceTree = "<group>"; };
-		277481A116B98D7200211D00 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Student.h; path = "Unison Brain/Models/Student.h"; sourceTree = "<group>"; };
-		277481A216B98D7200211D00 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Student.m; path = "Unison Brain/Models/Student.m"; sourceTree = "<group>"; };
-		277481A416B98D7200211D00 /* Contribution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Contribution.h; path = "Unison Brain/Models/Contribution.h"; sourceTree = "<group>"; };
-		277481A516B98D7200211D00 /* Contribution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Contribution.m; path = "Unison Brain/Models/Contribution.m"; sourceTree = "<group>"; };
-		277481A716B98D7200211D00 /* Breach.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Breach.h; path = "Unison Brain/Models/Breach.h"; sourceTree = "<group>"; };
-		277481A816B98D7200211D00 /* Breach.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Breach.m; path = "Unison Brain/Models/Breach.m"; sourceTree = "<group>"; };
-		277481AA16B98D7200211D00 /* Teacher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Teacher.h; path = "Unison Brain/Models/Teacher.h"; sourceTree = "<group>"; };
-		277481AB16B98D7200211D00 /* Teacher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Teacher.m; path = "Unison Brain/Models/Teacher.m"; sourceTree = "<group>"; };
-		277481AD16B98D7200211D00 /* CodeScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CodeScore.h; path = "Unison Brain/Models/CodeScore.h"; sourceTree = "<group>"; };
-		277481AE16B98D7200211D00 /* CodeScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CodeScore.m; path = "Unison Brain/Models/CodeScore.m"; sourceTree = "<group>"; };
-		277481B016B98D7200211D00 /* Subject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Subject.h; path = "Unison Brain/Models/Subject.h"; sourceTree = "<group>"; };
-		277481B116B98D7200211D00 /* Subject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Subject.m; path = "Unison Brain/Models/Subject.m"; sourceTree = "<group>"; };
 		860268D616B9811D002C6577 /* Unison Brain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unison Brain.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		860268D916B9811D002C6577 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		860268DB16B9811D002C6577 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -91,6 +72,28 @@
 		8602690A16B9811D002C6577 /* Unison_BrainTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Unison_BrainTests.m; sourceTree = "<group>"; };
 		86D51E2516B9ABD200C129F6 /* UBHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBHomeViewController.h; path = Controllers/UBHomeViewController.h; sourceTree = "<group>"; };
 		86D51E2616B9ABD200C129F6 /* UBHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBHomeViewController.m; path = Controllers/UBHomeViewController.m; sourceTree = "<group>"; };
+		86D51E2A16B9B1BE00C129F6 /* UBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBUser.h; path = Helpers/UBUser.h; sourceTree = "<group>"; };
+		86D51E2B16B9B1BE00C129F6 /* UBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBUser.m; path = Helpers/UBUser.m; sourceTree = "<group>"; };
+		86D51E2D16B9B8ED00C129F6 /* UBSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBSession.h; path = "Unison Brain/Models/UBSession.h"; sourceTree = "<group>"; };
+		86D51E2E16B9B8ED00C129F6 /* UBSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBSession.m; path = "Unison Brain/Models/UBSession.m"; sourceTree = "<group>"; };
+		86D51E3016B9B8ED00C129F6 /* UBTeacher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBTeacher.h; path = "Unison Brain/Models/UBTeacher.h"; sourceTree = "<group>"; };
+		86D51E3116B9B8ED00C129F6 /* UBTeacher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBTeacher.m; path = "Unison Brain/Models/UBTeacher.m"; sourceTree = "<group>"; };
+		86D51E3316B9B8ED00C129F6 /* UBStudent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBStudent.h; path = "Unison Brain/Models/UBStudent.h"; sourceTree = "<group>"; };
+		86D51E3416B9B8ED00C129F6 /* UBStudent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBStudent.m; path = "Unison Brain/Models/UBStudent.m"; sourceTree = "<group>"; };
+		86D51E3616B9B8ED00C129F6 /* UBConference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBConference.h; path = "Unison Brain/Models/UBConference.h"; sourceTree = "<group>"; };
+		86D51E3716B9B8ED00C129F6 /* UBConference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBConference.m; path = "Unison Brain/Models/UBConference.m"; sourceTree = "<group>"; };
+		86D51E3916B9B8ED00C129F6 /* UBBreach.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBBreach.h; path = "Unison Brain/Models/UBBreach.h"; sourceTree = "<group>"; };
+		86D51E3A16B9B8ED00C129F6 /* UBBreach.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBBreach.m; path = "Unison Brain/Models/UBBreach.m"; sourceTree = "<group>"; };
+		86D51E3C16B9B8ED00C129F6 /* UBSubject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBSubject.h; path = "Unison Brain/Models/UBSubject.h"; sourceTree = "<group>"; };
+		86D51E3D16B9B8ED00C129F6 /* UBSubject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBSubject.m; path = "Unison Brain/Models/UBSubject.m"; sourceTree = "<group>"; };
+		86D51E3F16B9B8ED00C129F6 /* UBPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBPerson.h; path = "Unison Brain/Models/UBPerson.h"; sourceTree = "<group>"; };
+		86D51E4016B9B8ED00C129F6 /* UBPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBPerson.m; path = "Unison Brain/Models/UBPerson.m"; sourceTree = "<group>"; };
+		86D51E4216B9B8ED00C129F6 /* UBCodeScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBCodeScore.h; path = "Unison Brain/Models/UBCodeScore.h"; sourceTree = "<group>"; };
+		86D51E4316B9B8ED00C129F6 /* UBCodeScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBCodeScore.m; path = "Unison Brain/Models/UBCodeScore.m"; sourceTree = "<group>"; };
+		86D51E4516B9B8ED00C129F6 /* UBContribution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBContribution.h; path = "Unison Brain/Models/UBContribution.h"; sourceTree = "<group>"; };
+		86D51E4616B9B8ED00C129F6 /* UBContribution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBContribution.m; path = "Unison Brain/Models/UBContribution.m"; sourceTree = "<group>"; };
+		86D51E4816B9B8ED00C129F6 /* UBCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBCode.h; path = "Unison Brain/Models/UBCode.h"; sourceTree = "<group>"; };
+		86D51E4916B9B8ED00C129F6 /* UBCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBCode.m; path = "Unison Brain/Models/UBCode.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,26 +125,26 @@
 		277481B316B98D7900211D00 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				277481B016B98D7200211D00 /* Subject.h */,
-				277481B116B98D7200211D00 /* Subject.m */,
-				277481AD16B98D7200211D00 /* CodeScore.h */,
-				277481AE16B98D7200211D00 /* CodeScore.m */,
-				277481AA16B98D7200211D00 /* Teacher.h */,
-				277481AB16B98D7200211D00 /* Teacher.m */,
-				277481A716B98D7200211D00 /* Breach.h */,
-				277481A816B98D7200211D00 /* Breach.m */,
-				277481A416B98D7200211D00 /* Contribution.h */,
-				277481A516B98D7200211D00 /* Contribution.m */,
-				277481A116B98D7200211D00 /* Student.h */,
-				277481A216B98D7200211D00 /* Student.m */,
-				2774819E16B98D7200211D00 /* Person.h */,
-				2774819F16B98D7200211D00 /* Person.m */,
-				2774819B16B98D7200211D00 /* Code.h */,
-				2774819C16B98D7200211D00 /* Code.m */,
-				2774819816B98D7200211D00 /* Session.h */,
-				2774819916B98D7200211D00 /* Session.m */,
-				2774819516B98D7100211D00 /* Conference.h */,
-				2774819616B98D7100211D00 /* Conference.m */,
+				86D51E4816B9B8ED00C129F6 /* UBCode.h */,
+				86D51E4916B9B8ED00C129F6 /* UBCode.m */,
+				86D51E4516B9B8ED00C129F6 /* UBContribution.h */,
+				86D51E4616B9B8ED00C129F6 /* UBContribution.m */,
+				86D51E4216B9B8ED00C129F6 /* UBCodeScore.h */,
+				86D51E4316B9B8ED00C129F6 /* UBCodeScore.m */,
+				86D51E3F16B9B8ED00C129F6 /* UBPerson.h */,
+				86D51E4016B9B8ED00C129F6 /* UBPerson.m */,
+				86D51E3C16B9B8ED00C129F6 /* UBSubject.h */,
+				86D51E3D16B9B8ED00C129F6 /* UBSubject.m */,
+				86D51E3916B9B8ED00C129F6 /* UBBreach.h */,
+				86D51E3A16B9B8ED00C129F6 /* UBBreach.m */,
+				86D51E3616B9B8ED00C129F6 /* UBConference.h */,
+				86D51E3716B9B8ED00C129F6 /* UBConference.m */,
+				86D51E3316B9B8ED00C129F6 /* UBStudent.h */,
+				86D51E3416B9B8ED00C129F6 /* UBStudent.m */,
+				86D51E3016B9B8ED00C129F6 /* UBTeacher.h */,
+				86D51E3116B9B8ED00C129F6 /* UBTeacher.m */,
+				86D51E2D16B9B8ED00C129F6 /* UBSession.h */,
+				86D51E2E16B9B8ED00C129F6 /* UBSession.m */,
 			);
 			name = Models;
 			path = ..;
@@ -181,6 +184,7 @@
 		860268E116B9811D002C6577 /* Unison Brain */ = {
 			isa = PBXGroup;
 			children = (
+				86D51E2916B9B17B00C129F6 /* Helpers */,
 				86D51E2816B9AD1300C129F6 /* Views */,
 				86D51E2416B9AB2C00C129F6 /* Controllers */,
 				277481B316B98D7900211D00 /* Models */,
@@ -239,6 +243,15 @@
 			children = (
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		86D51E2916B9B17B00C129F6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				86D51E2A16B9B1BE00C129F6 /* UBUser.h */,
+				86D51E2B16B9B1BE00C129F6 /* UBUser.m */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,17 +367,18 @@
 				860268E816B9811D002C6577 /* main.m in Sources */,
 				860268EC16B9811D002C6577 /* UBAppDelegate.m in Sources */,
 				860268F516B9811D002C6577 /* Unison_Brain.xcdatamodeld in Sources */,
-				2774819716B98D7100211D00 /* Conference.m in Sources */,
-				2774819A16B98D7200211D00 /* Session.m in Sources */,
-				2774819D16B98D7200211D00 /* Code.m in Sources */,
-				277481A016B98D7200211D00 /* Person.m in Sources */,
-				277481A316B98D7200211D00 /* Student.m in Sources */,
-				277481A616B98D7200211D00 /* Contribution.m in Sources */,
-				277481A916B98D7200211D00 /* Breach.m in Sources */,
-				277481AC16B98D7200211D00 /* Teacher.m in Sources */,
-				277481AF16B98D7200211D00 /* CodeScore.m in Sources */,
-				277481B216B98D7200211D00 /* Subject.m in Sources */,
 				86D51E2716B9ABD200C129F6 /* UBHomeViewController.m in Sources */,
+				86D51E2C16B9B1BE00C129F6 /* UBUser.m in Sources */,
+				86D51E2F16B9B8ED00C129F6 /* UBSession.m in Sources */,
+				86D51E3216B9B8ED00C129F6 /* UBTeacher.m in Sources */,
+				86D51E3516B9B8ED00C129F6 /* UBStudent.m in Sources */,
+				86D51E3816B9B8ED00C129F6 /* UBConference.m in Sources */,
+				86D51E3B16B9B8ED00C129F6 /* UBBreach.m in Sources */,
+				86D51E3E16B9B8ED00C129F6 /* UBSubject.m in Sources */,
+				86D51E4116B9B8ED00C129F6 /* UBPerson.m in Sources */,
+				86D51E4416B9B8ED00C129F6 /* UBCodeScore.m in Sources */,
+				86D51E4716B9B8ED00C129F6 /* UBContribution.m in Sources */,
+				86D51E4A16B9B8ED00C129F6 /* UBCode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

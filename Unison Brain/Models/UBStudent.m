@@ -1,16 +1,16 @@
 //
-//  Student.m
+//  UBStudent.m
 //  Unison Brain
 //
-//  Created by Amy Piller on 1/30/13.
+//  Created by Kyle Warren on 1/30/13.
 //  Copyright (c) 2013 Kyle Warren. All rights reserved.
 //
 
-#import "Student.h"
-#import "Conference.h"
+#import "UBStudent.h"
+#import "UBConference.h"
 
 
-@implementation Student
+@implementation UBStudent
 
 @dynamic section;
 @dynamic conferences;
