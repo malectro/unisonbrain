@@ -1,4 +1,81 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C2034" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Breach" syncable="YES">
+        <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="codes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Code" inverseName="breaches" inverseEntity="Code" syncable="YES"/>
+        <relationship name="contributions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Contribution" inverseName="breach" inverseEntity="Contribution" syncable="YES"/>
+        <relationship name="people" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="breaches" inverseEntity="Person" syncable="YES"/>
+        <relationship name="session" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Session" inverseName="breaches" inverseEntity="Session" syncable="YES"/>
+    </entity>
+    <entity name="Code" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="breaches" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Breach" inverseName="codes" inverseEntity="Breach" syncable="YES"/>
+        <relationship name="codeScores" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CodeScore" inverseName="code" inverseEntity="CodeScore" syncable="YES"/>
+    </entity>
+    <entity name="CodeScore" syncable="YES">
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="score" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="code" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Code" inverseName="codeScores" inverseEntity="Code" syncable="YES"/>
+        <relationship name="conferences" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Conference" inverseName="codeScores" inverseEntity="Conference" syncable="YES"/>
+    </entity>
+    <entity name="Conference" syncable="YES">
+        <attribute name="isComplete" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="codeScores" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CodeScore" inverseName="conferences" inverseEntity="CodeScore" syncable="YES"/>
+        <relationship name="student" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Student" inverseName="conferences" inverseEntity="Student" syncable="YES"/>
+        <relationship name="subject" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Subject" inverseName="conferences" inverseEntity="Subject" syncable="YES"/>
+        <relationship name="teacher" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Teacher" inverseName="conferences" inverseEntity="Teacher" syncable="YES"/>
+    </entity>
+    <entity name="Contribution" syncable="YES">
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="breach" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Breach" inverseName="contributions" inverseEntity="Breach" syncable="YES"/>
+        <relationship name="person" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="contributions" inverseEntity="Person" syncable="YES"/>
+    </entity>
+    <entity name="Person" syncable="YES">
+        <attribute name="fname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="school" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="breaches" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Breach" inverseName="people" inverseEntity="Breach" syncable="YES"/>
+        <relationship name="contributions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Contribution" inverseName="person" inverseEntity="Contribution" syncable="YES"/>
+        <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="people" inverseEntity="Session" syncable="YES"/>
+    </entity>
+    <entity name="Session" syncable="YES">
+        <attribute name="isCoded" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isComplete" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="length" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="breaches" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Breach" inverseName="session" inverseEntity="Breach" syncable="YES"/>
+        <relationship name="people" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="sessions" inverseEntity="Person" syncable="YES"/>
+        <relationship name="subject" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Subject" inverseName="sessions" inverseEntity="Subject" syncable="YES"/>
+    </entity>
+    <entity name="Student" parentEntity="Person" syncable="YES">
+        <attribute name="section" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="conferences" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Conference" inverseName="student" inverseEntity="Conference" syncable="YES"/>
+    </entity>
+    <entity name="Subject" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="conferences" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Conference" inverseName="subject" inverseEntity="Conference" syncable="YES"/>
+        <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="subject" inverseEntity="Session" syncable="YES"/>
+    </entity>
+    <entity name="Teacher" parentEntity="Person" syncable="YES">
+        <relationship name="conferences" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Conference" inverseName="teacher" inverseEntity="Conference" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Person" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="Student" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="Teacher" positionX="160" positionY="192" width="128" height="60"/>
+        <element name="Code" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="Session" positionX="160" positionY="192" width="128" height="165"/>
+        <element name="Conference" positionX="160" positionY="192" width="128" height="150"/>
+        <element name="CodeScore" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="Breach" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="Contribution" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="Subject" positionX="160" positionY="192" width="128" height="90"/>
+    </elements>
 </model>
