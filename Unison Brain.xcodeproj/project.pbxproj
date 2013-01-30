@@ -34,6 +34,7 @@
 		8602690016B9811D002C6577 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 860268DF16B9811D002C6577 /* CoreData.framework */; };
 		8602690816B9811D002C6577 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8602690616B9811D002C6577 /* InfoPlist.strings */; };
 		8602690B16B9811D002C6577 /* Unison_BrainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8602690A16B9811D002C6577 /* Unison_BrainTests.m */; };
+		86D51E2716B9ABD200C129F6 /* UBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E2616B9ABD200C129F6 /* UBHomeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,8 @@
 		8602690716B9811D002C6577 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8602690916B9811D002C6577 /* Unison_BrainTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Unison_BrainTests.h; sourceTree = "<group>"; };
 		8602690A16B9811D002C6577 /* Unison_BrainTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Unison_BrainTests.m; sourceTree = "<group>"; };
+		86D51E2516B9ABD200C129F6 /* UBHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBHomeViewController.h; path = Controllers/UBHomeViewController.h; sourceTree = "<group>"; };
+		86D51E2616B9ABD200C129F6 /* UBHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBHomeViewController.m; path = Controllers/UBHomeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +181,8 @@
 		860268E116B9811D002C6577 /* Unison Brain */ = {
 			isa = PBXGroup;
 			children = (
+				86D51E2816B9AD1300C129F6 /* Views */,
+				86D51E2416B9AB2C00C129F6 /* Controllers */,
 				277481B316B98D7900211D00 /* Models */,
 				860268EA16B9811D002C6577 /* UBAppDelegate.h */,
 				860268EB16B9811D002C6577 /* UBAppDelegate.m */,
@@ -218,6 +223,22 @@
 				8602690616B9811D002C6577 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		86D51E2416B9AB2C00C129F6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				86D51E2516B9ABD200C129F6 /* UBHomeViewController.h */,
+				86D51E2616B9ABD200C129F6 /* UBHomeViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		86D51E2816B9AD1300C129F6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,6 +364,7 @@
 				277481AC16B98D7200211D00 /* Teacher.m in Sources */,
 				277481AF16B98D7200211D00 /* CodeScore.m in Sources */,
 				277481B216B98D7200211D00 /* Subject.m in Sources */,
+				86D51E2716B9ABD200C129F6 /* UBHomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

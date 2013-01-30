@@ -8,6 +8,8 @@
 
 #import "UBAppDelegate.h"
 
+#import "UBHomeViewController.h"
+
 @implementation UBAppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -20,6 +22,11 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    UBHomeViewController *homeViewController = [[UBHomeViewController alloc] init];
+    UINavigationController *mainNav = [[UINavigationController alloc] initWithRootViewController:homeViewController];
+    [self.window setRootViewController:mainNav];
+    
     return YES;
 }
 
