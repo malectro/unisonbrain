@@ -28,6 +28,8 @@
 		860C519716BC24E500C16B65 /* UBHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 860C519616BC24E500C16B65 /* UBHomeView.m */; };
 		860C519A16BC2F9500C16B65 /* UBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 860C519916BC2F9500C16B65 /* UBModel.m */; };
 		860C519D16BC349800C16B65 /* UBSessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 860C519C16BC349800C16B65 /* UBSessionViewController.m */; };
+		860C51A016BC525200C16B65 /* UBSessionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 860C519F16BC525200C16B65 /* UBSessionView.m */; };
+		860C51A316BC55BB00C16B65 /* UBStudentSelectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 860C51A216BC55BB00C16B65 /* UBStudentSelectorView.m */; };
 		86D51E2716B9ABD200C129F6 /* UBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E2616B9ABD200C129F6 /* UBHomeViewController.m */; };
 		86D51E2C16B9B1BE00C129F6 /* UBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E2B16B9B1BE00C129F6 /* UBUser.m */; };
 		86D51E2F16B9B8ED00C129F6 /* UBSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E2E16B9B8ED00C129F6 /* UBSession.m */; };
@@ -82,6 +84,10 @@
 		860C519916BC2F9500C16B65 /* UBModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBModel.m; path = "Unison Brain/Models/UBModel.m"; sourceTree = "<group>"; };
 		860C519B16BC349800C16B65 /* UBSessionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBSessionViewController.h; path = Controllers/UBSessionViewController.h; sourceTree = "<group>"; };
 		860C519C16BC349800C16B65 /* UBSessionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBSessionViewController.m; path = Controllers/UBSessionViewController.m; sourceTree = "<group>"; };
+		860C519E16BC525200C16B65 /* UBSessionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBSessionView.h; path = Views/UBSessionView.h; sourceTree = "<group>"; };
+		860C519F16BC525200C16B65 /* UBSessionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBSessionView.m; path = Views/UBSessionView.m; sourceTree = "<group>"; };
+		860C51A116BC55BB00C16B65 /* UBStudentSelectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBStudentSelectorView.h; path = Views/UBStudentSelectorView.h; sourceTree = "<group>"; };
+		860C51A216BC55BB00C16B65 /* UBStudentSelectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBStudentSelectorView.m; path = Views/UBStudentSelectorView.m; sourceTree = "<group>"; };
 		86D51E2516B9ABD200C129F6 /* UBHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBHomeViewController.h; path = Controllers/UBHomeViewController.h; sourceTree = "<group>"; };
 		86D51E2616B9ABD200C129F6 /* UBHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBHomeViewController.m; path = Controllers/UBHomeViewController.m; sourceTree = "<group>"; };
 		86D51E2A16B9B1BE00C129F6 /* UBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBUser.h; path = Helpers/UBUser.h; sourceTree = "<group>"; };
@@ -259,8 +265,12 @@
 		86D51E2816B9AD1300C129F6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				860C51A116BC55BB00C16B65 /* UBStudentSelectorView.h */,
+				860C51A216BC55BB00C16B65 /* UBStudentSelectorView.m */,
 				860C519516BC24E500C16B65 /* UBHomeView.h */,
 				860C519616BC24E500C16B65 /* UBHomeView.m */,
+				860C519E16BC525200C16B65 /* UBSessionView.h */,
+				860C519F16BC525200C16B65 /* UBSessionView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -403,6 +413,8 @@
 				860C519716BC24E500C16B65 /* UBHomeView.m in Sources */,
 				860C519A16BC2F9500C16B65 /* UBModel.m in Sources */,
 				860C519D16BC349800C16B65 /* UBSessionViewController.m in Sources */,
+				860C51A016BC525200C16B65 /* UBSessionView.m in Sources */,
+				860C51A316BC55BB00C16B65 /* UBStudentSelectorView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

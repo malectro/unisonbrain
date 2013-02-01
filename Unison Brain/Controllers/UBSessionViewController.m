@@ -16,11 +16,15 @@
 
 @implementation UBSessionViewController
 
+@synthesize session = _session;
+
 - (id)initWithSession:(UBSession *)session
 {
     self = [super init];
     if (self) {
+        _session = session;
         
+        self.title = @"Unison Session";
     }
     return self;
 }
@@ -28,7 +32,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning

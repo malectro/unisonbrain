@@ -32,25 +32,27 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        self.view = self.homeView = [[UBHomeView alloc] init];
-        
-        UBUser *user = [UBUser currentUser];
-        self.homeView.teacherNameLabel.text = user.teacher.fname;
-        
-        _sessionsViewController = [[UBSessionsViewController alloc] initWithTeacher:user.teacher];
+    if (self) {        
+        _sessionsViewController = [[UBSessionsViewController alloc] initWithTeacher:[UBUser currentUser].teacher];
         [self addChildViewController:_sessionsViewController];
-        self.homeView.sessionsView = _sessionsViewController.tableView;
-        
-        [self.homeView.createSessionButton addTarget:self action:@selector(createSession) forControlEvents:UIControlEventTouchDown];
     }
     return self;
+}
+
+- (void)loadView
+{
+    self.view = self.homeView = [[UBHomeView alloc] init];
+    
+    self.title = @"Unison Home";
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    self.homeView.sessionsView = _sessionsViewController.tableView;
+    self.homeView.teacherNameLabel.text = [UBUser currentUser].teacher.fname;
+    [self.homeView.createSessionButton addTarget:self action:@selector(createSession) forControlEvents:UIControlEventTouchDown];
 }
 
 - (void)didReceiveMemoryWarning

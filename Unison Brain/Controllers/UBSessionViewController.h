@@ -12,6 +12,8 @@
 
 @interface UBSessionViewController : UIViewController
 
+@property (nonatomic, retain) UBSession *session;
+
 - (id)initWithSession:(UBSession *)session;
 
 @end

@@ -15,7 +15,7 @@
 @interface UBSessionsViewController ()
 
 @property UBTeacher *teacher;
-@property NSFetchedResultsController *fetchedResultsController;
+@property (readonly) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
