@@ -9,7 +9,6 @@
 #import "UBUser.h"
 
 #import "UBAppDelegate.h"
-#import "UBTeacher.h"
 
 @implementation UBUser
 
@@ -21,7 +20,12 @@ static UBUser *currentUser;
 {
     if (currentUser == nil) {
         UBAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        UBTeacher *teacher;
+        
+        // test stuff that shouldn't be used
+        UBTeacher *teacher = [NSEntityDescription insertNewObjectForEntityForName:@"UBTeacher" inManagedObjectContext:appDelegate.managedObjectContext];
+        teacher.fname = @"Kyle";
+        teacher.lname = @"Warren";
+        
         currentUser = [[UBUser alloc] initWithTeacher:teacher];
     }
     

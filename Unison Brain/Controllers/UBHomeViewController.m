@@ -8,6 +8,8 @@
 
 #import "UBHomeViewController.h"
 
+#import "UBUser.h"
+
 @interface UBHomeViewController ()
 
 @end
@@ -18,9 +20,16 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
         self.view = [[UIView alloc] init];
-        self.view.backgroundColor = [UIColor greenColor];
+        self.view.backgroundColor = [UIColor grayColor];
+        
+        UBUser *user = [UBUser currentUser];
+        
+        // test user stuff
+        UILabel *testLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 20)];
+        testLabel.text = user.teacher.fname;
+        [self.view addSubview:testLabel];
+        
     }
     return self;
 }

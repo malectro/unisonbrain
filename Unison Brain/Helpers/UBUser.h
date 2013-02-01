@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class UBTeacher;
+#import "UBTeacher.h"
 
 @interface UBUser : NSObject
 
