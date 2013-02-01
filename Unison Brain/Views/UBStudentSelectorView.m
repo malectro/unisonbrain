@@ -62,9 +62,11 @@
         NSMutableSet *tempSet = [NSMutableSet setWithSet:_selectedStudents];
         [tempSet removeObject:student];
         _selectedStudents = [NSSet setWithSet:tempSet];
+        sender.selected = NO;
     }
     else {
         _selectedStudents = [_selectedStudents setByAddingObject:student];
+        sender.selected = YES;
     }
 }
 

@@ -9,6 +9,7 @@
 #import "UBSession.h"
 #import "UBBreach.h"
 #import "UBPerson.h"
+#import "UBStudent.h"
 #import "UBSubject.h"
 
 
@@ -26,6 +27,21 @@
 + (NSString *)name
 {
     return @"UBSession";
+}
+
+- (NSSet *)students
+{
+    NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+        return [((UBPerson *)evaluatedObject) isKindOfClass:[UBStudent class]];
+    }];
+    return [self.people filteredSetUsingPredicate:predicate];
+}
+
+- (NSSet *)teachers
+{
+    NSMutableSet *tempSet = [NSMutableSet setWithSet:self.people];
+    [tempSet minusSet:self.students];
+    return tempSet;
 }
 
 @end

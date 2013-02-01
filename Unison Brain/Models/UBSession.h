@@ -23,6 +23,10 @@
 @property (nonatomic, retain) NSSet *breaches;
 @property (nonatomic, retain) NSSet *people;
 @property (nonatomic, retain) UBSubject *subject;
+
+- (NSSet *)students;
+- (NSSet *)teachers;
+
 @end
 
 @interface UBSession (CoreDataGeneratedAccessors)

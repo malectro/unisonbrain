@@ -10,13 +10,18 @@
 
 #import "UBSession.h"
 
+#import "UBStudentSelectorView.h"
+
 @interface UBSessionViewController ()
+
+@property UBStudentSelectorView *studentSelector;
 
 @end
 
 @implementation UBSessionViewController
 
 @synthesize session = _session;
+@synthesize studentSelector = _studentSelector;
 
 - (id)initWithSession:(UBSession *)session
 {
@@ -32,6 +37,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _studentSelector = [[UBStudentSelectorView alloc] initWithStudents:_session.students.allObjects];
 }
 
 - (void)didReceiveMemoryWarning
