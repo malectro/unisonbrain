@@ -26,6 +26,8 @@
 		8602690B16B9811D002C6577 /* Unison_BrainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8602690A16B9811D002C6577 /* Unison_BrainTests.m */; };
 		860C519416BC19DD00C16B65 /* UBSessionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 860C519316BC19DD00C16B65 /* UBSessionsViewController.m */; };
 		860C519716BC24E500C16B65 /* UBHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 860C519616BC24E500C16B65 /* UBHomeView.m */; };
+		860C519A16BC2F9500C16B65 /* UBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 860C519916BC2F9500C16B65 /* UBModel.m */; };
+		860C519D16BC349800C16B65 /* UBSessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 860C519C16BC349800C16B65 /* UBSessionViewController.m */; };
 		86D51E2716B9ABD200C129F6 /* UBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E2616B9ABD200C129F6 /* UBHomeViewController.m */; };
 		86D51E2C16B9B1BE00C129F6 /* UBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E2B16B9B1BE00C129F6 /* UBUser.m */; };
 		86D51E2F16B9B8ED00C129F6 /* UBSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E2E16B9B8ED00C129F6 /* UBSession.m */; };
@@ -76,6 +78,10 @@
 		860C519316BC19DD00C16B65 /* UBSessionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBSessionsViewController.m; path = Controllers/UBSessionsViewController.m; sourceTree = "<group>"; };
 		860C519516BC24E500C16B65 /* UBHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBHomeView.h; path = Views/UBHomeView.h; sourceTree = "<group>"; };
 		860C519616BC24E500C16B65 /* UBHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBHomeView.m; path = Views/UBHomeView.m; sourceTree = "<group>"; };
+		860C519816BC2F9500C16B65 /* UBModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBModel.h; path = "Unison Brain/Models/UBModel.h"; sourceTree = "<group>"; };
+		860C519916BC2F9500C16B65 /* UBModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBModel.m; path = "Unison Brain/Models/UBModel.m"; sourceTree = "<group>"; };
+		860C519B16BC349800C16B65 /* UBSessionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBSessionViewController.h; path = Controllers/UBSessionViewController.h; sourceTree = "<group>"; };
+		860C519C16BC349800C16B65 /* UBSessionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBSessionViewController.m; path = Controllers/UBSessionViewController.m; sourceTree = "<group>"; };
 		86D51E2516B9ABD200C129F6 /* UBHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBHomeViewController.h; path = Controllers/UBHomeViewController.h; sourceTree = "<group>"; };
 		86D51E2616B9ABD200C129F6 /* UBHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBHomeViewController.m; path = Controllers/UBHomeViewController.m; sourceTree = "<group>"; };
 		86D51E2A16B9B1BE00C129F6 /* UBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBUser.h; path = Helpers/UBUser.h; sourceTree = "<group>"; };
@@ -151,6 +157,8 @@
 				86D51E3116B9B8ED00C129F6 /* UBTeacher.m */,
 				86D51E2D16B9B8ED00C129F6 /* UBSession.h */,
 				86D51E2E16B9B8ED00C129F6 /* UBSession.m */,
+				860C519816BC2F9500C16B65 /* UBModel.h */,
+				860C519916BC2F9500C16B65 /* UBModel.m */,
 			);
 			name = Models;
 			path = ..;
@@ -242,6 +250,8 @@
 				86D51E2616B9ABD200C129F6 /* UBHomeViewController.m */,
 				860C519216BC19DD00C16B65 /* UBSessionsViewController.h */,
 				860C519316BC19DD00C16B65 /* UBSessionsViewController.m */,
+				860C519B16BC349800C16B65 /* UBSessionViewController.h */,
+				860C519C16BC349800C16B65 /* UBSessionViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -391,6 +401,8 @@
 				86D51E4A16B9B8ED00C129F6 /* UBCode.m in Sources */,
 				860C519416BC19DD00C16B65 /* UBSessionsViewController.m in Sources */,
 				860C519716BC24E500C16B65 /* UBHomeView.m in Sources */,
+				860C519A16BC2F9500C16B65 /* UBModel.m in Sources */,
+				860C519D16BC349800C16B65 /* UBSessionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

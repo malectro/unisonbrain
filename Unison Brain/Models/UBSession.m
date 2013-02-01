@@ -23,4 +23,9 @@
 @dynamic people;
 @dynamic subject;
 
++ (NSString *)name
+{
+    return @"UBSession";
+}
+
 @end

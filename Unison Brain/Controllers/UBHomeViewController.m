@@ -8,8 +8,14 @@
 
 #import "UBHomeViewController.h"
 
+#import "UBAppDelegate.h"
 #import "UBUser.h"
+
+#import "UBSession.h"
+
 #import "UBSessionsViewController.h"
+#import "UBSessionViewController.h"
+
 #import "UBHomeView.h"
 
 @interface UBHomeViewController ()
@@ -35,6 +41,8 @@
         _sessionsViewController = [[UBSessionsViewController alloc] initWithTeacher:user.teacher];
         [self addChildViewController:_sessionsViewController];
         self.homeView.sessionsView = _sessionsViewController.tableView;
+        
+        [self.homeView.createSessionButton addTarget:self action:@selector(createSession) forControlEvents:UIControlEventTouchDown];
     }
     return self;
 }
@@ -49,6 +57,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)createSession
+{
+    UBSession *session = [UBSession create];
+    
+    session.people = [session.people setByAddingObject:[UBUser currentUser].teacher];
+    
+    UBSessionViewController *sessionViewController = [[UBSessionViewController alloc] initWithSession:session];
+    [self.navigationController pushViewController:sessionViewController animated:YES];
 }
 
 @end

@@ -19,10 +19,8 @@ static UBUser *currentUser;
 + (UBUser *)currentUser
 {
     if (currentUser == nil) {
-        UBAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        
         // test stuff that shouldn't be used
-        UBTeacher *teacher = [NSEntityDescription insertNewObjectForEntityForName:@"UBTeacher" inManagedObjectContext:appDelegate.managedObjectContext];
+        UBTeacher *teacher = [NSEntityDescription insertNewObjectForEntityForName:@"UBTeacher" inManagedObjectContext:[UBAppDelegate moc]];
         teacher.fname = @"Kyle";
         teacher.lname = @"Warren";
         

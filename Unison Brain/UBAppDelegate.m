@@ -153,4 +153,11 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+#pragma mark - Custom static methods
+
++ (NSManagedObjectContext *)moc
+{
+    return ((UBAppDelegate *)[[UIApplication sharedApplication] delegate]).managedObjectContext;
+}
+
 @end
