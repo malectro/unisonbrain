@@ -9,27 +9,32 @@
 #import "UBHomeViewController.h"
 
 #import "UBUser.h"
+#import "UBSessionsViewController.h"
+#import "UBHomeView.h"
 
 @interface UBHomeViewController ()
+
+@property UBSessionsViewController *sessionsViewController;
+@property UBHomeView *homeView;
 
 @end
 
 @implementation UBHomeViewController
 
+@synthesize sessionsViewController = _sessionsViewController;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.view = [[UIView alloc] init];
-        self.view.backgroundColor = [UIColor grayColor];
+        self.view = self.homeView = [[UBHomeView alloc] init];
         
         UBUser *user = [UBUser currentUser];
+        self.homeView.teacherNameLabel.text = user.teacher.fname;
         
-        // test user stuff
-        UILabel *testLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 20)];
-        testLabel.text = user.teacher.fname;
-        [self.view addSubview:testLabel];
-        
+        _sessionsViewController = [[UBSessionsViewController alloc] initWithTeacher:user.teacher];
+        [self addChildViewController:_sessionsViewController];
+        self.homeView.sessionsView = _sessionsViewController.tableView;
     }
     return self;
 }
