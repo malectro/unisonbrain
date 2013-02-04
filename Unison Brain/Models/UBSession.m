@@ -24,7 +24,7 @@
 @dynamic people;
 @dynamic subject;
 
-+ (NSString *)name
++ (NSString *)modelName
 {
     return @"UBSession";
 }

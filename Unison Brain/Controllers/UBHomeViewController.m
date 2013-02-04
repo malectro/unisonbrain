@@ -12,6 +12,7 @@
 #import "UBUser.h"
 
 #import "UBSession.h"
+#import "UBStudent.h"
 
 #import "UBSessionsViewController.h"
 #import "UBSessionViewController.h"
@@ -35,6 +36,8 @@
     if (self) {        
         _sessionsViewController = [[UBSessionsViewController alloc] initWithTeacher:[UBUser currentUser].teacher];
         [self addChildViewController:_sessionsViewController];
+        
+        NSLog(@"students %@", [UBStudent all]);
     }
     return self;
 }

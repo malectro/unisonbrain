@@ -9,10 +9,13 @@
 #import "UBStudentListViewController.h"
 
 #import "UBPerson.h"
+#import "UBStudent.h"
 
 @interface UBStudentListViewController ()
 
 @property (nonatomic) UISearchBar *searchBar;
+@property (nonatomic) UISearchDisplayController *searchController;
+@property (nonatomic) UITableView *tableView;
 
 @end
 
@@ -21,19 +24,24 @@
 @synthesize students = _students;
 @synthesize filteredPeople = _filteredPeople;
 @synthesize searchBar = _searchBar;
+@synthesize searchController = _searchController;
 
 - (id)initWithStudents:(NSArray *)students
 {
-    self = [super initWithStyle:UITableViewStylePlain];
+    self = [super init];
     if (self) {
-        self.students = students;
+        if (students != nil) {
+            self.students = students;
+        }
+        else {
+            self.students = [UBStudent all];
+        }
         
         _searchBar = [[UISearchBar alloc] init];
-        _searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:_searchBar contentsController:self];
-        _searchDisplayController.delegate = self;
-        _searchDisplayController.searchResultsDataSource = self;
-        _searchDisplayController.searchResultsDelegate = self;
-        
+        _searchController = [[UISearchDisplayController alloc] initWithSearchBar:_searchBar contentsController:self];
+        _searchController.delegate = self;
+        _searchController.searchResultsDataSource = self;
+        _searchController.searchResultsDelegate = self;
     }
     return self;
 }
@@ -41,11 +49,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    self.clearsSelectionOnViewWillAppear = NO;
     
     _filteredPeople = [NSMutableArray arrayWithCapacity:_students.count];
+
+    _searchBar.frame = CGRectMake(0, 0.0f, self.view.frame.size.width, 45.0f);
+    [self.view addSubview:_searchBar];
+    
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
+    self.tableView.frame = CGRectMake(0, _searchBar.frame.size.height + _searchBar.frame.origin.y + 0.0f, self.view.frame.size.width, self.view.frame.size.height - _searchBar.frame.size.height - _searchBar.frame.origin.y);
+    [self.view addSubview:self.tableView];
+    
+    [_searchBar becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,9 +98,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
-    cell = [cell initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
     
     UBPerson *person = nil;
     if (tableView == self.tableView) {
@@ -112,7 +131,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //[tableView cellForRowAtIndexPath:indexPath].selected = YES;
+    UBPerson *person = nil;
+    if (tableView == self.tableView) {
+        person = [self personForIndexPath:indexPath];
+    }
+    else {
+        person = [self filteredPersonForIndexPath:indexPath];
+    }
     
+    if (self.delegate != nil) {
+        [self.delegate didSelectItem:person];
+    }
 }
 
 #pragma mark - SearchDisplayController Delegate Data Source Stuff

@@ -12,23 +12,47 @@
 @implementation UBModel
 
 // Override these method
-+ (NSString *)name
++ (NSString *)modelName
 {
-    NSLog(@"Error: 'name' method not implemented");
+    NSLog(@"Error: 'modelName' method not implemented");
     abort();
 }
 
-+ (NSString *)url
++ (NSString *)modelUrl
 {
-    NSLog(@"Error: 'url' method not implemented");
+    NSLog(@"Error: 'modelUrl' method not implemented");
     abort();
 }
 
-
++ (NSArray *)modelSort
+{
+    return nil;
+}
 
 + (id)create
 {
-    return [NSEntityDescription insertNewObjectForEntityForName:[self name] inManagedObjectContext:[UBAppDelegate moc]];
+    return [NSEntityDescription insertNewObjectForEntityForName:[self modelName] inManagedObjectContext:[UBAppDelegate moc]];
+}
+
++ (NSArray *)all
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:[self modelName] inManagedObjectContext:[UBAppDelegate moc]];
+    
+    fetchRequest.entity = entity;
+    fetchRequest.fetchBatchSize = 40;
+    
+    [fetchRequest setSortDescriptors:[self modelSort]];
+    
+    NSError *error = nil;
+    NSArray *results = [[UBAppDelegate moc] executeFetchRequest:fetchRequest error:&error];
+    
+    if (results == nil) {
+        NSLog(@"Error %@: Fetch request failed", [self modelName]);
+        abort();
+    }
+    
+    return results;
 }
 
 @end

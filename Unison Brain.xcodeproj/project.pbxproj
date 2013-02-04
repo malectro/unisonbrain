@@ -261,6 +261,8 @@
 				860C519316BC19DD00C16B65 /* UBSessionsViewController.m */,
 				860C519B16BC349800C16B65 /* UBSessionViewController.h */,
 				860C519C16BC349800C16B65 /* UBSessionViewController.m */,
+				860C51A416C04A3E00C16B65 /* UBStudentListViewController.h */,
+				860C51A516C04A3E00C16B65 /* UBStudentListViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -274,8 +276,6 @@
 				860C519616BC24E500C16B65 /* UBHomeView.m */,
 				860C519E16BC525200C16B65 /* UBSessionView.h */,
 				860C519F16BC525200C16B65 /* UBSessionView.m */,
-				860C51A416C04A3E00C16B65 /* UBStudentListViewController.h */,
-				860C51A516C04A3E00C16B65 /* UBStudentListViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";

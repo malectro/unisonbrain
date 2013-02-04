@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UBStudentListViewController : UITableViewController<UISearchBarDelegate,UISearchDisplayDelegate>
+@protocol UBListViewDelegate <NSObject>
 
+- (void)didSelectItem:(id)item;
+
+@end
+
+@interface UBStudentListViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchDisplayDelegate>
+
+@property (nonatomic) id<UBListViewDelegate> delegate;
 @property (nonatomic) NSArray *students;
 @property (nonatomic) NSMutableArray *filteredPeople;
 

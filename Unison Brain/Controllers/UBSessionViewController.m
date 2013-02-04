@@ -44,7 +44,7 @@
     _studentSelector = [[UBStudentSelectorView alloc] initWithStudents:_session.students.allObjects];
     [self.view addSubview:_studentSelector];
     
-    _listController = [[UBStudentListViewController alloc] init];
+    _listController = [[UBStudentListViewController alloc] initWithStudents:nil];
     [self addChildViewController:_listController];
     [self.view addSubview:_listController.view];
 }

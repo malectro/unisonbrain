@@ -23,6 +23,13 @@
 @dynamic contributions;
 @dynamic sessions;
 
++ (NSArray *)modelSort
+{
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"fname" ascending:YES];
+    NSSortDescriptor *sortDescriptor2 = [[NSSortDescriptor alloc] initWithKey:@"lname" ascending:YES];
+    return @[sortDescriptor, sortDescriptor2];
+}
+
 - (NSString *)name
 {
     if (_name == nil) {

@@ -11,8 +11,10 @@
 @interface UBModel : NSManagedObject
 
 + (id)create;
++ (NSArray *)all;
 
-+ (NSString *)name;
-+ (NSString *)url;
++ (NSString *)modelName;
++ (NSString *)modelUrl;
++ (NSArray *)modelSort;
 
 @end

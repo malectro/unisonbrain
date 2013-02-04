@@ -20,7 +20,7 @@ static UBUser *currentUser;
 {
     if (currentUser == nil) {
         // test stuff that shouldn't be used
-        UBTeacher *teacher = [NSEntityDescription insertNewObjectForEntityForName:@"UBTeacher" inManagedObjectContext:[UBAppDelegate moc]];
+        UBTeacher *teacher = [UBTeacher create];
         teacher.fname = @"Kyle";
         teacher.lname = @"Warren";
         

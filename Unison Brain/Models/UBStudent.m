@@ -15,4 +15,9 @@
 @dynamic section;
 @dynamic conferences;
 
++ (NSString *)modelName
+{
+    return @"UBStudent";
+}
+
 @end
