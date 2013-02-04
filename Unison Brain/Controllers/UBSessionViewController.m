@@ -10,11 +10,14 @@
 
 #import "UBSession.h"
 
+#import "UBStudentListViewController.h"
+
 #import "UBStudentSelectorView.h"
 
 @interface UBSessionViewController ()
 
 @property UBStudentSelectorView *studentSelector;
+@property UBStudentListViewController *listController;
 
 @end
 
@@ -39,6 +42,11 @@
     [super viewDidLoad];
     
     _studentSelector = [[UBStudentSelectorView alloc] initWithStudents:_session.students.allObjects];
+    [self.view addSubview:_studentSelector];
+    
+    _listController = [[UBStudentListViewController alloc] init];
+    [self addChildViewController:_listController];
+    [self.view addSubview:_listController.view];
 }
 
 - (void)didReceiveMemoryWarning

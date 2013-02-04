@@ -19,6 +19,9 @@
 @property (nonatomic, retain) NSSet *breaches;
 @property (nonatomic, retain) NSSet *contributions;
 @property (nonatomic, retain) NSSet *sessions;
+
+@property (nonatomic, readonly) NSString *name;
+
 @end
 
 @interface UBPerson (CoreDataGeneratedAccessors)

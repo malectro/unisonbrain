@@ -14,11 +14,21 @@
 
 @implementation UBPerson
 
+@synthesize name = _name;
+
 @dynamic fname;
 @dynamic lname;
 @dynamic school;
 @dynamic breaches;
 @dynamic contributions;
 @dynamic sessions;
+
+- (NSString *)name
+{
+    if (_name == nil) {
+        _name = [NSString stringWithFormat:@"%@ %@", self.fname, self.lname];
+    }
+    return _name;
+}
 
 @end
