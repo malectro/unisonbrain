@@ -44,4 +44,10 @@
     return tempSet;
 }
 
+- (NSArray *)sortedBreaches
+{
+    NSSortDescriptor *descriptor1 = [NSSortDescriptor sortDescriptorWithKey:@"time" ascending:YES];
+    return [self.breaches sortedArrayUsingDescriptors:@[descriptor1]];
+}
+
 @end

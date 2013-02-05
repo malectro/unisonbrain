@@ -8,7 +8,10 @@
 
 #import "UBSessionViewController.h"
 
+#import "UBDate.h"
+
 #import "UBSession.h"
+#import "UBBreach.h"
 
 #import "UBStudentListViewController.h"
 
@@ -20,6 +23,7 @@
 @property UBSessionView *sessionView;
 @property UBStudentSelectorView *studentSelector;
 @property UBStudentListViewController *listController;
+@property (nonatomic) NSArray *breaches;
 
 @end
 
@@ -58,6 +62,10 @@
     self.sessionView.listSelectView = _listController.view;
     
     [self.sessionView.removeStudents addTarget:self action:@selector(removeStudents) forControlEvents:UIControlEventTouchDown];
+    [self.sessionView.createBreach addTarget:self action:@selector(createBreach) forControlEvents:UIControlEventTouchDown];
+    
+    self.sessionView.breachesView.delegate = self;
+    self.sessionView.breachesView.dataSource = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,6 +84,50 @@
 {
     [_session removePeople:_studentSelector.selectedStudents];
     _studentSelector.students = _session.students.allObjects;
+}
+
+#pragma mark - Breaches Methods
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _session.breaches.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    UBBreach *breach = [self breachForIndexPath:indexPath];
+    
+    cell.textLabel.text = [UBDate stringFromDateMedium:breach.time];
+    
+    return cell;
+}
+
+- (UBBreach *)breachForIndexPath:(NSIndexPath *)indexPath
+{
+    return self.breaches[indexPath.row];
+}
+
+- (NSArray *)breaches
+{
+    if (_breaches == nil) {
+        _breaches = _session.sortedBreaches;
+    }
+    return _breaches;
+}
+
+- (void)createBreach
+{
+    UBBreach *breach = [UBBreach create];
+    [_session addBreachesObject:breach];
+    _breaches = nil;
+    [_sessionView.breachesView reloadData];
 }
 
 @end

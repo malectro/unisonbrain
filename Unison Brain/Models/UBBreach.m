@@ -22,4 +22,16 @@
 @dynamic people;
 @dynamic session;
 
++ (NSString *)modelName
+{
+    return @"UBBreach";
+}
+
++ (UBBreach *)create
+{
+    UBBreach *breach = [super create];
+    breach.time = [NSDate date];
+    return breach;
+}
+
 @end

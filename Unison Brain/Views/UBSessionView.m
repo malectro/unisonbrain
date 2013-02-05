@@ -55,6 +55,9 @@
         self.selectorLabel.text = @"Students in This Session";
         [self.selectorLabel sizeToFit];
         [self addSubview:self.selectorLabel];
+        
+        _breachesView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+        [self addSubview:_breachesView];
     }
     return self;
 }
@@ -72,6 +75,8 @@
     
     _createBreach.frame = CGRectPosition(_createBreach.frame, 0, self.selectorLabel.frame.origin.y - 10.0f - 44.0f);
     _removeStudents.frame = CGRectPosition(_removeStudents.frame, _createBreach.frame.size.width + 2.0f, _createBreach.frame.origin.y);
+    
+    _breachesView.frame = CGRectMake(0, 0, LEFT_WIDTH - 1.0f, _createBreach.frame.origin.y);
 }
 
 - (void)setListSelectView:(UIView *)listSelectView

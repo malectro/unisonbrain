@@ -32,6 +32,7 @@
 		860C51A316BC55BB00C16B65 /* UBStudentSelectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 860C51A216BC55BB00C16B65 /* UBStudentSelectorView.m */; };
 		860C51A616C04A3E00C16B65 /* UBStudentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 860C51A516C04A3E00C16B65 /* UBStudentListViewController.m */; };
 		860C51AD16C168EA00C16B65 /* UBFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 860C51AC16C168EA00C16B65 /* UBFunctions.m */; };
+		860C51B016C17C2F00C16B65 /* UBDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 860C51AF16C17C2F00C16B65 /* UBDate.m */; };
 		86D51E2716B9ABD200C129F6 /* UBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E2616B9ABD200C129F6 /* UBHomeViewController.m */; };
 		86D51E2C16B9B1BE00C129F6 /* UBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E2B16B9B1BE00C129F6 /* UBUser.m */; };
 		86D51E2F16B9B8ED00C129F6 /* UBSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E2E16B9B8ED00C129F6 /* UBSession.m */; };
@@ -94,6 +95,8 @@
 		860C51A516C04A3E00C16B65 /* UBStudentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBStudentListViewController.m; path = Controllers/UBStudentListViewController.m; sourceTree = "<group>"; };
 		860C51AB16C168EA00C16B65 /* UBFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBFunctions.h; path = Helpers/UBFunctions.h; sourceTree = "<group>"; };
 		860C51AC16C168EA00C16B65 /* UBFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBFunctions.m; path = Helpers/UBFunctions.m; sourceTree = "<group>"; };
+		860C51AE16C17C2E00C16B65 /* UBDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBDate.h; path = Helpers/UBDate.h; sourceTree = "<group>"; };
+		860C51AF16C17C2F00C16B65 /* UBDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBDate.m; path = Helpers/UBDate.m; sourceTree = "<group>"; };
 		86D51E2516B9ABD200C129F6 /* UBHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBHomeViewController.h; path = Controllers/UBHomeViewController.h; sourceTree = "<group>"; };
 		86D51E2616B9ABD200C129F6 /* UBHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBHomeViewController.m; path = Controllers/UBHomeViewController.m; sourceTree = "<group>"; };
 		86D51E2A16B9B1BE00C129F6 /* UBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBUser.h; path = Helpers/UBUser.h; sourceTree = "<group>"; };
@@ -290,6 +293,8 @@
 				86D51E2B16B9B1BE00C129F6 /* UBUser.m */,
 				860C51AB16C168EA00C16B65 /* UBFunctions.h */,
 				860C51AC16C168EA00C16B65 /* UBFunctions.m */,
+				860C51AE16C17C2E00C16B65 /* UBDate.h */,
+				860C51AF16C17C2F00C16B65 /* UBDate.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -427,6 +432,7 @@
 				860C51A316BC55BB00C16B65 /* UBStudentSelectorView.m in Sources */,
 				860C51A616C04A3E00C16B65 /* UBStudentListViewController.m in Sources */,
 				860C51AD16C168EA00C16B65 /* UBFunctions.m in Sources */,
+				860C51B016C17C2F00C16B65 /* UBDate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
