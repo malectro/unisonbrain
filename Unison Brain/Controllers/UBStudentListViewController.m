@@ -131,7 +131,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //[tableView cellForRowAtIndexPath:indexPath].selected = YES;
+    [tableView cellForRowAtIndexPath:indexPath].selected = NO;
     UBPerson *person = nil;
     if (tableView == self.tableView) {
         person = [self personForIndexPath:indexPath];

@@ -19,7 +19,9 @@
 {
     self = [super init];
     if (self) {
-        self.students = students;
+        if (students != nil) {
+            self.students = students;
+        }
     }
     return self;
 }
@@ -28,6 +30,8 @@
 {
     _students = students;
     _selectedStudents = [[NSSet alloc] init];
+    
+    NSLog(@"students %@", _students);
     
     [self clearSubviews];
     

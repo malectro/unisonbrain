@@ -12,10 +12,12 @@
 
 #import "UBStudentListViewController.h"
 
+#import "UBSessionView.h"
 #import "UBStudentSelectorView.h"
 
 @interface UBSessionViewController ()
 
+@property UBSessionView *sessionView;
 @property UBStudentSelectorView *studentSelector;
 @property UBStudentListViewController *listController;
 
@@ -33,26 +35,40 @@
         _session = session;
         
         self.title = @"Unison Session";
+        
+        _listController = [[UBStudentListViewController alloc] initWithStudents:nil];
+        _listController.delegate = self;
+        [self addChildViewController:_listController];
     }
     return self;
+}
+
+- (void)loadView
+{
+    self.view = self.sessionView = [[UBSessionView alloc] init];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    _studentSelector = [[UBStudentSelectorView alloc] initWithStudents:_session.students.allObjects];
-    [self.view addSubview:_studentSelector];
+    _studentSelector = self.sessionView.studentSelector;
+    _studentSelector.students = _session.students.allObjects;
     
-    _listController = [[UBStudentListViewController alloc] initWithStudents:nil];
-    [self addChildViewController:_listController];
-    [self.view addSubview:_listController.view];
+    self.sessionView.listSelectView = _listController.view;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)didSelectItem:(UBPerson *)item
+{
+    NSLog(@"did select item %@", item);
+    [_session addPeopleObject:item];
+    _studentSelector.students = _session.students.allObjects;
 }
 
 @end

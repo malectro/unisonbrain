@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "UBStudentListViewController.h"
+
 @class UBSession;
 
-@interface UBSessionViewController : UIViewController
+@interface UBSessionViewController : UIViewController<UBListViewDelegate>
 
 @property (nonatomic, retain) UBSession *session;
 

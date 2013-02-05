@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "UBStudentSelectorView.h"
+
 @interface UBSessionView : UIView
+
+@property (nonatomic) UBStudentSelectorView *studentSelector;
+@property (nonatomic) UIView *listSelectView;
 
 @end
