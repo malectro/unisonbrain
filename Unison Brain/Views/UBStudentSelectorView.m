@@ -48,6 +48,7 @@
         viewPosition += studentView.frame.size.width + 2.0f;
         [self addSubview:studentView];
         [studentView addTarget:self action:@selector(selectStudent:) forControlEvents:UIControlEventTouchDown];
+        i++;
     }
 }
 
@@ -67,10 +68,12 @@
         [tempSet removeObject:student];
         _selectedStudents = [NSSet setWithSet:tempSet];
         sender.selected = NO;
+        sender.backgroundColor = [UIColor whiteColor];
     }
     else {
         _selectedStudents = [_selectedStudents setByAddingObject:student];
         sender.selected = YES;
+        sender.backgroundColor = [UIColor blueColor];
     }
 }
 
