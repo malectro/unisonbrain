@@ -15,4 +15,7 @@
 @property (nonatomic) UBStudentSelectorView *studentSelector;
 @property (nonatomic) UIView *listSelectView;
 
+@property (nonatomic, readonly) UIButton *createBreach;
+@property (nonatomic, readonly) UIButton *removeStudents;
+
 @end

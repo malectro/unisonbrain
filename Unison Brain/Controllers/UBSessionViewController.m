@@ -56,6 +56,8 @@
     _studentSelector.students = _session.students.allObjects;
     
     self.sessionView.listSelectView = _listController.view;
+    
+    [self.sessionView.removeStudents addTarget:self action:@selector(removeStudents) forControlEvents:UIControlEventTouchDown];
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,8 +68,13 @@
 
 - (void)didSelectItem:(UBPerson *)item
 {
-    NSLog(@"did select item %@", item);
     [_session addPeopleObject:item];
+    _studentSelector.students = _session.students.allObjects;
+}
+
+- (void)removeStudents
+{
+    [_session removePeople:_studentSelector.selectedStudents];
     _studentSelector.students = _session.students.allObjects;
 }
 
