@@ -34,4 +34,9 @@
     return breach;
 }
 
+- (NSString *)studentList
+{
+    return [((NSSet *)[self.people valueForKey:@"fname"]).allObjects componentsJoinedByString:@", "];
+}
+
 @end

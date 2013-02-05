@@ -104,7 +104,7 @@
     
     UBBreach *breach = [self breachForIndexPath:indexPath];
     
-    cell.textLabel.text = [UBDate stringFromDateMedium:breach.time];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", breach.studentList, [UBDate stringFromDateMedium:breach.time]];
     
     return cell;
 }
@@ -125,6 +125,9 @@
 - (void)createBreach
 {
     UBBreach *breach = [UBBreach create];
+    
+    [breach addPeople:_studentSelector.selectedStudents];
+    
     [_session addBreachesObject:breach];
     _breaches = nil;
     [_sessionView.breachesView reloadData];

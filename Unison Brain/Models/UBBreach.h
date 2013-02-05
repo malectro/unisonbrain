@@ -21,6 +21,9 @@
 @property (nonatomic, retain) NSSet *contributions;
 @property (nonatomic, retain) NSSet *people;
 @property (nonatomic, retain) UBSession *session;
+
+- (NSString *)studentList;
+
 @end
 
 @interface UBBreach (CoreDataGeneratedAccessors)
