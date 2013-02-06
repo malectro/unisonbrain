@@ -22,6 +22,8 @@
 @property (nonatomic, retain) NSSet *people;
 @property (nonatomic, retain) UBSession *session;
 
+@property (nonatomic) NSArray * sortedContributions;
+
 - (NSString *)studentList;
 
 @end

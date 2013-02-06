@@ -18,4 +18,9 @@
 @dynamic breach;
 @dynamic person;
 
++ (NSString *)modelName
+{
+    return @"UBContribution";
+}
+
 @end

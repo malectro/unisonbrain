@@ -9,9 +9,12 @@
 #import "UBSessionViewController.h"
 
 #import "UBDate.h"
+#import "UBAlert.h"
 
 #import "UBSession.h"
 #import "UBBreach.h"
+#import "UBContribution.h"
+#import "UBPerson.h"
 
 #import "UBStudentListViewController.h"
 
@@ -24,6 +27,8 @@
 @property UBStudentSelectorView *studentSelector;
 @property UBStudentListViewController *listController;
 @property (nonatomic) NSArray *breaches;
+@property (nonatomic) UBBreach *selectedBreach;
+@property (nonatomic) NSIndexPath *selectedIndexPath;
 
 @end
 
@@ -63,6 +68,7 @@
     
     [self.sessionView.removeStudents addTarget:self action:@selector(removeStudents) forControlEvents:UIControlEventTouchDown];
     [self.sessionView.createBreach addTarget:self action:@selector(createBreach) forControlEvents:UIControlEventTouchDown];
+    [self.sessionView.contribute addTarget:self action:@selector(contribute) forControlEvents:UIControlEventTouchDown];
     
     self.sessionView.breachesView.delegate = self;
     self.sessionView.breachesView.dataSource = self;
@@ -88,9 +94,14 @@
 
 #pragma mark - Breaches Methods
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return self.breaches.count;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _session.breaches.count;
+    return ((UBBreach *) self.breaches[section]).contributions.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -102,16 +113,54 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    UBBreach *breach = [self breachForIndexPath:indexPath];
+    UBContribution *contribution = [self contributionForIndexPath:indexPath];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", breach.studentList, [UBDate stringFromDateMedium:breach.time]];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@: %@", contribution.person.fname, contribution.text];
     
     return cell;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UILabel *header = [[UILabel alloc] init];
+    UBBreach *breach = [self breachForSection:section];
+    
+    header.text = [NSString stringWithFormat:@"%@ - %@", breach.studentList, [UBDate stringFromDateMedium:breach.time]];
+    
+    return header;
+}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIView *headerView = nil;
+    NSIndexPath *previousIndexPath = [tableView indexPathForSelectedRow];
+    
+    if (previousIndexPath != nil) {
+        headerView = [tableView headerViewForSection:previousIndexPath.section];
+        headerView.backgroundColor = [UIColor whiteColor];
+    }
+    
+    headerView = [tableView headerViewForSection:indexPath.section];
+    headerView.backgroundColor = [UIColor blueColor];
+    
+    _selectedBreach = [self breachForIndexPath:indexPath];
+    
+    return indexPath;
+}
+
+- (UBContribution *)contributionForIndexPath:(NSIndexPath *)indexPath
+{
+    return [self breachForIndexPath:indexPath].sortedContributions[indexPath.row];
+}
+
 - (UBBreach *)breachForIndexPath:(NSIndexPath *)indexPath
 {
-    return self.breaches[indexPath.row];
+    return [self breachForSection:indexPath.section];
+}
+
+- (UBBreach *)breachForSection:(NSInteger)section
+{
+    return self.breaches[section];
 }
 
 - (NSArray *)breaches
@@ -126,11 +175,47 @@
 {
     UBBreach *breach = [UBBreach create];
     
+    if (_studentSelector.selectedStudents.count < 1) {
+        [UBAlert alert:@"Select some students to create a breach."];
+        return;
+    }
+    
     [breach addPeople:_studentSelector.selectedStudents];
     
     [_session addBreachesObject:breach];
+    
     _breaches = nil;
     [_sessionView.breachesView reloadData];
+}
+
+- (void)contribute
+{
+    UBBreach *breach = self.selectedBreach;
+    UBContribution *contribution = [UBContribution create];
+    
+    if (self.breaches.count < 1) {
+        [UBAlert alert:@"There are no breaches in this session."];
+        return;
+    }
+    
+    if (_studentSelector.selectedStudents.count != 1) {
+        [UBAlert alert:@"Please select a single student."];
+        return;
+    }
+    
+    if (breach == nil) {
+        breach = self.breaches.lastObject;
+    }
+    
+    contribution.breach = breach;
+    contribution.time = [NSDate date];
+    contribution.person = _studentSelector.selectedStudents.allObjects[0];
+    
+    breach.sortedContributions = nil;
+    
+    // probs should make this prettier
+    [_sessionView.breachesView reloadData];
+    //[self.sessionView.breachesView insertRow]
 }
 
 @end

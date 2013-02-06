@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+#import "UBModel.h"
+
 @class UBCodeScore, UBStudent, UBSubject, UBTeacher;
 
-@interface UBConference : NSManagedObject
+@interface UBConference : UBModel
 
 @property (nonatomic, retain) NSNumber * isComplete;
 @property (nonatomic, retain) NSString * notes;

@@ -51,6 +51,11 @@
         [_createBreach sizeToFit];
         [self addSubview:_createBreach];
         
+        _contribute = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_contribute setTitle:@"New Contribution" forState:UIControlStateNormal];
+        [_contribute sizeToFit];
+        [self addSubview:_contribute];
+        
         self.selectorLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         self.selectorLabel.text = @"Students in This Session";
         [self.selectorLabel sizeToFit];
@@ -74,7 +79,9 @@
     self.selectorLabel.frame = CGRectPosition(self.selectorLabel.frame, 0, _studentSelector.frame.origin.y - self.selectorLabel.frame.size.height - 5.0f);
     
     _createBreach.frame = CGRectPosition(_createBreach.frame, 0, self.selectorLabel.frame.origin.y - 10.0f - 44.0f);
-    _removeStudents.frame = CGRectPosition(_removeStudents.frame, _createBreach.frame.size.width + 2.0f, _createBreach.frame.origin.y);
+    _contribute.frame = CGRectPosition(_contribute.frame, _createBreach.frame.size.width + 2.0f, _createBreach.frame.origin.y);
+    _removeStudents.frame = CGRectPosition(_removeStudents.frame, _contribute.frame.size.width + _contribute.frame.origin.x
+                                           + 2.0f, _createBreach.frame.origin.y);
     
     _breachesView.frame = CGRectMake(0, 0, LEFT_WIDTH - 1.0f, _createBreach.frame.origin.y);
 }

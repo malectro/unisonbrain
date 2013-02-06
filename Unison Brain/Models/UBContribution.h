@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+#import "UBModel.h"
+
 @class UBBreach, UBPerson;
 
-@interface UBContribution : NSManagedObject
+@interface UBContribution : UBModel
 
 @property (nonatomic, retain) NSString * text;
 @property (nonatomic, retain) NSDate * time;

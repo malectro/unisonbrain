@@ -17,6 +17,7 @@
 @property (nonatomic, readonly) UITableView *breachesView;
 
 @property (nonatomic, readonly) UIButton *createBreach;
+@property (nonatomic, readonly) UIButton *contribute;
 @property (nonatomic, readonly) UIButton *removeStudents;
 
 @end

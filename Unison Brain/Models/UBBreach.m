@@ -22,6 +22,8 @@
 @dynamic people;
 @dynamic session;
 
+@synthesize sortedContributions = _sortedContributions;
+
 + (NSString *)modelName
 {
     return @"UBBreach";
@@ -37,6 +39,16 @@
 - (NSString *)studentList
 {
     return [((NSSet *)[self.people valueForKey:@"fname"]).allObjects componentsJoinedByString:@", "];
+}
+
+- (NSArray *)sortedContributions
+{
+    if (_sortedContributions == nil) {
+        NSSortDescriptor *descriptor1 = [NSSortDescriptor sortDescriptorWithKey:@"time" ascending:YES];
+        _sortedContributions = [self.contributions sortedArrayUsingDescriptors:@[descriptor1]];
+    }
+    
+    return _sortedContributions;
 }
 
 @end
