@@ -20,6 +20,7 @@
 
 #import "UBSessionView.h"
 #import "UBStudentSelectorView.h"
+#import "UBContributionCell.h"
 
 @interface UBSessionViewController ()
 
@@ -109,15 +110,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UBContributionCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UBContributionCell alloc] initWithReuseIdentifier:CellIdentifier];
     }
     
     UBContribution *contribution = [self contributionForIndexPath:indexPath];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@: %@", contribution.person.fname, contribution.text];
+    cell.textLabel.text = contribution.person.fname;
+    cell.textField.text = contribution.text;
     
     return cell;
 }
@@ -157,15 +159,17 @@
 
 - (void)setSelectedBreach:(UBBreach *)selectedBreach
 {
+    NSInteger section = 0;
     UILabel *headerView = nil;
     
     if (self.selectedBreach != nil) {
-        //headerView = (UILabel *)[tableView headerViewForSection:previousIndexPath.section];
-        headerView = (UILabel *)[_headers objectForKey:self.selectedBreach];
+        section = [self.breaches indexOfObject:self.selectedBreach];
+        headerView = (UILabel *)[self tableView:nil viewForHeaderInSection:section];
         headerView.backgroundColor = [UIColor whiteColor];
     }
     
-    headerView = (UILabel *)[_headers objectForKey:selectedBreach];
+    section = [self.breaches indexOfObject:selectedBreach];
+    headerView = (UILabel *)[self tableView:nil viewForHeaderInSection:section];
     headerView.backgroundColor = [UIColor blueColor];
     
     _selectedBreach = selectedBreach;
