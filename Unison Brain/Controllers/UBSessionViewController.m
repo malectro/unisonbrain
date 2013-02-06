@@ -28,7 +28,7 @@
 @property UBStudentListViewController *listController;
 @property (nonatomic) NSArray *breaches;
 @property (nonatomic) UBBreach *selectedBreach;
-@property (nonatomic) NSIndexPath *selectedIndexPath;
+@property (nonatomic) NSCache *headers;
 
 @end
 
@@ -48,6 +48,8 @@
         _listController = [[UBStudentListViewController alloc] initWithStudents:nil];
         _listController.delegate = self;
         [self addChildViewController:_listController];
+        
+        _headers = [[NSCache alloc] init];
     }
     return self;
 }
@@ -122,30 +124,51 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UILabel *header = [[UILabel alloc] init];
     UBBreach *breach = [self breachForSection:section];
+    UILabel *header = [_headers objectForKey:breach];
     
-    header.text = [NSString stringWithFormat:@"%@ - %@", breach.studentList, [UBDate stringFromDateMedium:breach.time]];
+    if (header == nil) {
+        header = [[UILabel alloc] init];
+        header.text = [NSString stringWithFormat:@"%@ - %@", breach.studentList, [UBDate stringFromDateMedium:breach.time]];
+        [_headers setObject:header forKey:breach];
+    }
+    
+    if (breach == self.selectedBreach) {
+        header.backgroundColor = [UIColor blueColor];
+    }
+    else {
+        header.backgroundColor = [UIColor whiteColor];
+    }
     
     return header;
 }
 
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    UIView *headerView = nil;
-    NSIndexPath *previousIndexPath = [tableView indexPathForSelectedRow];
+    return 20.0f;
+}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{    
+    self.selectedBreach = [self breachForIndexPath:indexPath];
     
-    if (previousIndexPath != nil) {
-        headerView = [tableView headerViewForSection:previousIndexPath.section];
+    return indexPath;
+}
+
+- (void)setSelectedBreach:(UBBreach *)selectedBreach
+{
+    UILabel *headerView = nil;
+    
+    if (self.selectedBreach != nil) {
+        //headerView = (UILabel *)[tableView headerViewForSection:previousIndexPath.section];
+        headerView = (UILabel *)[_headers objectForKey:self.selectedBreach];
         headerView.backgroundColor = [UIColor whiteColor];
     }
     
-    headerView = [tableView headerViewForSection:indexPath.section];
+    headerView = (UILabel *)[_headers objectForKey:selectedBreach];
     headerView.backgroundColor = [UIColor blueColor];
     
-    _selectedBreach = [self breachForIndexPath:indexPath];
-    
-    return indexPath;
+    _selectedBreach = selectedBreach;
 }
 
 - (UBContribution *)contributionForIndexPath:(NSIndexPath *)indexPath
@@ -185,7 +208,10 @@
     [_session addBreachesObject:breach];
     
     _breaches = nil;
-    [_sessionView.breachesView reloadData];
+    
+    [_sessionView.breachesView insertSections:[NSIndexSet indexSetWithIndex:self.breaches.count - 1] withRowAnimation:UITableViewRowAnimationAutomatic];
+
+    self.selectedBreach = breach;
 }
 
 - (void)contribute
@@ -213,9 +239,7 @@
     
     breach.sortedContributions = nil;
     
-    // probs should make this prettier
-    [_sessionView.breachesView reloadData];
-    //[self.sessionView.breachesView insertRow]
+    [_sessionView.breachesView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:breach.contributions.count - 1 inSection:[self.breaches indexOfObject:breach]]] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 @end
