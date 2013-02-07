@@ -117,9 +117,7 @@
     }
     
     UBContribution *contribution = [self contributionForIndexPath:indexPath];
-    
-    cell.textLabel.text = contribution.person.fname;
-    cell.textField.text = contribution.text;
+    cell.contribution = contribution;
     
     return cell;
 }

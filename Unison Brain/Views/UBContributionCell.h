@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UBContributionCell : UITableViewCell
+@class UBContribution;
 
+@interface UBContributionCell : UITableViewCell<UITextFieldDelegate>
+
+@property (nonatomic) UBContribution *contribution;
 @property (nonatomic, readonly) UITextField *textField;
 
 - (id)initWithReuseIdentifier:(NSString *)reuseIdentifier;
