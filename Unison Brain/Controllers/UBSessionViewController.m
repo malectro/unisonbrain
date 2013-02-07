@@ -77,6 +77,11 @@
     self.sessionView.breachesView.dataSource = self;
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    // save
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

@@ -29,6 +29,17 @@
     return @"UBSession";
 }
 
++ (UBSession *)create
+{
+    UBSession *session = [super create];
+    
+    session.time = [NSDate date];
+    session.isCoded = NO;
+    session.isComplete = NO;
+    
+    return session;
+}
+
 - (NSSet *)students
 {
     NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {

@@ -36,8 +36,6 @@
     if (self) {        
         _sessionsViewController = [[UBSessionsViewController alloc] initWithTeacher:[UBUser currentUser].teacher];
         [self addChildViewController:_sessionsViewController];
-        
-        NSLog(@"students %@", [UBStudent all]);
     }
     return self;
 }
@@ -68,7 +66,7 @@
 {
     UBSession *session = [UBSession create];
     
-    session.people = [session.people setByAddingObject:[UBUser currentUser].teacher];
+    [session addPeopleObject:[UBUser currentUser].teacher];
     
     UBSessionViewController *sessionViewController = [[UBSessionViewController alloc] initWithSession:session];
     [self.navigationController pushViewController:sessionViewController animated:YES];
