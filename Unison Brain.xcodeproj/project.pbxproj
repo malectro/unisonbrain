@@ -33,6 +33,8 @@
 		860C51A616C04A3E00C16B65 /* UBStudentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 860C51A516C04A3E00C16B65 /* UBStudentListViewController.m */; };
 		860C51AD16C168EA00C16B65 /* UBFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 860C51AC16C168EA00C16B65 /* UBFunctions.m */; };
 		860C51B016C17C2F00C16B65 /* UBDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 860C51AF16C17C2F00C16B65 /* UBDate.m */; };
+		863F417A16C4393A00DACB64 /* UBCodesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 863F417916C4393A00DACB64 /* UBCodesViewController.m */; };
+		863F417D16C439D800DACB64 /* UBSearchListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 863F417C16C439D800DACB64 /* UBSearchListViewController.m */; };
 		86B6B68916C2F6E60027F087 /* UBAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B6B68816C2F6E60027F087 /* UBAlert.m */; };
 		86B6B68C16C31D190027F087 /* UBContributionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B6B68B16C31D190027F087 /* UBContributionCell.m */; };
 		86D51E2716B9ABD200C129F6 /* UBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E2616B9ABD200C129F6 /* UBHomeViewController.m */; };
@@ -99,6 +101,10 @@
 		860C51AC16C168EA00C16B65 /* UBFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBFunctions.m; path = Helpers/UBFunctions.m; sourceTree = "<group>"; };
 		860C51AE16C17C2E00C16B65 /* UBDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBDate.h; path = Helpers/UBDate.h; sourceTree = "<group>"; };
 		860C51AF16C17C2F00C16B65 /* UBDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBDate.m; path = Helpers/UBDate.m; sourceTree = "<group>"; };
+		863F417816C4393A00DACB64 /* UBCodesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBCodesViewController.h; path = Controllers/UBCodesViewController.h; sourceTree = "<group>"; };
+		863F417916C4393A00DACB64 /* UBCodesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBCodesViewController.m; path = Controllers/UBCodesViewController.m; sourceTree = "<group>"; };
+		863F417B16C439D800DACB64 /* UBSearchListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBSearchListViewController.h; path = Controllers/UBSearchListViewController.h; sourceTree = "<group>"; };
+		863F417C16C439D800DACB64 /* UBSearchListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBSearchListViewController.m; path = Controllers/UBSearchListViewController.m; sourceTree = "<group>"; };
 		86B6B68716C2F6E60027F087 /* UBAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBAlert.h; path = Helpers/UBAlert.h; sourceTree = "<group>"; };
 		86B6B68816C2F6E60027F087 /* UBAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBAlert.m; path = Helpers/UBAlert.m; sourceTree = "<group>"; };
 		86B6B68A16C31D190027F087 /* UBContributionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBContributionCell.h; path = Views/UBContributionCell.h; sourceTree = "<group>"; };
@@ -275,6 +281,10 @@
 				860C519C16BC349800C16B65 /* UBSessionViewController.m */,
 				860C51A416C04A3E00C16B65 /* UBStudentListViewController.h */,
 				860C51A516C04A3E00C16B65 /* UBStudentListViewController.m */,
+				863F417816C4393A00DACB64 /* UBCodesViewController.h */,
+				863F417916C4393A00DACB64 /* UBCodesViewController.m */,
+				863F417B16C439D800DACB64 /* UBSearchListViewController.h */,
+				863F417C16C439D800DACB64 /* UBSearchListViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -445,6 +455,8 @@
 				860C51B016C17C2F00C16B65 /* UBDate.m in Sources */,
 				86B6B68916C2F6E60027F087 /* UBAlert.m in Sources */,
 				86B6B68C16C31D190027F087 /* UBContributionCell.m in Sources */,
+				863F417A16C4393A00DACB64 /* UBCodesViewController.m in Sources */,
+				863F417D16C439D800DACB64 /* UBSearchListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

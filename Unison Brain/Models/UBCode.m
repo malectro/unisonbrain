@@ -19,4 +19,9 @@
 @dynamic breaches;
 @dynamic codeScores;
 
++ (NSString *)modelName
+{
+    return @"UBCode";
+}
+
 @end

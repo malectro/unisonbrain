@@ -16,6 +16,7 @@
 #import "UBContribution.h"
 #import "UBPerson.h"
 
+#import "UBCodesViewController.h"
 #import "UBStudentListViewController.h"
 
 #import "UBSessionView.h"
@@ -27,6 +28,7 @@
 @property UBSessionView *sessionView;
 @property UBStudentSelectorView *studentSelector;
 @property UBStudentListViewController *listController;
+@property (nonatomic) UBCodesViewController *codesController;
 @property (nonatomic) NSArray *breaches;
 @property (nonatomic) UBBreach *selectedBreach;
 @property (nonatomic) NSCache *headers;
@@ -46,9 +48,13 @@
         
         self.title = @"Unison Session";
         
-        _listController = [[UBStudentListViewController alloc] initWithStudents:nil];
+        _listController = [[UBStudentListViewController alloc] initWithItems:nil];
         _listController.delegate = self;
         [self addChildViewController:_listController];
+        
+        _codesController = [[UBCodesViewController alloc] initWithItems:nil];
+        _codesController.delegate = self;
+        [self addChildViewController:_codesController];
         
         _headers = [[NSCache alloc] init];
     }
@@ -89,7 +95,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)didSelectItem:(UBPerson *)item
+- (void)searchList:(UBSearchListViewController *)searchList didSelectItem:(id)item
 {
     [_session addPeopleObject:item];
     _studentSelector.students = _session.students.allObjects;

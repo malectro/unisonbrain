@@ -1,8 +1,8 @@
 //
-//  UBStudentListViewController.h
+//  UBCodesViewController.h
 //  Unison Brain
 //
-//  Created by Kyle Warren on 2/4/13.
+//  Created by Kyle Warren on 2/7/13.
 //  Copyright (c) 2013 Kyle Warren. All rights reserved.
 //
 
@@ -10,6 +10,6 @@
 
 #import "UBSearchListViewController.h"
 
-@interface UBStudentListViewController : UBSearchListViewController
+@interface UBCodesViewController : UBSearchListViewController
 
 @end

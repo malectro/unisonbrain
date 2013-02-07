@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+#import "UBModel.h"
+
 @class UBBreach, UBCodeScore;
 
-@interface UBCode : NSManagedObject
+@interface UBCode : UBModel
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * type;

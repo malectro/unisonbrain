@@ -63,17 +63,23 @@
         
         _breachesView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         [self addSubview:_breachesView];
+        
+        _codesOrStudents = [[UISegmentedControl alloc] initWithItems:@[@"Students", @"Codes"]];
+        _codesOrStudents.selectedSegmentIndex = 0;
+        [self addSubview:_codesOrStudents];
     }
     return self;
 }
 
 - (void)layoutSubviews
 {
+    _codesOrStudents.frame = CGRectPosition(_codesOrStudents.frame, LEFT_WIDTH, 0);
+    
     if (_studentSelector) {
         _studentSelector.frame = CGRectMake(0, self.frame.size.height - 100.0f, LEFT_WIDTH, 100.0f);
     }
     if (_listSelectView) {
-        _listSelectView.frame = CGRectMake(LEFT_WIDTH, 0, RIGHT_WIDTH, self.frame.size.height);
+        _listSelectView.frame = CGRectMake(LEFT_WIDTH, _codesOrStudents.frame.size.height, RIGHT_WIDTH, self.frame.size.height- _codesOrStudents.frame.size.height);
     }
     
     self.selectorLabel.frame = CGRectPosition(self.selectorLabel.frame, 0, _studentSelector.frame.origin.y - self.selectorLabel.frame.size.height - 5.0f);

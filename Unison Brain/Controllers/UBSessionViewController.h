@@ -12,7 +12,7 @@
 
 @class UBSession;
 
-@interface UBSessionViewController : UIViewController<UBListViewDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface UBSessionViewController : UIViewController<UBSearchListViewDelegate,UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, retain) UBSession *session;
 
