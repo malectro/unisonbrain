@@ -8,6 +8,8 @@
 
 #import "UBSessionsViewController.h"
 
+#import "UBDate.h"
+
 #import "UBSession.h"
 #import "UBTeacher.h"
 #import "UBAppDelegate.h"
@@ -111,8 +113,7 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     UBSession *session = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = session.isCoded.stringValue;
-    cell.textLabel.text = @"hi";
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", session.studentList, [UBDate stringFromDateMedium:session.time]];
 }
 
 #pragma mark - Table view delegate

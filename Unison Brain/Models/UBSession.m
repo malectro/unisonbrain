@@ -61,4 +61,9 @@
     return [self.breaches sortedArrayUsingDescriptors:@[descriptor1]];
 }
 
+- (NSString *)studentList
+{
+    return [((NSSet *)[self.students valueForKey:@"fname"]).allObjects componentsJoinedByString:@", "];
+}
+
 @end

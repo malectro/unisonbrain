@@ -27,6 +27,7 @@
 - (NSSet *)students;
 - (NSSet *)teachers;
 - (NSArray *)sortedBreaches;
+- (NSString *)studentList;
 
 @end
 
