@@ -133,6 +133,9 @@
     }
     else {
         self.sessionView.listSelectView = _codesController.view;
+        if (self.selectedBreach != nil) {
+            [_codesController setSelection:self.selectedBreach.codes.allObjects];
+        }
     }
 }
 
@@ -212,6 +215,8 @@
     headerView.backgroundColor = [UIColor colorWithRed:0.8f green:0.8f blue:1.0f alpha:1.0f];
     
     _selectedBreach = selectedBreach;
+    
+    [_codesController setSelection:_selectedBreach.codes.allObjects];
 }
 
 - (UBContribution *)contributionForIndexPath:(NSIndexPath *)indexPath
