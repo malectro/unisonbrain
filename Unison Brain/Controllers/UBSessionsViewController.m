@@ -12,6 +12,8 @@
 #import "UBTeacher.h"
 #import "UBAppDelegate.h"
 
+#import "UBSessionViewController.h"
+
 @interface UBSessionsViewController ()
 
 @property UBTeacher *teacher;
@@ -117,7 +119,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    UBSession *session = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    UBSessionViewController *sessionViewController = [[UBSessionViewController alloc] initWithSession:session];
+    [self.navigationController pushViewController:sessionViewController animated:YES];
 }
 
 #pragma mark - FetchedResultsController delegage
