@@ -10,6 +10,10 @@
 
 #import "UBHomeViewController.h"
 
+#import "UBCode.h"
+#import "UBStudent.h"
+#import "UBTeacher.h"
+
 @implementation UBAppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -26,6 +30,9 @@
     UBHomeViewController *homeViewController = [[UBHomeViewController alloc] init];
     UINavigationController *mainNav = [[UINavigationController alloc] initWithRootViewController:homeViewController];
     [self.window setRootViewController:mainNav];
+    
+    // TEST METHOD: comment this usually
+    //[self generateFakeData];
     
     return YES;
 }
@@ -158,6 +165,35 @@
 + (NSManagedObjectContext *)moc
 {
     return ((UBAppDelegate *)[[UIApplication sharedApplication] delegate]).managedObjectContext;
+}
+
+#pragma mark - Testing methods that whouldn't be used ever
+
+- (void)generateFakeData
+{
+    // dummy code to create a bunch of codes
+    NSArray *codes = @[
+                       @[@"dinosaurs", @6],
+                       @[@"monsters", @6],
+                       @[@"dragons", @6],
+                       @[@"peaches", @6],
+                       @[@"timbre", @6],
+                       @[@"biology", @6],
+                       @[@"math", @7],
+                       @[@"dream dust", @7],
+                       @[@"dream station", @7],
+                       @[@"octopus", @7],
+                       @[@"toes", @7]
+                       ];
+    
+    UBCode *code = nil;
+    for (NSArray *arr in codes) {
+        code = [UBCode create];
+        code.name = arr[0];
+        code.year = arr[1];
+    }
+    
+    [[UBAppDelegate moc] save:nil];
 }
 
 @end

@@ -75,6 +75,8 @@
     
     self.sessionView.listSelectView = _listController.view;
     
+    [self.sessionView.codesOrStudents addTarget:self action:@selector(changeSideList:) forControlEvents:UIControlEventValueChanged];
+    
     [self.sessionView.removeStudents addTarget:self action:@selector(removeStudents) forControlEvents:UIControlEventTouchDown];
     [self.sessionView.createBreach addTarget:self action:@selector(createBreach) forControlEvents:UIControlEventTouchDown];
     [self.sessionView.contribute addTarget:self action:@selector(contribute) forControlEvents:UIControlEventTouchDown];
@@ -105,6 +107,16 @@
 {
     [_session removePeople:_studentSelector.selectedStudents];
     _studentSelector.students = _session.students.allObjects;
+}
+
+- (void)changeSideList:(UISegmentedControl *)control
+{
+    if (control.selectedSegmentIndex == 0) {
+        self.sessionView.listSelectView = _listController.view;
+    }
+    else {
+        self.sessionView.listSelectView = _codesController.view;
+    }
 }
 
 #pragma mark - Breaches Methods
