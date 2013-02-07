@@ -27,6 +27,7 @@
         _searchController.delegate = self;
         _searchController.searchResultsDataSource = self;
         _searchController.searchResultsDelegate = self;
+        _searchController.searchResultsTableView.allowsMultipleSelection = YES;
     }
     return self;
 }
@@ -41,6 +42,7 @@
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.allowsMultipleSelection = YES;
     
     self.tableView.frame = CGRectMake(0, _searchBar.frame.size.height + _searchBar.frame.origin.y + 0.0f, self.view.frame.size.width, self.view.frame.size.height - _searchBar.frame.size.height - _searchBar.frame.origin.y);
     [self.view addSubview:self.tableView];
@@ -58,7 +60,38 @@
 {
     _items = items;
     _filteredItems = [NSMutableArray arrayWithCapacity:_items.count];
+    _selectedItems = [NSMutableArray arrayWithCapacity:_items.count];
+    _deselectedItems = [NSMutableArray arrayWithArray:_items];
+    
     [self.tableView reloadData];
+}
+
+- (void)setSelection:(NSArray *)selectedItems
+{
+    _selectedItems = [NSMutableArray arrayWithArray:selectedItems];
+    _deselectedItems = [NSMutableArray arrayWithArray:_items];
+    [_deselectedItems removeObjectsInArray:_selectedItems];
+    [self.tableView reloadData];
+    
+    // i can't BELIEVE i have to do this
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    for (NSInteger i = 0; i < _selectedItems.count; i++) {
+        indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+        [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+    }
+}
+
+- (void)selectItems:(NSArray *)items
+{
+    [_selectedItems addObjectsFromArray:items];
+    [_deselectedItems removeObjectsInArray:_selectedItems];
+}
+
+- (void)deselectItems:(NSArray *)items
+{
+    [_selectedItems removeObjectsInArray:items];
+    _deselectedItems = [NSMutableArray arrayWithArray:_items];
+    [_deselectedItems removeObjectsInArray:_selectedItems];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -67,6 +100,8 @@
         return _items.count;
     }
     else {
+        //hack
+        tableView.allowsMultipleSelection = YES;
         return _filteredItems.count;
     }
 }
@@ -80,7 +115,9 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    [self configureCell:cell withItem:[self tableView:tableView itemForIndexPath:indexPath]];
+    id item = [self tableView:tableView itemForIndexPath:indexPath];
+    
+    [self configureCell:cell withItem:item];
     
     return cell;
 }
@@ -93,7 +130,12 @@
 - (id)tableView:(UITableView *)tableView itemForIndexPath:(NSIndexPath *)indexPath
 {
     if (tableView == self.tableView) {
-        return _items[indexPath.row];
+        if (indexPath.row < _selectedItems.count) {
+            return _selectedItems[indexPath.row];
+        }
+        else {
+            return _deselectedItems[indexPath.row - _selectedItems.count];
+        }
     }
     else {
         return _filteredItems[indexPath.row];
@@ -102,9 +144,37 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //[tableView cellForRowAtIndexPath:indexPath].selected = NO;
+    id item = [self tableView:tableView itemForIndexPath:indexPath];
+    NSInteger oldRow = _selectedItems.count + [_deselectedItems indexOfObject:item];
+    NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:oldRow inSection:0];
+    
+    // performance issue?
+    [self selectItems:@[item]];
+    
+    [self.tableView selectRowAtIndexPath:oldIndexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
+    [self.tableView moveRowAtIndexPath:[NSIndexPath indexPathForRow:oldRow inSection:0] toIndexPath:[NSIndexPath indexPathForRow:(_selectedItems.count - 1) inSection:0]];
+    
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(searchList:didSelectItem:)]) {
-        [self.delegate searchList:self didSelectItem:[self tableView:tableView itemForIndexPath:indexPath]];
+        [self.delegate searchList:self didSelectItem:item];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    id item = [self tableView:tableView itemForIndexPath:indexPath];
+    NSInteger oldRow = [_selectedItems indexOfObject:item];
+    NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:oldRow inSection:0];
+    
+    // performance issue?
+    [self deselectItems:@[item]];
+    
+    NSInteger row = [_deselectedItems indexOfObject:item] + _selectedItems.count;
+    
+    [self.tableView deselectRowAtIndexPath:oldIndexPath animated:YES];
+    [self.tableView moveRowAtIndexPath:oldIndexPath toIndexPath:[NSIndexPath indexPathForRow:row inSection:0]];
+    
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(searchList:didDeselectItem:)]) {
+        [self.delegate searchList:self didDeselectItem:item];
     }
 }
 
@@ -124,7 +194,6 @@
         }
 	}
 }
-
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {

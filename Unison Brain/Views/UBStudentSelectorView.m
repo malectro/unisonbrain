@@ -31,8 +31,6 @@
     _students = students;
     _selectedStudents = [[NSSet alloc] init];
     
-    NSLog(@"students %@", _students);
-    
     [self clearSubviews];
     
     CGFloat viewPosition = 0;

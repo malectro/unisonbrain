@@ -74,6 +74,7 @@
     _studentSelector.students = _session.students.allObjects;
     
     self.sessionView.listSelectView = _listController.view;
+    [_listController setSelection:_session.students.allObjects];
     
     [self.sessionView.codesOrStudents addTarget:self action:@selector(changeSideList:) forControlEvents:UIControlEventValueChanged];
     
@@ -99,8 +100,24 @@
 
 - (void)searchList:(UBSearchListViewController *)searchList didSelectItem:(id)item
 {
-    [_session addPeopleObject:item];
-    _studentSelector.students = _session.students.allObjects;
+    if (searchList == _listController) {
+        [_session addPeopleObject:item];
+        _studentSelector.students = _session.students.allObjects;
+    }
+    else {
+        [_selectedBreach addCodesObject:item];
+    }
+}
+
+- (void)searchList:(UBSearchListViewController *)searchList didDeselectItem:(id)item
+{
+    if (searchList == _listController) {
+        [_session removePeopleObject:item];
+        _studentSelector.students = _session.students.allObjects;
+    }
+    else {
+        [_selectedBreach removeCodesObject:item];
+    }
 }
 
 - (void)removeStudents

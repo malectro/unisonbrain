@@ -15,6 +15,8 @@
 @property (nonatomic) id<UBSearchListViewDelegate> delegate;
 @property (nonatomic) NSArray *items;
 @property (nonatomic) NSMutableArray *filteredItems;
+@property (nonatomic) NSMutableArray *selectedItems;
+@property (nonatomic) NSMutableArray *deselectedItems;
 
 @property (nonatomic, readonly) UISearchBar *searchBar;
 @property (nonatomic, readonly) UISearchDisplayController *searchController;
@@ -24,6 +26,7 @@
 
 - (void)configureCell:(UITableViewCell *)cell withItem:(id)item;
 - (BOOL)filterItem:(id)item bySearch:(NSString *)searchText;
+- (void)setSelection:(NSArray *)selectedItems;
 
 @end
 
@@ -32,5 +35,6 @@
 @optional
 
 - (void)searchList:(UBSearchListViewController *)searchList didSelectItem:(id)item;
+- (void)searchList:(UBSearchListViewController *)searchList didDeselectItem:(id)item;
 
 @end
