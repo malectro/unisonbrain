@@ -20,7 +20,7 @@ static UBUser *currentUser;
 {
     if (currentUser == nil) {
         // test stuff that shouldn't be used
-        UBTeacher *teacher = [UBTeacher create];
+        UBTeacher *teacher = [UBTeacher all][0];
         teacher.fname = @"Kyle";
         teacher.lname = @"Warren";
         

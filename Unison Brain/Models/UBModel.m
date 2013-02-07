@@ -55,4 +55,13 @@
     return results;
 }
 
+- (void)save
+{
+    NSError *error = nil;
+    if (![[UBAppDelegate moc] save:&error]) {
+        NSLog(@"Error %@: Failed to save managed object context", [[self class] modelName]);
+        abort();
+    }
+}
+
 @end

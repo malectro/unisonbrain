@@ -79,7 +79,8 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    // save
+    [super viewWillDisappear:animated];
+    [_session save];
 }
 
 - (void)didReceiveMemoryWarning

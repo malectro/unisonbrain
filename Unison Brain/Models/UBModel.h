@@ -17,4 +17,6 @@
 + (NSString *)modelUrl;
 + (NSArray *)modelSort;
 
+- (void)save;
+
 @end
