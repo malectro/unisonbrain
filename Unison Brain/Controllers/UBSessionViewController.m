@@ -147,7 +147,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 20.0f;
+    return 44.0f;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -170,7 +170,7 @@
     
     section = [self.breaches indexOfObject:selectedBreach];
     headerView = (UILabel *)[self tableView:nil viewForHeaderInSection:section];
-    headerView.backgroundColor = [UIColor blueColor];
+    headerView.backgroundColor = [UIColor colorWithRed:0.8f green:0.8f blue:1.0f alpha:1.0f];
     
     _selectedBreach = selectedBreach;
 }
@@ -243,7 +243,11 @@
     
     breach.sortedContributions = nil;
     
-    [_sessionView.breachesView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:breach.contributions.count - 1 inSection:[self.breaches indexOfObject:breach]]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:breach.contributions.count - 1 inSection:[self.breaches indexOfObject:breach]];
+    [_sessionView.breachesView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    UBContributionCell *cell = (UBContributionCell *) [_sessionView.breachesView cellForRowAtIndexPath:indexPath];
+    [cell.textField becomeFirstResponder];
 }
 
 @end

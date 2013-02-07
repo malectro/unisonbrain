@@ -14,6 +14,8 @@
 {
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
         _textField = [[UITextField alloc] init];
         _textField.placeholder = @"Contribution...";
         [self addSubview:_textField];
