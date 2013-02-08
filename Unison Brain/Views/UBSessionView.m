@@ -10,6 +10,8 @@
 
 #include "UBFunctions.h"
 
+#import <QuartzCore/QuartzCore.h>
+
 #define LEFT_WIDTH 770.0f
 #define RIGHT_WIDTH (1024.0f - 770.0f)
 
@@ -61,11 +63,13 @@
         [self.selectorLabel sizeToFit];
         [self addSubview:self.selectorLabel];
         
-        _breachesView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _breachesView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        //_breachesView.backgroundView.opaque = YES;
         [self addSubview:_breachesView];
         
         _codesOrStudents = [[UISegmentedControl alloc] initWithItems:@[@"Students", @"Codes"]];
         _codesOrStudents.selectedSegmentIndex = 0;
+        _codesOrStudents.segmentedControlStyle = UISegmentedControlStyleBar;
         [self addSubview:_codesOrStudents];
     }
     return self;
@@ -73,13 +77,14 @@
 
 - (void)layoutSubviews
 {
-    _codesOrStudents.frame = CGRectPosition(_codesOrStudents.frame, LEFT_WIDTH, 0);
+    // segemnted control is to be added as a nav item
+    // _codesOrStudents.frame = CGRectPosition(_codesOrStudents.frame, LEFT_WIDTH, 0);
     
     if (_studentSelector) {
         _studentSelector.frame = CGRectMake(0, self.frame.size.height - 100.0f, LEFT_WIDTH, 100.0f);
     }
     if (_listSelectView) {
-        _listSelectView.frame = CGRectMake(LEFT_WIDTH, _codesOrStudents.frame.size.height, RIGHT_WIDTH, self.frame.size.height- _codesOrStudents.frame.size.height);
+        _listSelectView.frame = CGRectMake(LEFT_WIDTH, 0, RIGHT_WIDTH, self.frame.size.height);
     }
     
     self.selectorLabel.frame = CGRectPosition(self.selectorLabel.frame, 0, _studentSelector.frame.origin.y - self.selectorLabel.frame.size.height - 5.0f);
@@ -96,7 +101,15 @@
 {
     _listSelectView = listSelectView;
     [_listSelectView removeFromSuperview];
+    
+    //_listSelectView.layer.borderColor = [UIColor blackColor].CGColor;
+    //_listSelectView.layer.borderWidth = 1.0f;
+    _listSelectView.layer.shadowColor = [UIColor blackColor].CGColor;
+    _listSelectView.layer.shadowRadius = 10.0f;
+    _listSelectView.layer.shadowOpacity = 0.5f;
+    
     [self addSubview:_listSelectView];
+    [self bringSubviewToFront:_listSelectView];
 }
 
 - (void)setStudentSelector:(UBStudentSelectorView *)studentSelector

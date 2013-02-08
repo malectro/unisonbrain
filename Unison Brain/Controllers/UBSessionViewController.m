@@ -22,6 +22,7 @@
 #import "UBSessionView.h"
 #import "UBStudentSelectorView.h"
 #import "UBContributionCell.h"
+#import "UBBreachHeaderView.h"
 
 @interface UBSessionViewController ()
 
@@ -77,6 +78,9 @@
     [_listController setSelection:_session.students.allObjects];
     
     [self.sessionView.codesOrStudents addTarget:self action:@selector(changeSideList:) forControlEvents:UIControlEventValueChanged];
+    //[self.sessionView.codesOrStudents removeFromSuperview];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.sessionView.codesOrStudents];
+    //[self.navigationItem.rightBarButtonItem.customView addSubview:self.sessionView.codesOrStudents];
     
     [self.sessionView.removeStudents addTarget:self action:@selector(removeStudents) forControlEvents:UIControlEventTouchDown];
     [self.sessionView.createBreach addTarget:self action:@selector(createBreach) forControlEvents:UIControlEventTouchDown];
@@ -169,19 +173,16 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UBBreach *breach = [self breachForSection:section];
-    UILabel *header = [_headers objectForKey:breach];
+    UBBreachHeaderView *header = [_headers objectForKey:breach];
     
     if (header == nil) {
-        header = [[UILabel alloc] init];
-        header.text = [NSString stringWithFormat:@"%@ - %@", breach.studentList, [UBDate stringFromDateMedium:breach.time]];
+        header = [[UBBreachHeaderView alloc] init];
+        header.breach = breach;
         [_headers setObject:header forKey:breach];
     }
     
     if (breach == self.selectedBreach) {
-        header.backgroundColor = [UIColor blueColor];
-    }
-    else {
-        header.backgroundColor = [UIColor whiteColor];
+        header.selected = YES;
     }
     
     return header;
@@ -202,17 +203,17 @@
 - (void)setSelectedBreach:(UBBreach *)selectedBreach
 {
     NSInteger section = 0;
-    UILabel *headerView = nil;
+    UBBreachHeaderView *headerView = nil;
     
     if (self.selectedBreach != nil) {
         section = [self.breaches indexOfObject:self.selectedBreach];
-        headerView = (UILabel *)[self tableView:nil viewForHeaderInSection:section];
-        headerView.backgroundColor = [UIColor whiteColor];
+        headerView = (UBBreachHeaderView *)[self tableView:nil viewForHeaderInSection:section];
+        headerView.selected = NO;
     }
     
     section = [self.breaches indexOfObject:selectedBreach];
-    headerView = (UILabel *)[self tableView:nil viewForHeaderInSection:section];
-    headerView.backgroundColor = [UIColor colorWithRed:0.8f green:0.8f blue:1.0f alpha:1.0f];
+    headerView = (UBBreachHeaderView *)[self tableView:nil viewForHeaderInSection:section];
+    headerView.selected = YES;
     
     _selectedBreach = selectedBreach;
     

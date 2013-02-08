@@ -36,7 +36,6 @@
 {
     [super viewDidLoad];
     
-    _searchBar.frame = CGRectMake(0, 0.0f, self.view.frame.size.width, 44.0f);
     [self.view addSubview:_searchBar];
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
@@ -44,10 +43,17 @@
     self.tableView.dataSource = self;
     self.tableView.allowsMultipleSelection = YES;
     
-    self.tableView.frame = CGRectMake(0, _searchBar.frame.size.height + _searchBar.frame.origin.y + 0.0f, self.view.frame.size.width, self.view.frame.size.height - _searchBar.frame.size.height - _searchBar.frame.origin.y);
     [self.view addSubview:self.tableView];
     
     [_searchBar becomeFirstResponder];
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    
+    _searchBar.frame = CGRectMake(0, 0.0f, self.view.frame.size.width, 44.0f);
+    self.tableView.frame = CGRectMake(0, _searchBar.frame.size.height + _searchBar.frame.origin.y + 0.0f, self.view.frame.size.width, self.view.frame.size.height - _searchBar.frame.size.height - _searchBar.frame.origin.y);
 }
 
 - (void)didReceiveMemoryWarning

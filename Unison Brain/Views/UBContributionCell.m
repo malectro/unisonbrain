@@ -39,8 +39,9 @@
 {
     [super layoutSubviews];
     
-    self.textLabel.frame = CGRectMake(0, 0, 200.0f, 20.0f);
-    _textField.frame = CGRectMake(200.0f, 0, self.frame.size.width - 200.0f, 20.0f);
+    //self.backgroundView.frame = CGRectMake(10.0f, 0, self.frame.size.width - 20.0f, self.frame.size.height);
+    self.textLabel.frame = CGRectMake(10.0f, 10.0f, 190.0f, 20.0f);
+    _textField.frame = CGRectMake(200.0f, 10.0f, self.frame.size.width - 200.0f, 20.0f);
 }
 
 - (void)setContribution:(UBContribution *)contribution

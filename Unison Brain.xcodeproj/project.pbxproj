@@ -35,6 +35,7 @@
 		860C51B016C17C2F00C16B65 /* UBDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 860C51AF16C17C2F00C16B65 /* UBDate.m */; };
 		863F417A16C4393A00DACB64 /* UBCodesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 863F417916C4393A00DACB64 /* UBCodesViewController.m */; };
 		863F417D16C439D800DACB64 /* UBSearchListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 863F417C16C439D800DACB64 /* UBSearchListViewController.m */; };
+		86547C2116C56867000D54F1 /* UBBreachHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86547C2016C56867000D54F1 /* UBBreachHeaderView.m */; };
 		86B6B68916C2F6E60027F087 /* UBAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B6B68816C2F6E60027F087 /* UBAlert.m */; };
 		86B6B68C16C31D190027F087 /* UBContributionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B6B68B16C31D190027F087 /* UBContributionCell.m */; };
 		86D51E2716B9ABD200C129F6 /* UBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E2616B9ABD200C129F6 /* UBHomeViewController.m */; };
@@ -105,6 +106,8 @@
 		863F417916C4393A00DACB64 /* UBCodesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBCodesViewController.m; path = Controllers/UBCodesViewController.m; sourceTree = "<group>"; };
 		863F417B16C439D800DACB64 /* UBSearchListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBSearchListViewController.h; path = Controllers/UBSearchListViewController.h; sourceTree = "<group>"; };
 		863F417C16C439D800DACB64 /* UBSearchListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBSearchListViewController.m; path = Controllers/UBSearchListViewController.m; sourceTree = "<group>"; };
+		86547C1F16C56867000D54F1 /* UBBreachHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBBreachHeaderView.h; path = Views/UBBreachHeaderView.h; sourceTree = "<group>"; };
+		86547C2016C56867000D54F1 /* UBBreachHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBBreachHeaderView.m; path = Views/UBBreachHeaderView.m; sourceTree = "<group>"; };
 		86B6B68716C2F6E60027F087 /* UBAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBAlert.h; path = Helpers/UBAlert.h; sourceTree = "<group>"; };
 		86B6B68816C2F6E60027F087 /* UBAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBAlert.m; path = Helpers/UBAlert.m; sourceTree = "<group>"; };
 		86B6B68A16C31D190027F087 /* UBContributionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBContributionCell.h; path = Views/UBContributionCell.h; sourceTree = "<group>"; };
@@ -300,6 +303,8 @@
 				860C519F16BC525200C16B65 /* UBSessionView.m */,
 				86B6B68A16C31D190027F087 /* UBContributionCell.h */,
 				86B6B68B16C31D190027F087 /* UBContributionCell.m */,
+				86547C1F16C56867000D54F1 /* UBBreachHeaderView.h */,
+				86547C2016C56867000D54F1 /* UBBreachHeaderView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -457,6 +462,7 @@
 				86B6B68C16C31D190027F087 /* UBContributionCell.m in Sources */,
 				863F417A16C4393A00DACB64 /* UBCodesViewController.m in Sources */,
 				863F417D16C439D800DACB64 /* UBSearchListViewController.m in Sources */,
+				86547C2116C56867000D54F1 /* UBBreachHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
