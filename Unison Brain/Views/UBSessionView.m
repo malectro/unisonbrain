@@ -18,6 +18,7 @@
 @interface UBSessionView ()
 
 @property (nonatomic) UILabel *selectorLabel;
+@property (nonatomic) UIView *controlPanelBackground;
 
 @end
 
@@ -41,6 +42,17 @@
 {
     self = [super init];
     if (self) {
+        _breachesView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        //_breachesView.backgroundView.opaque = YES;
+        [self addSubview:_breachesView];
+        
+        _controlPanelBackground = [[UIView alloc] init];
+        _controlPanelBackground.backgroundColor = [UIColor whiteColor];
+        _controlPanelBackground.layer.shadowColor = [UIColor blackColor].CGColor;
+        _controlPanelBackground.layer.shadowOpacity = 0.5f;
+        _controlPanelBackground.layer.shadowRadius = 10.0f;
+        [self addSubview:_controlPanelBackground];
+        
         self.studentSelector = [[UBStudentSelectorView alloc] initWithStudents:nil];
         
         _removeStudents = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -63,10 +75,6 @@
         [self.selectorLabel sizeToFit];
         [self addSubview:self.selectorLabel];
         
-        _breachesView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-        //_breachesView.backgroundView.opaque = YES;
-        [self addSubview:_breachesView];
-        
         _codesOrStudents = [[UISegmentedControl alloc] initWithItems:@[@"Students", @"Codes"]];
         _codesOrStudents.selectedSegmentIndex = 0;
         _codesOrStudents.segmentedControlStyle = UISegmentedControlStyleBar;
@@ -81,20 +89,21 @@
     // _codesOrStudents.frame = CGRectPosition(_codesOrStudents.frame, LEFT_WIDTH, 0);
     
     if (_studentSelector) {
-        _studentSelector.frame = CGRectMake(0, self.frame.size.height - 100.0f, LEFT_WIDTH, 100.0f);
+        _studentSelector.frame = CGRectMake(10.0f, self.frame.size.height - 54.0f, LEFT_WIDTH - 20.0f, 54.0f);
     }
     if (_listSelectView) {
         _listSelectView.frame = CGRectMake(LEFT_WIDTH, 0, RIGHT_WIDTH, self.frame.size.height);
     }
     
-    self.selectorLabel.frame = CGRectPosition(self.selectorLabel.frame, 0, _studentSelector.frame.origin.y - self.selectorLabel.frame.size.height - 5.0f);
+    self.selectorLabel.frame = CGRectPosition(self.selectorLabel.frame, 10.0f, _studentSelector.frame.origin.y - self.selectorLabel.frame.size.height - 5.0f);
     
-    _createBreach.frame = CGRectPosition(_createBreach.frame, 0, self.selectorLabel.frame.origin.y - 10.0f - 44.0f);
-    _contribute.frame = CGRectPosition(_contribute.frame, _createBreach.frame.size.width + 2.0f, _createBreach.frame.origin.y);
+    _createBreach.frame = CGRectPosition(_createBreach.frame, 10.0f, self.selectorLabel.frame.origin.y - 44.0f);
+    _contribute.frame = CGRectPosition(_contribute.frame, _createBreach.frame.origin.x + _createBreach.frame.size.width + 2.0f, _createBreach.frame.origin.y);
     _removeStudents.frame = CGRectPosition(_removeStudents.frame, _contribute.frame.size.width + _contribute.frame.origin.x
                                            + 2.0f, _createBreach.frame.origin.y);
     
-    _breachesView.frame = CGRectMake(0, 0, LEFT_WIDTH - 1.0f, _createBreach.frame.origin.y);
+    _breachesView.frame = CGRectMake(0, 0, LEFT_WIDTH - 1.0f, _createBreach.frame.origin.y - 10.0f);
+    _controlPanelBackground.frame = CGRectMake(0, _breachesView.frame.size.height, LEFT_WIDTH - 1.0f, self.frame.size.height - _breachesView.frame.size.height);
 }
 
 - (void)setListSelectView:(UIView *)listSelectView
