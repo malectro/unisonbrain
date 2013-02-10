@@ -12,6 +12,7 @@
 
 @implementation UBModel
 
+@dynamic id;
 @dynamic updatedAt;
 
 // Override these method

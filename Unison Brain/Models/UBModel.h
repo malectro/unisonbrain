@@ -10,6 +10,7 @@
 
 @interface UBModel : NSManagedObject
 
+@property (nonatomic, retain) NSString *id;
 @property (nonatomic, retain) NSNumber *updatedAt;
 
 + (UBModel *)find:(NSString *)modelId;
