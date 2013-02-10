@@ -18,5 +18,6 @@
 + (NSArray *)modelSort;
 
 - (void)save;
+- (void)destroy;
 
 @end

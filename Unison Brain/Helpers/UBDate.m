@@ -24,7 +24,7 @@
 
 + (NSString *)stringFromDateMedium:(NSDate *)date
 {
-    return [self stringFromDate:date format:@"MMM, d HH:mm"];
+    return [self stringFromDate:date format:@"MMM d, HH:mm"];
 }
 
 @end

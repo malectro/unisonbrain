@@ -64,4 +64,15 @@
     }
 }
 
+- (void)destroy{
+    
+    // kill self
+    
+    [[UBAppDelegate moc] deleteObject:self];
+    [self save];
+
+    
+    
+}
+
 @end
