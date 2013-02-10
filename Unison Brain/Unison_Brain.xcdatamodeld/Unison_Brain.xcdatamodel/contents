@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="11E53" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C2034" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="UBBreach" representedClassName="UBBreach" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="codes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBCode" inverseName="breaches" inverseEntity="UBCode" syncable="YES"/>
         <relationship name="contributions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBContribution" inverseName="breach" inverseEntity="UBContribution" syncable="YES"/>
         <relationship name="people" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBPerson" inverseName="breaches" inverseEntity="UBPerson" syncable="YES"/>
         <relationship name="session" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UBSession" inverseName="breaches" inverseEntity="UBSession" syncable="YES"/>
     </entity>
     <entity name="UBCode" representedClassName="UBCode" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="breaches" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBBreach" inverseName="codes" inverseEntity="UBBreach" syncable="YES"/>
         <relationship name="codeScores" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBCodeScore" inverseName="code" inverseEntity="UBCodeScore" syncable="YES"/>
@@ -18,39 +22,49 @@
     </entity>
     <entity name="UBCodeScore" representedClassName="UBCodeScore" syncable="YES">
         <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="score" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="code" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UBCode" inverseName="codeScores" inverseEntity="UBCode" syncable="YES"/>
         <relationship name="conferences" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBConference" inverseName="codeScores" inverseEntity="UBConference" syncable="YES"/>
     </entity>
     <entity name="UBConference" representedClassName="UBConference" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isComplete" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="codeScores" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBCodeScore" inverseName="conferences" inverseEntity="UBCodeScore" syncable="YES"/>
         <relationship name="student" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UBStudent" inverseName="conferences" inverseEntity="UBStudent" syncable="YES"/>
         <relationship name="subject" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UBSubject" inverseName="conferences" inverseEntity="UBSubject" syncable="YES"/>
         <relationship name="teacher" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UBTeacher" inverseName="conferences" inverseEntity="UBTeacher" syncable="YES"/>
     </entity>
     <entity name="UBContribution" representedClassName="UBContribution" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="breach" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UBBreach" inverseName="contributions" inverseEntity="UBBreach" syncable="YES"/>
         <relationship name="person" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UBPerson" inverseName="contributions" inverseEntity="UBPerson" syncable="YES"/>
     </entity>
     <entity name="UBPerson" representedClassName="UBPerson" syncable="YES">
         <attribute name="fname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lname" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="school" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="breaches" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBBreach" inverseName="people" inverseEntity="UBBreach" syncable="YES"/>
         <relationship name="contributions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBContribution" inverseName="person" inverseEntity="UBContribution" syncable="YES"/>
         <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBSession" inverseName="people" inverseEntity="UBSession" syncable="YES"/>
     </entity>
     <entity name="UBSession" representedClassName="UBSession" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isCoded" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isComplete" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="length" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="breaches" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBBreach" inverseName="session" inverseEntity="UBBreach" syncable="YES"/>
         <relationship name="people" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBPerson" inverseName="sessions" inverseEntity="UBPerson" syncable="YES"/>
         <relationship name="subject" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UBSubject" inverseName="sessions" inverseEntity="UBSubject" syncable="YES"/>
@@ -60,7 +74,9 @@
         <relationship name="conferences" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBConference" inverseName="student" inverseEntity="UBConference" syncable="YES"/>
     </entity>
     <entity name="UBSubject" representedClassName="UBSubject" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="codes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBCode" inverseName="subject" inverseEntity="UBCode" syncable="YES"/>
         <relationship name="conferences" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBConference" inverseName="subject" inverseEntity="UBConference" syncable="YES"/>
         <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBSession" inverseName="subject" inverseEntity="UBSession" syncable="YES"/>
@@ -69,20 +85,22 @@
         <relationship name="conferences" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBConference" inverseName="teacher" inverseEntity="UBConference" syncable="YES"/>
     </entity>
     <entity name="UBType" representedClassName="UBType" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="codes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBCode" inverseName="type" inverseEntity="UBCode" syncable="YES"/>
     </entity>
     <elements>
-        <element name="UBBreach" positionX="160" positionY="192" width="128" height="135"/>
-        <element name="UBCode" positionX="160" positionY="192" width="128" height="135"/>
-        <element name="UBCodeScore" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="UBConference" positionX="160" positionY="192" width="128" height="150"/>
-        <element name="UBContribution" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="UBPerson" positionX="160" positionY="192" width="128" height="135"/>
-        <element name="UBSession" positionX="160" positionY="192" width="128" height="165"/>
+        <element name="UBBreach" positionX="160" positionY="192" width="128" height="165"/>
+        <element name="UBCode" positionX="160" positionY="192" width="128" height="165"/>
+        <element name="UBCodeScore" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="UBConference" positionX="160" positionY="192" width="128" height="180"/>
+        <element name="UBContribution" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="UBPerson" positionX="160" positionY="192" width="128" height="165"/>
+        <element name="UBSession" positionX="160" positionY="192" width="128" height="195"/>
         <element name="UBStudent" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="UBSubject" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="UBSubject" positionX="160" positionY="192" width="128" height="135"/>
         <element name="UBTeacher" positionX="160" positionY="192" width="128" height="60"/>
-        <element name="UBType" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="UBType" positionX="160" positionY="192" width="128" height="105"/>
     </elements>
 </model>
