@@ -10,16 +10,21 @@
 #import <CoreData/CoreData.h>
 
 #import "UBModel.h"
+#import "UBSubject.h"
+#import "UBType.h"
 
 @class UBBreach, UBCodeScore;
 
 @interface UBCode : UBModel
 
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * type;
 @property (nonatomic, retain) NSNumber * year;
 @property (nonatomic, retain) NSSet *breaches;
 @property (nonatomic, retain) NSSet *codeScores;
+@property (nonatomic, retain) UBSubject *subject;
+@property (nonatomic, retain) UBType * type;
+
+
 @end
 
 @interface UBCode (CoreDataGeneratedAccessors)

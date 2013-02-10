@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		271E2AB716C80436009D4CE2 /* ConferenceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 271E2AB616C80436009D4CE2 /* ConferenceView.xib */; };
+		271E2ABA16C840A9009D4CE2 /* UBType.m in Sources */ = {isa = PBXBuildFile; fileRef = 271E2AB916C840A8009D4CE2 /* UBType.m */; };
 		860268DA16B9811D002C6577 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 860268D916B9811D002C6577 /* UIKit.framework */; };
 		860268DC16B9811D002C6577 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 860268DB16B9811D002C6577 /* Foundation.framework */; };
 		860268DE16B9811D002C6577 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 860268DD16B9811D002C6577 /* CoreGraphics.framework */; };
@@ -65,6 +66,8 @@
 
 /* Begin PBXFileReference section */
 		271E2AB616C80436009D4CE2 /* ConferenceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ConferenceView.xib; path = Views/ConferenceView.xib; sourceTree = "<group>"; };
+		271E2AB816C840A7009D4CE2 /* UBType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBType.h; path = "Unison Brain/Models/UBType.h"; sourceTree = "<group>"; };
+		271E2AB916C840A8009D4CE2 /* UBType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBType.m; path = "Unison Brain/Models/UBType.m"; sourceTree = "<group>"; };
 		860268D616B9811D002C6577 /* Unison Brain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unison Brain.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		860268D916B9811D002C6577 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		860268DB16B9811D002C6577 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -169,6 +172,8 @@
 		277481B316B98D7900211D00 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				271E2AB816C840A7009D4CE2 /* UBType.h */,
+				271E2AB916C840A8009D4CE2 /* UBType.m */,
 				86D51E4816B9B8ED00C129F6 /* UBCode.h */,
 				86D51E4916B9B8ED00C129F6 /* UBCode.m */,
 				86D51E4516B9B8ED00C129F6 /* UBContribution.h */,
@@ -467,6 +472,7 @@
 				863F417A16C4393A00DACB64 /* UBCodesViewController.m in Sources */,
 				863F417D16C439D800DACB64 /* UBSearchListViewController.m in Sources */,
 				86547C2116C56867000D54F1 /* UBBreachHeaderView.m in Sources */,
+				271E2ABA16C840A9009D4CE2 /* UBType.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

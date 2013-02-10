@@ -20,5 +20,7 @@
 @property (nonatomic, readonly) UIButton *contribute;
 @property (nonatomic, readonly) UIButton *removeStudents;
 @property (nonatomic, readonly) UISegmentedControl *codesOrStudents;
+@property (nonatomic, readonly) UISegmentedControl *subject;
+
 
 @end

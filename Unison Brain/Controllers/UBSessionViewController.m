@@ -15,6 +15,8 @@
 #import "UBBreach.h"
 #import "UBContribution.h"
 #import "UBPerson.h"
+#import "UBSubject.h"
+
 
 #import "UBCodesViewController.h"
 #import "UBStudentListViewController.h"
@@ -72,14 +74,21 @@
     [super viewDidLoad];
     
     _studentSelector = self.sessionView.studentSelector;
-    _studentSelector.students = _session.students.allObjects;
+    _studentSelector.students = _session.people.allObjects;
     
     self.sessionView.listSelectView = _listController.view;
     [_listController setSelection:_session.students.allObjects];
     
     [self.sessionView.codesOrStudents addTarget:self action:@selector(changeSideList:) forControlEvents:UIControlEventValueChanged];
     //[self.sessionView.codesOrStudents removeFromSuperview];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.sessionView.codesOrStudents];
+    
+    NSArray *barItems = @[
+                          [[UIBarButtonItem alloc] initWithCustomView:self.sessionView.codesOrStudents],
+                          [[UIBarButtonItem alloc] initWithCustomView:self.sessionView.subject]
+                          ];
+    
+    self.navigationItem.rightBarButtonItems = barItems;
+    
     //[self.navigationItem.rightBarButtonItem.customView addSubview:self.sessionView.codesOrStudents];
     
     [self.sessionView.removeStudents addTarget:self action:@selector(removeStudents) forControlEvents:UIControlEventTouchDown];
@@ -106,7 +115,7 @@
 {
     if (searchList == _listController) {
         [_session addPeopleObject:item];
-        _studentSelector.students = _session.students.allObjects;
+        _studentSelector.students = _session.people.allObjects;
     }
     else {
         [_selectedBreach addCodesObject:item];
@@ -117,7 +126,7 @@
 {
     if (searchList == _listController) {
         [_session removePeopleObject:item];
-        _studentSelector.students = _session.students.allObjects;
+        _studentSelector.students = _session.people.allObjects;
     }
     else {
         [_selectedBreach removeCodesObject:item];

@@ -10,7 +10,9 @@
 
 #import "UBHomeViewController.h"
 
+#import "UBType.h"
 #import "UBCode.h"
+#import "UBSubject.h"
 #import "UBStudent.h"
 #import "UBTeacher.h"
 
@@ -22,6 +24,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    // TEST METHOD: comment this usually
+    [self generateFakeData];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
@@ -31,8 +37,6 @@
     UINavigationController *mainNav = [[UINavigationController alloc] initWithRootViewController:homeViewController];
     [self.window setRootViewController:mainNav];
     
-    // TEST METHOD: comment this usually
-    // [self generateFakeData];
     
     return YES;
 }
@@ -171,9 +175,20 @@
 
 - (void)generateFakeData
 {
-    // dummy code to create a bunch of codes
+    // dummy code to create a bunch of codes, students, subjects
     
+    NSArray *types = @[@"Social",
+                       @"Genre",
+                       @"Decoding",
+                       @"Comprehension"];
     
+    UBType *type = nil;
+
+    for (NSString *name in types) {
+        type = [UBType create];
+        type.name = name;
+    }
+
      
     NSArray *codes = @[
                        @[@"dinosaurs", @6],
@@ -194,6 +209,8 @@
         code = [UBCode create];
         code.name = arr[0];
         code.year = arr[1];
+        UBType *type = [UBType all][0];
+        code.type =  type; // setting type to a default....
     }
      
     
@@ -210,6 +227,30 @@
         student.fname = arr[0];
         student.lname = arr[1];
     }
+     
+    
+    for (UBSubject *subject in [UBSubject all]) {
+        [subject destroy];
+    }
+    
+
+    NSArray *subjects = @[
+                          @"English",
+                          @"Math",
+                          @"Science",
+                          @"Art",
+                          ];
+    
+    UBSubject *subject = nil;
+    for (NSString *name in subjects) {
+        subject = [UBSubject create];
+        subject.name = name;
+    }
+     
+
+    UBTeacher *teacher = [UBTeacher create];
+    teacher.fname = @"Bob";
+    teacher.lname = @"Teacher";
 
     
     [[UBAppDelegate moc] save:nil];

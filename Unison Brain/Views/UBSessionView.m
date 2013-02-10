@@ -12,6 +12,8 @@
 
 #import <QuartzCore/QuartzCore.h>
 
+#import "UBSubject.h"
+
 #define LEFT_WIDTH 770.0f
 #define RIGHT_WIDTH (1024.0f - 770.0f)
 
@@ -55,10 +57,10 @@
         
         self.studentSelector = [[UBStudentSelectorView alloc] initWithStudents:nil];
         
-        _removeStudents = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [_removeStudents setTitle:@"Remove Students" forState:UIControlStateNormal];
-        [_removeStudents sizeToFit];
-        [self addSubview:_removeStudents];
+        // _removeStudents = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        // [_removeStudents setTitle:@"Remove Students" forState:UIControlStateNormal];
+        // [_removeStudents sizeToFit];
+        // [self addSubview:_removeStudents];
         
         _createBreach = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [_createBreach setTitle:@"New Breach" forState:UIControlStateNormal];
@@ -71,7 +73,7 @@
         [self addSubview:_contribute];
         
         self.selectorLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        self.selectorLabel.text = @"Students in This Session";
+        self.selectorLabel.text = @"People in This Session";
         [self.selectorLabel sizeToFit];
         [self addSubview:self.selectorLabel];
         
@@ -79,6 +81,19 @@
         _codesOrStudents.selectedSegmentIndex = 0;
         _codesOrStudents.segmentedControlStyle = UISegmentedControlStyleBar;
         [self addSubview:_codesOrStudents];
+        
+        NSArray *subjects = [UBSubject all];
+        
+        NSArray *subjectNames = [subjects valueForKey:@"name"];        
+        
+        _subject = [[UISegmentedControl alloc] initWithItems:subjectNames];
+        
+        _subject.selectedSegmentIndex = -1;
+        _subject.segmentedControlStyle = UISegmentedControlStyleBar;
+        [self addSubview:_subject];
+
+        
+        
     }
     return self;
 }

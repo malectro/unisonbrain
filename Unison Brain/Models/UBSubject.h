@@ -9,13 +9,17 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+#import "UBModel.h"
+
 @class UBConference, UBSession;
 
-@interface UBSubject : NSManagedObject
+@interface UBSubject : UBModel
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSSet *conferences;
+@property (nonatomic, retain) NSSet *codes;
 @property (nonatomic, retain) NSSet *sessions;
+
 @end
 
 @interface UBSubject (CoreDataGeneratedAccessors)

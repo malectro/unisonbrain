@@ -16,5 +16,12 @@
 @dynamic name;
 @dynamic conferences;
 @dynamic sessions;
+@dynamic codes;
+
++ (NSString *)modelName
+{
+    return @"UBSubject";
+}
+
 
 @end

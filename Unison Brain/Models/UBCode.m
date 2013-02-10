@@ -15,6 +15,7 @@
 
 @dynamic name;
 @dynamic type;
+@dynamic subject;
 @dynamic year;
 @dynamic breaches;
 @dynamic codeScores;

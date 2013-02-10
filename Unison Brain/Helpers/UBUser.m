@@ -22,8 +22,8 @@ static UBUser *currentUser;
         // test stuff that shouldn't be used
        UBTeacher *teacher = [UBTeacher all][0];
         //UBTeacher *teacher = [UBTeacher create];
-        //teacher.fname = @"Kyle";
-        //teacher.lname = @"Warren";
+        teacher.fname = @"Bob";
+        teacher.lname = @"Teacher";
         
         currentUser = [[UBUser alloc] initWithTeacher:teacher];
         
