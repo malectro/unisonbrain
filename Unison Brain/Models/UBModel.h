@@ -10,14 +10,21 @@
 
 @interface UBModel : NSManagedObject
 
-+ (id)create;
+@property (nonatomic, retain) NSNumber *updatedAt;
+
++ (UBModel *)find:(NSString *)modelId;
++ (UBModel *)create;
 + (NSArray *)all;
+
++ (void)fetchAll;
 
 + (NSString *)modelName;
 + (NSString *)modelUrl;
 + (NSArray *)modelSort;
++ (NSDictionary *)keyMap;
 
 - (void)save;
 - (void)destroy;
+- (void)sync;
 
 @end

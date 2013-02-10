@@ -8,8 +8,11 @@
 
 #import "UBModel.h"
 #import "UBAppDelegate.h"
+#import "UBRequest.h"
 
 @implementation UBModel
+
+@dynamic updatedAt;
 
 // Override these method
 + (NSString *)modelName
@@ -29,21 +32,24 @@
     return nil;
 }
 
-+ (id)create
++ (NSDictionary *)keyMap
 {
-    return [NSEntityDescription insertNewObjectForEntityForName:[self modelName] inManagedObjectContext:[UBAppDelegate moc]];
+    return @{@"updated_at": @"updatedAt",
+             @"_id": @"id"};
 }
 
-+ (NSArray *)all
++ (NSFetchRequest *)modelRequest
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:[self modelName] inManagedObjectContext:[UBAppDelegate moc]];
     
     fetchRequest.entity = entity;
-    fetchRequest.fetchBatchSize = 40;
     
-    [fetchRequest setSortDescriptors:[self modelSort]];
-    
+    return fetchRequest;
+}
+
++ (NSArray *)modelResults:(NSFetchRequest *)fetchRequest
+{
     NSError *error = nil;
     NSArray *results = [[UBAppDelegate moc] executeFetchRequest:fetchRequest error:&error];
     
@@ -55,6 +61,75 @@
     return results;
 }
 
++ (UBModel *)find:(NSString *)modelId
+{
+    NSFetchRequest *fetchRequest = [self modelRequest];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"id == %@", modelId];
+    
+    fetchRequest.predicate = predicate;
+    
+    NSArray *results = [self modelResults:fetchRequest];
+    UBModel *returnal = nil;
+    
+    if (results.count > 0) {
+        returnal = results[0];
+    }
+    
+    return returnal;
+}
+
++ (UBModel *)create
+{
+    return [NSEntityDescription insertNewObjectForEntityForName:[self modelName] inManagedObjectContext:[UBAppDelegate moc]];
+}
+
++ (NSArray *)all
+{
+    NSFetchRequest *fetchRequest = [self modelRequest];
+    
+    fetchRequest.fetchBatchSize = 40;
+    [fetchRequest setSortDescriptors:[self modelSort]];
+    
+    return [self modelResults:fetchRequest];
+}
+
++ (void)fetchAll
+{
+    [UBRequest get:[self modelUrl] callback:^(NSArray *models) {
+        UBModel *model = nil;
+        
+        for (NSDictionary *dict in models) {
+            model = [self find:dict[@"_id"]];
+            
+            if (model == nil) {
+                model = [self create];
+            }
+            
+            if (model.updatedAt.intValue < (NSInteger) dict[@"updated_at"]) {
+                [model updateWithDict:dict];
+            }
+        }
+        
+        [model save];
+    }];
+}
+
+- (void)updateWithDict:(NSDictionary *)dict
+{
+    NSMutableDictionary *keyMap = [NSMutableDictionary dictionaryWithDictionary:[[self class] keyMap]];
+    
+    keyMap[@"updated_at"] = @"updatedAt";
+    keyMap[@"_id"] = @"id";
+    
+    for (NSString *key in dict) {
+        if (keyMap[key]) {
+            if (dict[key] != [NSNull null]) {
+                [self setValue:dict[key] forKey:keyMap[key]];
+            }
+        }
+    }
+}
+
 - (void)save
 {
     NSError *error = nil;
@@ -64,14 +139,16 @@
     }
 }
 
-- (void)destroy{
-    
+- (void)destroy
+{
     // kill self
-    
     [[UBAppDelegate moc] deleteObject:self];
     [self save];
-
+}
     
+- (void)sync
+{
+
     
 }
 
