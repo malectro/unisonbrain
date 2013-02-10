@@ -20,4 +20,9 @@
     return @"UBStudent";
 }
 
++ (NSString *)modelUrl
+{
+    return @"students";
+}
+
 @end

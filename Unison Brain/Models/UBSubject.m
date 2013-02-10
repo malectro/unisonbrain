@@ -23,5 +23,10 @@
     return @"UBSubject";
 }
 
++ (NSString *)modelUrl
+{
+    return @"subjects";
+}
+
 
 @end

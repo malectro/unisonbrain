@@ -25,7 +25,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // TEST METHOD: comment this usually
-    [self generateFakeData];
+    //[self fetchServerStuff];
+    //[self generateFakeData];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
@@ -171,6 +172,13 @@
 }
 
 #pragma mark - Testing methods that whouldn't be used ever
+- (void)fetchServerStuff
+{
+    [UBTeacher fetchAll];
+    [UBStudent fetchAll];
+    [UBCode fetchAll];
+    [UBSubject fetchAll];
+}
 
 - (void)generateFakeData
 {

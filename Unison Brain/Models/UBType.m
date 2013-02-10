@@ -18,5 +18,10 @@
     return @"UBType";
 }
 
++ (NSString *)modelUrl
+{
+    return @"strings";
+}
+
 
 @end
