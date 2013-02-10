@@ -15,6 +15,8 @@
     static NSURL *baseUrl = nil;
     static NSOperationQueue *queue = nil;
     
+    path = [path stringByAppendingString:@".json"];
+    
     if (baseUrl == nil) {
         baseUrl = [NSURL URLWithString:@"http://localhost:3000"];
         queue = [[NSOperationQueue alloc] init];

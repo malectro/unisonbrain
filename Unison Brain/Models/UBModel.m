@@ -99,6 +99,9 @@
     [UBRequest get:[self modelUrl] callback:^(NSArray *models) {
         UBModel *model = nil;
         
+        NSLog(@"models %@", models);
+        
+        
         for (NSDictionary *dict in models) {
             model = [self find:dict[@"_id"]];
             
@@ -109,9 +112,9 @@
             if (model.updatedAt.intValue < (NSInteger) dict[@"updated_at"]) {
                 [model updateWithDict:dict];
             }
+            
+            [model save];
         }
-        
-        [model save];
     }];
 }
 
