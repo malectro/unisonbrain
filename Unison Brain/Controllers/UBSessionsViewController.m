@@ -125,6 +125,18 @@
     [self.navigationController pushViewController:sessionViewController animated:YES];
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+
+    // REMOVE THE SESSION at indexPath
+        UBModel *modelToDestroy = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [modelToDestroy destroy];
+    }
+    
+}
+
+
 #pragma mark - FetchedResultsController delegage
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller

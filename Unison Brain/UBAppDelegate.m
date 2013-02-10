@@ -32,7 +32,7 @@
     [self.window setRootViewController:mainNav];
     
     // TEST METHOD: comment this usually
-    //[self generateFakeData];
+    // [self generateFakeData];
     
     return YES;
 }
@@ -172,6 +172,9 @@
 - (void)generateFakeData
 {
     // dummy code to create a bunch of codes
+    
+    
+     
     NSArray *codes = @[
                        @[@"dinosaurs", @6],
                        @[@"monsters", @6],
@@ -192,6 +195,22 @@
         code.name = arr[0];
         code.year = arr[1];
     }
+     
+    
+    NSArray *students = @[
+                       @[@"Danny", @"Bowman"],
+                       @[@"Kyle", @"Warren"],
+                       @[@"Joe", @"Posner"],
+                       @[@"Amy", @"Piller"],
+                       ];
+    
+    UBStudent *student = nil;
+    for (NSArray *arr in students) {
+        student = [UBStudent create];
+        student.fname = arr[0];
+        student.lname = arr[1];
+    }
+
     
     [[UBAppDelegate moc] save:nil];
 }

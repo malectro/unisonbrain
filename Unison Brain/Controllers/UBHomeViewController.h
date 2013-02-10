@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UBSearchListViewController.h"
 
-@interface UBHomeViewController : UIViewController
+@interface UBHomeViewController : UIViewController<UBSearchListViewDelegate>;
 
 @end

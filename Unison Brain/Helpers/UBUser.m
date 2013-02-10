@@ -20,11 +20,13 @@ static UBUser *currentUser;
 {
     if (currentUser == nil) {
         // test stuff that shouldn't be used
-        UBTeacher *teacher = [UBTeacher all][0];
-        teacher.fname = @"Kyle";
-        teacher.lname = @"Warren";
+       UBTeacher *teacher = [UBTeacher all][0];
+        //UBTeacher *teacher = [UBTeacher create];
+        //teacher.fname = @"Kyle";
+        //teacher.lname = @"Warren";
         
         currentUser = [[UBUser alloc] initWithTeacher:teacher];
+        
     }
     
     return currentUser;

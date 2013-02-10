@@ -17,6 +17,12 @@
 
 @implementation UBStudentListViewController
 
+- (id)init{
+    
+    return [super initWithItems:[UBStudent all]];
+    
+}
+
 - (id)initWithItems:(NSArray *)items
 {
     return [super initWithItems:[UBStudent all]];

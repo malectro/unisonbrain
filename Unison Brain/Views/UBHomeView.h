@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UBStudentListViewController.h"
 
 @interface UBHomeView : UIView
 
@@ -14,5 +15,8 @@
 @property (nonatomic, retain, readonly) UIButton *createSessionButton;
 
 @property (nonatomic, retain) UITableView *sessionsView;
+@property (nonatomic, retain) UIView *studentsView;
+
+
 
 @end

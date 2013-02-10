@@ -1,3 +1,4 @@
+
 //
 //  UBHomeView.m
 //  Unison Brain
@@ -12,7 +13,9 @@
 
 @synthesize teacherNameLabel = _teacherNameLabel,
             createSessionButton = _createSessionButton,
-            sessionsView = _sessionsView;
+            sessionsView = _sessionsView,
+            studentsView = _studentsView;
+
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -31,12 +34,17 @@
 
 - (void)layoutSubviews
 {
-    _teacherNameLabel.frame = CGRectMake(0, 0, self.frame.size.width, 18.0f);
+    _teacherNameLabel.frame = CGRectMake(0, 0, self.frame.size.width, 20.0f);
     _createSessionButton.frame = CGRectMake(0, 30.0f, 200.0f, 30.0f);
     
     if (_sessionsView != nil) {
         _sessionsView.frame = CGRectMake(0, 60.0f, 600.0f, 300.0f);
     }
+    
+    if (_studentsView != nil) {
+        _studentsView.frame = CGRectMake(0, 360.0f, 600.0f, 300.0f);
+    }
+
 }
 
 - (void)setSessionsView:(UITableView *)sessionsView
@@ -48,5 +56,17 @@
     [self addSubview:sessionsView];
     _sessionsView = sessionsView;
 }
+
+- (void)setStudentsView:(UITableView *)studentsView
+{
+    if (_studentsView != nil) {
+        [_studentsView removeFromSuperview];
+    }
+    
+    [self addSubview:studentsView];
+    _studentsView = studentsView;
+}
+
+
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		271E2AB716C80436009D4CE2 /* ConferenceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 271E2AB616C80436009D4CE2 /* ConferenceView.xib */; };
 		860268DA16B9811D002C6577 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 860268D916B9811D002C6577 /* UIKit.framework */; };
 		860268DC16B9811D002C6577 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 860268DB16B9811D002C6577 /* Foundation.framework */; };
 		860268DE16B9811D002C6577 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 860268DD16B9811D002C6577 /* CoreGraphics.framework */; };
@@ -63,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		271E2AB616C80436009D4CE2 /* ConferenceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ConferenceView.xib; path = Views/ConferenceView.xib; sourceTree = "<group>"; };
 		860268D616B9811D002C6577 /* Unison Brain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unison Brain.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		860268D916B9811D002C6577 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		860268DB16B9811D002C6577 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -301,6 +303,7 @@
 				860C519616BC24E500C16B65 /* UBHomeView.m */,
 				860C519E16BC525200C16B65 /* UBSessionView.h */,
 				860C519F16BC525200C16B65 /* UBSessionView.m */,
+				271E2AB616C80436009D4CE2 /* ConferenceView.xib */,
 				86B6B68A16C31D190027F087 /* UBContributionCell.h */,
 				86B6B68B16C31D190027F087 /* UBContributionCell.m */,
 				86547C1F16C56867000D54F1 /* UBBreachHeaderView.h */,
@@ -400,6 +403,7 @@
 				860268EE16B9811D002C6577 /* Default.png in Resources */,
 				860268F016B9811D002C6577 /* Default@2x.png in Resources */,
 				860268F216B9811D002C6577 /* Default-568h@2x.png in Resources */,
+				271E2AB716C80436009D4CE2 /* ConferenceView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

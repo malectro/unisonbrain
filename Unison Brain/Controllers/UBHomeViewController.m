@@ -22,20 +22,29 @@
 @interface UBHomeViewController ()
 
 @property UBSessionsViewController *sessionsViewController;
+@property UBStudentListViewController *studentsViewController;
 @property UBHomeView *homeView;
 
 @end
 
 @implementation UBHomeViewController
 
-@synthesize sessionsViewController = _sessionsViewController;
+@synthesize sessionsViewController = _sessionsViewController,
+            studentsViewController = _studentsViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {        
+      
         _sessionsViewController = [[UBSessionsViewController alloc] initWithTeacher:[UBUser currentUser].teacher];
         [self addChildViewController:_sessionsViewController];
+        
+        _studentsViewController = [[UBStudentListViewController alloc] init];
+        _studentsViewController.delegate = self;
+        _studentsViewController.tableView.allowsMultipleSelection = NO;
+        [self addChildViewController:_studentsViewController];
+        
     }
     return self;
 }
@@ -52,6 +61,7 @@
     [super viewDidLoad];
     
     self.homeView.sessionsView = _sessionsViewController.tableView;
+    self.homeView.studentsView = _studentsViewController.view;
     self.homeView.teacherNameLabel.text = [UBUser currentUser].teacher.fname;
     [self.homeView.createSessionButton addTarget:self action:@selector(createSession) forControlEvents:UIControlEventTouchDown];
 }
@@ -72,4 +82,15 @@
     [self.navigationController pushViewController:sessionViewController animated:YES];
 }
 
+# pragma mark UB Search List Delegate Methods
+
+- (void)searchList:(UBSearchListViewController *)searchList didSelectItem:(id)item{
+    
+    // MAKE STUDENT / CONFERENCE PAGE FOR SELECTED STUDENT
+    
+}
+
+
 @end
+
+
