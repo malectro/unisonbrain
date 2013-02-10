@@ -24,7 +24,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
     // TEST METHOD: comment this usually
     [self generateFakeData];
     

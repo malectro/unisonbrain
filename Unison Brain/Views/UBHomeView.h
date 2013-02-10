@@ -14,6 +14,7 @@
 @property (nonatomic, retain, readonly) UILabel *teacherNameLabel;
 @property (nonatomic, retain, readonly) UIButton *createSessionButton;
 @property (nonatomic, retain) UITableView *sessionsView;
+@property (nonatomic, retain) UIView *studentsView;
 @property (nonatomic, readonly) UIBarButtonItem *syncButton;
 
 @end
