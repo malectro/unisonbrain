@@ -189,10 +189,8 @@
                        @"Decoding",
                        @"Comprehension"];
     
-    UBType *type = nil;
-
     for (NSString *name in types) {
-        type = [UBType create];
+        UBType *type = [UBType create];
         type.name = name;
     }
 

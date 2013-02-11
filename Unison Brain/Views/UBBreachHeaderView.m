@@ -11,7 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "UBDate.h"
-
+#import "UBType.h"
 #import "UBBreach.h"
 
 @implementation UBBreachHeaderView
@@ -45,7 +45,13 @@
 - (void)setBreach:(UBBreach *)breach
 {
     _breach = breach;
-    self.textLabel.text = [NSString stringWithFormat:@"Breach with %@ - %@", breach.studentList, [UBDate stringFromDateMedium:breach.time]];
+    [self reloadHeader];
+}
+
+- (void)reloadHeader
+{
+    self.textLabel.text = [NSString stringWithFormat:@"Breach Type: %@ Breach Codes: %@", _breach.type.name, _breach.codeList];
+
 }
 
 - (void)setSelected:(BOOL)selected

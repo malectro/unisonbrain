@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C2034" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="11E53" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="UBBreach" representedClassName="UBBreach" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="updatedAt" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="codes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBCode" inverseName="breaches" inverseEntity="UBCode" syncable="YES"/>
         <relationship name="contributions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBContribution" inverseName="breach" inverseEntity="UBContribution" syncable="YES"/>
         <relationship name="people" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBPerson" inverseName="breaches" inverseEntity="UBPerson" syncable="YES"/>
         <relationship name="session" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UBSession" inverseName="breaches" inverseEntity="UBSession" syncable="YES"/>
+        <relationship name="type" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UBType" inverseName="breaches" inverseEntity="UBType" syncable="YES"/>
     </entity>
     <entity name="UBCode" representedClassName="UBCode" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
@@ -88,6 +88,7 @@
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="updatedAt" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="breaches" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBBreach" inverseName="type" inverseEntity="UBBreach" syncable="YES"/>
         <relationship name="codes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBCode" inverseName="type" inverseEntity="UBCode" syncable="YES"/>
     </entity>
     <elements>
@@ -101,6 +102,6 @@
         <element name="UBStudent" positionX="160" positionY="192" width="128" height="75"/>
         <element name="UBSubject" positionX="160" positionY="192" width="128" height="135"/>
         <element name="UBTeacher" positionX="160" positionY="192" width="128" height="60"/>
-        <element name="UBType" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="UBType" positionX="160" positionY="192" width="128" height="120"/>
     </elements>
 </model>

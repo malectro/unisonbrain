@@ -41,6 +41,11 @@
     return [((NSSet *)[self.people valueForKey:@"fname"]).allObjects componentsJoinedByString:@", "];
 }
 
+- (NSString *)codeList
+{
+    return [((NSSet *)[self.codes valueForKey:@"name"]).allObjects componentsJoinedByString:@", "];
+}
+
 - (NSArray *)sortedContributions
 {
     if (_sortedContributions == nil) {

@@ -12,6 +12,7 @@
 #import "UBAlert.h"
 
 #import "UBSession.h"
+#import "UBType.h"
 #import "UBBreach.h"
 #import "UBContribution.h"
 #import "UBPerson.h"
@@ -33,6 +34,7 @@
 @property (nonatomic) UBCodesViewController *codesController;
 @property (nonatomic) NSArray *breaches;
 @property (nonatomic) UBBreach *selectedBreach;
+@property (nonatomic) UBType *chosenType;
 @property (nonatomic) NSCache *headers;
 @property (nonatomic, retain) UIPopoverController *popover;
 
@@ -93,7 +95,7 @@
     
     //[self.navigationItem.rightBarButtonItem.customView addSubview:self.sessionView.codesOrStudents];
     
-    [self.sessionView.createBreach addTarget:self action:@selector(createBreach) forControlEvents:UIControlEventTouchUpInside];
+    [self.sessionView.createBreach addTarget:self action:@selector(chooseType) forControlEvents:UIControlEventTouchUpInside];
     [self.sessionView.contribute addTarget:self action:@selector(contribute) forControlEvents:UIControlEventTouchUpInside];
 
     [self.sessionView.changeDate addTarget:self action:@selector(changeDate) forControlEvents:UIControlEventTouchUpInside];
@@ -124,6 +126,8 @@
     }
     else {
         [_selectedBreach addCodesObject:item];
+        [self.sessionView.breachesView reloadData];
+    
     }
 }
 
@@ -138,6 +142,9 @@
     }
     else {
         [_selectedBreach removeCodesObject:item];
+        [self.sessionView.breachesView reloadData];
+
+        
     }
 }
 
@@ -186,6 +193,7 @@
 }
 
 
+
 #pragma mark - Breaches Methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -223,6 +231,8 @@
         header.breach = breach;
         [_headers setObject:header forKey:breach];
     }
+    
+    [header reloadHeader];
     
     if (breach == self.selectedBreach) {
         header.selected = YES;
@@ -286,16 +296,31 @@
     return _breaches;
 }
 
-- (void)createBreach
+- (void)chooseType
 {
-    UBBreach *breach = [UBBreach create];
+        
+    // hard coded type amounts in here for testing (and i can't figure out better way right now)
     
-    if (_studentSelector.selectedStudents.count < 1) {
-        [UBAlert alert:@"Select some students to create a breach."];
-        return;
+    NSMutableArray *buttonTitleArray = [[NSMutableArray alloc]initWithCapacity:4];
+    
+    for (int i=0; i < 4; i++){
+        NSString *name = [[UBType all][i] valueForKey:@"name"];
+        [buttonTitleArray addObject:name];
     }
     
-    [breach addPeople:_studentSelector.selectedStudents];
+    UIActionSheet *typeChooser = [[UIActionSheet alloc]initWithTitle:@"Choose Type" delegate:self cancelButtonTitle:@"Cancel New Breach" destructiveButtonTitle:nil otherButtonTitles:buttonTitleArray[0], buttonTitleArray[1], buttonTitleArray[2], buttonTitleArray[3], nil];
+
+    
+    [typeChooser showFromRect:_sessionView.createBreach.frame inView:_sessionView animated:YES];
+    
+}
+
+- (void)createBreachWithType:(UBType*)type
+{
+    UBBreach *breach = [UBBreach create];
+    breach.type = type;
+    
+    [breach addPeople:_session.people];
     
     [_session addBreachesObject:breach];
     
@@ -337,5 +362,25 @@
     UBContributionCell *cell = (UBContributionCell *) [_sessionView.breachesView cellForRowAtIndexPath:indexPath];
     [cell.textField becomeFirstResponder];
 }
+
+#pragma mark - UIActionSheet Delegate Methods
+
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    
+    if (buttonIndex == -1 || buttonIndex == 4) {
+        return;
+        // this is meant to make there be no new breach if you don't select a button.
+        // but it might be screwing up right now.
+
+    }
+    
+    else {
+    UBType *type = [UBType all][buttonIndex];
+    [self createBreachWithType:type];
+    }
+}
+
 
 @end

@@ -18,4 +18,7 @@
 @property (nonatomic, readonly) UILabel *textLabel;
 @property (nonatomic, readonly) UIView *backgroundView;
 
+- (void)reloadHeader;
+
+
 @end

@@ -11,12 +11,13 @@
 
 #import "UBModel.h"
 
-@class UBCode, UBContribution, UBPerson, UBSession;
+
+@class UBCode, UBContribution, UBPerson, UBSession, UBType;
 
 @interface UBBreach : UBModel
 
 @property (nonatomic, retain) NSDate * time;
-@property (nonatomic, retain) NSString * type;
+@property (nonatomic, retain) UBType * type;
 @property (nonatomic, retain) NSSet *codes;
 @property (nonatomic, retain) NSSet *contributions;
 @property (nonatomic, retain) NSSet *people;
@@ -25,6 +26,7 @@
 @property (nonatomic) NSArray * sortedContributions;
 
 - (NSString *)studentList;
+- (NSString *)codeList;
 
 @end
 
