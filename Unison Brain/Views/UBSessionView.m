@@ -30,7 +30,7 @@
 @synthesize studentSelector = _studentSelector;
 @synthesize listSelectView = _listSelectView;
 @synthesize createBreach = _createBreach;
-@synthesize removeStudents = _removeStudents;
+@synthesize changeDate = _changeDate;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -67,6 +67,11 @@
         [_createBreach setTitle:@"New Breach" forState:UIControlStateNormal];
         [_createBreach sizeToFit];
         [self addSubview:_createBreach];
+        
+        _changeDate = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_changeDate setTitle:@"Change Date" forState:UIControlStateNormal];
+        [_changeDate sizeToFit];
+        [self addSubview:_changeDate];
         
         _contribute = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [_contribute setTitle:@"New Contribution" forState:UIControlStateNormal];
@@ -117,6 +122,7 @@
     
     _createBreach.frame = CGRectPosition(_createBreach.frame, 10.0f, self.selectorLabel.frame.origin.y - 44.0f);
     _contribute.frame = CGRectPosition(_contribute.frame, _createBreach.frame.origin.x + _createBreach.frame.size.width + 2.0f, _createBreach.frame.origin.y);
+    _changeDate.frame = CGRectPosition(_changeDate.frame, _contribute.frame.origin.x + _contribute.frame.size.width +2.0f, _createBreach.frame.origin.y);
 
     
     // ADD BREACH TYPE SELECT HERE -- _breachTypeSelect

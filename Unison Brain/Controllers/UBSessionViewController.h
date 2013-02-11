@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 
 #import "UBStudentListViewController.h"
+#import "UBDatePickerViewController.h"
 
 @class UBSession;
 
-@interface UBSessionViewController : UIViewController<UBSearchListViewDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface UBSessionViewController : UIViewController<UBSearchListViewDelegate,UITableViewDataSource,UITableViewDelegate, UBDatePickerDelegate, UIPopoverControllerDelegate>
 
 @property (nonatomic, retain) UBSession *session;
 

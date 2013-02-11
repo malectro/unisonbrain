@@ -26,7 +26,7 @@
 {
     
     // TEST METHOD: comment this usually
-    [self generateFakeData];
+    //[self generateFakeData];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.

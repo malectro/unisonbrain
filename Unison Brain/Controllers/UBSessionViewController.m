@@ -17,7 +17,6 @@
 #import "UBPerson.h"
 #import "UBSubject.h"
 
-
 #import "UBCodesViewController.h"
 #import "UBStudentListViewController.h"
 
@@ -35,6 +34,8 @@
 @property (nonatomic) NSArray *breaches;
 @property (nonatomic) UBBreach *selectedBreach;
 @property (nonatomic) NSCache *headers;
+@property (nonatomic, retain) UIPopoverController *popover;
+
 
 @end
 
@@ -42,6 +43,7 @@
 
 @synthesize session = _session;
 @synthesize studentSelector = _studentSelector;
+@synthesize popover;
 
 - (id)initWithSession:(UBSession *)session
 {
@@ -49,7 +51,7 @@
     if (self) {
         _session = session;
         
-        self.title = @"Unison Session";
+        self.title = [NSString stringWithFormat:@"Session with %@ |  %@", session.studentList, [UBDate stringFromDateMedium:session.time]];
         
         _listController = [[UBStudentListViewController alloc] initWithItems:nil];
         _listController.delegate = self;
@@ -91,10 +93,11 @@
     
     //[self.navigationItem.rightBarButtonItem.customView addSubview:self.sessionView.codesOrStudents];
     
-    [self.sessionView.removeStudents addTarget:self action:@selector(removeStudents) forControlEvents:UIControlEventTouchDown];
-    [self.sessionView.createBreach addTarget:self action:@selector(createBreach) forControlEvents:UIControlEventTouchDown];
-    [self.sessionView.contribute addTarget:self action:@selector(contribute) forControlEvents:UIControlEventTouchDown];
-    
+    [self.sessionView.createBreach addTarget:self action:@selector(createBreach) forControlEvents:UIControlEventTouchUpInside];
+    [self.sessionView.contribute addTarget:self action:@selector(contribute) forControlEvents:UIControlEventTouchUpInside];
+
+    [self.sessionView.changeDate addTarget:self action:@selector(changeDate) forControlEvents:UIControlEventTouchUpInside];
+
     self.sessionView.breachesView.delegate = self;
     self.sessionView.breachesView.dataSource = self;
 }
@@ -151,6 +154,24 @@
         }
     }
 }
+#pragma mark - Session Methods
+
+- (void)changeDate
+{
+    
+    UBDatePickerViewController *datePickerController = [[UBDatePickerViewController alloc]init];
+    [datePickerController setDelegate:self];
+    [datePickerController.datePicker setDate:_session.time animated:YES];
+    [datePickerController setSession:_session];
+    
+    popover = [[UIPopoverController alloc] initWithContentViewController:datePickerController];
+    popover.delegate = self;
+    popover.popoverContentSize = datePickerController.datePicker.frame.size;
+    
+    [popover presentPopoverFromRect:_sessionView.changeDate.frame inView:_sessionView permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+    
+}
+
 
 #pragma mark - Breaches Methods
 

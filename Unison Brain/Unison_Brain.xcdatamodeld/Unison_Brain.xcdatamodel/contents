@@ -74,15 +74,15 @@
     </entity>
     <elements>
         <element name="UBBreach" positionX="160" positionY="192" width="128" height="135"/>
-        <element name="UBCode" positionX="160" positionY="192" width="128" height="135"/>
-        <element name="UBCodeScore" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="UBConference" positionX="160" positionY="192" width="128" height="150"/>
-        <element name="UBContribution" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="UBPerson" positionX="160" positionY="192" width="128" height="135"/>
-        <element name="UBSession" positionX="160" positionY="192" width="128" height="165"/>
-        <element name="UBStudent" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="UBSubject" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="UBTeacher" positionX="160" positionY="192" width="128" height="60"/>
-        <element name="UBType" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="UBCode" positionX="180" positionY="-0" width="128" height="135"/>
+        <element name="UBCodeScore" positionX="403" positionY="54" width="128" height="105"/>
+        <element name="UBConference" positionX="-27" positionY="126" width="128" height="150"/>
+        <element name="UBContribution" positionX="171" positionY="417" width="128" height="105"/>
+        <element name="UBPerson" positionX="376" positionY="261" width="128" height="135"/>
+        <element name="UBSession" positionX="-29" positionY="294" width="128" height="165"/>
+        <element name="UBStudent" positionX="378" positionY="171" width="128" height="75"/>
+        <element name="UBSubject" positionX="178" positionY="-180" width="128" height="105"/>
+        <element name="UBTeacher" positionX="-20" positionY="3" width="128" height="60"/>
+        <element name="UBType" positionX="403" positionY="-39" width="128" height="75"/>
     </elements>
 </model>

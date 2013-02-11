@@ -18,7 +18,7 @@
 @implementation UBStudentListViewController
 
 - (id)init{
-    
+
     return [super initWithItems:[UBStudent all]];
     
 }
