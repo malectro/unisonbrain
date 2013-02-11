@@ -10,13 +10,17 @@
 
 #import "UBStudentListViewController.h"
 #import "UBDatePickerViewController.h"
+#import "UBBreachHeaderView.h"
 
 @class UBSession;
 
-@interface UBSessionViewController : UIViewController<UBSearchListViewDelegate,UITableViewDataSource,UITableViewDelegate, UBDatePickerDelegate, UIPopoverControllerDelegate, UIActionSheetDelegate>
+@interface UBSessionViewController : UIViewController<UBSearchListViewDelegate,UITableViewDataSource,UITableViewDelegate, UBDatePickerDelegate, UIPopoverControllerDelegate, UIActionSheetDelegate, UBBreachHeaderDelegate>
 
 @property (nonatomic, retain) UBSession *session;
 
 - (id)initWithSession:(UBSession *)session;
+
+- (void)setSelectedBreach:(UBBreach *)selectedBreach;
+
 
 @end

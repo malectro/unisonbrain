@@ -16,6 +16,8 @@
 
 @implementation UBBreachHeaderView
 
+@synthesize selected;
+
 - (id)init
 {
     self = [super init];
@@ -59,11 +61,16 @@
 
 }
 
-- (void)setSelected:(BOOL)selected
+- (void)setSelfSelected
 {
-    _selected = selected;
+    [_delegate setSelectedBreach:self.breach];
+}
+
+- (void)setSelected:(BOOL)shouldSelect
+{
+    selected = shouldSelect;
     
-    if (_selected) {
+    if (selected) {
         _textLabel.textColor = [UIColor darkTextColor];
     }
     else {

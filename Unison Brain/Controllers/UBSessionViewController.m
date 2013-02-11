@@ -228,15 +228,17 @@
     
     if (header == nil) {
         header = [[UBBreachHeaderView alloc] init];
+        [header addTarget:header action:@selector(setSelfSelected) forControlEvents:UIControlEventTouchUpInside];
+        header.delegate = self;
         header.breach = breach;
         [_headers setObject:header forKey:breach];
     }
     
-    [header reloadHeader];
-    
     if (breach == self.selectedBreach) {
         header.selected = YES;
     }
+    
+    [header reloadHeader];
     
     return header;
 }
