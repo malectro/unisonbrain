@@ -21,7 +21,6 @@
 @property (nonatomic, readonly) UIButton *changeDate;
 @property (nonatomic, readonly) UISegmentedControl *codesOrStudents;
 @property (nonatomic, readonly) UISegmentedControl *subject;
-@property (nonatomic, readonly) UISegmentedControl *breachTypeSelect;
 
 
 

@@ -98,9 +98,6 @@
         [self addSubview:_subject];
         
         NSArray *typeNames = [[UBType all] valueForKey:@"name"];
-        _breachTypeSelect = [[UISegmentedControl alloc] initWithItems:typeNames];
-        _breachTypeSelect.selectedSegmentIndex = -1;
-        _breachTypeSelect.segmentedControlStyle = UISegmentedControlStyleBar;
         
     }
     return self;
@@ -123,10 +120,6 @@
     _createBreach.frame = CGRectPosition(_createBreach.frame, 10.0f, self.selectorLabel.frame.origin.y - 44.0f);
     _contribute.frame = CGRectPosition(_contribute.frame, _createBreach.frame.origin.x + _createBreach.frame.size.width + 2.0f, _createBreach.frame.origin.y);
     _changeDate.frame = CGRectPosition(_changeDate.frame, _contribute.frame.origin.x + _contribute.frame.size.width +2.0f, _createBreach.frame.origin.y);
-
-    
-    // ADD BREACH TYPE SELECT HERE -- _breachTypeSelect
-
     
     _breachesView.frame = CGRectMake(0, 0, LEFT_WIDTH - 1.0f, _createBreach.frame.origin.y - 10.0f);
     _controlPanelBackground.frame = CGRectMake(0, _breachesView.frame.size.height, LEFT_WIDTH - 1.0f, self.frame.size.height - _breachesView.frame.size.height);
