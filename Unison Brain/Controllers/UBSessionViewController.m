@@ -11,6 +11,7 @@
 #import "UBDate.h"
 #import "UBAlert.h"
 
+#import "UBModel.h"
 #import "UBSession.h"
 #import "UBType.h"
 #import "UBBreach.h"
@@ -194,7 +195,7 @@
 
 
 
-#pragma mark - Breaches Methods
+#pragma mark - Breach/Contribution Table View Methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -254,6 +255,21 @@
     
     return indexPath;
 }
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        //REMOVE THE CONTRIBUTION at indexPath
+        UBModel *modelToDestroy = [self contributionForIndexPath:indexPath];
+        [modelToDestroy destroy];
+        
+        [tableView reloadData];
+    }
+}
+
+
+#pragma mark - Breach Methods
 
 - (void)setSelectedBreach:(UBBreach *)selectedBreach
 {
