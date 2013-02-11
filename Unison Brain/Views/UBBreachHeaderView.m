@@ -50,7 +50,12 @@
 
 - (void)reloadHeader
 {
-    self.textLabel.text = [NSString stringWithFormat:@"Breach Type: %@ Breach Codes: %@", _breach.type.name, _breach.codeList];
+    NSString *codes = @"";
+    if (_breach.codeList.length > 2) {
+        codes = [NSString stringWithFormat:@" | Codes: %@", _breach.codeList];
+    }
+    
+    self.textLabel.text = [NSString stringWithFormat:@"Type: %@%@", _breach.type.name, codes];
 
 }
 
