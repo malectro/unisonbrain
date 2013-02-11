@@ -119,6 +119,8 @@
     if (searchList == _listController) {
         [_session addPeopleObject:item];
         _studentSelector.students = _session.people.allObjects;
+        [self reloadTitle];
+
     }
     else {
         [_selectedBreach addCodesObject:item];
@@ -130,6 +132,9 @@
     if (searchList == _listController) {
         [_session removePeopleObject:item];
         _studentSelector.students = _session.people.allObjects;
+        [self reloadTitle];
+
+
     }
     else {
         [_selectedBreach removeCodesObject:item];
@@ -169,6 +174,14 @@
     popover.popoverContentSize = datePickerController.datePicker.frame.size;
     
     [popover presentPopoverFromRect:_sessionView.changeDate.frame inView:_sessionView permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+    [self reloadTitle];
+    
+}
+
+- (void)reloadTitle
+{
+    
+    self.title = [NSString stringWithFormat:@"Session with %@ | %@   ", _session.studentList, [UBDate stringFromDateMedium:_session.time]];
     
 }
 

@@ -38,12 +38,4 @@
     return _name;
 }
 
-
-+ (NSDictionary *)keyMap
-{
-    return @{@"fname": @"fname",
-             @"lname": @"lname",
-             @"school": @"school"};
-}
-
 @end

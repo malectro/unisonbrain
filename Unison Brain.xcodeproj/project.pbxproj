@@ -483,6 +483,7 @@
 				863F417D16C439D800DACB64 /* UBSearchListViewController.m in Sources */,
 				86547C2116C56867000D54F1 /* UBBreachHeaderView.m in Sources */,
 				271E2ABA16C840A9009D4CE2 /* UBType.m in Sources */,
+				86D0516116C82AAA00BF026A /* UBRequest.m in Sources */,
 				271E2ABD16C867A1009D4CE2 /* UBDatePickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
