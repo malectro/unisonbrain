@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UBBreach.h"
+#import "DWTagList.h"
 
 @protocol UBBreachHeaderDelegate
 
@@ -25,6 +26,7 @@
 @property (weak, nonatomic) NSObject<UBBreachHeaderDelegate> *delegate;
 
 @property (nonatomic, readonly) UILabel *textLabel;
+@property (nonatomic, readonly) DWTagList *tagList;
 @property (nonatomic, readonly) UIView *backgroundView;
 
 - (void)reloadHeader;

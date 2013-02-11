@@ -14,6 +14,8 @@
 		271E2B0E16C95F3F009D4CE2 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 271E2B0D16C95F3F009D4CE2 /* Default-Landscape~ipad.png */; };
 		271E2B1016C95F55009D4CE2 /* appicon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 271E2B0F16C95F55009D4CE2 /* appicon~ipad.png */; };
 		271E2B1216C95F5C009D4CE2 /* appicon~ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 271E2B1116C95F5B009D4CE2 /* appicon~ipad@2x.png */; };
+		27ABD4F216C995870051411E /* DWTagList.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ABD4F116C995870051411E /* DWTagList.m */; };
+		27ABD4F316C995870051411E /* DWTagList.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ABD4F116C995870051411E /* DWTagList.m */; };
 		860268DA16B9811D002C6577 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 860268D916B9811D002C6577 /* UIKit.framework */; };
 		860268DC16B9811D002C6577 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 860268DB16B9811D002C6577 /* Foundation.framework */; };
 		860268DE16B9811D002C6577 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 860268DD16B9811D002C6577 /* CoreGraphics.framework */; };
@@ -80,6 +82,8 @@
 		271E2B0D16C95F3F009D4CE2 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		271E2B0F16C95F55009D4CE2 /* appicon~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appicon~ipad.png"; sourceTree = "<group>"; };
 		271E2B1116C95F5B009D4CE2 /* appicon~ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appicon~ipad@2x.png"; sourceTree = "<group>"; };
+		27ABD4F016C995870051411E /* DWTagList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWTagList.h; sourceTree = "<group>"; };
+		27ABD4F116C995870051411E /* DWTagList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWTagList.m; sourceTree = "<group>"; };
 		860268D616B9811D002C6577 /* Unison Brain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unison Brain.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		860268D916B9811D002C6577 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		860268DB16B9811D002C6577 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -340,6 +344,8 @@
 		86D51E2916B9B17B00C129F6 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				27ABD4F016C995870051411E /* DWTagList.h */,
+				27ABD4F116C995870051411E /* DWTagList.m */,
 				86D51E2A16B9B1BE00C129F6 /* UBUser.h */,
 				86D51E2B16B9B1BE00C129F6 /* UBUser.m */,
 				860C51AB16C168EA00C16B65 /* UBFunctions.h */,
@@ -501,6 +507,7 @@
 				271E2ABA16C840A9009D4CE2 /* UBType.m in Sources */,
 				86D0516116C82AAA00BF026A /* UBRequest.m in Sources */,
 				271E2ABD16C867A1009D4CE2 /* UBDatePickerViewController.m in Sources */,
+				27ABD4F216C995870051411E /* DWTagList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +516,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8602690B16B9811D002C6577 /* Unison_BrainTests.m in Sources */,
+				27ABD4F316C995870051411E /* DWTagList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
