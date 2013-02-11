@@ -20,8 +20,16 @@ static UBUser *currentUser;
 {
     if (currentUser == nil) {
         // test stuff that shouldn't be used
-       UBTeacher *teacher = [UBTeacher all][0];
-        //UBTeacher *teacher = [UBTeacher create];
+        NSArray *teachers = [UBTeacher all];
+        UBTeacher *teacher = nil;
+        
+        if (teachers.count > 0) {
+            teacher = teachers[0];
+        }
+        else {
+            teacher = (UBTeacher *) [UBTeacher create];
+        }
+        
         teacher.fname = @"Bob";
         teacher.lname = @"Teacher";
         

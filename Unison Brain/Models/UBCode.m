@@ -25,4 +25,9 @@
     return @"UBCode";
 }
 
++ (NSString *)modelUrl
+{
+    return @"codes";
+}
+
 @end

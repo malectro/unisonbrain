@@ -19,4 +19,9 @@
     return @"UBTeacher";
 }
 
++ (NSString *)modelUrl
+{
+    return @"teachers";
+}
+
 @end
