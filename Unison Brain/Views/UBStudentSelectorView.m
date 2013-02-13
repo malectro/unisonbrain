@@ -10,6 +10,13 @@
 
 #import "UBStudent.h"
 
+@interface UBStudentSelectorView ()
+
+@property (nonatomic) NSArray *buttons;
+@property (nonatomic) NSArray *targets;
+
+@end
+
 @implementation UBStudentSelectorView
 
 @synthesize students = _students;
@@ -19,6 +26,11 @@
 {
     self = [super init];
     if (self) {
+        _buttons = @[];
+        _targets = @[];
+        
+        self.allowsMultiple = NO;
+        
         if (students != nil) {
             self.students = students;
         }
@@ -36,6 +48,7 @@
     CGFloat viewPosition = 0;
     UIButton *studentView = nil;
     NSInteger i = 0;
+    NSMutableArray *buttons = [NSMutableArray arrayWithCapacity:students.count];
     
     for (UBStudent *student in students) {
         studentView = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -47,12 +60,15 @@
         [self addSubview:studentView];
         [studentView addTarget:self action:@selector(selectStudent:) forControlEvents:UIControlEventTouchDown];
         i++;
+        [buttons addObject:studentView];
     }
+    
+    _buttons = buttons;
 }
 
 - (void)clearSubviews
 {
-    for (UIView *view in self.subviews) {
+    for (UIView *view in _buttons) {
         [view removeFromSuperview];
     }
 }
@@ -69,10 +85,30 @@
         sender.backgroundColor = [UIColor whiteColor];
     }
     else {
-        _selectedStudents = [_selectedStudents setByAddingObject:student];
-        sender.selected = YES;
-        sender.backgroundColor = [UIColor blueColor];
+        if (self.allowsMultiple) {
+            _selectedStudents = [_selectedStudents setByAddingObject:student];
+            sender.selected = YES;
+            sender.backgroundColor = [UIColor blueColor];
+        }
+        else {
+            _selectedStudents = [NSSet setWithObject:student];
+        }
     }
+    
+    for (NSInvocation *invocation in _targets) {
+        //[invocation setArgument:(__bridge void *)(student) atIndex:0];
+        [invocation invoke];
+    }
+}
+
+- (void)addTarget:(id)target action:(SEL)action
+{
+    NSMethodSignature *methodSig = [[target class] instanceMethodSignatureForSelector:action];
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
+    invocation.target = target;
+    invocation.selector = action;
+    
+    _targets = [_targets arrayByAddingObject:invocation];
 }
 
 @end

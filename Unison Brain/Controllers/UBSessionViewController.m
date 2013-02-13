@@ -80,6 +80,7 @@
     
     _studentSelector = self.sessionView.studentSelector;
     _studentSelector.students = _session.people.allObjects;
+    [_studentSelector addTarget:self action:@selector(contribute)];
     
     self.sessionView.listSelectView = _listController.view;
     [_listController setSelection:_session.students.allObjects];
@@ -97,7 +98,6 @@
     //[self.navigationItem.rightBarButtonItem.customView addSubview:self.sessionView.codesOrStudents];
     
     [self.sessionView.createBreach addTarget:self action:@selector(chooseType) forControlEvents:UIControlEventTouchUpInside];
-    [self.sessionView.contribute addTarget:self action:@selector(contribute) forControlEvents:UIControlEventTouchUpInside];
 
     [self.sessionView.changeDate addTarget:self action:@selector(changeDate) forControlEvents:UIControlEventTouchUpInside];
 
