@@ -8,6 +8,8 @@
 
 #import "UBType.h"
 
+#import "UBCode.h"
+
 @implementation UBType
 
 @dynamic name;
@@ -20,8 +22,13 @@
 
 + (NSString *)modelUrl
 {
-    return @"strings";
+    return @"code_types";
 }
 
++ (NSDictionary *)keyMap
+{
+    return @{@"name": @"name",
+             @"codes": [UBCode class]};
+}
 
 @end

@@ -28,7 +28,7 @@
 
 - (id)initWithItems:(NSArray *)items
 {
-    return [super initWithItems:[UBStudent all]];
+    return [self init];
 }
 
 

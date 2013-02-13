@@ -319,7 +319,7 @@
         
     // hard coded type amounts in here for testing (and i can't figure out better way right now)
     
-    NSMutableArray *buttonTitleArray = [[NSMutableArray alloc]initWithCapacity:4];
+    NSMutableArray *buttonTitleArray = [[NSMutableArray alloc] initWithCapacity:4];
     
     for (int i=0; i < 4; i++){
         NSString *name = [[UBType all][i] valueForKey:@"name"];
@@ -333,7 +333,7 @@
     
 }
 
-- (void)createBreachWithType:(UBType*)type
+- (void)createBreachWithType:(UBType *)type
 {
     UBBreach *breach = [UBBreach create];
     breach.type = type;
@@ -393,10 +393,9 @@
         // but it might be screwing up right now.
 
     }
-    
     else {
-    UBType *type = [UBType all][buttonIndex];
-    [self createBreachWithType:type];
+        UBType *type = [UBType all][buttonIndex];
+        [self createBreachWithType:type];
     }
 }
 

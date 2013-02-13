@@ -25,6 +25,11 @@
     return self;
 }
 
+- (id)init
+{
+    return [self initWithItems:nil];
+}
+
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];

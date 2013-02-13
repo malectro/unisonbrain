@@ -97,22 +97,10 @@
 + (void)fetchAll
 {
     [UBRequest get:[self modelUrl] callback:^(NSArray *models) {
-        UBModel *model = nil;
-        
         NSLog(@"models %@", models);
         
         for (NSDictionary *dict in models) {
-            model = [self find:dict[@"id"]];
-            
-            if (model == nil) {
-                model = [self create];
-            }
-            
-            NSLog(@"updated at %@ %@", model.updatedAt, dict[@"updated_at"]);
-            
-            if (model.updatedAt.intValue < (NSInteger) dict[@"updated_at"]) {
-                [model updateWithDict:dict];
-            }
+            [self findOrCreateWithDict:dict];
         }
         
         [[UBAppDelegate moc] save:nil];
@@ -120,6 +108,21 @@
         NSString *notification = [NSString stringWithFormat:@"%@:fetchAll", [self modelName]];
         [[NSNotificationCenter defaultCenter] postNotificationName:notification object:self];
     }];
+}
+
++ (UBModel *)findOrCreateWithDict:(NSDictionary *)dict
+{
+    UBModel *model = [self find:dict[@"id"]];
+    
+    if (model == nil) {
+        model = [self create];
+    }
+    
+    if (model.updatedAt.intValue < (NSInteger) dict[@"updated_at"]) {
+        [model updateWithDict:dict];
+    }
+    
+    return model;
 }
 
 - (void)updateWithDict:(NSDictionary *)dict
@@ -130,8 +133,24 @@
     keyMap[@"id"] = @"id";
     
     for (NSString *key in dict) {
-        if (keyMap[key]) {
-            if (dict[key] != [NSNull null]) {
+        if (keyMap[key] && dict[key] != [NSNull null]) {
+            // is this a relationship?
+            if ([keyMap[key] superclass] == [UBModel class]) {
+                if ([dict[key] isKindOfClass:[NSArray class]]) {
+                    NSArray *toMap = dict[key];
+                    NSMutableSet *relations = [NSMutableSet setWithSet:[self valueForKey:key]];
+                    
+                    for (NSDictionary *dict in toMap) {
+                        //[relations addObject:[keyMap[key] findOrCreateWithDict:dict]];
+                    }
+                    
+                    //[self setValue:relations forKey:key];
+                }
+                else if ([dict[key] isKindOfClass:[NSDictionary class]]) {
+                    [self setValue:[keyMap[key] findOrCreateWithDict:dict[key]] forKey:key];
+                }
+            }
+            else {
                 [self setValue:dict[key] forKey:keyMap[key]];
             }
         }

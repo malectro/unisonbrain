@@ -175,9 +175,11 @@
 - (void)fetchServerStuff
 {
     //[UBTeacher fetchAll];
-    [UBStudent fetchAll];
-    [UBCode fetchAll];
-    [UBSubject fetchAll];
+    //[UBStudent fetchAll];
+    //[UBCode fetchAll];
+    //[UBSubject fetchAll];
+    [UBType fetchAll];
+    //NSLog(@"types %@", [UBType all]);
 }
 
 - (void)generateFakeData
