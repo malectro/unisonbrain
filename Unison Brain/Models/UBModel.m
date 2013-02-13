@@ -36,7 +36,7 @@
 + (NSDictionary *)keyMap
 {
     return @{@"updated_at": @"updatedAt",
-             @"_id": @"id"};
+             @"id": @"id"};
 }
 
 + (NSFetchRequest *)modelRequest
@@ -101,13 +101,14 @@
         
         NSLog(@"models %@", models);
         
-        
         for (NSDictionary *dict in models) {
-            model = [self find:dict[@"_id"]];
+            model = [self find:dict[@"id"]];
             
             if (model == nil) {
                 model = [self create];
             }
+            
+            NSLog(@"updated at %@ %@", model.updatedAt, dict[@"updated_at"]);
             
             if (model.updatedAt.intValue < (NSInteger) dict[@"updated_at"]) {
                 [model updateWithDict:dict];
@@ -115,6 +116,9 @@
             
             [model save];
         }
+        
+        NSString *notification = [NSString stringWithFormat:@"%@:fetchAll", [self modelName]];
+        [[NSNotificationCenter defaultCenter] postNotificationName:notification object:self];
     }];
 }
 
@@ -123,7 +127,7 @@
     NSMutableDictionary *keyMap = [NSMutableDictionary dictionaryWithDictionary:[[self class] keyMap]];
     
     keyMap[@"updated_at"] = @"updatedAt";
-    keyMap[@"_id"] = @"id";
+    keyMap[@"id"] = @"id";
     
     for (NSString *key in dict) {
         if (keyMap[key]) {
