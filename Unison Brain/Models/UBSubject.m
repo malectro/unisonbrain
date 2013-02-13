@@ -28,5 +28,9 @@
     return @"subjects";
 }
 
++ (NSDictionary *)keyMap
+{
+    return @{@"name": @"name"};
+}
 
 @end

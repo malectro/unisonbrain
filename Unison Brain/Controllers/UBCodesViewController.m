@@ -18,7 +18,16 @@
 
 - (id)initWithItems:(NSArray *)items
 {
-    return [super initWithItems:[UBCode all]];
+    self = [super initWithItems:[UBCode all]];
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadCodes) name:@"UBCode:fetchAll" object:nil];
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)configureCell:(UITableViewCell *)cell withItem:(UBCode *)code
@@ -32,6 +41,10 @@
     return result == NSOrderedSame;
 }
 
+- (void)reloadCodes
+{
+    self.items = [UBCode all];
+}
 
 
 @end

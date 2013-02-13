@@ -113,9 +113,9 @@
             if (model.updatedAt.intValue < (NSInteger) dict[@"updated_at"]) {
                 [model updateWithDict:dict];
             }
-            
-            [model save];
         }
+        
+        [[UBAppDelegate moc] save:nil];
         
         NSString *notification = [NSString stringWithFormat:@"%@:fetchAll", [self modelName]];
         [[NSNotificationCenter defaultCenter] postNotificationName:notification object:self];

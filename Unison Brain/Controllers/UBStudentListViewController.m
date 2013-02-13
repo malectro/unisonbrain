@@ -31,6 +31,12 @@
     return [super initWithItems:[UBStudent all]];
 }
 
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)configureCell:(UITableViewCell *)cell withItem:(UBStudent *)student
 {
     cell.textLabel.text = student.name;

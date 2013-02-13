@@ -89,8 +89,8 @@
         [self addSubview:_codesOrStudents];
         
         NSArray *subjects = [UBSubject all];
-        
-        NSArray *subjectNames = [subjects valueForKey:@"name"];        
+        NSLog(@"%@", subjects);
+        NSArray *subjectNames = [subjects valueForKey:@"name"];
         
         _subject = [[UISegmentedControl alloc] initWithItems:subjectNames];
         _subject.selectedSegmentIndex = -1;

@@ -30,4 +30,10 @@
     return @"codes";
 }
 
++ (NSDictionary *)keyMap
+{
+    return @{@"name": @"name",
+             @"year": @"year"};
+}
+
 @end
