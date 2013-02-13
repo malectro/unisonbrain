@@ -11,9 +11,8 @@
 
 #import "UBModel.h"
 #import "UBSubject.h"
-#import "UBType.h"
 
-@class UBBreach, UBCodeScore;
+@class UBBreach, UBCodeScore, UBSubject, UBCodeType;
 
 @interface UBCode : UBModel
 
@@ -22,7 +21,7 @@
 @property (nonatomic, retain) NSSet *breaches;
 @property (nonatomic, retain) NSSet *codeScores;
 @property (nonatomic, retain) UBSubject *subject;
-@property (nonatomic, retain) UBType * type;
+@property (nonatomic, retain) UBCodeType * codeType;
 
 
 @end

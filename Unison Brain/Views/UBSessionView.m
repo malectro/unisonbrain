@@ -13,7 +13,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "UBSubject.h"
-#import "UBType.h"
+#import "UBCodeType.h"
 
 #define LEFT_WIDTH 770.0f
 #define RIGHT_WIDTH (1024.0f - 770.0f)
@@ -97,7 +97,8 @@
         _subject.segmentedControlStyle = UISegmentedControlStyleBar;
         [self addSubview:_subject];
         
-        NSArray *typeNames = [[UBType all] valueForKey:@"name"];
+        
+        NSArray *typeNames = [[UBCodeType all] valueForKey:@"name"];
         
     }
     return self;

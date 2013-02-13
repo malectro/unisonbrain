@@ -8,6 +8,7 @@
 
 #import "UBBreach.h"
 #import "UBCode.h"
+#import "UBCodeType.h"
 #import "UBContribution.h"
 #import "UBPerson.h"
 #import "UBSession.h"
@@ -16,7 +17,7 @@
 @implementation UBBreach
 
 @dynamic time;
-@dynamic type;
+@dynamic codeType;
 @dynamic codes;
 @dynamic contributions;
 @dynamic people;

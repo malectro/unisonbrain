@@ -11,7 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "UBDate.h"
-#import "UBType.h"
+#import "UBCodeType.h"
 #import "UBBreach.h"
 
 @implementation UBBreachHeaderView
@@ -69,7 +69,7 @@
     //    codes = [NSString stringWithFormat:@" | Codes: %@", _breach.codeList];
     //}
     
-    self.textLabel.text = [NSString stringWithFormat:@"Type: %@%@", _breach.type.name, codes];
+    self.textLabel.text = [NSString stringWithFormat:@"Type: %@%@", _breach.codeType.name, codes];
 
     [self.tagList setTags:[[_breach.codes allObjects] valueForKey:@"name"]];
 }

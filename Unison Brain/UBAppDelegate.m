@@ -10,7 +10,7 @@
 
 #import "UBHomeViewController.h"
 
-#import "UBType.h"
+#import "UBCodeType.h"
 #import "UBCode.h"
 #import "UBSubject.h"
 #import "UBStudent.h"
@@ -176,9 +176,8 @@
 {
     //[UBTeacher fetchAll];
     //[UBStudent fetchAll];
-    //[UBCode fetchAll];
     //[UBSubject fetchAll];
-    [UBType fetchAll];
+    //[UBCodeType fetchAll];
     //NSLog(@"types %@", [UBType all]);
 }
 
@@ -192,7 +191,7 @@
                        @"Comprehension"];
     
     for (NSString *name in types) {
-        UBType *type = [UBType create];
+        UBCodeType *type = [UBCodeType create];
         type.name = name;
     }
 
@@ -216,8 +215,8 @@
         code = [UBCode create];
         code.name = arr[0];
         code.year = arr[1];
-        UBType *type = [UBType all][0];
-        code.type =  type; // setting type to a default....
+        UBCodeType *type = [UBCodeType all][0];
+        code.codeType =  type; // setting type to a default....
     }
      
     

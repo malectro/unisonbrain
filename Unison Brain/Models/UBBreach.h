@@ -12,12 +12,12 @@
 #import "UBModel.h"
 
 
-@class UBCode, UBContribution, UBPerson, UBSession, UBType;
+@class UBCode, UBContribution, UBPerson, UBSession, UBCodeType;
 
 @interface UBBreach : UBModel
 
 @property (nonatomic, retain) NSDate * time;
-@property (nonatomic, retain) UBType * type;
+@property (nonatomic, retain) UBCodeType * codeType;
 @property (nonatomic, retain) NSSet *codes;
 @property (nonatomic, retain) NSSet *contributions;
 @property (nonatomic, retain) NSSet *people;

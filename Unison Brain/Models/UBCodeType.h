@@ -11,7 +11,7 @@
 #import "UBModel.h"
 
 
-@interface UBType : UBModel
+@interface UBCodeType : UBModel
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSSet *codes;

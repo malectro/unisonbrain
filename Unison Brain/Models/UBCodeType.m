@@ -6,18 +6,18 @@
 //  Copyright (c) 2013 Kyle Warren. All rights reserved.
 //
 
-#import "UBType.h"
+#import "UBCodeType.h"
 
 #import "UBCode.h"
 
-@implementation UBType
+@implementation UBCodeType
 
 @dynamic name;
 @dynamic codes;
 
 + (NSString *)modelName
 {
-    return @"UBType";
+    return @"UBCodeType";
 }
 
 + (NSString *)modelUrl

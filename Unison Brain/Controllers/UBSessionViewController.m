@@ -13,7 +13,7 @@
 
 #import "UBModel.h"
 #import "UBSession.h"
-#import "UBType.h"
+#import "UBCodeType.h"
 #import "UBBreach.h"
 #import "UBContribution.h"
 #import "UBPerson.h"
@@ -35,7 +35,7 @@
 @property (nonatomic) UBCodesViewController *codesController;
 @property (nonatomic) NSArray *breaches;
 @property (nonatomic) UBBreach *selectedBreach;
-@property (nonatomic) UBType *chosenType;
+@property (nonatomic) UBCodeType *chosenType;
 @property (nonatomic) NSCache *headers;
 @property (nonatomic, retain) UIPopoverController *popover;
 
@@ -322,7 +322,7 @@
     NSMutableArray *buttonTitleArray = [[NSMutableArray alloc] initWithCapacity:4];
     
     for (int i=0; i < 4; i++){
-        NSString *name = [[UBType all][i] valueForKey:@"name"];
+        NSString *name = [[UBCodeType all][i] valueForKey:@"name"];
         [buttonTitleArray addObject:name];
     }
     
@@ -333,10 +333,10 @@
     
 }
 
-- (void)createBreachWithType:(UBType *)type
+- (void)createBreachWithType:(UBCodeType *)type
 {
     UBBreach *breach = [UBBreach create];
-    breach.type = type;
+    breach.codeType = type;
     
     [breach addPeople:_session.people];
     
@@ -394,7 +394,7 @@
 
     }
     else {
-        UBType *type = [UBType all][buttonIndex];
+        UBCodeType *type = [UBCodeType all][buttonIndex];
         [self createBreachWithType:type];
     }
 }

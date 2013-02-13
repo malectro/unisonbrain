@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		271E2AB716C80436009D4CE2 /* ConferenceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 271E2AB616C80436009D4CE2 /* ConferenceView.xib */; };
-		271E2ABA16C840A9009D4CE2 /* UBType.m in Sources */ = {isa = PBXBuildFile; fileRef = 271E2AB916C840A8009D4CE2 /* UBType.m */; };
+		271E2ABA16C840A9009D4CE2 /* UBCodeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 271E2AB916C840A8009D4CE2 /* UBCodeType.m */; };
 		271E2ABD16C867A1009D4CE2 /* UBDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 271E2ABC16C867A1009D4CE2 /* UBDatePickerViewController.m */; };
 		271E2B0C16C95F3B009D4CE2 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 271E2B0B16C95F3A009D4CE2 /* Default-Landscape@2x~ipad.png */; };
 		271E2B0E16C95F3F009D4CE2 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 271E2B0D16C95F3F009D4CE2 /* Default-Landscape~ipad.png */; };
@@ -74,8 +74,8 @@
 
 /* Begin PBXFileReference section */
 		271E2AB616C80436009D4CE2 /* ConferenceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ConferenceView.xib; path = Views/ConferenceView.xib; sourceTree = "<group>"; };
-		271E2AB816C840A7009D4CE2 /* UBType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBType.h; path = "Unison Brain/Models/UBType.h"; sourceTree = "<group>"; };
-		271E2AB916C840A8009D4CE2 /* UBType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBType.m; path = "Unison Brain/Models/UBType.m"; sourceTree = "<group>"; };
+		271E2AB816C840A7009D4CE2 /* UBCodeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBCodeType.h; path = "Unison Brain/Models/UBCodeType.h"; sourceTree = "<group>"; };
+		271E2AB916C840A8009D4CE2 /* UBCodeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBCodeType.m; path = "Unison Brain/Models/UBCodeType.m"; sourceTree = "<group>"; };
 		271E2ABB16C867A0009D4CE2 /* UBDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UBDatePickerViewController.h; sourceTree = "<group>"; };
 		271E2ABC16C867A1009D4CE2 /* UBDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UBDatePickerViewController.m; sourceTree = "<group>"; };
 		271E2B0B16C95F3A009D4CE2 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
@@ -190,8 +190,8 @@
 		277481B316B98D7900211D00 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				271E2AB816C840A7009D4CE2 /* UBType.h */,
-				271E2AB916C840A8009D4CE2 /* UBType.m */,
+				271E2AB816C840A7009D4CE2 /* UBCodeType.h */,
+				271E2AB916C840A8009D4CE2 /* UBCodeType.m */,
 				86D51E4816B9B8ED00C129F6 /* UBCode.h */,
 				86D51E4916B9B8ED00C129F6 /* UBCode.m */,
 				86D51E4516B9B8ED00C129F6 /* UBContribution.h */,
@@ -504,7 +504,7 @@
 				863F417A16C4393A00DACB64 /* UBCodesViewController.m in Sources */,
 				863F417D16C439D800DACB64 /* UBSearchListViewController.m in Sources */,
 				86547C2116C56867000D54F1 /* UBBreachHeaderView.m in Sources */,
-				271E2ABA16C840A9009D4CE2 /* UBType.m in Sources */,
+				271E2ABA16C840A9009D4CE2 /* UBCodeType.m in Sources */,
 				86D0516116C82AAA00BF026A /* UBRequest.m in Sources */,
 				271E2ABD16C867A1009D4CE2 /* UBDatePickerViewController.m in Sources */,
 				27ABD4F216C995870051411E /* DWTagList.m in Sources */,
