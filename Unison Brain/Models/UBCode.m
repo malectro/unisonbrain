@@ -9,12 +9,13 @@
 #import "UBCode.h"
 #import "UBBreach.h"
 #import "UBCodeScore.h"
+#import "UBCodeType.h"
 
 
 @implementation UBCode
 
 @dynamic name;
-@dynamic type;
+@dynamic codeType;
 @dynamic subject;
 @dynamic year;
 @dynamic breaches;
@@ -28,6 +29,12 @@
 + (NSString *)modelUrl
 {
     return @"codes";
+}
+
++ (NSDictionary *)keyMap
+{
+    return @{@"name": @"name",
+             @"year": @"year"};
 }
 
 @end

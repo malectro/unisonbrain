@@ -14,7 +14,7 @@
 @property (nonatomic, retain) NSNumber *updatedAt;
 
 + (UBModel *)find:(NSString *)modelId;
-+ (UBModel *)create;
++ (id)create;
 + (NSArray *)all;
 
 + (void)fetchAll;

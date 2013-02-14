@@ -13,7 +13,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "UBSubject.h"
-#import "UBType.h"
+#import "UBCodeType.h"
 
 #define LEFT_WIDTH 770.0f
 #define RIGHT_WIDTH (1024.0f - 770.0f)
@@ -58,11 +58,6 @@
         
         self.studentSelector = [[UBStudentSelectorView alloc] initWithStudents:nil];
         
-        // _removeStudents = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        // [_removeStudents setTitle:@"Remove Students" forState:UIControlStateNormal];
-        // [_removeStudents sizeToFit];
-        // [self addSubview:_removeStudents];
-        
         _createBreach = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [_createBreach setTitle:@"New Breach" forState:UIControlStateNormal];
         [_createBreach sizeToFit];
@@ -72,11 +67,6 @@
         [_changeDate setTitle:@"Change Date" forState:UIControlStateNormal];
         [_changeDate sizeToFit];
         [self addSubview:_changeDate];
-        
-        _contribute = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [_contribute setTitle:@"New Contribution" forState:UIControlStateNormal];
-        [_contribute sizeToFit];
-        [self addSubview:_contribute];
         
         self.selectorLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         self.selectorLabel.text = @"People in This Session";
@@ -89,16 +79,13 @@
         [self addSubview:_codesOrStudents];
         
         NSArray *subjects = [UBSubject all];
-        
-        NSArray *subjectNames = [subjects valueForKey:@"name"];        
+        NSLog(@"%@", subjects);
+        NSArray *subjectNames = [subjects valueForKey:@"name"];
         
         _subject = [[UISegmentedControl alloc] initWithItems:subjectNames];
         _subject.selectedSegmentIndex = -1;
         _subject.segmentedControlStyle = UISegmentedControlStyleBar;
         [self addSubview:_subject];
-        
-        NSArray *typeNames = [[UBType all] valueForKey:@"name"];
-        
     }
     return self;
 }
@@ -118,8 +105,7 @@
     self.selectorLabel.frame = CGRectPosition(self.selectorLabel.frame, 10.0f, _studentSelector.frame.origin.y - self.selectorLabel.frame.size.height - 5.0f);
     
     _createBreach.frame = CGRectPosition(_createBreach.frame, 10.0f, self.selectorLabel.frame.origin.y - 44.0f);
-    _contribute.frame = CGRectPosition(_contribute.frame, _createBreach.frame.origin.x + _createBreach.frame.size.width + 2.0f, _createBreach.frame.origin.y);
-    _changeDate.frame = CGRectPosition(_changeDate.frame, _contribute.frame.origin.x + _contribute.frame.size.width +2.0f, _createBreach.frame.origin.y);
+    _changeDate.frame = CGRectPosition(_changeDate.frame, _createBreach.frame.origin.x + _createBreach.frame.size.width +2.0f, _createBreach.frame.origin.y);
     
     _breachesView.frame = CGRectMake(0, 0, LEFT_WIDTH - 1.0f, _createBreach.frame.origin.y - 10.0f);
     _controlPanelBackground.frame = CGRectMake(0, _breachesView.frame.size.height, LEFT_WIDTH - 1.0f, self.frame.size.height - _breachesView.frame.size.height);

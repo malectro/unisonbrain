@@ -17,7 +17,6 @@
 @property (nonatomic, readonly) UITableView *breachesView;
 
 @property (nonatomic, readonly) UIButton *createBreach;
-@property (nonatomic, readonly) UIButton *contribute;
 @property (nonatomic, readonly) UIButton *changeDate;
 @property (nonatomic, readonly) UISegmentedControl *codesOrStudents;
 @property (nonatomic, readonly) UISegmentedControl *subject;

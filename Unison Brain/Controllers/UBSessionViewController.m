@@ -13,7 +13,7 @@
 
 #import "UBModel.h"
 #import "UBSession.h"
-#import "UBType.h"
+#import "UBCodeType.h"
 #import "UBBreach.h"
 #import "UBContribution.h"
 #import "UBPerson.h"
@@ -35,7 +35,7 @@
 @property (nonatomic) UBCodesViewController *codesController;
 @property (nonatomic) NSArray *breaches;
 @property (nonatomic) UBBreach *selectedBreach;
-@property (nonatomic) UBType *chosenType;
+@property (nonatomic) UBCodeType *chosenType;
 @property (nonatomic) NSCache *headers;
 @property (nonatomic, retain) UIPopoverController *popover;
 
@@ -80,6 +80,7 @@
     
     _studentSelector = self.sessionView.studentSelector;
     _studentSelector.students = _session.people.allObjects;
+    [_studentSelector addTarget:self action:@selector(contribute)];
     
     self.sessionView.listSelectView = _listController.view;
     [_listController setSelection:_session.students.allObjects];
@@ -97,7 +98,6 @@
     //[self.navigationItem.rightBarButtonItem.customView addSubview:self.sessionView.codesOrStudents];
     
     [self.sessionView.createBreach addTarget:self action:@selector(chooseType) forControlEvents:UIControlEventTouchUpInside];
-    [self.sessionView.contribute addTarget:self action:@selector(contribute) forControlEvents:UIControlEventTouchUpInside];
 
     [self.sessionView.changeDate addTarget:self action:@selector(changeDate) forControlEvents:UIControlEventTouchUpInside];
 
@@ -360,10 +360,10 @@
         
     // hard coded type amounts in here for testing (and i can't figure out better way right now)
     
-    NSMutableArray *buttonTitleArray = [[NSMutableArray alloc]initWithCapacity:4];
+    NSMutableArray *buttonTitleArray = [[NSMutableArray alloc] initWithCapacity:4];
     
     for (int i=0; i < 4; i++){
-        NSString *name = [[UBType all][i] valueForKey:@"name"];
+        NSString *name = [[UBCodeType all][i] valueForKey:@"name"];
         [buttonTitleArray addObject:name];
     }
     
@@ -374,10 +374,10 @@
     
 }
 
-- (void)createBreachWithType:(UBType*)type
+- (void)createBreachWithType:(UBCodeType *)type
 {
     UBBreach *breach = [UBBreach create];
-    breach.type = type;
+    breach.codeType = type;
     
     [breach addPeople:_session.people];
     
@@ -437,10 +437,9 @@
         // but it might be screwing up right now.
 
     }
-    
     else {
-    UBType *type = [UBType all][buttonIndex];
-    [self createBreachWithType:type];
+        UBCodeType *type = [UBCodeType all][buttonIndex];
+        [self createBreachWithType:type];
     }
 }
 

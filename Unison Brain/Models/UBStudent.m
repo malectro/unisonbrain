@@ -25,4 +25,12 @@
     return @"students";
 }
 
++ (NSDictionary *)keyMap
+{
+    return @{@"fname": @"fname",
+             @"lname": @"lname",
+             @"school": @"school",
+             @"section": @"section"};
+}
+
 @end

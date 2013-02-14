@@ -17,15 +17,24 @@
 
 @implementation UBStudentListViewController
 
-- (id)init{
-
-    return [super initWithItems:[UBStudent all]];
-    
+- (id)init
+{
+    self = [super initWithItems:[UBStudent all]];
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadStudents) name:@"UBStudent:fetchAll" object:nil];
+    }
+    return self;
 }
 
 - (id)initWithItems:(NSArray *)items
 {
-    return [super initWithItems:[UBStudent all]];
+    return [self init];
+}
+
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)configureCell:(UITableViewCell *)cell withItem:(UBStudent *)student
@@ -37,6 +46,11 @@
 {
     NSComparisonResult result = [student.name compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchText length])];
     return result == NSOrderedSame;
+}
+
+- (void)reloadStudents
+{
+    self.items = [UBStudent all];
 }
 
 @end

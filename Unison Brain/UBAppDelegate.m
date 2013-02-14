@@ -10,7 +10,7 @@
 
 #import "UBHomeViewController.h"
 
-#import "UBType.h"
+#import "UBCodeType.h"
 #import "UBCode.h"
 #import "UBSubject.h"
 #import "UBStudent.h"
@@ -25,7 +25,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // TEST METHOD: comment this usually
-    //[self fetchServerStuff];
     //[self generateFakeData];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -37,6 +36,7 @@
     UINavigationController *mainNav = [[UINavigationController alloc] initWithRootViewController:homeViewController];
     [self.window setRootViewController:mainNav];
     
+    [self fetchServerStuff];
     
     return YES;
 }
@@ -174,10 +174,11 @@
 #pragma mark - Testing methods that whouldn't be used ever
 - (void)fetchServerStuff
 {
-    [UBTeacher fetchAll];
-    [UBStudent fetchAll];
-    [UBCode fetchAll];
-    [UBSubject fetchAll];
+    //[UBTeacher fetchAll];
+    //[UBStudent fetchAll];
+    //[UBSubject fetchAll];
+    //[UBCodeType fetchAll];
+    //NSLog(@"types %@", [UBType all]);
 }
 
 - (void)generateFakeData
@@ -190,7 +191,7 @@
                        @"Comprehension"];
     
     for (NSString *name in types) {
-        UBType *type = [UBType create];
+        UBCodeType *type = [UBCodeType create];
         type.name = name;
     }
 
@@ -214,8 +215,8 @@
         code = [UBCode create];
         code.name = arr[0];
         code.year = arr[1];
-        UBType *type = [UBType all][0];
-        code.type =  type; // setting type to a default....
+        UBCodeType *type = [UBCodeType all][0];
+        code.codeType =  type; // setting type to a default....
     }
      
     

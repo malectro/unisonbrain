@@ -12,8 +12,11 @@
 
 @property (nonatomic, retain) NSArray *students;
 @property (nonatomic, retain, readonly) NSSet *selectedStudents;
+@property (nonatomic) BOOL allowsMultiple;
 
 
 - (id)initWithStudents:(NSArray *)students;
+
+- (void)addTarget:(id)target action:(SEL)action;
 
 @end
