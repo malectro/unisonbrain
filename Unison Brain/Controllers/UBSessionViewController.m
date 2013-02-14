@@ -228,7 +228,7 @@
     UBBreachHeaderView *header = [_headers objectForKey:breach];
     
     if (header == nil) {
-        header = [[UBBreachHeaderView alloc] init];
+       header = [[UBBreachHeaderView alloc] init];
         [header addTarget:header action:@selector(setSelfSelected) forControlEvents:UIControlEventTouchUpInside];
         header.delegate = self;
         header.breach = breach;
@@ -261,15 +261,56 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
         //REMOVE THE CONTRIBUTION at indexPath
-        UBModel *modelToDestroy = [self contributionForIndexPath:indexPath];
-        [modelToDestroy destroy];
+
+        UBModel *contributionToDestroy = [self contributionForIndexPath:indexPath];
+        UBBreach *breach = [self breachForIndexPath:indexPath];
+        [contributionToDestroy destroy];
         
-        [tableView reloadData];
+        [_sessionView.breachesView beginUpdates];
+        [_sessionView.breachesView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+
+        
+        if (breach.contributions.count == 0) {
+            int breachIndex = [_breaches indexOfObject:breach];
+            NSIndexSet *indexes = [NSMutableIndexSet indexSetWithIndex:breachIndex];
+
+            self.selectedBreach = nil;
+            [_headers removeObjectForKey:[_headers objectForKey:breach]];
+            [_session removeBreachesObject:breach];
+            [breach destroy];
+            [_sessionView.breachesView deleteSections:indexes withRowAnimation:UITableViewRowAnimationFade];
+        }
+        
+        [_session save];
+        [_sessionView.breachesView endUpdates];
+        
     }
 }
 
 
 #pragma mark - Breach Methods
+
+- (void)deleteBreach:(UBBreach *)breach
+{
+    
+    int breachIndex = [_breaches indexOfObject:breach];
+    NSIndexSet *indexes = [NSMutableIndexSet indexSetWithIndex:breachIndex];
+
+    [_session removeBreachesObject:breach];    
+    [_headers removeObjectForKey:[_headers objectForKey:breach]];
+    [breach destroy];
+    [self setSelectedBreach:nil];
+    _breaches = nil;
+    _breaches = [self breaches];
+    
+    [_sessionView.breachesView deleteSections:indexes withRowAnimation:UITableViewRowAnimationFade];
+    
+    //[_sessionView.breachesView reloadData];
+    
+    //NSUInteger sectionCount = [_breaches count];
+    //NSIndexSet *indexes = [NSMutableIndexSet indexSetWithIndexesInRange:NSMakeRange(0, sectionCount)];
+    //[_sessionView.breachesView reloadSections:indexes withRowAnimation:UITableViewRowAnimationNone];
+}
 
 - (void)setSelectedBreach:(UBBreach *)selectedBreach
 {
@@ -280,11 +321,11 @@
         section = [self.breaches indexOfObject:self.selectedBreach];
         headerView = (UBBreachHeaderView *)[self tableView:nil viewForHeaderInSection:section];
         headerView.selected = NO;
+        
+        section = [self.breaches indexOfObject:selectedBreach];
+        headerView = (UBBreachHeaderView *)[self tableView:nil viewForHeaderInSection:section];
+        headerView.selected = YES;
     }
-    
-    section = [self.breaches indexOfObject:selectedBreach];
-    headerView = (UBBreachHeaderView *)[self tableView:nil viewForHeaderInSection:section];
-    headerView.selected = YES;
     
     _selectedBreach = selectedBreach;
     
@@ -343,8 +384,11 @@
     [_session addBreachesObject:breach];
     
     _breaches = nil;
+    _breaches = [self breaches];
     
-    [_sessionView.breachesView insertSections:[NSIndexSet indexSetWithIndex:self.breaches.count - 1] withRowAnimation:UITableViewRowAnimationAutomatic];
+    NSUInteger index = _breaches.count - 1;
+    
+    [_sessionView.breachesView insertSections:[NSIndexSet indexSetWithIndex:index] withRowAnimation:UITableViewRowAnimationAutomatic];
 
     self.selectedBreach = breach;
 }

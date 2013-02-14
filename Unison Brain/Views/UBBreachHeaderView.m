@@ -35,10 +35,24 @@
         _tagList = [[DWTagList alloc]init];
         _tagList.backgroundColor = [UIColor groupTableViewBackgroundColor];
         
+        
+        _deleteButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        //_deleteButton.tintColor = [UIColor redColor];
+        [_deleteButton setTitle:@"Delete" forState:UIControlStateNormal];
+        [_deleteButton setTitleColor:[UIColor colorWithRed:0.30f green:0.10f blue:0.10f alpha:1.0f] forState:UIControlStateNormal];
+        
+    
+        [_deleteButton sizeToFit];
+        [_deleteButton setHidden:YES];
+        
         [self addSubview:_textLabel];
         [self addSubview:_tagList];
+        [self addSubview:_deleteButton];
         
         self.selected = NO;
+        
+        [self addTarget:self action:@selector(showDeleteButton) forControlEvents:UIControlEventTouchDragInside];
+        
     }
     return self;
 }
@@ -48,12 +62,37 @@
     _backgroundView.frame = CGRectMake(10.0f, 20.0f, self.frame.size.width - 20.0f, self.frame.size.height - 20.0f);
     
     //old:     _textLabel.frame = CGRectMake(50.0f, 0.0f, self.frame.size.width - 100.0f, self.frame.size.height - 0.0f);
+    
+    _deleteButton.frame = CGRectMake(640.0f, 10.0f, _deleteButton.frame.size.width, 30.0f);
 
+    
     _textLabel.frame = CGRectMake(50.0f, 0.0f, 200.0f, self.frame.size.height - 0.0f);
     //_tagList.frame = CGRectMake(50.0f, 0.0f, 210.0f, self.frame.size.height);
     _tagList.frame = CGRectMake(260.0f, 10.0f, self.frame.size.width - 270.0f, 20.0f);
     [self reloadHeader];
 
+}
+
+- (void)showDeleteButton
+{
+    [_deleteButton setHidden:NO];
+    [_deleteButton setEnabled:YES];
+    [self addTarget:self action:@selector(hideDeleteButton) forControlEvents:UIControlEventTouchDown];
+    [_deleteButton addTarget:self action:@selector(deleteBreach) forControlEvents:UIControlEventTouchUpInside];
+
+
+}
+
+- (void)hideDeleteButton
+{
+    [_deleteButton setHidden:YES];
+    [_deleteButton setEnabled:NO];
+    [self removeTarget:self action:@selector(hideDeleteButton) forControlEvents:UIControlEventTouchDown];
+}
+
+- (void)deleteBreach
+{
+    [_delegate deleteBreach:self.breach];
 }
 
 - (void)setBreach:(UBBreach *)breach

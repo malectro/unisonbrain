@@ -21,6 +21,7 @@
 - (id)initWithSession:(UBSession *)session;
 
 - (void)setSelectedBreach:(UBBreach *)selectedBreach;
+- (void)deleteBreach:(UBBreach *)breach;
 
 
 @end

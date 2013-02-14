@@ -10,10 +10,12 @@
 #import "UBBreach.h"
 #import "DWTagList.h"
 
+
 @protocol UBBreachHeaderDelegate
 
 @optional
 - (void)setSelectedBreach:(UBBreach *)selectedBreach;
+- (void)deleteBreach:(UBBreach *)breach;
 @end
 
 
@@ -28,7 +30,7 @@
 @property (nonatomic, readonly) UILabel *textLabel;
 @property (nonatomic, readonly) DWTagList *tagList;
 @property (nonatomic, readonly) UIView *backgroundView;
-
+@property (nonatomic, readonly) UIButton *deleteButton;
 - (void)reloadHeader;
 - (void)setSelfSelected;
 
