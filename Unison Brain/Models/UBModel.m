@@ -141,10 +141,10 @@
                     NSMutableSet *relations = [NSMutableSet setWithSet:[self valueForKey:key]];
                     
                     for (NSDictionary *dict in toMap) {
-                        //[relations addObject:[keyMap[key] findOrCreateWithDict:dict]];
+                        [relations addObject:[keyMap[key] findOrCreateWithDict:dict]];
                     }
                     
-                    //[self setValue:relations forKey:key];
+                    [self setValue:relations forKey:key];
                 }
                 else if ([dict[key] isKindOfClass:[NSDictionary class]]) {
                     [self setValue:[keyMap[key] findOrCreateWithDict:dict[key]] forKey:key];

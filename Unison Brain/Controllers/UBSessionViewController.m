@@ -86,7 +86,6 @@
     [_listController setSelection:_session.students.allObjects];
     
     [self.sessionView.codesOrStudents addTarget:self action:@selector(changeSideList:) forControlEvents:UIControlEventValueChanged];
-    //[self.sessionView.codesOrStudents removeFromSuperview];
     
     NSArray *barItems = @[
                           [[UIBarButtonItem alloc] initWithCustomView:self.sessionView.codesOrStudents],
@@ -94,8 +93,6 @@
                           ];
     
     self.navigationItem.rightBarButtonItems = barItems;
-    
-    //[self.navigationItem.rightBarButtonItem.customView addSubview:self.sessionView.codesOrStudents];
     
     [self.sessionView.createBreach addTarget:self action:@selector(chooseType) forControlEvents:UIControlEventTouchUpInside];
 
@@ -264,7 +261,8 @@
         UBModel *modelToDestroy = [self contributionForIndexPath:indexPath];
         [modelToDestroy destroy];
         
-        [tableView reloadData];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        //[tableView reloadData];
     }
 }
 

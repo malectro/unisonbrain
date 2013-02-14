@@ -177,8 +177,9 @@
     //[UBTeacher fetchAll];
     //[UBStudent fetchAll];
     //[UBSubject fetchAll];
-    //[UBCodeType fetchAll];
-    //NSLog(@"types %@", [UBType all]);
+    [UBCodeType fetchAll];
+    //NSLog(@"types %@", [UBCodeType all]);
+    //NSLog(@"codes %@", [UBCode all]);
 }
 
 - (void)generateFakeData
