@@ -262,7 +262,6 @@
         [modelToDestroy destroy];
         
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-        //[tableView reloadData];
     }
 }
 

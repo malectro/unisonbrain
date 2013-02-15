@@ -174,9 +174,9 @@
 #pragma mark - Testing methods that whouldn't be used ever
 - (void)fetchServerStuff
 {
-    //[UBTeacher fetchAll];
-    //[UBStudent fetchAll];
-    //[UBSubject fetchAll];
+    [UBTeacher fetchAll];
+    [UBStudent fetchAll];
+    [UBSubject fetchAll];
     [UBCodeType fetchAll];
     //NSLog(@"types %@", [UBCodeType all]);
     //NSLog(@"codes %@", [UBCode all]);

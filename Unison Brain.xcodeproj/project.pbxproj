@@ -45,6 +45,9 @@
 		863F417A16C4393A00DACB64 /* UBCodesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 863F417916C4393A00DACB64 /* UBCodesViewController.m */; };
 		863F417D16C439D800DACB64 /* UBSearchListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 863F417C16C439D800DACB64 /* UBSearchListViewController.m */; };
 		86547C2116C56867000D54F1 /* UBBreachHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86547C2016C56867000D54F1 /* UBBreachHeaderView.m */; };
+		868F0FE316CD89C60017A02F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868F0FE216CD89C60017A02F /* SystemConfiguration.framework */; };
+		868F0FEC16CEC6760017A02F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 868F0FEB16CEC6760017A02F /* Reachability.m */; };
+		868F0FED16CEC6760017A02F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 868F0FEB16CEC6760017A02F /* Reachability.m */; };
 		86B6B68916C2F6E60027F087 /* UBAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B6B68816C2F6E60027F087 /* UBAlert.m */; };
 		86B6B68C16C31D190027F087 /* UBContributionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B6B68B16C31D190027F087 /* UBContributionCell.m */; };
 		86D0516116C82AAA00BF026A /* UBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D0516016C82AAA00BF026A /* UBRequest.m */; };
@@ -129,6 +132,9 @@
 		863F417C16C439D800DACB64 /* UBSearchListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBSearchListViewController.m; path = Controllers/UBSearchListViewController.m; sourceTree = "<group>"; };
 		86547C1F16C56867000D54F1 /* UBBreachHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBBreachHeaderView.h; path = Views/UBBreachHeaderView.h; sourceTree = "<group>"; };
 		86547C2016C56867000D54F1 /* UBBreachHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBBreachHeaderView.m; path = Views/UBBreachHeaderView.m; sourceTree = "<group>"; };
+		868F0FE216CD89C60017A02F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		868F0FEA16CEC6760017A02F /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = submodules/Reachability/Reachability.h; sourceTree = SOURCE_ROOT; };
+		868F0FEB16CEC6760017A02F /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = submodules/Reachability/Reachability.m; sourceTree = SOURCE_ROOT; };
 		86B6B68716C2F6E60027F087 /* UBAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBAlert.h; path = Helpers/UBAlert.h; sourceTree = "<group>"; };
 		86B6B68816C2F6E60027F087 /* UBAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBAlert.m; path = Helpers/UBAlert.m; sourceTree = "<group>"; };
 		86B6B68A16C31D190027F087 /* UBContributionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBContributionCell.h; path = Views/UBContributionCell.h; sourceTree = "<group>"; };
@@ -166,6 +172,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				868F0FE316CD89C60017A02F /* SystemConfiguration.framework in Frameworks */,
 				860268DA16B9811D002C6577 /* UIKit.framework in Frameworks */,
 				860268DC16B9811D002C6577 /* Foundation.framework in Frameworks */,
 				860268DE16B9811D002C6577 /* CoreGraphics.framework in Frameworks */,
@@ -222,6 +229,7 @@
 		860268CD16B9811D002C6577 = {
 			isa = PBXGroup;
 			children = (
+				868F0FE216CD89C60017A02F /* SystemConfiguration.framework */,
 				271E2B1116C95F5B009D4CE2 /* appicon~ipad@2x.png */,
 				271E2B0F16C95F55009D4CE2 /* appicon~ipad.png */,
 				271E2B0D16C95F3F009D4CE2 /* Default-Landscape~ipad.png */,
@@ -344,6 +352,8 @@
 		86D51E2916B9B17B00C129F6 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				868F0FEA16CEC6760017A02F /* Reachability.h */,
+				868F0FEB16CEC6760017A02F /* Reachability.m */,
 				27ABD4F016C995870051411E /* DWTagList.h */,
 				27ABD4F116C995870051411E /* DWTagList.m */,
 				86D51E2A16B9B1BE00C129F6 /* UBUser.h */,
@@ -508,6 +518,7 @@
 				86D0516116C82AAA00BF026A /* UBRequest.m in Sources */,
 				271E2ABD16C867A1009D4CE2 /* UBDatePickerViewController.m in Sources */,
 				27ABD4F216C995870051411E /* DWTagList.m in Sources */,
+				868F0FEC16CEC6760017A02F /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,6 +528,7 @@
 			files = (
 				8602690B16B9811D002C6577 /* Unison_BrainTests.m in Sources */,
 				27ABD4F316C995870051411E /* DWTagList.m in Sources */,
+				868F0FED16CEC6760017A02F /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
