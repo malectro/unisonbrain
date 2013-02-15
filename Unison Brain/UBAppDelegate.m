@@ -8,6 +8,8 @@
 
 #import "UBAppDelegate.h"
 
+#import "UBRequest.h"
+
 #import "UBHomeViewController.h"
 
 #import "UBCodeType.h"
@@ -180,6 +182,7 @@
     [UBCodeType fetchAll];
     //NSLog(@"types %@", [UBCodeType all]);
     //NSLog(@"codes %@", [UBCode all]);
+    //[UBRequest post:@"sessions" data:@{@"order": @1, @"is_coded": @NO} callback:nil];
 }
 
 - (void)generateFakeData

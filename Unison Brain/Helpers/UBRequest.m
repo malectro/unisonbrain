@@ -38,6 +38,11 @@
     [[self ubr] get:path callback:handler];
 }
 
++ (void)post:(NSString *)path data:(NSDictionary *)dataDict callback:(void (^)(id))handler
+{
+    [[self ubr] post:path data:dataDict callback:handler];
+}
+
 - (id)init
 {
     self = [super init];
@@ -64,14 +69,41 @@
 
 - (void)get:(NSString *)path callback:(void (^)(id))handler
 {
+    [self request:path method:@"GET" data:nil callback:handler];
+}
+
+- (void)post:(NSString *)path data:(NSDictionary *)dataDict callback:(void (^)(id))handler
+{
+    NSError *error = nil;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:dataDict options:0 error:&error];
+    
+    if (data == nil) {
+        NSLog(@"Could not serialize dictionary for POST request. %@", dataDict);
+        abort();
+    }
+    
+    [self request:path method:@"POST" data:data callback:handler];
+}
+
+- (void)request:(NSString *)path method:(NSString *)method data:(NSData *)data callback:(void (^)(id))callback
+{
     path = [path stringByAppendingString:@".json"];
     
     NSURL *url = [_baseUrl URLByAppendingPathComponent:path];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = method;
+    
+    if (data != nil) {
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        request.HTTPBody = data;
+    }
     
     [NSURLConnection sendAsynchronousRequest:request queue:_operationQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         NSArray *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-        handler(dict);
+        
+        if (callback != nil) {
+            callback(dict);
+        }
     }];
 }
 

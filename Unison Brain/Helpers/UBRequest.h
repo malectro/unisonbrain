@@ -10,6 +10,10 @@
 
 @interface UBRequest : NSObject
 
-+ (void)get:(NSString *)path callback:(void (^)(id)) handler NS_AVAILABLE(10_7, 5_0);
++ (void)get:(NSString *)path callback:(void (^)(id)) handler;
++ (void)post:(NSString *)path data:(NSDictionary *)dataDict callback:(void (^)(id)) handler;
+
+- (void)get:(NSString *)path callback:(void (^)(id)) handler;
+- (void)post:(NSString *)path data:(NSDictionary *)dataDict callback:(void (^)(id)) handler;
 
 @end
