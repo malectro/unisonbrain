@@ -23,6 +23,7 @@
 + (NSString *)modelUrl;
 + (NSArray *)modelSort;
 + (NSDictionary *)keyMap;
+- (NSDictionary *)asDict;
 
 - (void)save;
 - (void)destroy;

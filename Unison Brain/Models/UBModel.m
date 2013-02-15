@@ -39,6 +39,11 @@
              @"id": @"id"};
 }
 
++ (NSDictionary *)reverseKeyMap
+{
+    return @{@"updatedAt": @"updated_at"};
+}
+
 + (NSFetchRequest *)modelRequest
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -157,12 +162,37 @@
     }
 }
 
+- (NSDictionary *)asDict
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:[self dictionaryWithValuesForKeys:@[@"id", @"updatedAt"]]];
+    
+    dict[@"updated_at"] = dict[@"updatedAt"];
+    [dict removeObjectForKey:@"updatedAt"];
+    
+    return dict;
+}
+
 - (void)save
 {
     NSError *error = nil;
+    
+    // this needs to go somewhere else
+    //self.updatedAt = [NSNumber numberWithInteger:[[NSDate date] timeIntervalSince1970]];
+    
     if (![[UBAppDelegate moc] save:&error]) {
         NSLog(@"Error %@: Failed to save managed object context", [[self class] modelName]);
         abort();
+    }
+
+    if (self.id == nil) {
+        // create
+        [UBRequest post:[[self class] modelUrl] data:[self asDict] callback:nil];
+    }
+    else {
+        // update
+        NSString *url = [[self class] modelUrl];
+        url = [url stringByAppendingFormat:@"/%@", self.id];
+        [UBRequest post:url data:[self asDict] callback:nil];
     }
 }
 
@@ -175,7 +205,6 @@
     
 - (void)sync
 {
-
     
 }
 

@@ -29,6 +29,11 @@
     return @"UBSession";
 }
 
++ (NSString *)modelUrl
+{
+    return @"sessions";
+}
+
 + (UBSession *)create
 {
     UBSession *session = [super create];
@@ -38,6 +43,38 @@
     session.isComplete = NO;
     
     return session;
+}
+
++ (NSDictionary *)keyMap
+{
+    return @{@"is_coded": @"isCoded",
+             @"is_complete": @"isComplete",
+             @"length": @"length",
+             @"order": @"order",
+             @"time": @"time",
+             @"breaches": [UBBreach class],
+             @"people": [UBPerson class],
+             @"subject": [UBSubject class]};
+}
+
+- (NSDictionary *)asDict
+{
+    NSMutableDictionary *dict = [[self dictionaryWithValuesForKeys:@[@"isCoded", @"isComplete", @"length", @"order", @"time"]] mutableCopy];
+    
+    dict[@"is_coded"] = dict[@"isCoded"];
+    [dict removeObjectForKey:@"isCoded"];
+    dict[@"is_complete"] = dict[@"isComplete"];
+    [dict removeObjectForKey:@"isComplete"];
+    
+    dict[@"person_ids"] = [self.people.allObjects valueForKey:@"id"];
+    
+    if (self.subject) {
+        dict[@"subject_id"] = self.subject.id;
+    }
+    
+    dict[@"time"] = [NSNumber numberWithInteger:[dict[@"time"] timeIntervalSince1970]];
+    
+    return dict;
 }
 
 - (NSSet *)students
