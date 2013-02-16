@@ -28,13 +28,11 @@ static UBUser *currentUser;
         }
         else {
             teacher = (UBTeacher *) [UBTeacher create];
+            teacher.fname = @"Bob";
+            teacher.lname = @"Teacher";
         }
         
-        teacher.fname = @"Bob";
-        teacher.lname = @"Teacher";
-        
         currentUser = [[UBUser alloc] initWithTeacher:teacher];
-        
     }
     
     return currentUser;

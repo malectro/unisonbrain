@@ -7,7 +7,9 @@
 //
 
 #import "UBModel.h"
+
 #import "UBAppDelegate.h"
+#import "UBBson.h"
 #import "UBRequest.h"
 
 @implementation UBModel
@@ -86,7 +88,9 @@
 
 + (UBModel *)create
 {
-    return [NSEntityDescription insertNewObjectForEntityForName:[self modelName] inManagedObjectContext:[UBAppDelegate moc]];
+    UBModel *model = [NSEntityDescription insertNewObjectForEntityForName:[self modelName] inManagedObjectContext:[UBAppDelegate moc]];
+    model.id = [UBBson bsonId];
+    return model;
 }
 
 + (NSArray *)all
@@ -183,17 +187,8 @@
         NSLog(@"Error %@: Failed to save managed object context", [[self class] modelName]);
         abort();
     }
-
-    if (self.id == nil) {
-        // create
-        [UBRequest post:[[self class] modelUrl] data:[self asDict] callback:nil];
-    }
-    else {
-        // update
-        NSString *url = [[self class] modelUrl];
-        url = [url stringByAppendingFormat:@"/%@", self.id];
-        [UBRequest post:url data:[self asDict] callback:nil];
-    }
+    
+    [self sync];
 }
 
 - (void)destroy
@@ -205,7 +200,23 @@
     
 - (void)sync
 {
+    __weak UBModel *model = self;
     
+    if (self.id == nil) {
+        // create
+        [UBRequest post:[[self class] modelUrl] data:[self asDict] callback:^(id dict) {
+            model.id = dict[@"id"];
+            model.updatedAt = dict[@"updated_at"];
+        }];
+    }
+    else {
+        // update
+        NSString *url = [[self class] modelUrl];
+        url = [url stringByAppendingFormat:@"/%@", self.id];
+        [UBRequest put:url data:[self asDict] callback:^(id dict) {
+            model.updatedAt = dict[@"updated_at"];
+        }];
+    }
 }
 
 @end

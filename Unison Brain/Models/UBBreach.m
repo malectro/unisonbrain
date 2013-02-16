@@ -13,6 +13,8 @@
 #import "UBPerson.h"
 #import "UBSession.h"
 
+#import "UBDate.h"
+
 
 @implementation UBBreach
 
@@ -37,6 +39,20 @@
     return breach;
 }
 
+- (NSDictionary *)asDict
+{
+    NSMutableDictionary *dict = [[self dictionaryWithValuesForKeys:@[@"time"]] mutableCopy];
+    
+    dict[@"time"] = [UBDate toNum:self.time];
+    
+    dict[@"code_type_id"] = self.codeType.id;
+    dict[@"code_ids"] = [self.codes.allObjects valueForKey:@"id"];
+    
+    dict[@"contributions"] = [self.contributions.allObjects valueForKey:@"asDict"];
+    
+    return dict;
+}
+
 - (NSString *)studentList
 {
     return [((NSSet *)[self.people valueForKey:@"fname"]).allObjects componentsJoinedByString:@", "];
@@ -55,6 +71,12 @@
     }
     
     return _sortedContributions;
+}
+
+- (void)save
+{
+    NSLog(@"Breaches are meant to be embedded in sessions. Do not invoke save on a breach.");
+    abort();
 }
 
 @end

@@ -335,6 +335,7 @@
     UBBreach *breach = [UBBreach create];
     breach.codeType = type;
     
+    // not sure we need this at all
     [breach addPeople:_session.people];
     
     [_session addBreachesObject:breach];

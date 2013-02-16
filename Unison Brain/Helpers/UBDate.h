@@ -12,5 +12,6 @@
 
 + (NSString *)stringFromDate:(NSDate *)date format:(NSString *)format;
 + (NSString *)stringFromDateMedium:(NSDate *)date;
++ (NSNumber *)toNum:(NSDate *)time;
 
 @end

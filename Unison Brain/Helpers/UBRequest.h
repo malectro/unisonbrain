@@ -12,8 +12,10 @@
 
 + (void)get:(NSString *)path callback:(void (^)(id)) handler;
 + (void)post:(NSString *)path data:(NSDictionary *)dataDict callback:(void (^)(id)) handler;
++ (void)put:(NSString *)path data:(NSDictionary *)dataDict callback:(void (^)(id)) handler;
 
 - (void)get:(NSString *)path callback:(void (^)(id)) handler;
 - (void)post:(NSString *)path data:(NSDictionary *)dataDict callback:(void (^)(id)) handler;
+- (void)put:(NSString *)path data:(NSDictionary *)dataDict callback:(void (^)(id)) handler;
 
 @end

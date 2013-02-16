@@ -43,6 +43,11 @@
     [[self ubr] post:path data:dataDict callback:handler];
 }
 
++ (void)put:(NSString *)path data:(NSDictionary *)dataDict callback:(void (^)(id))handler
+{
+    [[self ubr] put:path data:dataDict callback:handler];
+}
+
 - (id)init
 {
     self = [super init];
@@ -83,6 +88,19 @@
     }
     
     [self request:path method:@"POST" data:data callback:handler];
+}
+
+- (void)put:(NSString *)path data:(NSDictionary *)dataDict callback:(void (^)(id))handler
+{
+    NSError *error = nil;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:dataDict options:0 error:&error];
+    
+    if (data == nil) {
+        NSLog(@"Could not serialize dictionary for POST request. %@", dataDict);
+        abort();
+    }
+    
+    [self request:path method:@"PUT" data:data callback:handler];
 }
 
 - (void)request:(NSString *)path method:(NSString *)method data:(NSData *)data callback:(void (^)(id))callback

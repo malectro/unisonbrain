@@ -27,4 +27,9 @@
     return [self stringFromDate:date format:@"MMM d, HH:mm"];
 }
 
++ (NSNumber *)toNum:(NSDate *)time
+{
+    return [NSNumber numberWithInteger:[time timeIntervalSince1970]];
+}
+
 @end

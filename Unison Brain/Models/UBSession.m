@@ -72,6 +72,8 @@
         dict[@"subject_id"] = self.subject.id;
     }
     
+    dict[@"breaches"] = [self.breaches.allObjects valueForKey:@"asDict"];
+    
     dict[@"time"] = [NSNumber numberWithInteger:[dict[@"time"] timeIntervalSince1970]];
     
     return dict;

@@ -13,6 +13,7 @@
 @property (nonatomic, retain) NSString *id;
 @property (nonatomic, retain) NSNumber *updatedAt;
 
++ (NSString *)bsonId;
 + (UBModel *)find:(NSString *)modelId;
 + (id)create;
 + (NSArray *)all;

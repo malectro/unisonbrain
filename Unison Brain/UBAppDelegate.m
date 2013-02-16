@@ -180,6 +180,7 @@
     [UBStudent fetchAll];
     [UBSubject fetchAll];
     [UBCodeType fetchAll];
+    NSLog(@"people %@ %@", [UBStudent all], [UBTeacher all]);
     //NSLog(@"types %@", [UBCodeType all]);
     //NSLog(@"codes %@", [UBCode all]);
 }

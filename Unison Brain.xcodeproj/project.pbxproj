@@ -45,6 +45,7 @@
 		863F417A16C4393A00DACB64 /* UBCodesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 863F417916C4393A00DACB64 /* UBCodesViewController.m */; };
 		863F417D16C439D800DACB64 /* UBSearchListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 863F417C16C439D800DACB64 /* UBSearchListViewController.m */; };
 		86547C2116C56867000D54F1 /* UBBreachHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86547C2016C56867000D54F1 /* UBBreachHeaderView.m */; };
+		8687035516D0189E009DA8B6 /* UBBson.m in Sources */ = {isa = PBXBuildFile; fileRef = 8687035416D0189E009DA8B6 /* UBBson.m */; };
 		868F0FE316CD89C60017A02F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868F0FE216CD89C60017A02F /* SystemConfiguration.framework */; };
 		868F0FEC16CEC6760017A02F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 868F0FEB16CEC6760017A02F /* Reachability.m */; };
 		868F0FED16CEC6760017A02F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 868F0FEB16CEC6760017A02F /* Reachability.m */; };
@@ -132,6 +133,8 @@
 		863F417C16C439D800DACB64 /* UBSearchListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBSearchListViewController.m; path = Controllers/UBSearchListViewController.m; sourceTree = "<group>"; };
 		86547C1F16C56867000D54F1 /* UBBreachHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBBreachHeaderView.h; path = Views/UBBreachHeaderView.h; sourceTree = "<group>"; };
 		86547C2016C56867000D54F1 /* UBBreachHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBBreachHeaderView.m; path = Views/UBBreachHeaderView.m; sourceTree = "<group>"; };
+		8687035316D0189E009DA8B6 /* UBBson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBBson.h; path = Helpers/UBBson.h; sourceTree = "<group>"; };
+		8687035416D0189E009DA8B6 /* UBBson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBBson.m; path = Helpers/UBBson.m; sourceTree = "<group>"; };
 		868F0FE216CD89C60017A02F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		868F0FEA16CEC6760017A02F /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = submodules/Reachability/Reachability.h; sourceTree = SOURCE_ROOT; };
 		868F0FEB16CEC6760017A02F /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = submodules/Reachability/Reachability.m; sourceTree = SOURCE_ROOT; };
@@ -354,6 +357,8 @@
 			children = (
 				868F0FEA16CEC6760017A02F /* Reachability.h */,
 				868F0FEB16CEC6760017A02F /* Reachability.m */,
+				8687035316D0189E009DA8B6 /* UBBson.h */,
+				8687035416D0189E009DA8B6 /* UBBson.m */,
 				27ABD4F016C995870051411E /* DWTagList.h */,
 				27ABD4F116C995870051411E /* DWTagList.m */,
 				86D51E2A16B9B1BE00C129F6 /* UBUser.h */,
@@ -519,6 +524,7 @@
 				271E2ABD16C867A1009D4CE2 /* UBDatePickerViewController.m in Sources */,
 				27ABD4F216C995870051411E /* DWTagList.m in Sources */,
 				868F0FEC16CEC6760017A02F /* Reachability.m in Sources */,
+				8687035516D0189E009DA8B6 /* UBBson.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
