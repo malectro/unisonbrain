@@ -9,8 +9,10 @@
 #import "UBAppDelegate.h"
 
 #import "UBRequest.h"
+#import "UBBson.h"
 
 #import "UBHomeViewController.h"
+#import "UBLoginViewController.h"
 
 #import "UBCodeType.h"
 #import "UBCode.h"
@@ -34,8 +36,16 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
+    UBLoginViewController *loginViewController = [[UBLoginViewController alloc] init];
+    UINavigationController *mainNav = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+    mainNav.navigationBarHidden = YES;
+    [self.window setRootViewController:mainNav];
+    
+    return YES;
+    
+    
     UBHomeViewController *homeViewController = [[UBHomeViewController alloc] init];
-    UINavigationController *mainNav = [[UINavigationController alloc] initWithRootViewController:homeViewController];
+    //UINavigationController *mainNav = [[UINavigationController alloc] initWithRootViewController:homeViewController];
     [self.window setRootViewController:mainNav];
     
     [self fetchServerStuff];
@@ -181,6 +191,7 @@
     [UBSubject fetchAll];
     [UBCodeType fetchAll];
     NSLog(@"people %@ %@", [UBStudent all], [UBTeacher all]);
+    //NSLog(@"bsonid %@", [UBBson bsonId]);
     //NSLog(@"types %@", [UBCodeType all]);
     //NSLog(@"codes %@", [UBCode all]);
 }

@@ -46,6 +46,8 @@
 		863F417D16C439D800DACB64 /* UBSearchListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 863F417C16C439D800DACB64 /* UBSearchListViewController.m */; };
 		86547C2116C56867000D54F1 /* UBBreachHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86547C2016C56867000D54F1 /* UBBreachHeaderView.m */; };
 		8687035516D0189E009DA8B6 /* UBBson.m in Sources */ = {isa = PBXBuildFile; fileRef = 8687035416D0189E009DA8B6 /* UBBson.m */; };
+		8687035816D0367D009DA8B6 /* UBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8687035716D0367D009DA8B6 /* UBLoginViewController.m */; };
+		8687035B16D036A6009DA8B6 /* UBLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8687035A16D036A6009DA8B6 /* UBLoginView.m */; };
 		868F0FE316CD89C60017A02F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868F0FE216CD89C60017A02F /* SystemConfiguration.framework */; };
 		868F0FEC16CEC6760017A02F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 868F0FEB16CEC6760017A02F /* Reachability.m */; };
 		868F0FED16CEC6760017A02F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 868F0FEB16CEC6760017A02F /* Reachability.m */; };
@@ -135,6 +137,10 @@
 		86547C2016C56867000D54F1 /* UBBreachHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBBreachHeaderView.m; path = Views/UBBreachHeaderView.m; sourceTree = "<group>"; };
 		8687035316D0189E009DA8B6 /* UBBson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBBson.h; path = Helpers/UBBson.h; sourceTree = "<group>"; };
 		8687035416D0189E009DA8B6 /* UBBson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBBson.m; path = Helpers/UBBson.m; sourceTree = "<group>"; };
+		8687035616D0367D009DA8B6 /* UBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBLoginViewController.h; path = Controllers/UBLoginViewController.h; sourceTree = "<group>"; };
+		8687035716D0367D009DA8B6 /* UBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBLoginViewController.m; path = Controllers/UBLoginViewController.m; sourceTree = "<group>"; };
+		8687035916D036A6009DA8B6 /* UBLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBLoginView.h; path = Views/UBLoginView.h; sourceTree = "<group>"; };
+		8687035A16D036A6009DA8B6 /* UBLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBLoginView.m; path = Views/UBLoginView.m; sourceTree = "<group>"; };
 		868F0FE216CD89C60017A02F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		868F0FEA16CEC6760017A02F /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = submodules/Reachability/Reachability.h; sourceTree = SOURCE_ROOT; };
 		868F0FEB16CEC6760017A02F /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = submodules/Reachability/Reachability.m; sourceTree = SOURCE_ROOT; };
@@ -330,6 +336,8 @@
 				863F417916C4393A00DACB64 /* UBCodesViewController.m */,
 				863F417B16C439D800DACB64 /* UBSearchListViewController.h */,
 				863F417C16C439D800DACB64 /* UBSearchListViewController.m */,
+				8687035616D0367D009DA8B6 /* UBLoginViewController.h */,
+				8687035716D0367D009DA8B6 /* UBLoginViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -348,6 +356,8 @@
 				86B6B68B16C31D190027F087 /* UBContributionCell.m */,
 				86547C1F16C56867000D54F1 /* UBBreachHeaderView.h */,
 				86547C2016C56867000D54F1 /* UBBreachHeaderView.m */,
+				8687035916D036A6009DA8B6 /* UBLoginView.h */,
+				8687035A16D036A6009DA8B6 /* UBLoginView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -525,6 +535,8 @@
 				27ABD4F216C995870051411E /* DWTagList.m in Sources */,
 				868F0FEC16CEC6760017A02F /* Reachability.m in Sources */,
 				8687035516D0189E009DA8B6 /* UBBson.m in Sources */,
+				8687035816D0367D009DA8B6 /* UBLoginViewController.m in Sources */,
+				8687035B16D036A6009DA8B6 /* UBLoginView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

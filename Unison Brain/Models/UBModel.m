@@ -89,7 +89,10 @@
 + (UBModel *)create
 {
     UBModel *model = [NSEntityDescription insertNewObjectForEntityForName:[self modelName] inManagedObjectContext:[UBAppDelegate moc]];
+    
+    // set the unique mongo bson objectId
     model.id = [UBBson bsonId];
+    
     return model;
 }
 
