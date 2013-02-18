@@ -9,6 +9,9 @@
 #import "UBLoginViewController.h"
 
 #import "UBLoginView.h"
+#import "UBUser.h"
+#import "UBAlert.h"
+#import "MBProgressHUD.h"
 
 @interface UBLoginViewController ()
 
@@ -16,24 +19,25 @@
 
 @implementation UBLoginViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
 
 - (void)loadView
 {
-    self.view = [[UBLoginView alloc] init];
+    self.view = self.loginView = [[UBLoginView alloc] init];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    [self.loginView.loginButton addTarget:self action:@selector(logIn) forControlEvents:UIControlEventTouchDown];
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,14 +46,24 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (BOOL)shouldAutorotate
+- (void)logIn
 {
-    return YES;
-}
-
-- (NSUInteger)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskLandscape;
+    if (self.loginView.usernameField.text && self.loginView.passwordField.text) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeIndeterminate;
+        hud.labelText = @"Authenticating...";
+        
+        [[UBUser currentUser] logIn:self.loginView.usernameField.text password:self.loginView.passwordField.text success:^{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [UBAlert alert:@"Success!"];
+        } failure:^{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [UBAlert alert:@"We failed to identify you. Please try again."];
+        }];
+    }
+    else {
+        [UBAlert alert:@"Please enter your email address and password."];
+    }
 }
 
 @end

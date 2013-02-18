@@ -13,5 +13,6 @@
 @property (nonatomic, readonly) UIImageView *background;
 @property (nonatomic, readonly) UITextField *usernameField;
 @property (nonatomic, readonly) UITextField *passwordField;
+@property (nonatomic, readonly) UIButton *loginButton;
 
 @end

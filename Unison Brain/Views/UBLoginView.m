@@ -40,6 +40,10 @@
         _passwordField.font = [UIFont systemFontOfSize:24.0f];
         _passwordField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         [self addSubview:_passwordField];
+        
+        _loginButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_loginButton setTitle:@"Log In" forState:UIControlStateNormal];
+        [self addSubview:_loginButton];
     }
     return self;
 }
@@ -49,6 +53,7 @@
     _background.frame = CGRectMake(0, -kStatusBarHeight, _background.image.size.width, _background.image.size.height);
     _usernameField.frame = CGRectMake((self.frame.size.width - kTextFieldWidth) / 2.0f, 100.0f - kStatusBarHeight, kTextFieldWidth, kTextFieldHeight);
     _passwordField.frame = CGRectPosition(_usernameField.frame, _usernameField.frame.origin.x, _usernameField.frame.origin.y + kTextFieldHeight + 20.0f);
+    _loginButton.frame = CGRectPosition(_usernameField.frame, _usernameField.frame.origin.x, _passwordField.frame.origin.y + kTextFieldHeight + 20.0f);
 }
 
 @end

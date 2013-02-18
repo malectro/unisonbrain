@@ -8,6 +8,7 @@
 
 #import "UBRequest.h"
 
+#import "UBUser.h"
 #import "Reachability.h"
 
 #define kHostName @"http://localhost:3000"
@@ -113,6 +114,7 @@
     
     if (data != nil) {
         [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:[NSString stringWithFormat:@"Token token=\"%@\"", @"hello"] forHTTPHeaderField:@"Authorization"];
         request.HTTPBody = data;
     }
     

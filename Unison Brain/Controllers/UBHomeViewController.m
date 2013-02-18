@@ -12,6 +12,7 @@
 #import "UBUser.h"
 
 #import "UBSession.h"
+#import "UBTeacher.h"
 #import "UBStudent.h"
 
 #import "UBSessionsViewController.h"
@@ -45,6 +46,7 @@
         _studentsViewController.tableView.allowsMultipleSelection = NO;
         [self addChildViewController:_studentsViewController];
         
+        self.title = @"Unison Home";
     }
     return self;
 }
@@ -52,8 +54,6 @@
 - (void)loadView
 {
     self.view = self.homeView = [[UBHomeView alloc] init];
-    
-    self.title = @"Unison Home";
 }
 
 - (void)viewDidLoad

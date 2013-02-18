@@ -8,6 +8,9 @@
 
 #import "UBUser.h"
 
+#import "UBTeacher.h"
+
+#import "UBRequest.h"
 #import "UBAppDelegate.h"
 
 @implementation UBUser
@@ -19,20 +22,7 @@ static UBUser *currentUser;
 + (UBUser *)currentUser
 {
     if (currentUser == nil) {
-        // test stuff that shouldn't be used
-        NSArray *teachers = [UBTeacher all];
-        UBTeacher *teacher = nil;
-        
-        if (teachers.count > 0) {
-            teacher = teachers[0];
-        }
-        else {
-            teacher = (UBTeacher *) [UBTeacher create];
-            teacher.fname = @"Bob";
-            teacher.lname = @"Teacher";
-        }
-        
-        currentUser = [[UBUser alloc] initWithTeacher:teacher];
+        currentUser = [[UBUser alloc] initWithTeacher:nil];
     }
     
     return currentUser;
@@ -46,9 +36,50 @@ static UBUser *currentUser;
 {
     self = [super init];
     if (self) {
-        _teacher = teacher;
+        if (teacher == nil) {
+            NSString *userId = [[NSUserDefaults standardUserDefaults] stringForKey:@"uid"];
+            _token = [[NSUserDefaults standardUserDefaults] stringForKey:@"token"];
+            
+            if (userId) {
+                _teacher = [UBTeacher find:userId];
+            }
+        }
+        else {
+            _teacher = teacher;
+        }
     }
     return self;
+}
+
+- (BOOL)loggedIn
+{
+    if (self.teacher) {
+        return YES;
+    }
+    else {
+        return NO;
+    }
+}
+
+- (void)logIn:(NSString *)email password:(NSString *)password success:(void (^)())success failure:(void (^)())failure
+{
+    [UBRequest post:@"session/auth" data:@{@"email": email, @"password": password} callback:^(NSDictionary *data) {
+        if (data[@"token"]) {
+            _token = data[@"token"];
+            _teacher = (UBTeacher *) [UBTeacher findOrCreateWithDict:data[@"teacher"]];
+            
+            if (success) {
+                success();
+            }
+            [[NSNotificationCenter defaultCenter] postNotificationName:kLoginSuccessNotifName object:nil];
+        }
+        else {
+            if (failure) {
+                failure();
+            }
+            [[NSNotificationCenter defaultCenter] postNotificationName:kLoginFailureNotifName object:nil];
+        }
+    }];
 }
 
 @end

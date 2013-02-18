@@ -14,9 +14,10 @@
 @property (nonatomic, retain) NSNumber *updatedAt;
 
 + (NSString *)bsonId;
-+ (UBModel *)find:(NSString *)modelId;
++ (id)find:(NSString *)modelId;
 + (id)create;
 + (NSArray *)all;
++ (id)findOrCreateWithDict:(NSDictionary *)dict;
 
 + (void)fetchAll;
 

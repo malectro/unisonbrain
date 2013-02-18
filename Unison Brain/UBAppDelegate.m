@@ -10,6 +10,7 @@
 
 #import "UBRequest.h"
 #import "UBBson.h"
+#import "UBUser.h"
 
 #import "UBHomeViewController.h"
 #import "UBLoginViewController.h"
@@ -19,6 +20,15 @@
 #import "UBSubject.h"
 #import "UBStudent.h"
 #import "UBTeacher.h"
+
+@interface UBAppDelegate ()
+
+@property (nonatomic) UINavigationController *mainNav;
+@property (nonatomic) UIViewController *rootViewController;
+@property (nonatomic) UBLoginViewController *loginViewController;
+@property (nonatomic) UBHomeViewController *homeViewController;
+
+@end
 
 @implementation UBAppDelegate
 
@@ -36,21 +46,44 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    UBLoginViewController *loginViewController = [[UBLoginViewController alloc] init];
-    UINavigationController *mainNav = [[UINavigationController alloc] initWithRootViewController:loginViewController];
-    mainNav.navigationBarHidden = YES;
-    [self.window setRootViewController:mainNav];
+    _loginViewController = [[UBLoginViewController alloc] init];
+    _homeViewController = [[UBHomeViewController alloc] init];
+    _mainNav = [[UINavigationController alloc] initWithRootViewController:_loginViewController];
+    
+    if (![UBUser currentUser].loggedIn) {
+        _rootViewController = _loginViewController;
+        _mainNav.navigationBarHidden = YES;
+    }
+    else {
+        _rootViewController = _homeViewController;
+        [_mainNav setViewControllers:@[_homeViewController] animated:YES];
+        [self fetchServerStuff];
+    }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(authenticated) name:kLoginSuccessNotifName object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(expired) name:kLoginExpiredNotifName object:nil];
+    
+    [self.window setRootViewController:_mainNav];
     
     return YES;
-    
-    
-    UBHomeViewController *homeViewController = [[UBHomeViewController alloc] init];
-    //UINavigationController *mainNav = [[UINavigationController alloc] initWithRootViewController:homeViewController];
-    [self.window setRootViewController:mainNav];
-    
-    [self fetchServerStuff];
-    
-    return YES;
+}
+
+- (void)authenticated
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (_rootViewController == _loginViewController) {
+            [_mainNav setViewControllers:@[_homeViewController] animated:YES];
+        }
+    });
+}
+
+- (void)expired
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (_rootViewController != _loginViewController) {
+            [_mainNav presentViewController:_loginViewController animated:YES completion:nil];
+        }
+    });
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

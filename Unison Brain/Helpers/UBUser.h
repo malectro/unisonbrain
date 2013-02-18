@@ -8,14 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
-#import "UBTeacher.h"
+#define kLoginSuccessNotifName @"loginSuccess"
+#define kLoginFailureNotifName @"loginFailure"
+#define kLoginExpiredNotifName @"loginExpire"
+#define kLogoutNotifName @"logout"
+
+@class UBTeacher;
 
 @interface UBUser : NSObject
 
-@property (nonatomic, retain, readonly) UBTeacher *teacher;
+@property (nonatomic, readonly) UBTeacher *teacher;
+@property (nonatomic, readonly) BOOL loggedIn;
+@property (nonatomic, readonly) NSString *token;
 
 + (UBUser *)currentUser;
 
 - (id)initWithTeacher:(UBTeacher *)teacher;
+
+- (void)logIn:(NSString *)username password:(NSString *)password success:(void (^)())success failure:(void (^)())failure;
 
 @end

@@ -69,7 +69,7 @@
     return results;
 }
 
-+ (UBModel *)find:(NSString *)modelId
++ (id)find:(NSString *)modelId
 {
     NSFetchRequest *fetchRequest = [self modelRequest];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"id == %@", modelId];
@@ -122,7 +122,7 @@
     }];
 }
 
-+ (UBModel *)findOrCreateWithDict:(NSDictionary *)dict
++ (id)findOrCreateWithDict:(NSDictionary *)dict
 {
     UBModel *model = [self find:dict[@"id"]];
     

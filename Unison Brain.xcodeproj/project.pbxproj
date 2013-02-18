@@ -51,6 +51,8 @@
 		868F0FE316CD89C60017A02F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868F0FE216CD89C60017A02F /* SystemConfiguration.framework */; };
 		868F0FEC16CEC6760017A02F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 868F0FEB16CEC6760017A02F /* Reachability.m */; };
 		868F0FED16CEC6760017A02F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 868F0FEB16CEC6760017A02F /* Reachability.m */; };
+		869A5D5016D2D08D003A6CF5 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 869A5D4F16D2D08D003A6CF5 /* MBProgressHUD.m */; };
+		869A5D5116D2D08D003A6CF5 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 869A5D4F16D2D08D003A6CF5 /* MBProgressHUD.m */; };
 		86B6B68916C2F6E60027F087 /* UBAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B6B68816C2F6E60027F087 /* UBAlert.m */; };
 		86B6B68C16C31D190027F087 /* UBContributionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B6B68B16C31D190027F087 /* UBContributionCell.m */; };
 		86D0516116C82AAA00BF026A /* UBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D0516016C82AAA00BF026A /* UBRequest.m */; };
@@ -144,6 +146,8 @@
 		868F0FE216CD89C60017A02F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		868F0FEA16CEC6760017A02F /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = submodules/Reachability/Reachability.h; sourceTree = SOURCE_ROOT; };
 		868F0FEB16CEC6760017A02F /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = submodules/Reachability/Reachability.m; sourceTree = SOURCE_ROOT; };
+		869A5D4E16D2D08D003A6CF5 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = submodules/MBProgressHUD/MBProgressHUD.h; sourceTree = SOURCE_ROOT; };
+		869A5D4F16D2D08D003A6CF5 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = submodules/MBProgressHUD/MBProgressHUD.m; sourceTree = SOURCE_ROOT; };
 		86B6B68716C2F6E60027F087 /* UBAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBAlert.h; path = Helpers/UBAlert.h; sourceTree = "<group>"; };
 		86B6B68816C2F6E60027F087 /* UBAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBAlert.m; path = Helpers/UBAlert.m; sourceTree = "<group>"; };
 		86B6B68A16C31D190027F087 /* UBContributionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBContributionCell.h; path = Views/UBContributionCell.h; sourceTree = "<group>"; };
@@ -365,6 +369,8 @@
 		86D51E2916B9B17B00C129F6 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				869A5D4E16D2D08D003A6CF5 /* MBProgressHUD.h */,
+				869A5D4F16D2D08D003A6CF5 /* MBProgressHUD.m */,
 				868F0FEA16CEC6760017A02F /* Reachability.h */,
 				868F0FEB16CEC6760017A02F /* Reachability.m */,
 				8687035316D0189E009DA8B6 /* UBBson.h */,
@@ -537,6 +543,7 @@
 				8687035516D0189E009DA8B6 /* UBBson.m in Sources */,
 				8687035816D0367D009DA8B6 /* UBLoginViewController.m in Sources */,
 				8687035B16D036A6009DA8B6 /* UBLoginView.m in Sources */,
+				869A5D5016D2D08D003A6CF5 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,6 +554,7 @@
 				8602690B16B9811D002C6577 /* Unison_BrainTests.m in Sources */,
 				27ABD4F316C995870051411E /* DWTagList.m in Sources */,
 				868F0FED16CEC6760017A02F /* Reachability.m in Sources */,
+				869A5D5116D2D08D003A6CF5 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
