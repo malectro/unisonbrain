@@ -72,9 +72,11 @@
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         if (_rootViewController == _loginViewController) {
+            _mainNav.navigationBarHidden = NO;
             [_mainNav setViewControllers:@[_homeViewController] animated:YES];
         }
     });
+    [self fetchServerStuff];
 }
 
 - (void)expired
@@ -223,7 +225,7 @@
     [UBStudent fetchAll];
     [UBSubject fetchAll];
     [UBCodeType fetchAll];
-    NSLog(@"people %@ %@", [UBStudent all], [UBTeacher all]);
+    //NSLog(@"people %@ %@", [UBStudent all], [UBTeacher all]);
     //NSLog(@"bsonid %@", [UBBson bsonId]);
     //NSLog(@"types %@", [UBCodeType all]);
     //NSLog(@"codes %@", [UBCode all]);

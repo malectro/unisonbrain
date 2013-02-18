@@ -54,11 +54,14 @@
         hud.labelText = @"Authenticating...";
         
         [[UBUser currentUser] logIn:self.loginView.usernameField.text password:self.loginView.passwordField.text success:^{
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-            [UBAlert alert:@"Success!"];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+            });
         } failure:^{
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-            [UBAlert alert:@"We failed to identify you. Please try again."];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                [UBAlert alert:@"We failed to identify you. Please try again."];
+            });
         }];
     }
     else {
