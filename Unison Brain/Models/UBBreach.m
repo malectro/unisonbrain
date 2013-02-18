@@ -41,7 +41,7 @@
 
 - (NSDictionary *)asDict
 {
-    NSMutableDictionary *dict = [[self dictionaryWithValuesForKeys:@[@"time"]] mutableCopy];
+    NSMutableDictionary *dict = [[self dictionaryWithValuesForKeys:@[@"time", @"id"]] mutableCopy];
     
     dict[@"time"] = [UBDate toNum:self.time];
     
