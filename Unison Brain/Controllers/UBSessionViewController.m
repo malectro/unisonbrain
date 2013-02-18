@@ -106,6 +106,7 @@
 {
     [super viewWillDisappear:animated];
     [_session save];
+    [_session sync];
 }
 
 - (void)didReceiveMemoryWarning

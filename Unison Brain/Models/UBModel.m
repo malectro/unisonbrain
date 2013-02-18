@@ -190,8 +190,6 @@
         NSLog(@"Error %@: Failed to save managed object context", [[self class] modelName]);
         abort();
     }
-    
-    [self sync];
 }
 
 - (void)destroy

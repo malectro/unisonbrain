@@ -66,17 +66,24 @@ static UBUser *currentUser;
     [UBRequest post:@"session/auth" data:@{@"email": email, @"password": password} callback:^(NSDictionary *data) {
         if (data[@"token"]) {
             _token = data[@"token"];
-            _teacher = (UBTeacher *) [UBTeacher findOrCreateWithDict:data[@"teacher"]];
+            _teacher = [UBTeacher findOrCreateWithDict:data[@"teacher"]];
+            [_teacher save];
+            
+            [[NSUserDefaults standardUserDefaults] setObject:_teacher.id forKey:@"uid"];
+            [[NSUserDefaults standardUserDefaults] setObject:_token forKey:@"token"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
             
             if (success) {
                 success();
             }
+            
             [[NSNotificationCenter defaultCenter] postNotificationName:kLoginSuccessNotifName object:nil];
         }
         else {
             if (failure) {
                 failure();
             }
+            
             [[NSNotificationCenter defaultCenter] postNotificationName:kLoginFailureNotifName object:nil];
         }
     }];
