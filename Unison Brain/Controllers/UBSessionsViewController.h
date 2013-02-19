@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "UBModelTableViewController.h"
+
 @class UBTeacher;
 
-@interface UBSessionsViewController : UITableViewController<NSFetchedResultsControllerDelegate>
+@interface UBSessionsViewController : UBModelTableViewController
 
 - (id)initWithTeacher:(UBTeacher *)teacher;
 
