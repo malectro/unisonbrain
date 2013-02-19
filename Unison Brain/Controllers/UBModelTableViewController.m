@@ -119,16 +119,6 @@
     // override this to configure the cell
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // REMOVE THE SESSION at indexPath
-        UBModel *modelToDestroy = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        [modelToDestroy destroy];
-    }
-    
-}
-
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

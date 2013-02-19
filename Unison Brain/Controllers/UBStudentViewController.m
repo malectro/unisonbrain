@@ -11,8 +11,11 @@
 #import "UBStudent.h"
 
 #import "UBStudentView.h"
+#import "UBBreachesViewController.h"
 
 @interface UBStudentViewController ()
+
+@property (nonatomic) UBBreachesViewController *breachesController;
 
 @end
 
@@ -32,6 +35,10 @@
 - (void)loadView
 {
     self.view = _studentView = [[UBStudentView alloc] init];
+    
+    _breachesController = [[UBBreachesViewController alloc] initWithPerson:self.student];
+    _studentView.breachesView = _breachesController.tableView;
+    [self addChildViewController:_breachesController];
 }
 
 - (void)viewDidLoad

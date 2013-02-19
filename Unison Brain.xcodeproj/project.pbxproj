@@ -56,6 +56,7 @@
 		86A3875F16D3E3D0008CA93B /* UBStudentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A3875E16D3E3D0008CA93B /* UBStudentViewController.m */; };
 		86A3876216D3E49B008CA93B /* UBStudentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A3876116D3E49B008CA93B /* UBStudentView.m */; };
 		86A3876516D41DE7008CA93B /* UBModelTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A3876416D41DE7008CA93B /* UBModelTableViewController.m */; };
+		86A3876816D42804008CA93B /* UBBreachesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A3876716D42804008CA93B /* UBBreachesViewController.m */; };
 		86B6B68916C2F6E60027F087 /* UBAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B6B68816C2F6E60027F087 /* UBAlert.m */; };
 		86B6B68C16C31D190027F087 /* UBContributionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B6B68B16C31D190027F087 /* UBContributionCell.m */; };
 		86D0516116C82AAA00BF026A /* UBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D0516016C82AAA00BF026A /* UBRequest.m */; };
@@ -157,6 +158,8 @@
 		86A3876116D3E49B008CA93B /* UBStudentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBStudentView.m; path = Views/UBStudentView.m; sourceTree = "<group>"; };
 		86A3876316D41DE7008CA93B /* UBModelTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBModelTableViewController.h; path = Controllers/UBModelTableViewController.h; sourceTree = "<group>"; };
 		86A3876416D41DE7008CA93B /* UBModelTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBModelTableViewController.m; path = Controllers/UBModelTableViewController.m; sourceTree = "<group>"; };
+		86A3876616D42804008CA93B /* UBBreachesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBBreachesViewController.h; path = Controllers/UBBreachesViewController.h; sourceTree = "<group>"; };
+		86A3876716D42804008CA93B /* UBBreachesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBBreachesViewController.m; path = Controllers/UBBreachesViewController.m; sourceTree = "<group>"; };
 		86B6B68716C2F6E60027F087 /* UBAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBAlert.h; path = Helpers/UBAlert.h; sourceTree = "<group>"; };
 		86B6B68816C2F6E60027F087 /* UBAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBAlert.m; path = Helpers/UBAlert.m; sourceTree = "<group>"; };
 		86B6B68A16C31D190027F087 /* UBContributionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBContributionCell.h; path = Views/UBContributionCell.h; sourceTree = "<group>"; };
@@ -355,6 +358,8 @@
 				86A3875E16D3E3D0008CA93B /* UBStudentViewController.m */,
 				86A3876316D41DE7008CA93B /* UBModelTableViewController.h */,
 				86A3876416D41DE7008CA93B /* UBModelTableViewController.m */,
+				86A3876616D42804008CA93B /* UBBreachesViewController.h */,
+				86A3876716D42804008CA93B /* UBBreachesViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -562,6 +567,7 @@
 				86A3875F16D3E3D0008CA93B /* UBStudentViewController.m in Sources */,
 				86A3876216D3E49B008CA93B /* UBStudentView.m in Sources */,
 				86A3876516D41DE7008CA93B /* UBModelTableViewController.m in Sources */,
+				86A3876816D42804008CA93B /* UBBreachesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,4 +19,11 @@
     return self;
 }
 
+- (void)layoutSubviews
+{
+    if (self.breachesView) {
+        self.breachesView.frame = self.frame;
+    }
+}
+
 @end
