@@ -81,6 +81,8 @@
     else if (textField == self.loginView.passwordField) {
         [self logIn];
     }
+
+    return YES;
 }
 
 @end
