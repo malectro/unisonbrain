@@ -38,6 +38,8 @@
     [super viewDidLoad];
     
     [self.loginView.loginButton addTarget:self action:@selector(logIn) forControlEvents:UIControlEventTouchDown];
+    self.loginView.usernameField.delegate = self;
+    self.loginView.passwordField.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,6 +68,18 @@
     }
     else {
         [UBAlert alert:@"Please enter your email address and password."];
+    }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    if (textField == self.loginView.usernameField) {
+        [self.loginView.passwordField becomeFirstResponder];
+    }
+    else if (textField == self.loginView.passwordField) {
+        [self logIn];
     }
 }
 

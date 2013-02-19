@@ -69,7 +69,7 @@
     //    codes = [NSString stringWithFormat:@" | Codes: %@", _breach.codeList];
     //}
     
-    self.textLabel.text = [NSString stringWithFormat:@"Type: %@%@", _breach.codeType.name, codes];
+    self.textLabel.text = [NSString stringWithFormat:@"Breach: %@%@", _breach.codeType.name, codes];
 
     [self.tagList setTags:[[_breach.codes allObjects] valueForKey:@"name"]];
 }

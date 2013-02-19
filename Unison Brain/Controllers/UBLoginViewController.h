@@ -10,7 +10,7 @@
 
 @class UBLoginView;
 
-@interface UBLoginViewController : UIViewController
+@interface UBLoginViewController : UIViewController<UITextFieldDelegate>
 
 @property (nonatomic) UBLoginView *loginView;
 
