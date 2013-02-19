@@ -165,6 +165,8 @@
         }
     }
 }
+
+
 #pragma mark - Session Methods
 
 - (void)changeDate
@@ -186,9 +188,7 @@
 
 - (void)reloadTitle
 {
-    
     self.title = [NSString stringWithFormat:@"Session with %@ | %@   ", _session.studentList, [UBDate stringFromDateMedium:_session.time]];
-    
 }
 
 
@@ -383,9 +383,8 @@
 #pragma mark - UIActionSheet Delegate Methods
 
 
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    
-    
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
     if (buttonIndex == -1 || buttonIndex == 4) {
         return;
         // this is meant to make there be no new breach if you don't select a button.

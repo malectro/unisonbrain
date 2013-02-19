@@ -92,10 +92,9 @@
 
 # pragma mark - UB Search List Delegate Methods
 
-- (void)searchList:(UBSearchListViewController *)searchList didSelectItem:(id)item{
-    
+- (void)searchList:(UBSearchListViewController *)searchList didSelectItem:(id)item
+{
     // MAKE STUDENT / CONFERENCE PAGE FOR SELECTED STUDENT
-    
 }
 
 

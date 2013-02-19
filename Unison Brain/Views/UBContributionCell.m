@@ -56,4 +56,10 @@
     self.contribution.text = textField.text;
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
 @end
