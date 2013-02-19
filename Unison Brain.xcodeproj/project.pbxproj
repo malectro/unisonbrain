@@ -53,6 +53,8 @@
 		868F0FED16CEC6760017A02F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 868F0FEB16CEC6760017A02F /* Reachability.m */; };
 		869A5D5016D2D08D003A6CF5 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 869A5D4F16D2D08D003A6CF5 /* MBProgressHUD.m */; };
 		869A5D5116D2D08D003A6CF5 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 869A5D4F16D2D08D003A6CF5 /* MBProgressHUD.m */; };
+		86A3875F16D3E3D0008CA93B /* UBStudentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A3875E16D3E3D0008CA93B /* UBStudentViewController.m */; };
+		86A3876216D3E49B008CA93B /* UBStudentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A3876116D3E49B008CA93B /* UBStudentView.m */; };
 		86B6B68916C2F6E60027F087 /* UBAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B6B68816C2F6E60027F087 /* UBAlert.m */; };
 		86B6B68C16C31D190027F087 /* UBContributionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B6B68B16C31D190027F087 /* UBContributionCell.m */; };
 		86D0516116C82AAA00BF026A /* UBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D0516016C82AAA00BF026A /* UBRequest.m */; };
@@ -148,6 +150,10 @@
 		868F0FEB16CEC6760017A02F /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = submodules/Reachability/Reachability.m; sourceTree = SOURCE_ROOT; };
 		869A5D4E16D2D08D003A6CF5 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = submodules/MBProgressHUD/MBProgressHUD.h; sourceTree = SOURCE_ROOT; };
 		869A5D4F16D2D08D003A6CF5 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = submodules/MBProgressHUD/MBProgressHUD.m; sourceTree = SOURCE_ROOT; };
+		86A3875D16D3E3D0008CA93B /* UBStudentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBStudentViewController.h; path = Controllers/UBStudentViewController.h; sourceTree = "<group>"; };
+		86A3875E16D3E3D0008CA93B /* UBStudentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBStudentViewController.m; path = Controllers/UBStudentViewController.m; sourceTree = "<group>"; };
+		86A3876016D3E49B008CA93B /* UBStudentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBStudentView.h; path = Views/UBStudentView.h; sourceTree = "<group>"; };
+		86A3876116D3E49B008CA93B /* UBStudentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBStudentView.m; path = Views/UBStudentView.m; sourceTree = "<group>"; };
 		86B6B68716C2F6E60027F087 /* UBAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBAlert.h; path = Helpers/UBAlert.h; sourceTree = "<group>"; };
 		86B6B68816C2F6E60027F087 /* UBAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBAlert.m; path = Helpers/UBAlert.m; sourceTree = "<group>"; };
 		86B6B68A16C31D190027F087 /* UBContributionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBContributionCell.h; path = Views/UBContributionCell.h; sourceTree = "<group>"; };
@@ -342,6 +348,8 @@
 				863F417C16C439D800DACB64 /* UBSearchListViewController.m */,
 				8687035616D0367D009DA8B6 /* UBLoginViewController.h */,
 				8687035716D0367D009DA8B6 /* UBLoginViewController.m */,
+				86A3875D16D3E3D0008CA93B /* UBStudentViewController.h */,
+				86A3875E16D3E3D0008CA93B /* UBStudentViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -362,6 +370,8 @@
 				86547C2016C56867000D54F1 /* UBBreachHeaderView.m */,
 				8687035916D036A6009DA8B6 /* UBLoginView.h */,
 				8687035A16D036A6009DA8B6 /* UBLoginView.m */,
+				86A3876016D3E49B008CA93B /* UBStudentView.h */,
+				86A3876116D3E49B008CA93B /* UBStudentView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -544,6 +554,8 @@
 				8687035816D0367D009DA8B6 /* UBLoginViewController.m in Sources */,
 				8687035B16D036A6009DA8B6 /* UBLoginView.m in Sources */,
 				869A5D5016D2D08D003A6CF5 /* MBProgressHUD.m in Sources */,
+				86A3875F16D3E3D0008CA93B /* UBStudentViewController.m in Sources */,
+				86A3876216D3E49B008CA93B /* UBStudentView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

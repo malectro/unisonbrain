@@ -17,6 +17,7 @@
 
 #import "UBSessionsViewController.h"
 #import "UBSessionViewController.h"
+#import "UBStudentViewController.h"
 
 #import "UBHomeView.h"
 
@@ -92,9 +93,10 @@
 
 # pragma mark - UB Search List Delegate Methods
 
-- (void)searchList:(UBSearchListViewController *)searchList didSelectItem:(id)item
+- (void)searchList:(UBSearchListViewController *)searchList didSelectItem:(UBStudent *)item
 {
-    // MAKE STUDENT / CONFERENCE PAGE FOR SELECTED STUDENT
+    UBStudentViewController *studentViewController = [[UBStudentViewController alloc] initWithStudent:item];
+    [self.navigationController pushViewController:studentViewController animated:YES];
 }
 
 
