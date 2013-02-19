@@ -8,6 +8,8 @@
 
 #import "UBStudentView.h"
 
+#import "UBFunctions.h"
+
 @implementation UBStudentView
 
 - (id)initWithFrame:(CGRect)frame
@@ -21,9 +23,15 @@
 
 - (void)layoutSubviews
 {
-    if (self.breachesView) {
-        self.breachesView.frame = self.frame;
+    if (self.breachesView != nil) {
+        self.breachesView.frame = CGRectPosition(self.frame, 0, 0);
     }
+}
+
+- (void)setBreachesView:(UITableView *)breachesView
+{
+    [self addSubview:breachesView];
+    _breachesView = breachesView;
 }
 
 @end

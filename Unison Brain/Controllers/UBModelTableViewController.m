@@ -22,6 +22,10 @@
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
+    if (!style) {
+        style = UITableViewStylePlain;
+    }
+    
     self = [super initWithStyle:style];
     if (self) {
         _modelName = @"UBSession";
@@ -69,6 +73,8 @@
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
         NSEntityDescription *entity = [NSEntityDescription entityForName:self.modelName inManagedObjectContext:[UBAppDelegate moc]];
         NSPredicate *predicate = self.predicate;
+        
+        [NSFetchedResultsController deleteCacheWithName:self.modelName];
         
         fetchRequest.entity = entity;
         //fetchRequest.fetchBatchSize = 40;

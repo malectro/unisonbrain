@@ -28,6 +28,9 @@
         if (student != nil) {
             self.student = student;
         }
+        
+        _breachesController = [[UBBreachesViewController alloc] initWithPerson:self.student];
+        [self addChildViewController:_breachesController];
     }
     return self;
 }
@@ -35,20 +38,18 @@
 - (void)loadView
 {
     self.view = _studentView = [[UBStudentView alloc] init];
-    
-    _breachesController = [[UBBreachesViewController alloc] initWithPerson:self.student];
-    _studentView.breachesView = _breachesController.tableView;
-    [self addChildViewController:_breachesController];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+
+    self.studentView.breachesView = self.breachesController.tableView;
 }
 
 - (void)setStudent:(UBStudent *)student
 {
+    _student = student;
     self.title = student.name;
 }
 

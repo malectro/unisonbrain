@@ -20,7 +20,7 @@
 
 - (id)initWithPerson:(UBPerson *)person
 {
-    self = [super init];
+    self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
         if (person != nil) {
             _person = person;
