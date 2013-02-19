@@ -30,6 +30,13 @@
     return [self initWithItems:nil];
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.allowsMultipleSelection = YES;
+}
+
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];

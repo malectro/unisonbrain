@@ -31,6 +31,12 @@
     return [self init];
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.allowsMultipleSelection = YES;
+}
 
 - (void)dealloc
 {

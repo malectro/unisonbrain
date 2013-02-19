@@ -43,7 +43,6 @@
         
         _studentsViewController = [[UBStudentListViewController alloc] init];
         _studentsViewController.delegate = self;
-        _studentsViewController.tableView.allowsMultipleSelection = NO;
         [self addChildViewController:_studentsViewController];
         
         self.title = @"Unison Home";
@@ -64,6 +63,8 @@
     self.homeView.studentsView = _studentsViewController.view;
     self.homeView.teacherNameLabel.text = [UBUser currentUser].teacher.fname;
     [self.homeView.createSessionButton addTarget:self action:@selector(createSession) forControlEvents:UIControlEventTouchDown];
+    
+    _studentsViewController.allowsMultipleSelection = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -89,7 +90,7 @@
     [self.navigationController pushViewController:sessionViewController animated:YES];
 }
 
-# pragma mark UB Search List Delegate Methods
+# pragma mark - UB Search List Delegate Methods
 
 - (void)searchList:(UBSearchListViewController *)searchList didSelectItem:(id)item{
     

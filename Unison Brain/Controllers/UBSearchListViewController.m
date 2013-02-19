@@ -22,12 +22,14 @@
             self.items = items;
         }
         
+        _allowsMultipleSelection = NO;
+        
         _searchBar = [[UISearchBar alloc] init];
         _searchController = [[UISearchDisplayController alloc] initWithSearchBar:_searchBar contentsController:self];
         _searchController.delegate = self;
         _searchController.searchResultsDataSource = self;
         _searchController.searchResultsDelegate = self;
-        _searchController.searchResultsTableView.allowsMultipleSelection = YES;
+        _searchController.searchResultsTableView.allowsMultipleSelection = _allowsMultipleSelection;
     }
     return self;
 }
@@ -41,7 +43,7 @@
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.allowsMultipleSelection = YES;
+    self.tableView.allowsMultipleSelection = self.allowsMultipleSelection;
     
     [self.view addSubview:self.tableView];
     
@@ -60,6 +62,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setAllowsMultipleSelection:(BOOL)allowsMultipleSelection
+{
+    _allowsMultipleSelection = allowsMultipleSelection;
+    _searchController.searchResultsTableView.allowsMultipleSelection = _allowsMultipleSelection;
+    self.tableView.allowsMultipleSelection = _allowsMultipleSelection;
 }
 
 - (void)setItems:(NSArray *)items
@@ -150,14 +159,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     id item = [self tableView:tableView itemForIndexPath:indexPath];
-    NSInteger oldRow = _selectedItems.count + [_deselectedItems indexOfObject:item];
-    NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:oldRow inSection:0];
     
-    // performance issue?
-    [self selectItems:@[item]];
-    
-    [self.tableView selectRowAtIndexPath:oldIndexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
-    [self.tableView moveRowAtIndexPath:[NSIndexPath indexPathForRow:oldRow inSection:0] toIndexPath:[NSIndexPath indexPathForRow:(_selectedItems.count - 1) inSection:0]];
+    if (self.allowsMultipleSelection) {
+        NSInteger oldRow = _selectedItems.count + [_deselectedItems indexOfObject:item];
+        NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:oldRow inSection:0];
+        
+        // performance issue?
+        [self selectItems:@[item]];
+        
+        [self.tableView selectRowAtIndexPath:oldIndexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
+        [self.tableView moveRowAtIndexPath:[NSIndexPath indexPathForRow:oldRow inSection:0] toIndexPath:[NSIndexPath indexPathForRow:(_selectedItems.count - 1) inSection:0]];
+    }
     
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(searchList:didSelectItem:)]) {
         [self.delegate searchList:self didSelectItem:item];
@@ -167,16 +179,19 @@
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     id item = [self tableView:tableView itemForIndexPath:indexPath];
-    NSInteger oldRow = [_selectedItems indexOfObject:item];
-    NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:oldRow inSection:0];
     
-    // performance issue?
-    [self deselectItems:@[item]];
-    
-    NSInteger row = [_deselectedItems indexOfObject:item] + _selectedItems.count;
-    
-    [self.tableView deselectRowAtIndexPath:oldIndexPath animated:YES];
-    [self.tableView moveRowAtIndexPath:oldIndexPath toIndexPath:[NSIndexPath indexPathForRow:row inSection:0]];
+    if (self.allowsMultipleSelection) {
+        NSInteger oldRow = [_selectedItems indexOfObject:item];
+        NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:oldRow inSection:0];
+        
+        // performance issue?
+        [self deselectItems:@[item]];
+        
+        NSInteger row = [_deselectedItems indexOfObject:item] + _selectedItems.count;
+        
+        [self.tableView deselectRowAtIndexPath:oldIndexPath animated:YES];
+        [self.tableView moveRowAtIndexPath:oldIndexPath toIndexPath:[NSIndexPath indexPathForRow:row inSection:0]];
+    }
     
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(searchList:didDeselectItem:)]) {
         [self.delegate searchList:self didDeselectItem:item];
