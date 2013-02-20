@@ -47,6 +47,7 @@
 {
     UBContribution *contribution = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", [UBDate stringFromDateMedium:contribution.time], contribution.text];
+    cell.textLabel.font = [UIFont systemFontOfSize:20.0f];
 }
 
 @end

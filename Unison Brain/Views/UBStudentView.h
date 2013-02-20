@@ -11,5 +11,6 @@
 @interface UBStudentView : UIView
 
 @property (nonatomic) UITableView *contributionsView;
+@property (nonatomic) UIView *codesView;
 
 @end
