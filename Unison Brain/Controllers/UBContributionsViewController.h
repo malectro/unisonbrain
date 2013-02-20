@@ -1,5 +1,5 @@
 //
-//  UBBreachesViewController.h
+//  UBContributionsViewController.h
 //  Unison Brain
 //
 //  Created by Kyle Warren on 2/19/13.
@@ -10,7 +10,7 @@
 
 #import "UBPerson.h"
 
-@interface UBBreachesViewController : UBModelTableViewController
+@interface UBContributionsViewController : UBModelTableViewController
 
 @property (nonatomic) UBPerson *person;
 

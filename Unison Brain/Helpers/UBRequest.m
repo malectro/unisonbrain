@@ -119,10 +119,17 @@
     }
     
     [NSURLConnection sendAsynchronousRequest:request queue:_operationQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        NSArray *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+        id jsonObject = nil;
+        
+        if (data == nil) {
+            // not connected!
+        }
+        else {
+            jsonObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+        }
         
         if (callback != nil) {
-            callback(dict);
+            callback(jsonObject);
         }
     }];
 }

@@ -10,6 +10,6 @@
 
 @interface UBStudentView : UIView
 
-@property (nonatomic) UITableView *breachesView;
+@property (nonatomic) UITableView *contributionsView;
 
 @end

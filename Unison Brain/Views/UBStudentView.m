@@ -10,28 +10,35 @@
 
 #import "UBFunctions.h"
 
+@interface UBStudentView ()
+
+@property (nonatomic) UILabel *contribsLabel;
+
+@end
+
 @implementation UBStudentView
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        _contribsLabel = [[UILabel alloc] init];
+        _contribsLabel.text = @"";
     }
     return self;
 }
 
 - (void)layoutSubviews
 {
-    if (self.breachesView != nil) {
-        self.breachesView.frame = CGRectPosition(self.frame, 0, 0);
+    if (self.contributionsView != nil) {
+        self.contributionsView.frame = CGRectPosition(self.frame, 0, 0);
     }
 }
 
-- (void)setBreachesView:(UITableView *)breachesView
+- (void)setContributionsView:(UITableView *)contributionsView
 {
-    [self addSubview:breachesView];
-    _breachesView = breachesView;
+    [self addSubview:contributionsView];
+    _contributionsView = contributionsView;
 }
 
 @end

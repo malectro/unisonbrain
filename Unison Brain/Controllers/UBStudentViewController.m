@@ -11,11 +11,11 @@
 #import "UBStudent.h"
 
 #import "UBStudentView.h"
-#import "UBBreachesViewController.h"
+#import "UBContributionsViewController.h"
 
 @interface UBStudentViewController ()
 
-@property (nonatomic) UBBreachesViewController *breachesController;
+@property (nonatomic) UBContributionsViewController *contributionsController;
 
 @end
 
@@ -29,8 +29,8 @@
             self.student = student;
         }
         
-        _breachesController = [[UBBreachesViewController alloc] initWithPerson:self.student];
-        [self addChildViewController:_breachesController];
+        _contributionsController = [[UBContributionsViewController alloc] initWithPerson:self.student];
+        [self addChildViewController:_contributionsController];
     }
     return self;
 }
@@ -44,7 +44,7 @@
 {
     [super viewDidLoad];
 
-    self.studentView.breachesView = self.breachesController.tableView;
+    self.studentView.contributionsView = self.contributionsController.tableView;
 }
 
 - (void)setStudent:(UBStudent *)student

@@ -1,22 +1,22 @@
 //
-//  UBBreachesViewController.m
+//  UBContributionsViewController.m
 //  Unison Brain
 //
 //  Created by Kyle Warren on 2/19/13.
 //  Copyright (c) 2013 Kyle Warren. All rights reserved.
 //
 
-#import "UBBreachesViewController.h"
+#import "UBContributionsViewController.h"
 
 #import "UBContribution.h"
 
 #import "UBDate.h"
 
-@interface UBBreachesViewController ()
+@interface UBContributionsViewController ()
 
 @end
 
-@implementation UBBreachesViewController
+@implementation UBContributionsViewController
 
 - (id)initWithPerson:(UBPerson *)person
 {
