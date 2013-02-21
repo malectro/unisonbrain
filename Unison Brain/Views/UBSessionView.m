@@ -51,9 +51,11 @@
         
         _controlPanelBackground = [[UIView alloc] init];
         _controlPanelBackground.backgroundColor = [UIColor whiteColor];
+        // we need a something better. this slows rendering.
         _controlPanelBackground.layer.shadowColor = [UIColor blackColor].CGColor;
         _controlPanelBackground.layer.shadowOpacity = 0.5f;
         _controlPanelBackground.layer.shadowRadius = 10.0f;
+        _controlPanelBackground.layer.shouldRasterize = YES;
         [self addSubview:_controlPanelBackground];
         
         self.studentSelector = [[UBStudentSelectorView alloc] initWithStudents:nil];
@@ -79,7 +81,6 @@
         [self addSubview:_codesOrStudents];
         
         NSArray *subjects = [UBSubject all];
-        NSLog(@"%@", subjects);
         NSArray *subjectNames = [subjects valueForKey:@"name"];
         
         _subject = [[UISegmentedControl alloc] initWithItems:subjectNames];
@@ -123,6 +124,7 @@
     _listSelectView.layer.shadowColor = [UIColor blackColor].CGColor;
     _listSelectView.layer.shadowRadius = 10.0f;
     _listSelectView.layer.shadowOpacity = 0.5f;
+    _listSelectView.layer.shouldRasterize = YES;
     
     [self addSubview:_listSelectView];
     [self bringSubviewToFront:_listSelectView];
