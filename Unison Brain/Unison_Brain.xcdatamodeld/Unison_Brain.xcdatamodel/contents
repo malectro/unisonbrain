@@ -26,7 +26,7 @@
         <attribute name="score" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="updatedAt" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="code" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UBCode" inverseName="codeScores" inverseEntity="UBCode" syncable="YES"/>
-        <relationship name="conferences" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBConference" inverseName="codeScores" inverseEntity="UBConference" syncable="YES"/>
+        <relationship name="conference" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UBConference" inverseName="codeScores" inverseEntity="UBConference" syncable="YES"/>
     </entity>
     <entity name="UBCodeType" representedClassName="UBCodeType" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
@@ -41,7 +41,7 @@
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="updatedAt" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="codeScores" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBCodeScore" inverseName="conferences" inverseEntity="UBCodeScore" syncable="YES"/>
+        <relationship name="codeScores" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBCodeScore" inverseName="conference" inverseEntity="UBCodeScore" syncable="YES"/>
         <relationship name="student" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UBStudent" inverseName="conferences" inverseEntity="UBStudent" syncable="YES"/>
         <relationship name="subject" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UBSubject" inverseName="conferences" inverseEntity="UBSubject" syncable="YES"/>
         <relationship name="teacher" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UBTeacher" inverseName="conferences" inverseEntity="UBTeacher" syncable="YES"/>
@@ -95,6 +95,7 @@
         <element name="UBBreach" positionX="160" positionY="192" width="128" height="165"/>
         <element name="UBCode" positionX="160" positionY="192" width="128" height="165"/>
         <element name="UBCodeScore" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="UBCodeType" positionX="160" positionY="192" width="128" height="120"/>
         <element name="UBConference" positionX="160" positionY="192" width="128" height="180"/>
         <element name="UBContribution" positionX="160" positionY="192" width="128" height="135"/>
         <element name="UBPerson" positionX="160" positionY="192" width="128" height="165"/>
@@ -102,6 +103,5 @@
         <element name="UBStudent" positionX="160" positionY="192" width="128" height="75"/>
         <element name="UBSubject" positionX="160" positionY="192" width="128" height="135"/>
         <element name="UBTeacher" positionX="160" positionY="192" width="128" height="60"/>
-        <element name="UBCodeType" positionX="160" positionY="192" width="128" height="120"/>
     </elements>
 </model>

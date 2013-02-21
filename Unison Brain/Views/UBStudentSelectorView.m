@@ -77,7 +77,7 @@
 {
     UBStudent *student = _students[sender.tag];
     
-    if ([_selectedStudents containsObject:student]) {
+    if ([_selectedStudents containsObject:student] && self.allowsMultiple) {
         NSMutableSet *tempSet = [NSMutableSet setWithSet:_selectedStudents];
         [tempSet removeObject:student];
         _selectedStudents = [NSSet setWithSet:tempSet];

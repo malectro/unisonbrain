@@ -110,8 +110,6 @@
     
     _breachesView.frame = CGRectMake(0, 0, LEFT_WIDTH - 1.0f, _createBreach.frame.origin.y - 10.0f);
     _controlPanelBackground.frame = CGRectMake(0, _breachesView.frame.size.height, LEFT_WIDTH - 1.0f, self.frame.size.height - _breachesView.frame.size.height);
-    
-    
 }
 
 - (void)setListSelectView:(UIView *)listSelectView
@@ -119,8 +117,6 @@
     _listSelectView = listSelectView;
     [_listSelectView removeFromSuperview];
     
-    //_listSelectView.layer.borderColor = [UIColor blackColor].CGColor;
-    //_listSelectView.layer.borderWidth = 1.0f;
     _listSelectView.layer.shadowColor = [UIColor blackColor].CGColor;
     _listSelectView.layer.shadowRadius = 10.0f;
     _listSelectView.layer.shadowOpacity = 0.5f;

@@ -72,6 +72,7 @@
 		86D51E4416B9B8ED00C129F6 /* UBCodeScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E4316B9B8ED00C129F6 /* UBCodeScore.m */; };
 		86D51E4716B9B8ED00C129F6 /* UBContribution.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E4616B9B8ED00C129F6 /* UBContribution.m */; };
 		86D51E4A16B9B8ED00C129F6 /* UBCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E4916B9B8ED00C129F6 /* UBCode.m */; };
+		86F1852716D69F0200533DC5 /* UBCodeScoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F1852616D69F0200533DC5 /* UBCodeScoresViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +191,8 @@
 		86D51E4616B9B8ED00C129F6 /* UBContribution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBContribution.m; path = "Unison Brain/Models/UBContribution.m"; sourceTree = "<group>"; };
 		86D51E4816B9B8ED00C129F6 /* UBCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBCode.h; path = "Unison Brain/Models/UBCode.h"; sourceTree = "<group>"; };
 		86D51E4916B9B8ED00C129F6 /* UBCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBCode.m; path = "Unison Brain/Models/UBCode.m"; sourceTree = "<group>"; };
+		86F1852516D69F0200533DC5 /* UBCodeScoresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBCodeScoresViewController.h; path = Controllers/UBCodeScoresViewController.h; sourceTree = "<group>"; };
+		86F1852616D69F0200533DC5 /* UBCodeScoresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBCodeScoresViewController.m; path = Controllers/UBCodeScoresViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -360,6 +363,8 @@
 				86A3876416D41DE7008CA93B /* UBModelTableViewController.m */,
 				86A3876616D42804008CA93B /* UBContributionsViewController.h */,
 				86A3876716D42804008CA93B /* UBContributionsViewController.m */,
+				86F1852516D69F0200533DC5 /* UBCodeScoresViewController.h */,
+				86F1852616D69F0200533DC5 /* UBCodeScoresViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -568,6 +573,7 @@
 				86A3876216D3E49B008CA93B /* UBStudentView.m in Sources */,
 				86A3876516D41DE7008CA93B /* UBModelTableViewController.m in Sources */,
 				86A3876816D42804008CA93B /* UBContributionsViewController.m in Sources */,
+				86F1852716D69F0200533DC5 /* UBCodeScoresViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

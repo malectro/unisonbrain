@@ -19,14 +19,7 @@
 @property (nonatomic, retain) NSString * comment;
 @property (nonatomic, retain) NSNumber * score;
 @property (nonatomic, retain) UBCode *code;
-@property (nonatomic, retain) NSSet *conferences;
-@end
-
-@interface UBCodeScore (CoreDataGeneratedAccessors)
-
-- (void)addConferencesObject:(UBConference *)value;
-- (void)removeConferencesObject:(UBConference *)value;
-- (void)addConferences:(NSSet *)values;
-- (void)removeConferences:(NSSet *)values;
+@property (nonatomic, retain) UBConference *conference;
 
 @end
+

@@ -16,6 +16,6 @@
 @dynamic comment;
 @dynamic score;
 @dynamic code;
-@dynamic conferences;
+@dynamic conference;
 
 @end

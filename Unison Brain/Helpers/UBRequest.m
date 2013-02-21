@@ -68,7 +68,7 @@
             [operationQueue setSuspended:YES];
         };
         
-        [_reachable startNotifier];
+        //[_reachable startNotifier];
     }
     return self;
 }
