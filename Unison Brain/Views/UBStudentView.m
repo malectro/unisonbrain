@@ -61,8 +61,22 @@
 
 - (void)setContributionsView:(UITableView *)contributionsView
 {
+    if (_contributionsView) {
+        [_contributionsView removeFromSuperview];
+    }
+    
     [self addSubview:contributionsView];
     _contributionsView = contributionsView;
+}
+
+- (void)setCodesView:(UIView *)codesView
+{
+    if (_codesView) {
+        [_codesView removeFromSuperview];
+    }
+    
+    [self addSubview:codesView];
+    _codesView = codesView;
 }
 
 @end

@@ -13,6 +13,8 @@
 
 @implementation UBSubject
 
+@synthesize sortedCodes = _sortedCodes;
+
 @dynamic name;
 @dynamic conferences;
 @dynamic sessions;
@@ -31,6 +33,16 @@
 + (NSDictionary *)keyMap
 {
     return @{@"name": @"name"};
+}
+
+- (NSArray *)sortedCodes
+{
+    if (_sortedCodes == nil) {
+        NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
+        _sortedCodes = [self.codes sortedArrayUsingDescriptors:@[descriptor]];
+    }
+    
+    return _sortedCodes;
 }
 
 @end

@@ -221,10 +221,10 @@
 #pragma mark - Testing methods that whouldn't be used ever
 - (void)fetchServerStuff
 {
-    [UBTeacher fetchAll];
-    [UBStudent fetchAll];
-    [UBSubject fetchAll];
-    [UBCodeType fetchAll];
+    //[UBTeacher fetchAll];
+    //[UBStudent fetchAll];
+    //[UBSubject fetchAll];
+    //[UBCodeType fetchAll];
     //NSLog(@"people %@ %@", [UBStudent all], [UBTeacher all]);
     //NSLog(@"bsonid %@", [UBBson bsonId]);
     //NSLog(@"types %@", [UBCodeType all]);

@@ -19,6 +19,7 @@
 @property (nonatomic, retain) NSSet *conferences;
 @property (nonatomic, retain) NSSet *codes;
 @property (nonatomic, retain) NSSet *sessions;
+@property (nonatomic) NSArray *sortedCodes;
 
 @end
 

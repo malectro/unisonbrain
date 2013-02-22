@@ -34,7 +34,8 @@
 + (NSDictionary *)keyMap
 {
     return @{@"name": @"name",
-             @"year": @"year"};
+             @"year": @"year",
+             @"subject": [UBSubject class]};
 }
 
 @end

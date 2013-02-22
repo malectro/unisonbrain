@@ -109,8 +109,6 @@
 + (void)fetchAll
 {
     [UBRequest get:[self modelUrl] callback:^(NSArray *models) {
-        NSLog(@"models %@", models);
-        
         for (NSDictionary *dict in models) {
             [self findOrCreateWithDict:dict];
         }
@@ -130,7 +128,7 @@
         model = [self create];
     }
     
-    if (model.updatedAt.intValue < (NSInteger) dict[@"updated_at"]) {
+    if (model.updatedAt.integerValue <= [dict[@"updated_at"] integerValue]) {
         [model updateWithDict:dict];
     }
     
@@ -160,6 +158,9 @@
                 }
                 else if ([dict[key] isKindOfClass:[NSDictionary class]]) {
                     [self setValue:[keyMap[key] findOrCreateWithDict:dict[key]] forKey:key];
+                }
+                else if ([dict[key] isKindOfClass:[NSString class]]) {
+                    [self setValue:[keyMap[key] find:dict[key]] forKey:key];
                 }
             }
             else {

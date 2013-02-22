@@ -12,10 +12,12 @@
 
 #import "UBStudentView.h"
 #import "UBContributionsViewController.h"
+#import "UBCodeScoresViewController.h"
 
 @interface UBStudentViewController ()
 
 @property (nonatomic) UBContributionsViewController *contributionsController;
+@property (nonatomic) UBCodeScoresViewController *codesController;
 
 @end
 
@@ -31,6 +33,9 @@
         
         _contributionsController = [[UBContributionsViewController alloc] initWithPerson:self.student];
         [self addChildViewController:_contributionsController];
+        
+        _codesController = [[UBCodeScoresViewController alloc] initWithStudent:self.student];
+        [self addChildViewController:_codesController];
     }
     return self;
 }
@@ -45,6 +50,7 @@
     [super viewDidLoad];
 
     self.studentView.contributionsView = self.contributionsController.tableView;
+    self.studentView.codesView = self.codesController.view;
 }
 
 - (void)setStudent:(UBStudent *)student
