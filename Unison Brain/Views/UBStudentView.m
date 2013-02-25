@@ -40,7 +40,7 @@
         [self addSubview:_codesLabel];
         
         _commentsLabel = [[UILabel alloc] init];
-        _commentsLabel.text = @"Recent Conferences";
+        _commentsLabel.text = @"Conferences";
         _commentsLabel.font = [UIFont systemFontOfSize:28.0f];
         [_commentsLabel sizeToFit];
         [self addSubview:_commentsLabel];
