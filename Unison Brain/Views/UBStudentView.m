@@ -18,6 +18,7 @@
 @property (nonatomic) UILabel *contribsLabel;
 @property (nonatomic) UILabel *codesLabel;
 @property (nonatomic) UILabel *commentsLabel;
+@property (nonatomic) UIScrollView *conferenceMetaView;
 
 @end
 
@@ -44,6 +45,12 @@
         _commentsLabel.font = [UIFont systemFontOfSize:28.0f];
         [_commentsLabel sizeToFit];
         [self addSubview:_commentsLabel];
+        
+        _conferenceMetaView = [[UIScrollView alloc] init];
+        _conferenceMetaView.pagingEnabled = YES;
+        _conferenceMetaView.directionalLockEnabled = YES;
+        _conferenceMetaView.showsHorizontalScrollIndicator = NO;
+        [self addSubview:_conferenceMetaView];
     }
     return self;
 }
@@ -67,10 +74,17 @@
     }
     
     _commentsLabel.frame = CGRectPosition(_commentsLabel.frame, 10.0f, self.frame.size.height - kBottomSplitHeight + 10.0f);
+    _conferenceMetaView.frame = CGRectMake(0, _commentsLabel.frame.origin.y + _commentsLabel.frame.size.height, self.frame.size.width, kBottomSplitHeight - _commentsLabel.frame.size.height);
     
-    if (self.commentsView != nil) {
-        _commentsView.frame = CGRectMake(0, _commentsLabel.frame.origin.y + _commentsLabel.frame.size.height, self.frame.size.width, kBottomSplitHeight - _commentsLabel.frame.size.height);
+    if (self.conferencesView != nil) {
+        self.conferencesView.frame = CGRectPosition(_conferenceMetaView.frame, 0, 0);
     }
+    
+    if (self.conferenceView != nil) {
+        self.conferenceView.frame = CGRectPosition(_conferenceMetaView.frame, _conferenceMetaView.frame.size.width, 0);
+    }
+    
+    _conferenceMetaView.contentSize = CGSizeMake(_conferenceMetaView.frame.size.width * 2, _conferenceMetaView.frame.size.height);
 }
 
 - (void)setContributionsView:(UITableView *)contributionsView
@@ -93,14 +107,24 @@
     [self addSubview:codesView];
 }
 
-- (void)setCommentsView:(UIView *)commentsView
+- (void)setConferencesView:(UIView *)conferencesView
 {
-    if (_commentsView) {
-        [_commentsView removeFromSuperview];
+    if (_conferencesView) {
+        [_conferencesView removeFromSuperview];
     }
     
-    _commentsView = commentsView;
-    [self addSubview:commentsView];
+    _conferencesView = conferencesView;
+    [_conferenceMetaView addSubview:conferencesView];
+}
+
+- (void)setConferenceView:(UIView *)conferenceView
+{
+    if (_conferenceView) {
+        [_conferenceView removeFromSuperview];
+    }
+    
+    _conferenceView = conferenceView;
+    [_conferenceMetaView addSubview:conferenceView];
 }
 
 @end

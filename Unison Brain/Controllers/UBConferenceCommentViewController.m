@@ -14,12 +14,12 @@
 
 @implementation UBConferenceCommentViewController
 
-- (id)initWithStudent:(UBStudent *)student
+- (id)initWithConference:(UBConference *)conference
 {
-    self = [super initWithStyle:UITableViewStyleGrouped];
+    self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
-        if (student != nil) {
-            _student = student;
+        if (conference != nil) {
+            _conference = conference;
         }
         
         self.modelName = @"UBCodeScore";
@@ -29,14 +29,13 @@
 
 - (NSArray *)sortDescriptors
 {
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"conference.time" ascending:NO];
     NSSortDescriptor *sortDescriptor2 = [NSSortDescriptor sortDescriptorWithKey:@"code.name" ascending:NO];
-    return @[sortDescriptor, sortDescriptor2];
+    return @[sortDescriptor2];
 }
 
 - (NSPredicate *)predicate
 {
-    return [NSPredicate predicateWithFormat:@"conference.student = %@", self.student];
+    return [NSPredicate predicateWithFormat:@"conference = %@", self.conference];
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath

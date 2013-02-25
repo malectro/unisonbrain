@@ -12,6 +12,7 @@
 
 @property (nonatomic) UITableView *contributionsView;
 @property (nonatomic) UIView *codesView;
-@property (nonatomic) UIView *commentsView;
+@property (nonatomic) UIView *conferencesView;
+@property (nonatomic) UIView *conferenceView;
 
 @end

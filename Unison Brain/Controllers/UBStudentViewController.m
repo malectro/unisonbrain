@@ -14,12 +14,14 @@
 #import "UBContributionsViewController.h"
 #import "UBConferenceCommentViewController.h"
 #import "UBCodeScoresViewController.h"
+#import "UBConferencesViewController.h"
 
 @interface UBStudentViewController ()
 
 @property (nonatomic) UBContributionsViewController *contributionsController;
 @property (nonatomic) UBCodeScoresViewController *codesController;
-@property (nonatomic) UBConferenceCommentViewController *commentsController;
+@property (nonatomic) UBConferencesViewController *conferencesController;
+@property (nonatomic) UBConferenceCommentViewController *conferenceController;
 
 @end
 
@@ -39,8 +41,11 @@
         _codesController = [[UBCodeScoresViewController alloc] initWithStudent:self.student];
         [self addChildViewController:_codesController];
         
-        _commentsController = [[UBConferenceCommentViewController alloc] initWithStudent:self.student];
-        [self addChildViewController:_commentsController];
+        _conferencesController = [[UBConferencesViewController alloc] initWithStudent:self.student];
+        [self addChildViewController:_conferencesController];
+        
+        _conferenceController = [[UBConferenceCommentViewController alloc] initWithConference:nil];
+        [self addChildViewController:_conferenceController];
     }
     return self;
 }
@@ -56,7 +61,8 @@
 
     self.studentView.contributionsView = self.contributionsController.tableView;
     self.studentView.codesView = self.codesController.view;
-    self.studentView.commentsView = self.commentsController.view;
+    self.studentView.conferencesView = self.conferencesController.view;
+    self.studentView.conferenceView = self.conferenceController.view;
 }
 
 - (void)setStudent:(UBStudent *)student

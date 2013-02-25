@@ -8,12 +8,12 @@
 
 #import "UBModelTableViewController.h"
 
-@class UBStudent;
+@class UBConference;
 
 @interface UBConferenceCommentViewController : UBModelTableViewController
 
-@property (nonatomic) UBStudent *student;
+@property (nonatomic) UBConference *conference;
 
-- (id)initWithStudent:(UBStudent *)student;
+- (id)initWithConference:(UBConference *)conference;
 
 @end
