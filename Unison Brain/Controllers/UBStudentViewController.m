@@ -8,7 +8,10 @@
 
 #import "UBStudentViewController.h"
 
+#import "UBUser.h"
+
 #import "UBStudent.h"
+#import "UBConference.h"
 
 #import "UBStudentView.h"
 #import "UBContributionsViewController.h"
@@ -63,6 +66,8 @@
     self.studentView.codesView = self.codesController.view;
     self.studentView.conferencesView = self.conferencesController.view;
     self.studentView.conferenceView = self.conferenceController.view;
+    
+    [self.studentView.createConference addTarget:self action:@selector(createConference) forControlEvents:UIControlEventTouchDown];
 }
 
 - (void)setStudent:(UBStudent *)student
@@ -75,6 +80,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)createConference
+{
+    UBConference *conference = [UBConference create];
+    conference.student = self.student;
+    conference.teacher = [UBUser currentTeacher];
 }
 
 @end

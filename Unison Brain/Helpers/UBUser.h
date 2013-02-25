@@ -22,6 +22,7 @@
 @property (nonatomic, readonly) NSString *token;
 
 + (UBUser *)currentUser;
++ (UBTeacher *)currentTeacher;
 
 - (id)initWithTeacher:(UBTeacher *)teacher;
 

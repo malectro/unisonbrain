@@ -344,9 +344,21 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		86046B4216DBC8A3009F6468 /* Prototypes */ = {
+			isa = PBXGroup;
+			children = (
+				863F417B16C439D800DACB64 /* UBSearchListViewController.h */,
+				863F417C16C439D800DACB64 /* UBSearchListViewController.m */,
+				86A3876316D41DE7008CA93B /* UBModelTableViewController.h */,
+				86A3876416D41DE7008CA93B /* UBModelTableViewController.m */,
+			);
+			name = Prototypes;
+			sourceTree = "<group>";
+		};
 		86D51E2416B9AB2C00C129F6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				86046B4216DBC8A3009F6468 /* Prototypes */,
 				271E2ABB16C867A0009D4CE2 /* UBDatePickerViewController.h */,
 				271E2ABC16C867A1009D4CE2 /* UBDatePickerViewController.m */,
 				86D51E2516B9ABD200C129F6 /* UBHomeViewController.h */,
@@ -359,14 +371,10 @@
 				860C51A516C04A3E00C16B65 /* UBStudentListViewController.m */,
 				863F417816C4393A00DACB64 /* UBCodesViewController.h */,
 				863F417916C4393A00DACB64 /* UBCodesViewController.m */,
-				863F417B16C439D800DACB64 /* UBSearchListViewController.h */,
-				863F417C16C439D800DACB64 /* UBSearchListViewController.m */,
 				8687035616D0367D009DA8B6 /* UBLoginViewController.h */,
 				8687035716D0367D009DA8B6 /* UBLoginViewController.m */,
 				86A3875D16D3E3D0008CA93B /* UBStudentViewController.h */,
 				86A3875E16D3E3D0008CA93B /* UBStudentViewController.m */,
-				86A3876316D41DE7008CA93B /* UBModelTableViewController.h */,
-				86A3876416D41DE7008CA93B /* UBModelTableViewController.m */,
 				86A3876616D42804008CA93B /* UBContributionsViewController.h */,
 				86A3876716D42804008CA93B /* UBContributionsViewController.m */,
 				86F1852516D69F0200533DC5 /* UBCodeScoresViewController.h */,

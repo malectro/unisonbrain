@@ -28,6 +28,11 @@ static UBUser *currentUser;
     return currentUser;
 }
 
++ (UBTeacher *)currentTeacher
+{
+    return [self currentUser].teacher;
+}
+
 #pragma mark - instance methods
 
 @synthesize teacher = _teacher;

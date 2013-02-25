@@ -23,4 +23,9 @@
 @dynamic subject;
 @dynamic teacher;
 
++ (NSString *)modelName
+{
+    return @"UBConference";
+}
+
 @end

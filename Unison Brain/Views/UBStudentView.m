@@ -46,6 +46,13 @@
         [_commentsLabel sizeToFit];
         [self addSubview:_commentsLabel];
         
+        _createConference = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_createConference setTitle:@"New" forState:UIControlStateNormal];
+        //_createConference.titleEdgeInsets = UIEdgeInsetsMake(2.0f, <#CGFloat left#>, <#CGFloat bottom#>, <#CGFloat right#>)
+        //_createConference.titleLabel.font = [UIFont systemFontOfSize:18.0f];
+        [_createConference sizeToFit];
+        [self addSubview:_createConference];
+        
         _conferenceMetaView = [[UIScrollView alloc] init];
         _conferenceMetaView.pagingEnabled = YES;
         _conferenceMetaView.directionalLockEnabled = YES;
@@ -74,6 +81,8 @@
     }
     
     _commentsLabel.frame = CGRectPosition(_commentsLabel.frame, 10.0f, self.frame.size.height - kBottomSplitHeight + 10.0f);
+    _createConference.frame = CGRectMake(_commentsLabel.frame.origin.x + _commentsLabel.frame.size.width + 10.0f, _commentsLabel.frame.origin.y, _commentsLabel.frame.size.width, 30.0f);
+    
     _conferenceMetaView.frame = CGRectMake(0, _commentsLabel.frame.origin.y + _commentsLabel.frame.size.height, self.frame.size.width, kBottomSplitHeight - _commentsLabel.frame.size.height);
     
     if (self.conferencesView != nil) {
