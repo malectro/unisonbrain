@@ -34,8 +34,6 @@
         
         self.modelName = @"UBCodeScore";
         self.subjects = [[UBSubject all] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO]]];
-        
-        NSLog(@"subject codes %@", ((UBSubject *)self.subjects[0]).sortedCodes);
     }
     return self;
 }

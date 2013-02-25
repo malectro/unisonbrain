@@ -12,12 +12,14 @@
 
 #import "UBStudentView.h"
 #import "UBContributionsViewController.h"
+#import "UBConferenceCommentViewController.h"
 #import "UBCodeScoresViewController.h"
 
 @interface UBStudentViewController ()
 
 @property (nonatomic) UBContributionsViewController *contributionsController;
 @property (nonatomic) UBCodeScoresViewController *codesController;
+@property (nonatomic) UBConferenceCommentViewController *commentsController;
 
 @end
 
@@ -36,6 +38,9 @@
         
         _codesController = [[UBCodeScoresViewController alloc] initWithStudent:self.student];
         [self addChildViewController:_codesController];
+        
+        _commentsController = [[UBConferenceCommentViewController alloc] initWithStudent:self.student];
+        [self addChildViewController:_commentsController];
     }
     return self;
 }
@@ -51,6 +56,7 @@
 
     self.studentView.contributionsView = self.contributionsController.tableView;
     self.studentView.codesView = self.codesController.view;
+    self.studentView.commentsView = self.commentsController.view;
 }
 
 - (void)setStudent:(UBStudent *)student

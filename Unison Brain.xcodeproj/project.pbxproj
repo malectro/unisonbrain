@@ -33,6 +33,7 @@
 		8602690016B9811D002C6577 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 860268DF16B9811D002C6577 /* CoreData.framework */; };
 		8602690816B9811D002C6577 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8602690616B9811D002C6577 /* InfoPlist.strings */; };
 		8602690B16B9811D002C6577 /* Unison_BrainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8602690A16B9811D002C6577 /* Unison_BrainTests.m */; };
+		86046B3E16DBB28B009F6468 /* UBConferenceCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86046B3D16DBB28B009F6468 /* UBConferenceCommentViewController.m */; };
 		860C519416BC19DD00C16B65 /* UBSessionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 860C519316BC19DD00C16B65 /* UBSessionsViewController.m */; };
 		860C519716BC24E500C16B65 /* UBHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 860C519616BC24E500C16B65 /* UBHomeView.m */; };
 		860C519A16BC2F9500C16B65 /* UBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 860C519916BC2F9500C16B65 /* UBModel.m */; };
@@ -118,6 +119,8 @@
 		8602690716B9811D002C6577 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8602690916B9811D002C6577 /* Unison_BrainTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Unison_BrainTests.h; sourceTree = "<group>"; };
 		8602690A16B9811D002C6577 /* Unison_BrainTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Unison_BrainTests.m; sourceTree = "<group>"; };
+		86046B3C16DBB28B009F6468 /* UBConferenceCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBConferenceCommentViewController.h; path = Controllers/UBConferenceCommentViewController.h; sourceTree = "<group>"; };
+		86046B3D16DBB28B009F6468 /* UBConferenceCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBConferenceCommentViewController.m; path = Controllers/UBConferenceCommentViewController.m; sourceTree = "<group>"; };
 		860C519216BC19DD00C16B65 /* UBSessionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBSessionsViewController.h; path = Controllers/UBSessionsViewController.h; sourceTree = "<group>"; };
 		860C519316BC19DD00C16B65 /* UBSessionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBSessionsViewController.m; path = Controllers/UBSessionsViewController.m; sourceTree = "<group>"; };
 		860C519516BC24E500C16B65 /* UBHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBHomeView.h; path = Views/UBHomeView.h; sourceTree = "<group>"; };
@@ -365,6 +368,8 @@
 				86A3876716D42804008CA93B /* UBContributionsViewController.m */,
 				86F1852516D69F0200533DC5 /* UBCodeScoresViewController.h */,
 				86F1852616D69F0200533DC5 /* UBCodeScoresViewController.m */,
+				86046B3C16DBB28B009F6468 /* UBConferenceCommentViewController.h */,
+				86046B3D16DBB28B009F6468 /* UBConferenceCommentViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -574,6 +579,7 @@
 				86A3876516D41DE7008CA93B /* UBModelTableViewController.m in Sources */,
 				86A3876816D42804008CA93B /* UBContributionsViewController.m in Sources */,
 				86F1852716D69F0200533DC5 /* UBCodeScoresViewController.m in Sources */,
+				86046B3E16DBB28B009F6468 /* UBConferenceCommentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

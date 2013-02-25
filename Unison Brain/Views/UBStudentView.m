@@ -67,6 +67,10 @@
     }
     
     _commentsLabel.frame = CGRectPosition(_commentsLabel.frame, 10.0f, self.frame.size.height - kBottomSplitHeight + 10.0f);
+    
+    if (self.commentsView != nil) {
+        _commentsView.frame = CGRectMake(0, _commentsLabel.frame.origin.y + _commentsLabel.frame.size.height, self.frame.size.width, kBottomSplitHeight - _commentsLabel.frame.size.height);
+    }
 }
 
 - (void)setContributionsView:(UITableView *)contributionsView
@@ -75,8 +79,8 @@
         [_contributionsView removeFromSuperview];
     }
     
-    [self addSubview:contributionsView];
     _contributionsView = contributionsView;
+    [self addSubview:contributionsView];
 }
 
 - (void)setCodesView:(UIView *)codesView
@@ -85,8 +89,18 @@
         [_codesView removeFromSuperview];
     }
     
-    [self addSubview:codesView];
     _codesView = codesView;
+    [self addSubview:codesView];
+}
+
+- (void)setCommentsView:(UIView *)commentsView
+{
+    if (_commentsView) {
+        [_commentsView removeFromSuperview];
+    }
+    
+    _commentsView = commentsView;
+    [self addSubview:commentsView];
 }
 
 @end
