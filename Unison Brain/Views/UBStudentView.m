@@ -11,11 +11,13 @@
 #import "UBFunctions.h"
 
 #define kLeftColumnWidth 400.0f
+#define kBottomSplitHeight 300.0f
 
 @interface UBStudentView ()
 
 @property (nonatomic) UILabel *contribsLabel;
 @property (nonatomic) UILabel *codesLabel;
+@property (nonatomic) UILabel *commentsLabel;
 
 @end
 
@@ -36,6 +38,12 @@
         _codesLabel.font = [UIFont systemFontOfSize:28.0f];
         [_codesLabel sizeToFit];
         [self addSubview:_codesLabel];
+        
+        _commentsLabel = [[UILabel alloc] init];
+        _commentsLabel.text = @"Recent Conferences";
+        _commentsLabel.font = [UIFont systemFontOfSize:28.0f];
+        [_commentsLabel sizeToFit];
+        [self addSubview:_commentsLabel];
     }
     return self;
 }
@@ -49,14 +57,16 @@
     _contribsLabel.frame = CGRectPosition(_contribsLabel.frame, 10.0f, 10.0f);
     
     if (self.contributionsView != nil) {
-        self.contributionsView.frame = CGRectMake(0, yValue, kLeftColumnWidth, self.frame.size.height - yValue);
+        self.contributionsView.frame = CGRectMake(0, yValue, kLeftColumnWidth, self.frame.size.height - yValue - kBottomSplitHeight);
     }
     
     _codesLabel.frame = CGRectPosition(_codesLabel.frame, kLeftColumnWidth + 10.0f, 10.0f);
     
     if (self.codesView != nil) {
-        self.codesView.frame = CGRectMake(kLeftColumnWidth, yValue, self.frame.size.width - kLeftColumnWidth, self.frame.size.height - yValue);
+        self.codesView.frame = CGRectMake(kLeftColumnWidth, yValue, self.frame.size.width - kLeftColumnWidth, self.frame.size.height - yValue - kBottomSplitHeight);
     }
+    
+    _commentsLabel.frame = CGRectPosition(_commentsLabel.frame, 10.0f, self.frame.size.height - kBottomSplitHeight + 10.0f);
 }
 
 - (void)setContributionsView:(UITableView *)contributionsView
