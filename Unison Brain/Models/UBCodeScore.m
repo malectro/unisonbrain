@@ -18,4 +18,9 @@
 @dynamic code;
 @dynamic conference;
 
++ (NSString *)modelName
+{
+    return @"UBCodeScore";
+}
+
 @end

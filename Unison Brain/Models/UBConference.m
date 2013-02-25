@@ -28,4 +28,14 @@
     return @"UBConference";
 }
 
++ (id)create
+{
+    UBConference *conf = [super create];
+
+    conf.time = [NSDate date];
+    conf.notes = @"";
+    
+    return conf;
+}
+
 @end

@@ -8,6 +8,10 @@
 
 #import "UBConferencesViewController.h"
 
+#import "UBDate.h"
+
+#import "UBConference.h"
+
 @interface UBConferencesViewController ()
 
 @end
@@ -16,7 +20,7 @@
 
 - (id)initWithStudent:(UBStudent *)student
 {
-    self = [super initWithStyle:UITableViewStyleGrouped];
+    self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
         if (student != nil) {
             _student = student;
@@ -40,8 +44,15 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    cell.textLabel.text = @"hi";
+    UBConference *conf = [self conferenceAtIndexPath:indexPath];
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", [UBDate stringFromDateMedium:conf.time], conf.notes];
     cell.textLabel.font = [UIFont systemFontOfSize:20.0f];
+}
+
+- (UBConference *)conferenceAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [self.fetchedResultsController objectAtIndexPath:indexPath];
 }
 
 
