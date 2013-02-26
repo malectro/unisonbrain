@@ -11,12 +11,15 @@
 #import "UBFunctions.h"
 
 #import "UBCodeScore.h"
+#import "UBConference.h"
 
 @interface UBConferenceCommentViewController ()
 
 @end
 
 @implementation UBConferenceCommentViewController
+
+@synthesize fetchedResultsController = _fetchedResultsController;
 
 - (id)initWithConference:(UBConference *)conference
 {
@@ -48,7 +51,7 @@
     CGRect rect = CGRectMake(0, 0, 1.0f, 1.0f);
     UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
     [color setFill];
-    UIRectFill(rect);   // Fill it with your color
+    UIRectFill(rect);
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
@@ -67,6 +70,12 @@
     self.tableView.tableHeaderView = headerButton;
 }
 
+- (void)setConference:(UBConference *)conference
+{
+    _conference = conference;
+    _fetchedResultsController = nil;
+}
+
 - (NSArray *)sortDescriptors
 {
     NSSortDescriptor *sortDescriptor2 = [NSSortDescriptor sortDescriptorWithKey:@"code.name" ascending:NO];
@@ -76,6 +85,11 @@
 - (NSPredicate *)predicate
 {
     return [NSPredicate predicateWithFormat:@"conference = %@", self.conference];
+}
+
+- (NSString *)cacheName
+{
+    return [NSString stringWithFormat:@"UBConference %@", self.conference.id];
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath

@@ -19,7 +19,9 @@
 #import "UBCodeScoresViewController.h"
 #import "UBConferencesViewController.h"
 
-@interface UBStudentViewController ()
+@interface UBStudentViewController () {
+    UBConference *_selectedConference;
+}
 
 @property (nonatomic) UBContributionsViewController *contributionsController;
 @property (nonatomic) UBCodeScoresViewController *codesController;
@@ -68,6 +70,9 @@
     self.studentView.conferenceView = self.conferenceController.view;
     
     [self.studentView.createConference addTarget:self action:@selector(createConference) forControlEvents:UIControlEventTouchDown];
+    
+    self.studentView.conferenceMetaView.delegate = self;
+    [self.conferencesController addRowSelectionTarget:self action:@selector(selectConference:)];
 }
 
 - (void)setStudent:(UBStudent *)student
@@ -87,6 +92,13 @@
     UBConference *conference = [UBConference create];
     conference.student = self.student;
     conference.teacher = [UBUser currentTeacher];
+    [self selectConference:conference];
+}
+
+- (void)selectConference:(UBConference *)conference
+{
+    _selectedConference = conference;
+    self.conferenceController.conference = conference;
 }
 
 @end

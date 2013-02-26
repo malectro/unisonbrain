@@ -18,7 +18,6 @@
 @property (nonatomic) UILabel *contribsLabel;
 @property (nonatomic) UILabel *codesLabel;
 @property (nonatomic) UILabel *commentsLabel;
-@property (nonatomic) UIScrollView *conferenceMetaView;
 
 @end
 

@@ -15,5 +15,6 @@
 @property (nonatomic) UIView *conferencesView;
 @property (nonatomic) UIView *conferenceView;
 @property (nonatomic) UIButton *createConference;
+@property (nonatomic, readonly) UIScrollView *conferenceMetaView;
 
 @end

@@ -10,7 +10,7 @@
 
 @class UBStudent, UBStudentView;
 
-@interface UBStudentViewController : UIViewController
+@interface UBStudentViewController : UIViewController<UIScrollViewDelegate>
 
 @property (nonatomic) UBStudent *student;
 @property (nonatomic) UBStudentView *studentView;

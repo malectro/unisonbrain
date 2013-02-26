@@ -12,7 +12,9 @@
 
 #import "UBModel.h"
 
-@interface UBModelTableViewController ()
+@interface UBModelTableViewController () {
+    NSArray *_targets;
+}
 
 @end
 
@@ -67,6 +69,11 @@
     return [NSPredicate predicateWithValue:YES];
 }
 
+- (NSString *)cacheName
+{
+    return self.modelName;
+}
+
 - (NSFetchedResultsController *)fetchedResultsController
 {
     if (_fetchedResultsController == nil) {
@@ -81,7 +88,7 @@
         fetchRequest.sortDescriptors = [self sortDescriptors];
         fetchRequest.predicate = predicate;
         
-        _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[UBAppDelegate moc] sectionNameKeyPath:nil cacheName:self.modelName];
+        _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[UBAppDelegate moc] sectionNameKeyPath:nil cacheName:self.cacheName];
         _fetchedResultsController.delegate = self;
         
         NSError *error = nil;
@@ -92,6 +99,31 @@
     }
     
     return _fetchedResultsController;
+}
+
+- (UITableViewCell *)allocCell:(NSString *)identifier
+{
+    return [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+}
+
+- (void)addRowSelectionTarget:(id)target action:(SEL)action
+{
+    NSMethodSignature *methodSig = [[target class] instanceMethodSignatureForSelector:action];
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
+    invocation.target = target;
+    invocation.selector = action;
+    
+    _targets = [_targets arrayByAddingObject:invocation];
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    id item = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    for (NSInvocation *invocation in _targets) {
+        [invocation setArgument:&item atIndex:0];
+        [invocation invoke];
+    }
 }
 
 #pragma mark - Table view data source
@@ -112,7 +144,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [self allocCell:CellIdentifier];
     }
     
     [self configureCell:cell atIndexPath:indexPath];
