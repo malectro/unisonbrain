@@ -116,6 +116,12 @@
     _targets = [_targets arrayByAddingObject:invocation];
 }
 
+- (void)reload
+{
+    _fetchedResultsController = nil;
+    [self.tableView reloadData];
+}
+
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     id item = [self.fetchedResultsController objectAtIndexPath:indexPath];

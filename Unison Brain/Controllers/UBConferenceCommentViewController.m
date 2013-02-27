@@ -13,13 +13,13 @@
 #import "UBCodeScore.h"
 #import "UBConference.h"
 
+#import "UBCodeScoreCell.h"
+
 @interface UBConferenceCommentViewController ()
 
 @end
 
 @implementation UBConferenceCommentViewController
-
-@synthesize fetchedResultsController = _fetchedResultsController;
 
 - (id)initWithConference:(UBConference *)conference
 {
@@ -73,7 +73,7 @@
 - (void)setConference:(UBConference *)conference
 {
     _conference = conference;
-    _fetchedResultsController = nil;
+    [self reload];
 }
 
 - (NSArray *)sortDescriptors
@@ -92,11 +92,16 @@
     return [NSString stringWithFormat:@"UBConference %@", self.conference.id];
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+- (void)configureCell:(UBCodeScoreCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     UBCodeScore *codeScore = [self codeScoreForIndexPath:indexPath];
-    cell.textLabel.text = codeScore.comment;
-    cell.textLabel.font = [UIFont systemFontOfSize:20.0f];
+    
+    cell.codeScore = codeScore;
+}
+
+- (UITableViewCell *)allocCell:(NSString *)identifer
+{
+    return [[UBCodeScoreCell alloc] initWithReuseIdentifier:identifer];
 }
 
 - (UBCodeScore *)codeScoreForIndexPath:(NSIndexPath *)indexPath

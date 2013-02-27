@@ -23,5 +23,6 @@
 - (UITableViewCell *)allocCell:(NSString *)identifer;
 
 - (void)addRowSelectionTarget:(id)target action:(SEL)action;
+- (void)reload;
 
 @end

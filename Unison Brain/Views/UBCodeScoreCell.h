@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UBCodeScoreCell : UITableViewCell
+@class UBCodeScore;
+
+@interface UBCodeScoreCell : UITableViewCell<UITextFieldDelegate>
+
+@property (nonatomic) UBCodeScore *codeScore;
+@property (nonatomic, readonly) UITextField *textField;
+@property (nonatomic, readonly) UISegmentedControl *scoreControl;
+
+- (id)initWithReuseIdentifier:(NSString *)identifier;
 
 @end

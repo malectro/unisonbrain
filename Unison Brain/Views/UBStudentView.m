@@ -13,7 +13,11 @@
 #define kLeftColumnWidth 400.0f
 #define kBottomSplitHeight 300.0f
 
-@interface UBStudentView ()
+@interface UBStudentView () {
+    UIView *_bottomSplit;
+    CGFloat _prevBottomSplitHeight;
+    CGFloat _bottomSplitHeight;
+}
 
 @property (nonatomic) UILabel *contribsLabel;
 @property (nonatomic) UILabel *codesLabel;
@@ -39,24 +43,37 @@
         [_codesLabel sizeToFit];
         [self addSubview:_codesLabel];
         
+        _bottomSplit = [[UIView alloc] init];
+        [self addSubview:_bottomSplit];
+        
         _commentsLabel = [[UILabel alloc] init];
         _commentsLabel.text = @"Conferences";
         _commentsLabel.font = [UIFont systemFontOfSize:28.0f];
         [_commentsLabel sizeToFit];
-        [self addSubview:_commentsLabel];
+        [_bottomSplit addSubview:_commentsLabel];
+        
+        UIPanGestureRecognizer *gesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(didDragCommentsLabel:)];
+        [_bottomSplit addGestureRecognizer:gesture];
+        
+        UITapGestureRecognizer *gesture2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap)];
+        [_bottomSplit addGestureRecognizer:gesture2];
         
         _createConference = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [_createConference setTitle:@"New" forState:UIControlStateNormal];
         //_createConference.titleEdgeInsets = UIEdgeInsetsMake(2.0f, <#CGFloat left#>, <#CGFloat bottom#>, <#CGFloat right#>)
         //_createConference.titleLabel.font = [UIFont systemFontOfSize:18.0f];
         [_createConference sizeToFit];
-        [self addSubview:_createConference];
+        [_bottomSplit addSubview:_createConference];
         
         _conferenceMetaView = [[UIScrollView alloc] init];
         _conferenceMetaView.pagingEnabled = YES;
         _conferenceMetaView.directionalLockEnabled = YES;
         _conferenceMetaView.showsHorizontalScrollIndicator = NO;
-        [self addSubview:_conferenceMetaView];
+        [_bottomSplit addSubview:_conferenceMetaView];
+        
+        _prevBottomSplitHeight = kBottomSplitHeight;
+        _bottomSplitHeight = kBottomSplitHeight;
+        [self bringSubviewToFront:_bottomSplit];
     }
     return self;
 }
@@ -70,19 +87,21 @@
     _contribsLabel.frame = CGRectPosition(_contribsLabel.frame, 10.0f, 10.0f);
     
     if (self.contributionsView != nil) {
-        self.contributionsView.frame = CGRectMake(0, yValue, kLeftColumnWidth, self.frame.size.height - yValue - kBottomSplitHeight);
+        self.contributionsView.frame = CGRectMake(0, yValue, kLeftColumnWidth, self.frame.size.height - yValue - _bottomSplitHeight);
     }
     
     _codesLabel.frame = CGRectPosition(_codesLabel.frame, kLeftColumnWidth + 10.0f, 10.0f);
     
     if (self.codesView != nil) {
-        self.codesView.frame = CGRectMake(kLeftColumnWidth, yValue, self.frame.size.width - kLeftColumnWidth, self.frame.size.height - yValue - kBottomSplitHeight);
+        self.codesView.frame = CGRectMake(kLeftColumnWidth, yValue, self.frame.size.width - kLeftColumnWidth, self.frame.size.height - yValue - _bottomSplitHeight);
     }
     
-    _commentsLabel.frame = CGRectPosition(_commentsLabel.frame, 10.0f, self.frame.size.height - kBottomSplitHeight + 10.0f);
+    _bottomSplit.frame = CGRectMake(0, self.frame.size.height - _bottomSplitHeight, self.frame.size.width, _bottomSplitHeight);
+    
+    _commentsLabel.frame = CGRectPosition(_commentsLabel.frame, 10.0f, 0);
     _createConference.frame = CGRectMake(_commentsLabel.frame.origin.x + _commentsLabel.frame.size.width + 10.0f, _commentsLabel.frame.origin.y, _commentsLabel.frame.size.width, 30.0f);
     
-    _conferenceMetaView.frame = CGRectMake(0, _commentsLabel.frame.origin.y + _commentsLabel.frame.size.height, self.frame.size.width, kBottomSplitHeight - _commentsLabel.frame.size.height);
+    _conferenceMetaView.frame = CGRectMake(0, _commentsLabel.frame.origin.y + _commentsLabel.frame.size.height, _bottomSplit.frame.size.width, _bottomSplitHeight - _commentsLabel.frame.size.height);
     
     if (self.conferencesView != nil) {
         self.conferencesView.frame = CGRectPosition(_conferenceMetaView.frame, 0, 0);
@@ -93,6 +112,21 @@
     }
     
     _conferenceMetaView.contentSize = CGSizeMake(_conferenceMetaView.frame.size.width * 2, _conferenceMetaView.frame.size.height);
+}
+
+- (void)didTap
+{
+    NSLog(@"hi");
+}
+
+- (void)didDragCommentsLabel:(UIPanGestureRecognizer *)gesture
+{
+    _bottomSplitHeight = _prevBottomSplitHeight - [gesture translationInView:self].y;
+    _bottomSplit.frame = CGRectMake(0, self.frame.size.height - _bottomSplitHeight, self.frame.size.width, _bottomSplitHeight);
+    
+    if (gesture.state == UIGestureRecognizerStateEnded) {
+        _prevBottomSplitHeight = _bottomSplitHeight;
+    }
 }
 
 - (void)setContributionsView:(UITableView *)contributionsView
