@@ -16,7 +16,9 @@
 #import "UBCodeScoreCell.h"
 #import "UBCodesViewController.h"
 
-@interface UBConferenceCommentViewController ()
+@interface UBConferenceCommentViewController () {
+    CGFloat _codesControllerPosition;
+}
 
 @property (nonatomic) UBCodesViewController *codesController;
 
@@ -35,7 +37,6 @@
         self.modelName = @"UBCodeScore";
         
         _codesController = [[UBCodesViewController alloc] init];
-        
     }
     return self;
 }
@@ -43,6 +44,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.view addSubview:self.codesController.view];
+    _codesControllerPosition = 0;
     
     UIView *headerView = [[UIView alloc] init];
     UILabel *headerLabel = [[UILabel alloc] init];
@@ -76,6 +80,35 @@
     [headerButton addTarget:self action:@selector(createCodeScore) forControlEvents:UIControlEventTouchUpInside];
     
     self.tableView.tableHeaderView = headerButton;
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    
+    if (_codesControllerPosition == 0) {
+        _codesControllerPosition = self.view.frame.size.width;
+        //_codesControllerPosition = self.view.frame.size.width - 400.0f;
+    }
+    
+    self.codesController.view.frame = CGRectMake(_codesControllerPosition, 0, 400.0f, self.view.frame.size.height);
+    [self.view bringSubviewToFront:self.codesController.view];
+}
+
+- (void)showCodesView
+{
+    _codesControllerPosition = self.view.frame.size.width - 400.0f;
+    [UIView animateWithDuration:0.2f animations:^{
+        self.codesController.view.frame = CGRectMake(_codesControllerPosition, 0, 400.0f, self.view.frame.size.height);
+    }];
+}
+
+- (void)hideCodesView
+{
+    _codesControllerPosition = self.view.frame.size.width;
+    [UIView animateWithDuration:0.2f animations:^{
+        self.codesController.view.frame = CGRectMake(_codesControllerPosition, 0, 400.0f, self.view.frame.size.height);
+    }];
 }
 
 - (void)setConference:(UBConference *)conference
@@ -127,7 +160,7 @@
 {
     UBCodeScore *codeScore = [self codeScoreForIndexPath:indexPath];
     
-    
+    [self showCodesView];
 }
 
 @end
