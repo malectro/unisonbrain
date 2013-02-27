@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UBModelTableViewController : UITableViewController<NSFetchedResultsControllerDelegate>
+@interface UBModelTableViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,NSFetchedResultsControllerDelegate>
 
+
+@property (nonatomic, readonly) UITableView *tableView;
 @property (nonatomic, readonly) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic) NSString *modelName;
 @property (nonatomic, readonly) NSPredicate *predicate;
@@ -22,6 +24,7 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (UITableViewCell *)allocCell:(NSString *)identifer;
 
+- (id)initWithStyle:(UITableViewStyle)style;
 - (void)addRowSelectionTarget:(id)target action:(SEL)action;
 - (void)reload;
 

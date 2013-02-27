@@ -8,6 +8,8 @@
 
 #import "UBModelTableViewController.h"
 
+#import "UBFunctions.h"
+
 #import "UBAppDelegate.h"
 
 #import "UBModel.h"
@@ -28,22 +30,39 @@
         style = UITableViewStylePlain;
     }
     
-    self = [super initWithStyle:style];
+    self = [super init];
     if (self) {
+        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:style];
         _modelName = @"UBSession";
     }
     return self;
 }
 
+- (void)loadView
+{
+    self.view = [[UIView alloc] init];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.view addSubview:self.tableView];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    
+    self.tableView.frame = CGRectPosition(self.view.frame, 0, 0);
 }
 
 - (void)viewWillAppear:(BOOL)animated

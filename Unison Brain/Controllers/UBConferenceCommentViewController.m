@@ -14,8 +14,11 @@
 #import "UBConference.h"
 
 #import "UBCodeScoreCell.h"
+#import "UBCodesViewController.h"
 
 @interface UBConferenceCommentViewController ()
+
+@property (nonatomic) UBCodesViewController *codesController;
 
 @end
 
@@ -30,12 +33,17 @@
         }
         
         self.modelName = @"UBCodeScore";
+        
+        _codesController = [[UBCodesViewController alloc] init];
+        
     }
     return self;
 }
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+    
     UIView *headerView = [[UIView alloc] init];
     UILabel *headerLabel = [[UILabel alloc] init];
     
@@ -113,6 +121,13 @@
 {
     UBCodeScore *codeScore = [UBCodeScore create];
     codeScore.conference = self.conference;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UBCodeScore *codeScore = [self codeScoreForIndexPath:indexPath];
+    
+    
 }
 
 @end
