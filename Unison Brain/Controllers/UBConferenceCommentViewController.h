@@ -8,9 +8,11 @@
 
 #import "UBModelTableViewController.h"
 
+#import "UBSearchListViewController.h"
+
 @class UBConference;
 
-@interface UBConferenceCommentViewController : UBModelTableViewController
+@interface UBConferenceCommentViewController : UBModelTableViewController<UBSearchListViewDelegate>
 
 @property (nonatomic) UBConference *conference;
 

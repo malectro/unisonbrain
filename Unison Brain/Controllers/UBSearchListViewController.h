@@ -18,6 +18,7 @@
 @property (nonatomic) NSMutableArray *selectedItems;
 @property (nonatomic) NSMutableArray *deselectedItems;
 @property (nonatomic) BOOL allowsMultipleSelection;
+@property (nonatomic) BOOL allowsSelectionGrouping;
 
 @property (nonatomic, readonly) UISearchBar *searchBar;
 @property (nonatomic, readonly) UISearchDisplayController *searchController;

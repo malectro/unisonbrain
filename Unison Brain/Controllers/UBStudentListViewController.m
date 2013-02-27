@@ -36,6 +36,7 @@
     [super viewDidLoad];
     
     self.allowsMultipleSelection = YES;
+    self.allowsSelectionGrouping = YES;
 }
 
 - (void)dealloc

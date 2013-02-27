@@ -66,6 +66,7 @@
     [self.homeView.createSessionButton addTarget:self action:@selector(createSession) forControlEvents:UIControlEventTouchDown];
     
     _studentsViewController.allowsMultipleSelection = NO;
+    _studentsViewController.allowsSelectionGrouping = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated

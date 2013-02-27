@@ -45,7 +45,10 @@
 {
     [super viewDidLoad];
     
+    self.codesController.delegate = self;
     [self.view addSubview:self.codesController.view];
+    self.codesController.allowsMultipleSelection = NO;
+    self.codesController.allowsSelectionGrouping = YES;
     _codesControllerPosition = 0;
     
     UIView *headerView = [[UIView alloc] init];
@@ -160,7 +163,23 @@
 {
     UBCodeScore *codeScore = [self codeScoreForIndexPath:indexPath];
     
+    if (codeScore.code) {
+        [self.codesController setSelection:@[codeScore.code]];
+    }
+    
     [self showCodesView];
+}
+
+- (void)searchList:(UBSearchListViewController *)searchList didSelectItem:(UBCode *)item
+{
+    UBCodeScore *codeScore = [self codeScoreForIndexPath:[self.tableView indexPathForSelectedRow]];
+    codeScore.code = item;
+}
+
+- (void)searchList:(UBSearchListViewController *)searchList didDeselectItem:(UBCode *)item
+{
+    UBCodeScore *codeScore = [self codeScoreForIndexPath:[self.tableView indexPathForSelectedRow]];
+    codeScore.code = nil;
 }
 
 @end
