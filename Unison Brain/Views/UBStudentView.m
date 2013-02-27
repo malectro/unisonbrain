@@ -55,9 +55,6 @@
         UIPanGestureRecognizer *gesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(didDragCommentsLabel:)];
         [_bottomSplit addGestureRecognizer:gesture];
         
-        UITapGestureRecognizer *gesture2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap)];
-        [_bottomSplit addGestureRecognizer:gesture2];
-        
         _createConference = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [_createConference setTitle:@"New" forState:UIControlStateNormal];
         //_createConference.titleEdgeInsets = UIEdgeInsetsMake(2.0f, <#CGFloat left#>, <#CGFloat bottom#>, <#CGFloat right#>)
@@ -112,11 +109,6 @@
     }
     
     _conferenceMetaView.contentSize = CGSizeMake(_conferenceMetaView.frame.size.width * 2, _conferenceMetaView.frame.size.height);
-}
-
-- (void)didTap
-{
-    NSLog(@"hi");
 }
 
 - (void)didDragCommentsLabel:(UIPanGestureRecognizer *)gesture

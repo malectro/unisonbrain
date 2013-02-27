@@ -15,6 +15,7 @@
 @property (nonatomic) UBCodeScore *codeScore;
 @property (nonatomic, readonly) UITextField *textField;
 @property (nonatomic, readonly) UISegmentedControl *scoreControl;
+@property (nonatomic, readonly) UILabel *codeName;
 
 - (id)initWithReuseIdentifier:(NSString *)identifier;
 
