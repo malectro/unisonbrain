@@ -18,6 +18,7 @@
 
 @interface UBConferenceCommentViewController () {
     CGFloat _codesControllerPosition;
+    BOOL _codesControllerHidden;
 }
 
 @property (nonatomic) UBCodesViewController *codesController;
@@ -37,6 +38,7 @@
         self.modelName = @"UBCodeScore";
         
         _codesController = [[UBCodesViewController alloc] init];
+        _codesControllerHidden = YES;
     }
     return self;
 }
@@ -145,7 +147,9 @@
 
 - (UITableViewCell *)allocCell:(NSString *)identifer
 {
-    return [[UBCodeScoreCell alloc] initWithReuseIdentifier:identifer];
+    UBCodeScoreCell *cell = [[UBCodeScoreCell alloc] initWithReuseIdentifier:identifer];
+    [cell.textField addTarget:self action:@selector(hideCodesView) forControlEvents:UIControlEventEditingDidBegin];
+    return cell;
 }
 
 - (UBCodeScore *)codeScoreForIndexPath:(NSIndexPath *)indexPath
@@ -167,19 +171,34 @@
         [self.codesController setSelection:@[codeScore.code]];
     }
     
-    [self showCodesView];
+    if (_codesControllerHidden) {
+        [self showCodesView];
+    }
+    else {
+        [self hideCodesView];
+    }
 }
 
 - (void)searchList:(UBSearchListViewController *)searchList didSelectItem:(UBCode *)item
 {
-    UBCodeScore *codeScore = [self codeScoreForIndexPath:[self.tableView indexPathForSelectedRow]];
-    codeScore.code = item;
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    UBCodeScoreCell *codeScoreCell = (UBCodeScoreCell *) [self.tableView cellForRowAtIndexPath:indexPath];
+    
+    codeScoreCell.codeScore.code = item;
+    
+    [self configureCell:codeScoreCell atIndexPath:indexPath];
+    
+    [self hideCodesView];
 }
 
 - (void)searchList:(UBSearchListViewController *)searchList didDeselectItem:(UBCode *)item
 {
-    UBCodeScore *codeScore = [self codeScoreForIndexPath:[self.tableView indexPathForSelectedRow]];
-    codeScore.code = nil;
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    UBCodeScoreCell *codeScoreCell = (UBCodeScoreCell *) [self.tableView cellForRowAtIndexPath:indexPath];
+    
+    codeScoreCell.codeScore.code = nil;
+    
+    [self configureCell:codeScoreCell atIndexPath:indexPath];
 }
 
 @end

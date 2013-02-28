@@ -64,7 +64,7 @@
 {
     [super viewDidLoad];
 
-    self.studentView.contributionsView = self.contributionsController.tableView;
+    self.studentView.contributionsView = self.contributionsController.view;
     self.studentView.codesView = self.codesController.view;
     self.studentView.conferencesView = self.conferencesController.view;
     self.studentView.conferenceView = self.conferenceController.view;
@@ -73,6 +73,15 @@
     
     self.studentView.conferenceMetaView.delegate = self;
     [self.conferencesController addRowSelectionTarget:self action:@selector(selectConference:)];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    if (_selectedConference != nil) {
+        [_selectedConference save];
+    }
 }
 
 - (void)setStudent:(UBStudent *)student

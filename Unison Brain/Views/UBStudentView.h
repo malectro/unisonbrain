@@ -10,7 +10,7 @@
 
 @interface UBStudentView : UIView
 
-@property (nonatomic) UITableView *contributionsView;
+@property (nonatomic) UIView *contributionsView;
 @property (nonatomic) UIView *codesView;
 @property (nonatomic) UIView *conferencesView;
 @property (nonatomic) UIView *conferenceView;

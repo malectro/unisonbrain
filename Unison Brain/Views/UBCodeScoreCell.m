@@ -9,6 +9,7 @@
 #import "UBCodeScoreCell.h"
 
 #import "UBCodeScore.h"
+#import "UBCode.h"
 
 @implementation UBCodeScoreCell
 
@@ -55,6 +56,10 @@
     
     if (codeScore.score) {
         [self.scoreControl setSelectedSegmentIndex:codeScore.score.integerValue - 1];
+    }
+    
+    if (codeScore.code) {
+        self.codeName.text = codeScore.code.name;
     }
 }
 
