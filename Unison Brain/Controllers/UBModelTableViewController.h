@@ -23,6 +23,7 @@
 - (NSArray *)sortDescriptors;
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (UITableViewCell *)allocCell:(NSString *)identifer;
+- (id)itemAtIndexPath:(NSIndexPath *)indexPath;
 
 - (id)initWithStyle:(UITableViewStyle)style;
 - (void)addRowSelectionTarget:(id)target action:(SEL)action;

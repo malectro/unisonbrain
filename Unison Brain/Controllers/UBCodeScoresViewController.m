@@ -75,7 +75,7 @@
     UBCode *code = [self codeForIndexPath:indexPath];
     
     if (codeScore) {
-        cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@ - %@", code.name, codeScore.comment, [UBDate stringFromDateMedium:codeScore.conference.time]];
+        cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@ - %@ - %@", code.name, codeScore.score, codeScore.comment, [UBDate stringFromDateMedium:codeScore.conference.time]];
     }
     else {
         cell.textLabel.text = [NSString stringWithFormat:@"%@ - No score", code.name];
@@ -117,6 +117,11 @@
     }
     
     return codeScore;
+}
+
+- (id)itemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [self codeForIndexPath:indexPath];
 }
 
 - (NSArray *)groupedCodeScores

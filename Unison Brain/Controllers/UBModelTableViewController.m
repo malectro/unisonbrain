@@ -173,6 +173,11 @@
     // override this to configure the cell
 }
 
+- (id)itemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [self.fetchedResultsController objectAtIndexPath:indexPath];
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -203,7 +208,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    id item = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    id item = [self itemAtIndexPath:indexPath];
     
     for (NSInvocation *invocation in _targets) {
         [invocation setArgument:&item atIndex:2];
