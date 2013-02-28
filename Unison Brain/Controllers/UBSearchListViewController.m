@@ -161,7 +161,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // stupid hack because index paths do not reflect recent table changes
+    // stupid hack because selected indexPaths do not reflect recent table changes
     if (!self.allowsMultipleSelection && _deselectedPath && _deselectedPath.row >= indexPath.row) {
         indexPath = [NSIndexPath indexPathForRow:indexPath.row - 1 inSection:indexPath.section];
     }

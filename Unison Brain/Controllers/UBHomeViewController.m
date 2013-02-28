@@ -60,7 +60,7 @@
 {
     [super viewDidLoad];
     
-    self.homeView.sessionsView = _sessionsViewController.tableView;
+    self.homeView.sessionsView = _sessionsViewController.view;
     self.homeView.studentsView = _studentsViewController.view;
     self.homeView.teacherNameLabel.text = [UBUser currentUser].teacher.fname;
     [self.homeView.createSessionButton addTarget:self action:@selector(createSession) forControlEvents:UIControlEventTouchDown];
