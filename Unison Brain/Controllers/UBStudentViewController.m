@@ -108,6 +108,7 @@
 {
     _selectedConference = conference;
     self.conferenceController.conference = conference;
+    [self.studentView showConferenceView];
 }
 
 @end

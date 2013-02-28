@@ -34,6 +34,7 @@
     if (self) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:style];
         _modelName = @"UBSession";
+        _targets = @[];
     }
     return self;
 }
@@ -141,16 +142,6 @@
     [self.tableView reloadData];
 }
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    id item = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
-    for (NSInvocation *invocation in _targets) {
-        [invocation setArgument:&item atIndex:0];
-        [invocation invoke];
-    }
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -212,7 +203,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    id item = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
+    for (NSInvocation *invocation in _targets) {
+        [invocation setArgument:&item atIndex:2];
+        [invocation invoke];
+    }
 }
 
 #pragma mark - FetchedResultsController delegage

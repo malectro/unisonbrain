@@ -161,4 +161,14 @@
     [_conferenceMetaView addSubview:conferenceView];
 }
 
+- (void)showConferencesView
+{
+    [self.conferenceMetaView scrollRectToVisible:self.conferencesView.frame animated:YES];
+}
+
+- (void)showConferenceView
+{
+    [self.conferenceMetaView scrollRectToVisible:self.conferenceView.frame animated:YES];
+}
+
 @end
