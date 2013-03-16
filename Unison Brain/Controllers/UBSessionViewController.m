@@ -315,17 +315,12 @@
 - (void)chooseType
 {
         
-    // hard coded type amounts in here for testing (and i can't figure out better way right now)
+    UIActionSheet *typeChooser = [[UIActionSheet alloc]initWithTitle:@"Choose Type" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
     
-    NSMutableArray *buttonTitleArray = [[NSMutableArray alloc] initWithCapacity:4];
-    
-    for (int i=0; i < 4; i++){
+    for (int i=0; i < [UBCodeType all].count; i++){
         NSString *name = [[UBCodeType all][i] valueForKey:@"name"];
-        [buttonTitleArray addObject:name];
+        [typeChooser addButtonWithTitle:name];
     }
-    
-    UIActionSheet *typeChooser = [[UIActionSheet alloc]initWithTitle:@"Choose Type" delegate:self cancelButtonTitle:@"Cancel New Breach" destructiveButtonTitle:nil otherButtonTitles:buttonTitleArray[0], buttonTitleArray[1], buttonTitleArray[2], buttonTitleArray[3], nil];
-
     
     [typeChooser showFromRect:_sessionView.createBreach.frame inView:_sessionView animated:YES];
     
