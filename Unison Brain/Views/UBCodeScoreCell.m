@@ -61,6 +61,9 @@
     if (codeScore.code) {
         self.codeName.text = codeScore.code.name;
     }
+    else {
+        self.codeName.text = @"<No Code>";;
+    }
 }
 
 - (void)changedScore

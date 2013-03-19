@@ -49,7 +49,7 @@
         _conferencesController = [[UBConferencesViewController alloc] initWithStudent:self.student];
         [self addChildViewController:_conferencesController];
         
-        _conferenceController = [[UBConferenceCommentViewController alloc] initWithConference:nil];
+        _conferenceController = [[UBConferenceCommentViewController alloc] initWithConference:[UBConference create]];
         [self addChildViewController:_conferenceController];
     }
     return self;
