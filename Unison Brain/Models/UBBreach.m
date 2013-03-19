@@ -50,6 +50,8 @@
     
     dict[@"contributions"] = [self.contributions.allObjects valueForKey:@"asDict"];
     
+    dict[@"person_ids"] = [self.people.allObjects valueForKey:@"id"];
+    
     return dict;
 }
 
