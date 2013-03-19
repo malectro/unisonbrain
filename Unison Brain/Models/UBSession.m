@@ -59,7 +59,7 @@
 
 - (NSDictionary *)asDict
 {
-    NSMutableDictionary *dict = [[self dictionaryWithValuesForKeys:@[@"isCoded", @"isComplete", @"length", @"order", @"time"]] mutableCopy];
+    NSMutableDictionary *dict = [[self dictionaryWithValuesForKeys:@[@"id", @"isCoded", @"isComplete", @"length", @"order", @"time"]] mutableCopy];
     
     dict[@"is_coded"] = dict[@"isCoded"];
     [dict removeObjectForKey:@"isCoded"];

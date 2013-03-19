@@ -23,4 +23,21 @@
     return @"UBCodeScore";
 }
 
+- (NSDictionary *)asDict
+{
+    NSMutableDictionary *dict = [[self dictionaryWithValuesForKeys:@[@"comment", @"id", @"score"]] mutableCopy];
+    
+    if (self.code) {
+        dict[@"code_id"] = self.code.id;
+    }
+    
+    return dict;
+}
+
+- (void)save
+{
+    NSLog(@"CodeScores are meant to be embedded in conferences. Do not invoke save on a CodeScore.");
+    abort();
+}
+
 @end

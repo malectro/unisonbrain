@@ -81,6 +81,7 @@
     
     if (_selectedConference != nil) {
         [_selectedConference save];
+        [_selectedConference sync];
     }
 }
 

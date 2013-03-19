@@ -28,6 +28,11 @@
     return @"UBConference";
 }
 
++ (NSString *)modelUrl
+{
+    return @"conferences";
+}
+
 + (id)create
 {
     UBConference *conf = [super create];
@@ -36,6 +41,32 @@
     conf.notes = @"";
     
     return conf;
+}
+
+- (NSDictionary *)asDict
+{
+    NSMutableDictionary *dict = [[self dictionaryWithValuesForKeys:@[@"id", @"isComplete", @"notes", @"time"]] mutableCopy];
+    
+    dict[@"is_complete"] = dict[@"isComplete"];
+    [dict removeObjectForKey:@"isComplete"];
+    
+    if (self.student) {
+        dict[@"student_id"] = self.student.id;
+    }
+    
+    if (self.teacher) {
+        dict[@"teacher_id"] = self.teacher.id;
+    }
+    
+    if (self.subject) {
+        dict[@"subject_id"] = self.subject.id;
+    }
+    
+    dict[@"code_scores"] = [self.codeScores.allObjects valueForKey:@"asDict"];
+    
+    dict[@"time"] = [NSNumber numberWithInteger:[dict[@"time"] timeIntervalSince1970]];
+    
+    return dict;
 }
 
 @end
