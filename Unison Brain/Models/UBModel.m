@@ -155,8 +155,13 @@
                     NSArray *toMap = dict[key];
                     NSMutableSet *relations = [NSMutableSet setWithSet:[self valueForKey:key]];
                     
-                    for (NSDictionary *dict in toMap) {
-                        [relations addObject:[keyMap[key] findOrCreateWithDict:dict]];
+                    for (id relation in toMap) {
+                        if ([relation isKindOfClass:[NSString class]]) {
+                            [relations addObject:[keyMap[key] find:relation]];
+                        }
+                        else {
+                            [relations addObject:[keyMap[key] findOrCreateWithDict:relation]];
+                        }
                     }
                     
                     [self setValue:relations forKey:key];
