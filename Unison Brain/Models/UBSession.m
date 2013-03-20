@@ -105,4 +105,9 @@
     return [((NSSet *)[self.students valueForKey:@"fname"]).allObjects componentsJoinedByString:@", "];
 }
 
+- (void)fetchBreaches
+{
+    [UBBreach fetchUrl:[NSString stringWithFormat:@"sessions/%@/breaches", self.id]];
+}
+
 @end

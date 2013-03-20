@@ -39,6 +39,16 @@
     return breach;
 }
 
++ (NSDictionary *)keyMap
+{
+    return @{@"time": @"time",
+             @"contributions": [UBContribution class],
+             @"codeType": [UBCodeType class],
+             @"people": [UBPerson class],
+             @"codes": [UBCode class],
+             @"session": [UBSession class]};
+}
+
 - (NSDictionary *)asDict
 {
     NSMutableDictionary *dict = [[self dictionaryWithValuesForKeys:@[@"time", @"id"]] mutableCopy];

@@ -24,6 +24,14 @@
     return @"UBContribution";
 }
 
++ (NSDictionary *)keyMap
+{
+    return @{@"time": @"time",
+             @"text": @"text",
+             @"breach": [UBBreach class],
+             @"person": [UBPerson class]};
+}
+
 - (NSDictionary *)asDict
 {
     NSMutableDictionary *dict = [[self dictionaryWithValuesForKeys:@[@"text", @"id"]] mutableCopy];

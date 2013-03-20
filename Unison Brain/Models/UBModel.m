@@ -113,6 +113,11 @@
 
 + (void)fetchUrl:(NSString *)url
 {
+    [self fetchUrl:url handler:nil];
+}
+
++ (void)fetchUrl:(NSString *)url handler:(void (^)(NSArray *))handler
+{
     [UBRequest get:url callback:^(NSArray *models) {
         for (NSDictionary *dict in models) {
             [self findOrCreateWithDict:dict];
@@ -122,6 +127,10 @@
         
         NSString *notification = [NSString stringWithFormat:@"%@:fetchAll", [self modelName]];
         [[NSNotificationCenter defaultCenter] postNotificationName:notification object:self];
+        
+        if (handler != nil) {
+            handler(@[]);
+        }
     }];
 }
 
@@ -174,7 +183,12 @@
                 }
             }
             else {
-                [self setValue:dict[key] forKey:keyMap[key]];
+                if ([key isEqualToString:@"time"]) {
+                    [self setValue:[NSDate dateWithTimeIntervalSince1970:[dict[key] floatValue]] forKey:keyMap[key]];
+                }
+                else {
+                    [self setValue:dict[key] forKey:keyMap[key]];
+                }
             }
         }
     }

@@ -65,6 +65,10 @@
         [self addChildViewController:_codesController];
         
         _headers = [[NSCache alloc] init];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadBreaches) name:@"UBBreach:fetchAll" object:nil];
+        
+        [self.session fetchBreaches];
     }
     return self;
 }
@@ -100,6 +104,16 @@
 
     self.sessionView.breachesView.delegate = self;
     self.sessionView.breachesView.dataSource = self;
+}
+
+- (void)reloadBreaches
+{
+    [self.sessionView.breachesView reloadData];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
