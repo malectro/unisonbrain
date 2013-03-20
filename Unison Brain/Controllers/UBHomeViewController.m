@@ -73,6 +73,7 @@
 {
     [super viewWillAppear:animated];
     
+    self.sessionsViewController.teacher = [UBUser currentTeacher];
     self.homeView.teacherNameLabel.text = [UBUser currentUser].teacher.name;
 }
 

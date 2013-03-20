@@ -18,8 +18,6 @@
 
 @interface UBSessionsViewController ()
 
-@property UBTeacher *teacher;
-
 @end
 
 @implementation UBSessionsViewController
@@ -30,8 +28,6 @@
     if (self) {
         self.teacher = teacher;
         self.modelName = @"UBSession";
-        
-        [self.teacher fetchSessions];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadSessions) name:@"UBSession:fetchAll" object:nil];
     }
@@ -52,6 +48,12 @@
 - (void)reloadSessions
 {
     [self reload];
+}
+
+- (void)setTeacher:(UBTeacher *)teacher
+{
+    _teacher = teacher;
+    [self.teacher fetchSessions];
 }
 
 - (NSArray *)sortDescriptors

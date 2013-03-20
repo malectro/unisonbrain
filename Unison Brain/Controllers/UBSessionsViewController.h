@@ -14,6 +14,8 @@
 
 @interface UBSessionsViewController : UBModelTableViewController
 
+@property (nonatomic) UBTeacher *teacher;
+
 - (id)initWithTeacher:(UBTeacher *)teacher;
 
 @end
