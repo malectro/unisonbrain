@@ -157,9 +157,10 @@
     keyMap[@"id"] = @"id";
     
     for (NSString *key in dict) {
+        NSLog(@"mapping %@ : %@", [[self class] modelName], key);
         if (keyMap[key] && dict[key] != [NSNull null]) {
             // is this a relationship?
-            if ([keyMap[key] superclass] == [UBModel class]) {
+            if ([keyMap[key] superclass] == [UBModel class] || [[keyMap[key] superclass] superclass] == [UBModel class]) {
                 if ([dict[key] isKindOfClass:[NSArray class]]) {
                     NSArray *toMap = dict[key];
                     NSMutableSet *relations = [NSMutableSet setWithSet:[self valueForKey:key]];

@@ -23,6 +23,14 @@
     return @"UBCodeScore";
 }
 
++ (NSDictionary *)keyMap
+{
+    return @{@"comment": @"comment",
+             @"score": @"score",
+             @"code": [UBCode class],
+             @"conference": [UBConference class]};
+}
+
 - (NSDictionary *)asDict
 {
     NSMutableDictionary *dict = [[self dictionaryWithValuesForKeys:@[@"comment", @"id", @"score"]] mutableCopy];

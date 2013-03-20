@@ -89,6 +89,7 @@
 {
     _student = student;
     self.title = student.name;
+    [_student fetchConferences];
 }
 
 - (void)didReceiveMemoryWarning

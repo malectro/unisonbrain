@@ -37,4 +37,9 @@
     [UBSession fetchUrl:[NSString stringWithFormat:@"teachers/%@/sessions", self.id]];
 }
 
+- (void)fetchConferences
+{
+    [UBConference fetchUrl:[NSString stringWithFormat:@"students/%@/conferences", self.id]];
+}
+
 @end

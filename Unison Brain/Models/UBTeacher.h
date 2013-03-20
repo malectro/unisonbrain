@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSSet *conferences;
 
 - (void)fetchSessions;
+- (void)fetchConferences;
 
 @end
 

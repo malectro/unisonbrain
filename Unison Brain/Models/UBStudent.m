@@ -9,6 +9,7 @@
 #import "UBStudent.h"
 #import "UBConference.h"
 #import "UBSession.h"
+#import "UBCodeScore.h"
 
 
 @implementation UBStudent
@@ -37,6 +38,16 @@
 - (void)fetchSessions
 {
     [UBSession fetchUrl:[NSString stringWithFormat:@"students/%@/sessions", self.id]];
+}
+
+- (void)fetchConferences
+{
+    [UBConference fetchUrl:[NSString stringWithFormat:@"students/%@/conferences", self.id]];
+}
+
+- (void)fetchCodeScores
+{
+    [UBCodeScore fetchUrl:[NSString stringWithFormat:@"students/%@/code_scores", self.id]];
 }
 
 @end

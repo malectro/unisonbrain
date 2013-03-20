@@ -43,6 +43,17 @@
     return conf;
 }
 
++ (NSDictionary *)keyMap
+{
+    return @{@"is_complete": @"isComplete",
+             @"notes": @"notes",
+             @"time": @"time",
+             @"codeScores": [UBCodeScore class],
+             @"student": [UBStudent class],
+             @"teacher": [UBTeacher class],
+             @"subject": [UBSubject class]};
+}
+
 - (NSDictionary *)asDict
 {
     NSMutableDictionary *dict = [[self dictionaryWithValuesForKeys:@[@"id", @"isComplete", @"notes", @"time"]] mutableCopy];

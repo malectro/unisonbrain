@@ -18,6 +18,8 @@
 @property (nonatomic, retain) NSSet *conferences;
 
 - (void)fetchSessions;
+- (void)fetchConferences;
+- (void)fetchCodeScores;
 
 @end
 
