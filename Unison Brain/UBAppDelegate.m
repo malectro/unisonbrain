@@ -222,7 +222,7 @@
 - (void)fetchServerStuff
 {
     [UBTeacher fetchAll];
-    //[UBStudent fetchAll];
+    [UBStudent fetchAll];
     [UBSubject fetchAll];
     [UBCodeType fetchAll];
     //NSLog(@"people %@ %@", [UBStudent all], [UBTeacher all]);

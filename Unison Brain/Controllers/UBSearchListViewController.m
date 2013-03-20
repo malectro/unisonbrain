@@ -80,7 +80,8 @@
     _filteredItems = [NSMutableArray arrayWithCapacity:_items.count];
     _selectedItems = [NSMutableArray arrayWithCapacity:_items.count];
     _deselectedItems = [NSMutableArray arrayWithArray:_items];
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView reloadData];
+    //[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 - (void)setSelection:(NSArray *)selectedItems
