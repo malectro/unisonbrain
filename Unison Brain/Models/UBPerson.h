@@ -24,6 +24,8 @@
 
 @property (nonatomic, readonly) NSString *name;
 
+- (void)fetchContributions;
+
 @end
 
 @interface UBPerson (CoreDataGeneratedAccessors)

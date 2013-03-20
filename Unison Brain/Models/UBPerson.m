@@ -43,4 +43,9 @@
     return _name;
 }
 
+- (void)fetchContributions
+{
+    [UBContribution fetchUrl:[NSString stringWithFormat:@"people/%@/contributions", self.id]];
+}
+
 @end

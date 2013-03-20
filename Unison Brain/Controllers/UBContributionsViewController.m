@@ -23,11 +23,19 @@
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
         if (person != nil) {
-            _person = person;
+            self.person = person;
         }
+        
         self.modelName = @"UBContribution";
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:@"UBContribution:fetchAll" object:nil];
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (NSArray *)sortDescriptors
@@ -39,6 +47,12 @@
 - (NSPredicate *)predicate
 {
     return [NSPredicate predicateWithFormat:@"person = %@", self.person];
+}
+
+- (void)setPerson:(UBPerson *)person
+{
+    _person = person;
+    [self.person fetchContributions];
 }
 
 #pragma mark - Table view data source
