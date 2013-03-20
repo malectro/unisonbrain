@@ -30,7 +30,10 @@
     if (self) {
         self.teacher = teacher;
         self.modelName = @"UBSession";
+        
         [self.teacher fetchSessions];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadSessions) name:@"UBSession:fetchAll" object:nil];
     }
     return self;
 }
@@ -39,6 +42,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)reloadSessions
+{
+    [self reload];
 }
 
 - (NSArray *)sortDescriptors

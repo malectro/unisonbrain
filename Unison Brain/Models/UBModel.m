@@ -157,17 +157,22 @@
     keyMap[@"id"] = @"id";
     
     for (NSString *key in dict) {
-        NSLog(@"mapping %@ : %@", [[self class] modelName], key);
+        //NSLog(@"mapping %@ : %@", [[self class] modelName], key);
         if (keyMap[key] && dict[key] != [NSNull null]) {
             // is this a relationship?
             if ([keyMap[key] superclass] == [UBModel class] || [[keyMap[key] superclass] superclass] == [UBModel class]) {
+                id model = nil;
+                
                 if ([dict[key] isKindOfClass:[NSArray class]]) {
                     NSArray *toMap = dict[key];
                     NSMutableSet *relations = [NSMutableSet setWithSet:[self valueForKey:key]];
                     
                     for (id relation in toMap) {
                         if ([relation isKindOfClass:[NSString class]]) {
-                            [relations addObject:[keyMap[key] find:relation]];
+                            model = [keyMap[key] find:relation];
+                            if (model) {
+                                [relations addObject:model];
+                            }
                         }
                         else {
                             [relations addObject:[keyMap[key] findOrCreateWithDict:relation]];
@@ -180,7 +185,10 @@
                     [self setValue:[keyMap[key] findOrCreateWithDict:dict[key]] forKey:key];
                 }
                 else if ([dict[key] isKindOfClass:[NSString class]]) {
-                    [self setValue:[keyMap[key] find:dict[key]] forKey:key];
+                    model = [keyMap[key] find:dict[key]];
+                    if (model) {
+                        [self setValue:model forKey:key];
+                    }
                 }
             }
             else {
