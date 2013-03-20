@@ -108,6 +108,8 @@
 
 - (void)reloadBreaches
 {
+    _breaches = nil;
+    self.session = [UBSession find:self.session.id];
     [self.sessionView.breachesView reloadData];
 }
 
