@@ -8,6 +8,7 @@
 
 #import "UBTeacher.h"
 #import "UBConference.h"
+#import "UBSession.h"
 
 
 @implementation UBTeacher
@@ -29,6 +30,11 @@
     return @{@"fname": @"fname",
              @"lname": @"lname",
              @"school": @"school"};
+}
+
+- (void)fetchSessions
+{
+    [UBSession fetchUrl:[NSString stringWithFormat:@"teachers/%@/sessions", self.id]];
 }
 
 @end

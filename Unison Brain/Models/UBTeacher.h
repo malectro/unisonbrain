@@ -15,6 +15,9 @@
 @interface UBTeacher : UBPerson
 
 @property (nonatomic, retain) NSSet *conferences;
+
+- (void)fetchSessions;
+
 @end
 
 @interface UBTeacher (CoreDataGeneratedAccessors)

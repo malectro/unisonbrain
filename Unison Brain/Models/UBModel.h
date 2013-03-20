@@ -20,6 +20,7 @@
 + (id)findOrCreateWithDict:(NSDictionary *)dict;
 
 + (void)fetchAll;
++ (void)fetchUrl:(NSString *)url;
 
 + (NSString *)modelName;
 + (NSString *)modelUrl;

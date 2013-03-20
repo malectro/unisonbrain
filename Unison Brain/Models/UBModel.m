@@ -108,7 +108,12 @@
 
 + (void)fetchAll
 {
-    [UBRequest get:[self modelUrl] callback:^(NSArray *models) {
+    [self fetchUrl:[self modelUrl]];
+}
+
++ (void)fetchUrl:(NSString *)url
+{
+    [UBRequest get:url callback:^(NSArray *models) {
         for (NSDictionary *dict in models) {
             [self findOrCreateWithDict:dict];
         }

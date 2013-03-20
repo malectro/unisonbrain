@@ -30,6 +30,7 @@
     if (self) {
         self.teacher = teacher;
         self.modelName = @"UBSession";
+        [self.teacher fetchSessions];
     }
     return self;
 }

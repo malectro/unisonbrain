@@ -16,6 +16,9 @@
 
 @property (nonatomic, retain) NSString * section;
 @property (nonatomic, retain) NSSet *conferences;
+
+- (void)fetchSessions;
+
 @end
 
 @interface UBStudent (CoreDataGeneratedAccessors)

@@ -8,6 +8,7 @@
 
 #import "UBStudent.h"
 #import "UBConference.h"
+#import "UBSession.h"
 
 
 @implementation UBStudent
@@ -31,6 +32,11 @@
              @"lname": @"lname",
              @"school": @"school",
              @"section": @"section"};
+}
+
+- (void)fetchSessions
+{
+    [UBSession fetchUrl:[NSString stringWithFormat:@"students/%@/sessions", self.id]];
 }
 
 @end
