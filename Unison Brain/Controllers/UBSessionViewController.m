@@ -236,6 +236,14 @@
     return cell;
 }
 
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    UBContribution *contribution = [self contributionForIndexPath:indexPath];
+//    
+//    [NSString]
+//    contribution.text
+//}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UBBreach *breach = [self breachForSection:section];

@@ -10,10 +10,10 @@
 
 @class UBContribution;
 
-@interface UBContributionCell : UITableViewCell<UITextFieldDelegate>
+@interface UBContributionCell : UITableViewCell<UITextViewDelegate>
 
 @property (nonatomic) UBContribution *contribution;
-@property (nonatomic, readonly) UITextField *textField;
+@property (nonatomic, readonly) UITextView *textField;
 
 - (id)initWithReuseIdentifier:(NSString *)reuseIdentifier;
 

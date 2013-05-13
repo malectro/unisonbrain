@@ -19,8 +19,9 @@
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        _textField = [[UITextField alloc] init];
-        _textField.placeholder = @"Contribution...";
+        _textField = [[UITextView alloc] init];
+        _textField.editable = YES;
+        //_textField.placeholder = @"Contribution...";
         _textField.delegate = self;
         
         [self addSubview:_textField];
@@ -51,12 +52,12 @@
     _contribution = contribution;
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField
+- (void)textViewDidEndEditing:(UITextView *)textField
 {
     self.contribution.text = textField.text;
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
+- (BOOL)textViewShouldReturn:(UITextView *)textField
 {
     [textField resignFirstResponder];
     return YES;
