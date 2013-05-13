@@ -104,6 +104,9 @@
 
     self.sessionView.breachesView.delegate = self;
     self.sessionView.breachesView.dataSource = self;
+    
+    self.sessionView.selectedSubject = self.session.subject;
+    [self.sessionView.subject addTarget:self action:@selector(changedSubject) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)reloadBreaches
@@ -207,6 +210,10 @@
     self.title = [NSString stringWithFormat:@"Session with %@ | %@   ", _session.studentList, [UBDate stringFromDateMedium:_session.time]];
 }
 
+- (void)changedSubject
+{
+    self.session.subject = self.sessionView.selectedSubject;
+}
 
 
 #pragma mark - Breach/Contribution Table View Methods
@@ -354,6 +361,7 @@
 {
     UBBreach *breach = [UBBreach create];
     breach.codeType = type;
+    breach.time = [NSDate date];
     
     // not sure we need this at all
     [breach addPeople:_session.people];

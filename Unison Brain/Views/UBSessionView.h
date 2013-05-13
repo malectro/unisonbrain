@@ -10,6 +10,8 @@
 
 #import "UBStudentSelectorView.h"
 
+@class UBSubject;
+
 @interface UBSessionView : UIView
 
 @property (nonatomic) UBStudentSelectorView *studentSelector;
@@ -20,6 +22,7 @@
 @property (nonatomic, readonly) UIButton *changeDate;
 @property (nonatomic, readonly) UISegmentedControl *codesOrStudents;
 @property (nonatomic, readonly) UISegmentedControl *subject;
+@property (nonatomic) UBSubject *selectedSubject;
 
 - (void)shrinkForTyping;
 - (void)doneTyping;

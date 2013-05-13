@@ -23,6 +23,7 @@
 @property (nonatomic) UILabel *selectorLabel;
 @property (nonatomic) UIView *controlPanelBackground;
 @property (nonatomic) BOOL shrunk;
+@property (nonatomic) NSArray *subjects;
 
 @end
 
@@ -81,8 +82,8 @@
         _codesOrStudents.segmentedControlStyle = UISegmentedControlStyleBar;
         [self addSubview:_codesOrStudents];
         
-        NSArray *subjects = [UBSubject all];
-        NSArray *subjectNames = [subjects valueForKey:@"name"];
+        self.subjects = [UBSubject all];
+        NSArray *subjectNames = [self.subjects valueForKey:@"name"];
         
         _subject = [[UISegmentedControl alloc] initWithItems:subjectNames];
         _subject.selectedSegmentIndex = -1;
@@ -116,6 +117,7 @@
     } else {
         _breachesView.frame = CGRectMake(0, 0, LEFT_WIDTH - 1.0f, _createBreach.frame.origin.y - 10.0f);
     }
+    
     _controlPanelBackground.frame = CGRectMake(0, _breachesView.frame.size.height, LEFT_WIDTH - 1.0f, self.frame.size.height - _breachesView.frame.size.height);
 }
 
@@ -154,6 +156,23 @@
         self.breachesView.frame = CGRectSize(self.breachesView.frame, self.breachesView.frame.size.width, _createBreach.frame.origin.y - 10.0f);
     }];
     _shrunk = NO;
+}
+
+- (UBSubject *)selectedSubject
+{
+    if (self.subject.selectedSegmentIndex > -1) {
+        return self.subjects[self.subject.selectedSegmentIndex];
+    } else {
+        return nil;
+    }
+}
+
+- (void)setSelectedSubject:(UBSubject *)selectedSubject
+{
+    NSInteger index = [self.subjects indexOfObject:selectedSubject];
+    if (index > -1) {
+        self.subject.selectedSegmentIndex = index;
+    }
 }
 
 @end
