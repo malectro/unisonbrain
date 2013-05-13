@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @class UBContribution;
+@class UBSessionViewController;
 
 @interface UBContributionCell : UITableViewCell<UITextViewDelegate>
 
 @property (nonatomic) UBContribution *contribution;
+@property (nonatomic) UBSessionViewController *sessionViewController;
 @property (nonatomic, readonly) UITextView *textField;
 
 - (id)initWithReuseIdentifier:(NSString *)reuseIdentifier;

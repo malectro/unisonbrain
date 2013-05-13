@@ -9,6 +9,7 @@
 #import "UBContributionCell.h"
 
 #import "UBContribution.h"
+#import "UBSessionViewController.h"
 #import "UBPerson.h"
 
 @implementation UBContributionCell
@@ -46,8 +47,8 @@
     //self.backgroundView.frame = CGRectMake(10.0f, 0, self.frame.size.width - 20.0f, self.frame.size.height);
     self.textLabel.frame = CGRectMake(10.0f, 10.0f, 190.0f, 20.0f);
     
-    CGFloat textFieldWidth = self.frame.size.width - 200.0f - 55.0f;
-    _textField.frame = CGRectMake(200.0f, 10.0f, textFieldWidth, [self.contribution.text sizeWithFont:_textField.font constrainedToSize:CGSizeMake(textFieldWidth, 10000.0f) lineBreakMode:NSLineBreakByWordWrapping].height);
+    CGFloat textFieldWidth = [self textWidth];
+    _textField.frame = CGRectMake(200.0f, 10.0f, textFieldWidth, [self textHeight]);
 }
 
 - (void)setContribution:(UBContribution *)contribution
@@ -60,12 +61,32 @@
 - (void)textViewDidEndEditing:(UITextView *)textField
 {
     self.contribution.text = textField.text;
+    // probably should save here but not sync.
+    
+    if (self.sessionViewController != nil) {
+        [self.sessionViewController editedContribution:self];
+    }
 }
 
 - (BOOL)textViewShouldReturn:(UITextView *)textField
 {
     [textField resignFirstResponder];
     return YES;
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    
+}
+
+- (CGFloat)textWidth
+{
+    return self.frame.size.width - 200.0f - 55.0f;
+}
+
+- (CGFloat)textHeight
+{
+    return [self.contribution.text sizeWithFont:_textField.font constrainedToSize:CGSizeMake([self textWidth], 10000.0f) lineBreakMode:NSLineBreakByWordWrapping].height;
 }
 
 @end

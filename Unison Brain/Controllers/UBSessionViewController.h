@@ -13,6 +13,7 @@
 #import "UBBreachHeaderView.h"
 
 @class UBSession;
+@class UBContributionCell;
 
 @interface UBSessionViewController : UIViewController<UBSearchListViewDelegate,UITableViewDataSource,UITableViewDelegate, UBDatePickerDelegate, UIPopoverControllerDelegate, UIActionSheetDelegate, UBBreachHeaderDelegate>
 
@@ -21,6 +22,7 @@
 - (id)initWithSession:(UBSession *)session;
 
 - (void)setSelectedBreach:(UBBreach *)selectedBreach;
+- (void)editedContribution:(UBContributionCell *)contributionCell;
 
 
 @end

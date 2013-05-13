@@ -228,6 +228,7 @@
     
     if (cell == nil) {
         cell = [[UBContributionCell alloc] initWithReuseIdentifier:CellIdentifier];
+        cell.sessionViewController = self;
     }
     
     UBContribution *contribution = [self contributionForIndexPath:indexPath];
@@ -239,7 +240,8 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UBContribution *contribution = [self contributionForIndexPath:indexPath];
-    return [contribution.text sizeWithFont:[UIFont systemFontOfSize:14.0f] constrainedToSize:CGSizeMake(self.sessionView.breachesView.frame.size.width - 310.0f, 10000.0f) lineBreakMode:NSLineBreakByWordWrapping].height;
+    CGFloat size = [contribution.text sizeWithFont:[UIFont systemFontOfSize:14.0f] constrainedToSize:CGSizeMake(self.sessionView.breachesView.frame.size.width - 255.0f, 10000.0f) lineBreakMode:NSLineBreakByWordWrapping].height;
+    return size + 20.0f;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -396,6 +398,13 @@
     UBContributionCell *cell = (UBContributionCell *) [_sessionView.breachesView cellForRowAtIndexPath:indexPath];
     [cell.textField becomeFirstResponder];
 }
+
+- (void)editedContribution:(UBContributionCell *)contributionCell
+{
+    NSIndexPath *indexPath = [self.sessionView.breachesView indexPathForCell:contributionCell];
+    [self.sessionView.breachesView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
 
 #pragma mark - UIActionSheet Delegate Methods
 
