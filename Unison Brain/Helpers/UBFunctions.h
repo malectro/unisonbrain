@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 CGRect CGRectPosition(CGRect rect, CGFloat x, CGFloat y);
+CGRect CGRectSize(CGRect rect, CGFloat width, CGFloat height);
 
 @interface UBFunctions : NSObject
 

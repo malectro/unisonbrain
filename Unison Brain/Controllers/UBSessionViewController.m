@@ -399,11 +399,17 @@
     [cell.textField becomeFirstResponder];
 }
 
+- (void)beganEditingContribution:(UBContributionCell *)contributionCell
+{
+    [self.sessionView shrinkForTyping];
+}
+
 - (void)editedContribution:(UBContributionCell *)contributionCell
 {
     //NSIndexPath *indexPath = [self.sessionView.breachesView indexPathForCell:contributionCell];
     [self.sessionView.breachesView beginUpdates];
     [self.sessionView.breachesView endUpdates];
+    [self.sessionView doneTyping];
     //[self.sessionView.breachesView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 

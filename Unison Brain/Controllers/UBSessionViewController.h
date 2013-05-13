@@ -22,6 +22,7 @@
 - (id)initWithSession:(UBSession *)session;
 
 - (void)setSelectedBreach:(UBBreach *)selectedBreach;
+- (void)beganEditingContribution:(UBContributionCell *)contributionCell;
 - (void)editedContribution:(UBContributionCell *)contributionCell;
 
 

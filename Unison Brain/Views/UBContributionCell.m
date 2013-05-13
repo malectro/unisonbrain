@@ -60,6 +60,13 @@
     _contribution = contribution;
 }
 
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    if (self.sessionViewController != nil) {
+        [self.sessionViewController beganEditingContribution:self];
+    }
+}
+
 - (void)textViewDidEndEditing:(UITextView *)textField
 {
     self.contribution.text = textField.text;
@@ -74,16 +81,6 @@
 {
     [textField resignFirstResponder];
     return YES;
-}
-
-- (void)textViewDidChange:(UITextView *)textView
-{
-    CGFloat oldTextHeight = self.textHeight;
-    _textHeight = 0.0f;
-    
-    if (oldTextHeight != self.textHeight) {
-        [self.sessionViewController editedContribution:self];
-    }
 }
 
 - (CGFloat)textWidth

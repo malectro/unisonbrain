@@ -22,6 +22,7 @@
 
 @property (nonatomic) UILabel *selectorLabel;
 @property (nonatomic) UIView *controlPanelBackground;
+@property (nonatomic) BOOL shrunk;
 
 @end
 
@@ -87,6 +88,8 @@
         _subject.selectedSegmentIndex = -1;
         _subject.segmentedControlStyle = UISegmentedControlStyleBar;
         [self addSubview:_subject];
+        
+        _shrunk = NO;
     }
     return self;
 }
@@ -108,7 +111,11 @@
     _createBreach.frame = CGRectPosition(_createBreach.frame, 10.0f, self.selectorLabel.frame.origin.y - 44.0f);
     _changeDate.frame = CGRectPosition(_changeDate.frame, _createBreach.frame.origin.x + _createBreach.frame.size.width +2.0f, _createBreach.frame.origin.y);
     
-    _breachesView.frame = CGRectMake(0, 0, LEFT_WIDTH - 1.0f, _createBreach.frame.origin.y - 10.0f);
+    if (_shrunk) {
+        _breachesView.frame = CGRectMake(0, 0, LEFT_WIDTH - 1.0f, self.frame.size.height - 350.0f);
+    } else {
+        _breachesView.frame = CGRectMake(0, 0, LEFT_WIDTH - 1.0f, _createBreach.frame.origin.y - 10.0f);
+    }
     _controlPanelBackground.frame = CGRectMake(0, _breachesView.frame.size.height, LEFT_WIDTH - 1.0f, self.frame.size.height - _breachesView.frame.size.height);
 }
 
@@ -131,6 +138,22 @@
     _studentSelector = studentSelector;
     [_studentSelector removeFromSuperview];
     [self addSubview:_studentSelector];
+}
+
+- (void)shrinkForTyping
+{
+    [UIView animateWithDuration:0.2f animations:^{
+        self.breachesView.frame = CGRectSize(self.breachesView.frame, self.breachesView.frame.size.width, self.frame.size.height - 350.0f);
+    }];
+    _shrunk = YES;
+}
+
+- (void)doneTyping
+{
+    [UIView animateWithDuration:0.2f animations:^{
+        self.breachesView.frame = CGRectSize(self.breachesView.frame, self.breachesView.frame.size.width, _createBreach.frame.origin.y - 10.0f);
+    }];
+    _shrunk = NO;
 }
 
 @end

@@ -21,6 +21,8 @@
 @property (nonatomic, readonly) UISegmentedControl *codesOrStudents;
 @property (nonatomic, readonly) UISegmentedControl *subject;
 
+- (void)shrinkForTyping;
+- (void)doneTyping;
 
 
 @end

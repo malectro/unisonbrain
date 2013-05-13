@@ -13,6 +13,11 @@ CGRect CGRectPosition(CGRect rect, CGFloat x, CGFloat y)
     return CGRectMake(x, y, rect.size.width, rect.size.height);
 }
 
+CGRect CGRectSize(CGRect rect, CGFloat width, CGFloat height)
+{
+    return CGRectMake(rect.origin.x, rect.origin.y, width, height);
+}
+
 @implementation UBFunctions
 
 @end
