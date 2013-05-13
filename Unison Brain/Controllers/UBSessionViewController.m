@@ -236,13 +236,11 @@
     return cell;
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    UBContribution *contribution = [self contributionForIndexPath:indexPath];
-//    
-//    [NSString]
-//    contribution.text
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UBContribution *contribution = [self contributionForIndexPath:indexPath];
+    return [contribution.text sizeWithFont:[UIFont systemFontOfSize:14.0f] constrainedToSize:CGSizeMake(self.sessionView.breachesView.frame.size.width - 310.0f, 10000.0f) lineBreakMode:NSLineBreakByWordWrapping].height;
+}
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {

@@ -57,7 +57,7 @@
     else {
         _rootViewController = _homeViewController;
         [_mainNav setViewControllers:@[_homeViewController] animated:YES];
-        [self fetchServerStuff];
+        //[self fetchServerStuff];
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(authenticated) name:kLoginSuccessNotifName object:nil];

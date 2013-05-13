@@ -21,6 +21,9 @@
         
         _textField = [[UITextView alloc] init];
         _textField.editable = YES;
+        _textField.backgroundColor = [UIColor clearColor];
+        _textField.font = [UIFont systemFontOfSize:14.0f];
+        _textField.contentInset = UIEdgeInsetsMake(-7.0f, -7.0f, -7.0f, -7.0f);
         //_textField.placeholder = @"Contribution...";
         _textField.delegate = self;
         
@@ -42,7 +45,9 @@
     
     //self.backgroundView.frame = CGRectMake(10.0f, 0, self.frame.size.width - 20.0f, self.frame.size.height);
     self.textLabel.frame = CGRectMake(10.0f, 10.0f, 190.0f, 20.0f);
-    _textField.frame = CGRectMake(200.0f, 10.0f, self.frame.size.width - 200.0f, 20.0f);
+    
+    CGFloat textFieldWidth = self.frame.size.width - 200.0f - 55.0f;
+    _textField.frame = CGRectMake(200.0f, 10.0f, textFieldWidth, [self.contribution.text sizeWithFont:_textField.font constrainedToSize:CGSizeMake(textFieldWidth, 10000.0f) lineBreakMode:NSLineBreakByWordWrapping].height);
 }
 
 - (void)setContribution:(UBContribution *)contribution

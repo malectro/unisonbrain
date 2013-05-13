@@ -53,7 +53,7 @@
 - (void)setTeacher:(UBTeacher *)teacher
 {
     _teacher = teacher;
-    [self.teacher fetchSessions];
+    //[self.teacher fetchSessions];
 }
 
 - (NSArray *)sortDescriptors
