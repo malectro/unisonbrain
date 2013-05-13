@@ -62,6 +62,7 @@
         
         _codesController = [[UBCodesViewController alloc] initWithItems:nil];
         _codesController.delegate = self;
+        _codesController.subject = _session.subject;
         [self addChildViewController:_codesController];
         
         _headers = [[NSCache alloc] init];
@@ -213,6 +214,7 @@
 - (void)changedSubject
 {
     self.session.subject = self.sessionView.selectedSubject;
+    self.codesController.subject = self.session.subject;
 }
 
 

@@ -10,6 +10,10 @@
 
 #import "UBSearchListViewController.h"
 
+@class UBSubject;
+
 @interface UBCodesViewController : UBSearchListViewController
+
+@property (nonatomic) UBSubject *subject;
 
 @end

@@ -56,7 +56,17 @@
 
 - (void)reloadCodes
 {
-    self.items = [UBCode all];
+    if (self.subject == nil) {
+        self.items = [UBCode all];
+    } else {
+        self.items = self.subject.codes.allObjects;
+    }
+}
+
+- (void)setSubject:(UBSubject *)subject
+{
+    _subject = subject;
+    [self reloadCodes];
 }
 
 
