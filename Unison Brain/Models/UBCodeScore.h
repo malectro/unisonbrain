@@ -18,6 +18,7 @@
 
 @property (nonatomic, retain) NSString * comment;
 @property (nonatomic, retain) NSNumber * score;
+@property (nonatomic, retain) NSString *notion;
 @property (nonatomic, retain) UBCode *code;
 @property (nonatomic, retain) UBConference *conference;
 

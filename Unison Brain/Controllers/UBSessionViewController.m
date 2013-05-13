@@ -39,8 +39,8 @@
 @property (nonatomic) NSCache *headers;
 @property (nonatomic, retain) UIPopoverController *popover;
 
-
 @end
+
 
 @implementation UBSessionViewController
 

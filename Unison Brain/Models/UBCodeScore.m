@@ -15,6 +15,7 @@
 
 @dynamic comment;
 @dynamic score;
+@dynamic notion;
 @dynamic code;
 @dynamic conference;
 
@@ -29,6 +30,15 @@
              @"score": @"score",
              @"code": [UBCode class],
              @"conference": [UBConference class]};
+}
+
+NSArray *notions;
++ (NSArray *)notions
+{
+    if (notions == nil) {
+        notions = @[@"strength", @"weakness", @"goal"];
+    }
+    return notions;
 }
 
 - (NSDictionary *)asDict

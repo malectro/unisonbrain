@@ -129,7 +129,9 @@
         }
         
         if (callback != nil) {
-            callback(jsonObject);
+            dispatch_async(dispatch_get_main_queue(), ^{ 
+                callback(jsonObject);
+            });
         }
     }];
 }
