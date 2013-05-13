@@ -401,8 +401,10 @@
 
 - (void)editedContribution:(UBContributionCell *)contributionCell
 {
-    NSIndexPath *indexPath = [self.sessionView.breachesView indexPathForCell:contributionCell];
-    [self.sessionView.breachesView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    //NSIndexPath *indexPath = [self.sessionView.breachesView indexPathForCell:contributionCell];
+    [self.sessionView.breachesView beginUpdates];
+    [self.sessionView.breachesView endUpdates];
+    //[self.sessionView.breachesView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 

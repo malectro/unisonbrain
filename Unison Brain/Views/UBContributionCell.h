@@ -16,6 +16,7 @@
 @property (nonatomic) UBContribution *contribution;
 @property (nonatomic) UBSessionViewController *sessionViewController;
 @property (nonatomic, readonly) UITextView *textField;
+@property (nonatomic, readonly) CGFloat textHeight;
 
 - (id)initWithReuseIdentifier:(NSString *)reuseIdentifier;
 

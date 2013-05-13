@@ -14,6 +14,8 @@
 
 @implementation UBContributionCell
 
+@synthesize textHeight = _textHeight;
+
 - (id)initWithReuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
@@ -76,7 +78,12 @@
 
 - (void)textViewDidChange:(UITextView *)textView
 {
+    CGFloat oldTextHeight = self.textHeight;
+    _textHeight = 0.0f;
     
+    if (oldTextHeight != self.textHeight) {
+        [self.sessionViewController editedContribution:self];
+    }
 }
 
 - (CGFloat)textWidth
@@ -86,7 +93,10 @@
 
 - (CGFloat)textHeight
 {
-    return [self.contribution.text sizeWithFont:_textField.font constrainedToSize:CGSizeMake([self textWidth], 10000.0f) lineBreakMode:NSLineBreakByWordWrapping].height;
+    if (_textHeight == 0.0f) {
+        _textHeight = [self.textField.text  sizeWithFont:_textField.font constrainedToSize:CGSizeMake([self textWidth], 10000.0f) lineBreakMode:NSLineBreakByWordWrapping].height;
+    }
+    return _textHeight;
 }
 
 @end
