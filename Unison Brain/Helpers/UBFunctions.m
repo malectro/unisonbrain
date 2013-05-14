@@ -18,6 +18,17 @@ CGRect CGRectSize(CGRect rect, CGFloat width, CGFloat height)
     return CGRectMake(rect.origin.x, rect.origin.y, width, height);
 }
 
+NSArray * NSArrayFill(id filler, NSInteger count)
+{
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
+    
+    while (count > 0) {
+        [array addObject:filler];
+    }
+    
+    return array;
+}
+
 @implementation UBFunctions
 
 @end

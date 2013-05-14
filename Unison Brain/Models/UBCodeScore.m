@@ -28,6 +28,7 @@
 {
     return @{@"comment": @"comment",
              @"score": @"score",
+             @"notion": @"notion",
              @"code": [UBCode class],
              @"conference": [UBConference class]};
 }
@@ -43,7 +44,7 @@ NSArray *notions;
 
 - (NSDictionary *)asDict
 {
-    NSMutableDictionary *dict = [[self dictionaryWithValuesForKeys:@[@"comment", @"id", @"score"]] mutableCopy];
+    NSMutableDictionary *dict = [[self dictionaryWithValuesForKeys:@[@"comment", @"id", @"score", @"notion"]] mutableCopy];
     
     if (self.code) {
         dict[@"code_id"] = self.code.id;

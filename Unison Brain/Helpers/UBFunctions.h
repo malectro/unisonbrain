@@ -11,6 +11,8 @@
 CGRect CGRectPosition(CGRect rect, CGFloat x, CGFloat y);
 CGRect CGRectSize(CGRect rect, CGFloat width, CGFloat height);
 
+NSArray * NSArrayFill(id filler, NSInteger count);
+
 @interface UBFunctions : NSObject
 
 @end

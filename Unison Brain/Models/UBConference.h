@@ -22,6 +22,9 @@
 @property (nonatomic, retain) UBStudent *student;
 @property (nonatomic, retain) UBSubject *subject;
 @property (nonatomic, retain) UBTeacher *teacher;
+
+@property (nonatomic) BOOL complete;
+
 @end
 
 @interface UBConference (CoreDataGeneratedAccessors)

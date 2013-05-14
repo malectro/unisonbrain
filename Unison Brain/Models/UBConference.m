@@ -12,6 +12,7 @@
 #import "UBSubject.h"
 #import "UBTeacher.h"
 
+#import "UBFunctions.h"
 
 @implementation UBConference
 
@@ -78,6 +79,24 @@
     dict[@"time"] = [NSNumber numberWithInteger:[dict[@"time"] timeIntervalSince1970]];
     
     return dict;
+}
+
+// tells whether or not a conference is complete.
+// this method could probably be made more efficient.
+- (BOOL)complete
+{
+    NSArray *notions = [UBCodeScore notions];
+    NSInteger count = notions.count;
+    NSMutableDictionary *notionMap = [[NSMutableDictionary alloc] initWithObjects:NSArrayFill([NSNull null], count) forKeys:notions];
+    
+    for (UBCodeScore *codeScore in self.codeScores) {
+        if (codeScore.notion != nil && notionMap[codeScore.notion] == [NSNull null]) {
+            notionMap[codeScore.notion] = codeScore;
+            count--;
+        }
+    }
+    
+    return count < 1;
 }
 
 @end
