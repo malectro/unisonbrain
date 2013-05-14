@@ -12,6 +12,7 @@
 
 #import "UBCodeScore.h"
 #import "UBConference.h"
+#import "UBSubject.h"
 
 #import "UBSelectPopover.h"
 #import "UBCodeScoreCell.h"
@@ -25,6 +26,7 @@
 @property (nonatomic) UBCodesViewController *codesController;
 @property (nonatomic) UBSelectPopover *popover;
 @property (nonatomic) UBCodeScoreCell *selectedCodeScoreCell;
+@property (nonatomic) NSArray *subjects;
 
 
 @end
@@ -43,6 +45,8 @@
         
         _codesController = [[UBCodesViewController alloc] init];
         _codesControllerHidden = YES;
+        
+        self.subjects = [UBSubject all];
     }
     return self;
 }
@@ -60,11 +64,13 @@
     UIView *headerView = [[UIView alloc] init];
     UILabel *headerLabel = [[UILabel alloc] init];
     
+    headerView.frame = CGRectMake(0, 0, 0, 44.0f);
+    
     headerLabel.text = @"New Comment";
     [headerLabel sizeToFit];
     headerLabel.frame = CGRectPosition(headerLabel.frame, 10.0f, 0);
     
-    [headerView addSubview:headerLabel];
+    //[headerView addSubview:headerLabel];
     
     UIButton *headerButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
@@ -86,9 +92,21 @@
     [headerButton sizeToFit];
     headerButton.frame = CGRectMake(0, 0, 0, 44.0f);
     
+    headerButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    headerButton.titleLabel.font = [UIFont systemFontOfSize:16.0f];
+    [headerButton setTitle:@"New Comment" forState:UIControlStateNormal];
+    headerButton.frame = CGRectMake(10.0f, 5.0f, 200.0f, 30.0f);
+    
     [headerButton addTarget:self action:@selector(createCodeScore) forControlEvents:UIControlEventTouchUpInside];
     
-    self.tableView.tableHeaderView = headerButton;
+    [headerView addSubview:headerButton];
+    
+    UISegmentedControl *subjectControl = [[UISegmentedControl alloc] initWithItems:[self.subjects valueForKey:@"name"]];
+    subjectControl.frame = CGRectMake(700.0f, 5.0f, 300.0f, 30.0f);
+    [subjectControl setTitleTextAttributes:@{UITextAttributeFont: [UIFont systemFontOfSize:16.0f]} forState:UIControlStateNormal];
+    [headerView addSubview:subjectControl];
+    
+    self.tableView.tableHeaderView = headerView;
 }
 
 - (void)viewDidLayoutSubviews
