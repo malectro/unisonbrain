@@ -210,7 +210,7 @@
 - (void)touchedNotionForCodeScore:(UBCodeScoreCell *)codeScore
 {
     self.popover = [[UBSelectPopover alloc] initWithItems:[UBCodeScore notions]];
-    [self.popover presentPopoverFromRect:codeScore.notionLabel.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    [self.popover presentPopoverFromRect:codeScore.notionLabel.frame inView:codeScore permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     [self.popover addTarget:self action:@selector(selectedNotion)];
     self.selectedCodeScoreCell = codeScore;
 }

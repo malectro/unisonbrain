@@ -96,7 +96,7 @@
 
 - (CGSize)contentSizeForViewInPopover
 {
-    return CGSizeMake(200.0f, 300.0f);
+    return CGSizeMake(200.0f, 200.0f);
 }
 
 @end
