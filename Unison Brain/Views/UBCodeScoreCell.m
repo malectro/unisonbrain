@@ -10,6 +10,8 @@
 
 #import "UBCodeScore.h"
 #import "UBCode.h"
+#import "UBSelectPopover.h"
+#import "UBConferenceCommentViewController.h"
 
 @implementation UBCodeScoreCell
 
@@ -28,6 +30,12 @@
         _codeName = [[UILabel alloc] init];
         _codeName.text = @"<No Code>";
         [self addSubview:_codeName];
+        
+        _notionLabel = [[UILabel alloc] init];
+        _notionLabel.text = @"<No Type>";
+        _notionLabel.userInteractionEnabled = YES;
+        [_notionLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchedNotion)]];
+        [self addSubview:_notionLabel];
     }
     return self;
 }
@@ -45,7 +53,8 @@
     
     //self.backgroundView.frame = CGRectMake(10.0f, 0, self.frame.size.width - 20.0f, self.frame.size.height);
     _textField.frame = CGRectMake(10.0f, 10.0f, self.frame.size.width - 400.0f, 20.0f);
-    _codeName.frame = CGRectMake(_textField.frame.size.width + 10.0f, 10.0f, 200.0f, 20.0f);
+    _codeName.frame = CGRectMake(_textField.frame.size.width + 10.0f, 10.0f, 100.0f, 20.0f);
+    self.notionLabel.frame = CGRectMake(_codeName.frame.size.width + _codeName.frame.origin.x, 10.0f, 100.0f, 20.0f);
     self.scoreControl.frame = CGRectMake(self.frame.size.width - 190.0f, 5.0f, 180.f, 30.0f);
 }
 
@@ -56,6 +65,12 @@
     
     if (codeScore.score) {
         [self.scoreControl setSelectedSegmentIndex:codeScore.score.integerValue - 1];
+    }
+    
+    if (codeScore.notion) {
+        self.notionLabel.text = codeScore.notion;
+    } else {
+        self.notionLabel.text = @"<No Type>";
     }
     
     if (codeScore.code) {
@@ -80,6 +95,13 @@
 {
     [textField resignFirstResponder];
     return YES;
+}
+
+- (void)touchedNotion
+{
+    if (self.conferenceController != nil) {
+        [self.conferenceController touchedNotionForCodeScore:self];
+    }
 }
 
 @end

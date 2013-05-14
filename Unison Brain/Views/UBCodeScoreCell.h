@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class UBCodeScore;
+@class UBConferenceCommentViewController;
 
 @interface UBCodeScoreCell : UITableViewCell<UITextFieldDelegate>
 
@@ -16,6 +17,9 @@
 @property (nonatomic, readonly) UITextField *textField;
 @property (nonatomic, readonly) UISegmentedControl *scoreControl;
 @property (nonatomic, readonly) UILabel *codeName;
+@property (nonatomic, readonly) UILabel *notionLabel;
+@property (nonatomic, readonly) UIPickerView *notionPicker;
+@property (nonatomic) UBConferenceCommentViewController *conferenceController;
 
 - (id)initWithReuseIdentifier:(NSString *)identifier;
 

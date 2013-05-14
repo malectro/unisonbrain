@@ -13,6 +13,7 @@
 #import "UBCodeScore.h"
 #import "UBConference.h"
 
+#import "UBSelectPopover.h"
 #import "UBCodeScoreCell.h"
 #import "UBCodesViewController.h"
 
@@ -22,6 +23,7 @@
 }
 
 @property (nonatomic) UBCodesViewController *codesController;
+@property (nonatomic) UBSelectPopover *popover;
 
 @end
 
@@ -141,13 +143,13 @@
 - (void)configureCell:(UBCodeScoreCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     UBCodeScore *codeScore = [self codeScoreForIndexPath:indexPath];
-    
     cell.codeScore = codeScore;
 }
 
 - (UITableViewCell *)allocCell:(NSString *)identifer
 {
     UBCodeScoreCell *cell = [[UBCodeScoreCell alloc] initWithReuseIdentifier:identifer];
+    cell.conferenceController = self;
     [cell.textField addTarget:self action:@selector(hideCodesView) forControlEvents:UIControlEventEditingDidBegin];
     return cell;
 }
@@ -170,6 +172,8 @@
     if (codeScore.code) {
         [self.codesController setSelection:@[codeScore.code]];
     }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     if (_codesControllerHidden) {
         [self showCodesView];
@@ -199,6 +203,13 @@
     codeScoreCell.codeScore.code = nil;
     
     [self configureCell:codeScoreCell atIndexPath:indexPath];
+}
+
+- (void)touchedNotionForCodeScore:(UBCodeScoreCell *)codeScore
+{
+    self.popover = [[UBSelectPopover alloc] initWithItems:[UBCodeScore notions]];
+    //self.popover.popoverContentSize = CGSizeMake(200.0f, 200.0f);
+    [self.popover presentPopoverFromRect:codeScore.notionLabel.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 @end

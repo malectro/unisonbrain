@@ -62,6 +62,8 @@
 		86A3876816D42804008CA93B /* UBContributionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A3876716D42804008CA93B /* UBContributionsViewController.m */; };
 		86B6B68916C2F6E60027F087 /* UBAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B6B68816C2F6E60027F087 /* UBAlert.m */; };
 		86B6B68C16C31D190027F087 /* UBContributionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B6B68B16C31D190027F087 /* UBContributionCell.m */; };
+		86C8D2511741BCCD00A8A4F7 /* UBArrayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C8D2501741BCCD00A8A4F7 /* UBArrayTableViewController.m */; };
+		86C8D2541741D04D00A8A4F7 /* UBSelectPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C8D2531741D04C00A8A4F7 /* UBSelectPopover.m */; };
 		86D0516116C82AAA00BF026A /* UBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D0516016C82AAA00BF026A /* UBRequest.m */; };
 		86D51E2716B9ABD200C129F6 /* UBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E2616B9ABD200C129F6 /* UBHomeViewController.m */; };
 		86D51E2C16B9B1BE00C129F6 /* UBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E2B16B9B1BE00C129F6 /* UBUser.m */; };
@@ -174,6 +176,10 @@
 		86B6B68816C2F6E60027F087 /* UBAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBAlert.m; path = Helpers/UBAlert.m; sourceTree = "<group>"; };
 		86B6B68A16C31D190027F087 /* UBContributionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBContributionCell.h; path = Views/UBContributionCell.h; sourceTree = "<group>"; };
 		86B6B68B16C31D190027F087 /* UBContributionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBContributionCell.m; path = Views/UBContributionCell.m; sourceTree = "<group>"; };
+		86C8D24F1741BCCD00A8A4F7 /* UBArrayTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBArrayTableViewController.h; path = Controllers/UBArrayTableViewController.h; sourceTree = "<group>"; };
+		86C8D2501741BCCD00A8A4F7 /* UBArrayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBArrayTableViewController.m; path = Controllers/UBArrayTableViewController.m; sourceTree = "<group>"; };
+		86C8D2521741D04C00A8A4F7 /* UBSelectPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBSelectPopover.h; path = Controllers/UBSelectPopover.h; sourceTree = "<group>"; };
+		86C8D2531741D04C00A8A4F7 /* UBSelectPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBSelectPopover.m; path = Controllers/UBSelectPopover.m; sourceTree = "<group>"; };
 		86D0515F16C82AAA00BF026A /* UBRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBRequest.h; path = Helpers/UBRequest.h; sourceTree = "<group>"; };
 		86D0516016C82AAA00BF026A /* UBRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBRequest.m; path = Helpers/UBRequest.m; sourceTree = "<group>"; };
 		86D51E2516B9ABD200C129F6 /* UBHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBHomeViewController.h; path = Controllers/UBHomeViewController.h; sourceTree = "<group>"; };
@@ -354,6 +360,10 @@
 				863F417C16C439D800DACB64 /* UBSearchListViewController.m */,
 				86A3876316D41DE7008CA93B /* UBModelTableViewController.h */,
 				86A3876416D41DE7008CA93B /* UBModelTableViewController.m */,
+				86C8D24F1741BCCD00A8A4F7 /* UBArrayTableViewController.h */,
+				86C8D2501741BCCD00A8A4F7 /* UBArrayTableViewController.m */,
+				86C8D2521741D04C00A8A4F7 /* UBSelectPopover.h */,
+				86C8D2531741D04C00A8A4F7 /* UBSelectPopover.m */,
 			);
 			name = Prototypes;
 			sourceTree = "<group>";
@@ -600,6 +610,8 @@
 				86046B3E16DBB28B009F6468 /* UBConferenceCommentViewController.m in Sources */,
 				86046B4116DBB833009F6468 /* UBConferencesViewController.m in Sources */,
 				867E7AC216DD27A9002FF33F /* UBCodeScoreCell.m in Sources */,
+				86C8D2511741BCCD00A8A4F7 /* UBArrayTableViewController.m in Sources */,
+				86C8D2541741D04D00A8A4F7 /* UBSelectPopover.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

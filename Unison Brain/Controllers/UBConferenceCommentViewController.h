@@ -11,11 +11,14 @@
 #import "UBSearchListViewController.h"
 
 @class UBConference;
+@class UBCodeScoreCell;
 
 @interface UBConferenceCommentViewController : UBModelTableViewController<UBSearchListViewDelegate>
 
 @property (nonatomic) UBConference *conference;
 
 - (id)initWithConference:(UBConference *)conference;
+
+- (void)touchedNotionForCodeScore:(UBCodeScoreCell *)codeScore;
 
 @end

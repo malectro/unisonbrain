@@ -22,5 +22,7 @@
 @property (nonatomic, retain) UBCode *code;
 @property (nonatomic, retain) UBConference *conference;
 
++ (NSArray *)notions;
+
 @end
 
