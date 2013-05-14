@@ -31,6 +31,11 @@
     return self;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+}
+
 - (NSArray *)sortDescriptors
 {
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"time" ascending:NO];
@@ -48,6 +53,19 @@
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", [UBDate stringFromDateMedium:conf.time], conf.notes];
     cell.textLabel.font = [UIFont systemFontOfSize:20.0f];
+    
+    if (conf.complete) {
+        cell.detailTextLabel.text = @"complete";
+    } else {
+        cell.detailTextLabel.text = @"incomplete";
+    }
+    cell.detailTextLabel.font = [UIFont systemFontOfSize:16.0f];
+    cell.detailTextLabel.textColor = [UIColor grayColor];
+}
+
+- (UITableViewCell *)allocCell:(NSString *)identifier
+{
+    return [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
 }
 
 - (UBConference *)conferenceAtIndexPath:(NSIndexPath *)indexPath

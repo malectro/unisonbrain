@@ -24,6 +24,7 @@ NSArray * NSArrayFill(id filler, NSInteger count)
     
     while (count > 0) {
         [array addObject:filler];
+        count--;
     }
     
     return array;
