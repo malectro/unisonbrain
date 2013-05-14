@@ -24,6 +24,8 @@
 
 @property (nonatomic) UBCodesViewController *codesController;
 @property (nonatomic) UBSelectPopover *popover;
+@property (nonatomic) UBCodeScoreCell *selectedCodeScoreCell;
+
 
 @end
 
@@ -208,8 +210,18 @@
 - (void)touchedNotionForCodeScore:(UBCodeScoreCell *)codeScore
 {
     self.popover = [[UBSelectPopover alloc] initWithItems:[UBCodeScore notions]];
-    //self.popover.popoverContentSize = CGSizeMake(200.0f, 200.0f);
     [self.popover presentPopoverFromRect:codeScore.notionLabel.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    [self.popover addTarget:self action:@selector(selectedNotion)];
+    self.selectedCodeScoreCell = codeScore;
+}
+
+- (void)selectedNotion
+{
+    [self.popover dismissPopoverAnimated:YES];
+    
+    NSString *notion = [UBCodeScore notions][self.popover.selectedIndex];
+    self.selectedCodeScoreCell.codeScore.notion = notion;
+    self.selectedCodeScoreCell.notionLabel.text = notion;
 }
 
 @end

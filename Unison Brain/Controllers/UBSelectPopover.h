@@ -13,7 +13,10 @@
 @interface UBSelectPopover : UIPopoverController
 
 @property (nonatomic) UBArrayTableViewController *tableController;
+@property (nonatomic) NSInteger selectedIndex;
 
 - (id)initWithItems:(NSArray *)items;
+
+- (void)addTarget:(id)target action:(SEL)action;
 
 @end

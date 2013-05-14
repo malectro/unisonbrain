@@ -17,9 +17,19 @@
     
     self = [super initWithContentViewController:[[UBArrayTableViewController alloc] initWithItems:items]];
     if (self) {
-        // hi
+        self.tableController = (UBArrayTableViewController *) self.contentViewController;
     }
     return self;
+}
+
+- (void)addTarget:(id)target action:(SEL)action
+{
+    [self.tableController addTarget:target action:action];
+}
+
+- (NSInteger)selectedIndex
+{
+    return self.tableController.lastSelectedIndex;
 }
 
 @end

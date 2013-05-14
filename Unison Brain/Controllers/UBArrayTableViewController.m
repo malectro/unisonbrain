@@ -28,8 +28,9 @@
 
 - (id)initWithItems:(NSArray *)items
 {
-    self = [super init];
+    self = [self init];
     if (self) {
+        //_targets = @[];
         self.items = items;
     }
     return self;

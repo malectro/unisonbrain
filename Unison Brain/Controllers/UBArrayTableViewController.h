@@ -15,4 +15,6 @@
 
 - (id)initWithItems:(NSArray *)items;
 
+- (void)addTarget:(id)target action:(SEL)action;
+
 @end
