@@ -27,6 +27,7 @@
 @property (nonatomic) UBSelectPopover *popover;
 @property (nonatomic) UBCodeScoreCell *selectedCodeScoreCell;
 @property (nonatomic) NSArray *subjects;
+@property (nonatomic) UISegmentedControl *subjectControl;
 
 
 @end
@@ -101,10 +102,11 @@
     
     [headerView addSubview:headerButton];
     
-    UISegmentedControl *subjectControl = [[UISegmentedControl alloc] initWithItems:[self.subjects valueForKey:@"name"]];
-    subjectControl.frame = CGRectMake(700.0f, 5.0f, 300.0f, 30.0f);
-    [subjectControl setTitleTextAttributes:@{UITextAttributeFont: [UIFont systemFontOfSize:16.0f]} forState:UIControlStateNormal];
-    [headerView addSubview:subjectControl];
+    self.subjectControl = [[UISegmentedControl alloc] initWithItems:[self.subjects valueForKey:@"name"]];
+    self.subjectControl.frame = CGRectMake(700.0f, 5.0f, 300.0f, 30.0f);
+    [self.subjectControl setTitleTextAttributes:@{UITextAttributeFont: [UIFont systemFontOfSize:16.0f]} forState:UIControlStateNormal];
+    [headerView addSubview:self.subjectControl];
+    [self.subjectControl addTarget:self action:@selector(changedSubject) forControlEvents:UIControlEventValueChanged];
     
     self.tableView.tableHeaderView = headerView;
 }
@@ -141,6 +143,11 @@
 - (void)setConference:(UBConference *)conference
 {
     _conference = conference;
+    
+    if (self.conference.subject) {
+        self.subjectControl.selectedSegmentIndex = [self.subjects indexOfObject:self.conference.subject];
+    }
+    
     [self reload];
 }
 
@@ -240,6 +247,18 @@
     NSString *notion = [UBCodeScore notions][self.popover.selectedIndex];
     self.selectedCodeScoreCell.codeScore.notion = notion;
     self.selectedCodeScoreCell.notionLabel.text = notion;
+}
+
+- (void)changedSubject
+{
+    NSInteger index = self.subjectControl.selectedSegmentIndex;
+    UBSubject *subject = nil;
+    
+    if (index > -1) {
+        subject = self.subjects[index];
+    }
+    
+    self.conference.subject = subject;
 }
 
 @end
