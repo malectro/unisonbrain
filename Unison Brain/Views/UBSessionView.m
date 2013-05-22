@@ -10,10 +10,10 @@
 
 #include "UBFunctions.h"
 
-#import <QuartzCore/QuartzCore.h>
-
 #import "UBSubject.h"
 #import "UBCodeType.h"
+#import "UBShadowView.h"
+
 
 #define LEFT_WIDTH 770.0f
 #define RIGHT_WIDTH (1024.0f - 770.0f)
@@ -24,6 +24,7 @@
 @property (nonatomic) UIView *controlPanelBackground;
 @property (nonatomic) BOOL shrunk;
 @property (nonatomic) NSArray *subjects;
+@property (nonatomic) UBShadowView *listBg;
 
 @end
 
@@ -90,6 +91,9 @@
         _subject.segmentedControlStyle = UISegmentedControlStyleBar;
         [self addSubview:_subject];
         
+        _listBg = [[UBShadowView alloc] init];
+        [self addSubview:_listBg];
+        
         _shrunk = NO;
     }
     return self;
@@ -100,11 +104,14 @@
     // segemnted control is to be added as a nav item
     // _codesOrStudents.frame = CGRectPosition(_codesOrStudents.frame, LEFT_WIDTH, 0);
     
+    _listBg.frame = CGRectMake(LEFT_WIDTH, 0, RIGHT_WIDTH, self.frame.size.height);
+    [self bringSubviewToFront:_listBg];
+    
     if (_studentSelector) {
         _studentSelector.frame = CGRectMake(10.0f, self.frame.size.height - 54.0f, LEFT_WIDTH - 20.0f, 54.0f);
     }
     if (_listSelectView) {
-        _listSelectView.frame = CGRectMake(LEFT_WIDTH, 0, RIGHT_WIDTH, self.frame.size.height);
+        _listSelectView.frame = CGRectPosition(_listBg.frame, 0, 0);
     }
     
     self.selectorLabel.frame = CGRectPosition(self.selectorLabel.frame, 10.0f, _studentSelector.frame.origin.y - self.selectorLabel.frame.size.height - 5.0f);
@@ -123,16 +130,10 @@
 
 - (void)setListSelectView:(UIView *)listSelectView
 {
-    _listSelectView = listSelectView;
     [_listSelectView removeFromSuperview];
-    
-    _listSelectView.layer.shadowColor = [UIColor blackColor].CGColor;
-    _listSelectView.layer.shadowRadius = 10.0f;
-    _listSelectView.layer.shadowOpacity = 0.5f;
-    _listSelectView.layer.shouldRasterize = YES;
-    
-    [self addSubview:_listSelectView];
-    [self bringSubviewToFront:_listSelectView];
+    _listSelectView = listSelectView;
+    [_listBg addSubview:_listSelectView];
+    [self layoutSubviews];
 }
 
 - (void)setStudentSelector:(UBStudentSelectorView *)studentSelector

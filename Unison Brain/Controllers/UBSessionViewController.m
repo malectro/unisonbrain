@@ -18,6 +18,7 @@
 #import "UBContribution.h"
 #import "UBPerson.h"
 #import "UBSubject.h"
+#import "UBUser.h"
 
 #import "UBCodesViewController.h"
 #import "UBStudentListViewController.h"
@@ -26,7 +27,6 @@
 #import "UBStudentSelectorView.h"
 #import "UBContributionCell.h"
 #import "UBBreachHeaderView.h"
-#import "UBUser.h"
 
 @interface UBSessionViewController ()
 
