@@ -46,6 +46,7 @@
         self.modelName = @"UBCodeScore";
         
         _codesController = [[UBCodesViewController alloc] init];
+        _codesController.subject = self.conference.subject;
         _codesControllerHidden = YES;
         
         self.subjects = [UBSubject all];
@@ -147,6 +148,7 @@
     
     if (self.conference.subject) {
         self.subjectControl.selectedSegmentIndex = [self.subjects indexOfObject:self.conference.subject];
+        self.codesController.subject = _conference.subject;
     }
     
     [self reload];
@@ -259,6 +261,7 @@
     }
     
     self.conference.subject = subject;
+    self.codesController.subject = subject;
 }
 
 @end

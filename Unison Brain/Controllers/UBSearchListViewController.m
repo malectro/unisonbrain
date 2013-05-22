@@ -86,7 +86,12 @@
 
 - (void)setSelection:(NSArray *)selectedItems
 {
-    _selectedItems = [NSMutableArray arrayWithArray:selectedItems];
+    NSMutableOrderedSet *selectedSet = [NSMutableOrderedSet orderedSetWithArray:selectedItems];
+    NSOrderedSet *itemsSet = [NSOrderedSet orderedSetWithArray:_items];
+    [selectedSet intersectOrderedSet:itemsSet];
+    
+    _selectedItems = [NSMutableArray arrayWithArray:selectedSet.array];
+    
     _deselectedItems = [NSMutableArray arrayWithArray:_items];
     [_deselectedItems removeObjectsInArray:_selectedItems];
     [self.tableView reloadData];
