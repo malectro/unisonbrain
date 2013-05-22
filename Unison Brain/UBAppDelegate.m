@@ -221,8 +221,8 @@
 #pragma mark - Testing methods that whouldn't be used ever
 - (void)fetchServerStuff
 {
-    [UBTeacher fetchAll];
     [UBStudent fetchAll];
+    [UBTeacher fetchAll];
     [UBSubject fetchAll];
     //[UBCodeType fetchAll];
     [UBCode fetchAll];
