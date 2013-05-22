@@ -8,6 +8,8 @@
 
 #import "UBStudentView.h"
 
+#import <QuartzCore/QuartzCore.h>
+
 #import "UBFunctions.h"
 
 #define kLeftColumnWidth 400.0f
@@ -15,6 +17,7 @@
 
 @interface UBStudentView () {
     UIView *_bottomSplit;
+    UIView *_bottomSplitBg;
     CGFloat _prevBottomSplitHeight;
     CGFloat _bottomSplitHeight;
 }
@@ -45,6 +48,14 @@
         
         _bottomSplit = [[UIView alloc] init];
         [self addSubview:_bottomSplit];
+        
+        _bottomSplitBg = [[UIView alloc] init];
+        _bottomSplitBg.backgroundColor = [UIColor whiteColor];
+        _bottomSplitBg.layer.shadowColor = [UIColor blackColor].CGColor;
+        _bottomSplitBg.layer.shadowRadius = 10.0f;
+        _bottomSplitBg.layer.shadowOpacity = 0.5f;
+        _bottomSplitBg.layer.shouldRasterize = YES;
+        [_bottomSplit addSubview:_bottomSplitBg];
         
         _commentsLabel = [[UILabel alloc] init];
         _commentsLabel.text = @"Conferences";
@@ -79,6 +90,8 @@
 {
     CGFloat yValue = 0;
     
+    [self bringSubviewToFront:_bottomSplit];
+    
     yValue = _contribsLabel.frame.size.height + _contribsLabel.frame.origin.y + 10.0f;
     
     _contribsLabel.frame = CGRectPosition(_contribsLabel.frame, 10.0f, 10.0f);
@@ -94,6 +107,7 @@
     }
     
     _bottomSplit.frame = CGRectMake(0, self.frame.size.height - _bottomSplitHeight, self.frame.size.width, _bottomSplitHeight);
+    _bottomSplitBg.frame = CGRectPosition(_bottomSplit.frame, 0, 0);
     
     _commentsLabel.frame = CGRectPosition(_commentsLabel.frame, 10.0f, 0);
     _createConference.frame = CGRectMake(_commentsLabel.frame.origin.x + _commentsLabel.frame.size.width + 10.0f, _commentsLabel.frame.origin.y, _commentsLabel.frame.size.width, 30.0f);
