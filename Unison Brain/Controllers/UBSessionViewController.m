@@ -26,6 +26,7 @@
 #import "UBStudentSelectorView.h"
 #import "UBContributionCell.h"
 #import "UBBreachHeaderView.h"
+#import "UBUser.h"
 
 @interface UBSessionViewController ()
 
@@ -56,7 +57,7 @@
         
         self.title = [NSString stringWithFormat:@"Session with %@ |  %@", session.studentList, [UBDate stringFromDateMedium:session.time]];
         
-        _listController = [[UBStudentListViewController alloc] initWithItems:nil];
+        _listController = [[UBStudentListViewController alloc] initWithTeacher:[UBUser currentTeacher]];
         _listController.delegate = self;
         [self addChildViewController:_listController];
         
