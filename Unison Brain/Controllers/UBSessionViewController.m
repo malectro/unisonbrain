@@ -251,7 +251,13 @@
 {
     UBContribution *contribution = [self contributionForIndexPath:indexPath];
     CGFloat size = [contribution.text sizeWithFont:[UIFont systemFontOfSize:14.0f] constrainedToSize:CGSizeMake(self.sessionView.breachesView.frame.size.width - 255.0f, 10000.0f) lineBreakMode:NSLineBreakByWordWrapping].height;
-    return size + 20.0f;
+    size = size + 20.0f;
+    
+    if (size < 40.0f) {
+        size = 40.0f;
+    }
+    
+    return size;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section

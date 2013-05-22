@@ -93,6 +93,11 @@
     if (_textHeight == 0.0f) {
         _textHeight = [self.textField.text  sizeWithFont:_textField.font constrainedToSize:CGSizeMake([self textWidth], 10000.0f) lineBreakMode:NSLineBreakByWordWrapping].height;
     }
+    
+    if (_textHeight < 40.0f) {
+        _textHeight = 40.0f;
+    }
+    
     return _textHeight;
 }
 

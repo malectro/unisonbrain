@@ -224,8 +224,8 @@
     [UBStudent fetchAll];
     [UBTeacher fetchAll];
     [UBSubject fetchAll];
-    //[UBCodeType fetchAll];
-    [UBCode fetchAll];
+    [UBCodeType fetchAll];
+    //[UBCode fetchAll];
     //NSLog(@"people %@ %@", [UBStudent all], [UBTeacher all]);
     //NSLog(@"bsonid %@", [UBBson bsonId]);
     //NSLog(@"types %@", [UBCodeType all]);
