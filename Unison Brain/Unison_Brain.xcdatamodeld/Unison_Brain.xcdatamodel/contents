@@ -80,6 +80,7 @@
     <entity name="UBStudent" representedClassName="UBStudent" parentEntity="UBPerson" syncable="YES">
         <attribute name="section" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="conferences" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBConference" inverseName="student" inverseEntity="UBConference" syncable="YES"/>
+        <relationship name="teachers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBTeacher" inverseName="students" inverseEntity="UBTeacher" syncable="YES"/>
     </entity>
     <entity name="UBSubject" representedClassName="UBSubject" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
@@ -91,6 +92,7 @@
     </entity>
     <entity name="UBTeacher" representedClassName="UBTeacher" parentEntity="UBPerson" syncable="YES">
         <relationship name="conferences" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBConference" inverseName="teacher" inverseEntity="UBConference" syncable="YES"/>
+        <relationship name="students" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBStudent" inverseName="teachers" inverseEntity="UBStudent" syncable="YES"/>
     </entity>
     <elements>
         <element name="UBBreach" positionX="160" positionY="192" width="128" height="165"/>
@@ -101,8 +103,8 @@
         <element name="UBContribution" positionX="160" positionY="192" width="128" height="135"/>
         <element name="UBPerson" positionX="160" positionY="192" width="128" height="165"/>
         <element name="UBSession" positionX="160" positionY="192" width="128" height="195"/>
-        <element name="UBStudent" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="UBStudent" positionX="160" positionY="192" width="128" height="90"/>
         <element name="UBSubject" positionX="160" positionY="192" width="128" height="135"/>
-        <element name="UBTeacher" positionX="160" positionY="192" width="128" height="60"/>
+        <element name="UBTeacher" positionX="160" positionY="192" width="128" height="75"/>
     </elements>
 </model>

@@ -10,6 +10,7 @@
 
 #import "UBPerson.h"
 #import "UBStudent.h"
+#import "UBTeacher.h"
 
 @interface UBStudentListViewController ()
 
@@ -21,6 +22,16 @@
 {
     self = [super initWithItems:[UBStudent all]];
     if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadStudents) name:@"UBStudent:fetchAll" object:nil];
+    }
+    return self;
+}
+
+- (id)initWithTeacher:(UBTeacher *)teacher
+{
+    self = [super initWithItems:teacher.students.allObjects];
+    if (self) {
+        _teacher = teacher;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadStudents) name:@"UBStudent:fetchAll" object:nil];
     }
     return self;
@@ -57,7 +68,17 @@
 
 - (void)reloadStudents
 {
-    self.items = [UBStudent all];
+    if (self.teacher) {
+        self.items = self.teacher.students.allObjects;
+    } else {
+        self.items = [UBStudent all];
+    }
+}
+
+- (void)setTeacher:(UBTeacher *)teacher
+{
+    _teacher = teacher;
+    [self reloadStudents];
 }
 
 @end

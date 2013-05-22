@@ -16,6 +16,7 @@
 
 @dynamic section;
 @dynamic conferences;
+@dynamic teachers;
 
 + (NSString *)modelName
 {

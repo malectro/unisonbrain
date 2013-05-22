@@ -36,6 +36,8 @@
     
     self.allowsMultipleSelection = YES;
     self.allowsSelectionGrouping = YES;
+    
+    NSLog(@"items %@", self.items);
 }
 
 - (void)dealloc

@@ -42,7 +42,7 @@
         _sessionsViewController = [[UBSessionsViewController alloc] initWithTeacher:[UBUser currentUser].teacher];
         [self addChildViewController:_sessionsViewController];
         
-        _studentsViewController = [[UBStudentListViewController alloc] init];
+        _studentsViewController = [[UBStudentListViewController alloc] initWithTeacher:[UBUser currentTeacher]];
         _studentsViewController.delegate = self;
         [self addChildViewController:_studentsViewController];
         

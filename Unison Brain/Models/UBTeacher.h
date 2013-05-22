@@ -11,10 +11,12 @@
 #import "UBPerson.h"
 
 @class UBConference;
+@class UBStudent;
 
 @interface UBTeacher : UBPerson
 
 @property (nonatomic, retain) NSSet *conferences;
+@property (nonatomic, retain) NSSet *students;
 
 - (void)fetchSessions;
 - (void)fetchConferences;

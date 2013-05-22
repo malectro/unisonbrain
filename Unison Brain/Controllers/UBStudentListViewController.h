@@ -10,6 +10,12 @@
 
 #import "UBSearchListViewController.h"
 
+@class UBTeacher;
+
 @interface UBStudentListViewController : UBSearchListViewController
+
+@property (nonatomic) UBTeacher *teacher;
+
+- (id)initWithTeacher:(UBTeacher *)teacher;
 
 @end

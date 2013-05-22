@@ -9,11 +9,13 @@
 #import "UBTeacher.h"
 #import "UBConference.h"
 #import "UBSession.h"
+#import "UBStudent.h"
 
 
 @implementation UBTeacher
 
 @dynamic conferences;
+@dynamic students;
 
 + (NSString *)modelName
 {
@@ -29,7 +31,8 @@
 {
     return @{@"fname": @"fname",
              @"lname": @"lname",
-             @"school": @"school"};
+             @"school": @"school",
+             @"students": [UBStudent class]};
 }
 
 - (void)fetchSessions
