@@ -117,7 +117,7 @@
     _bottomSplit.frame = CGRectMake(0, self.frame.size.height - _bottomSplitHeight, self.frame.size.width, _bottomSplitHeight);
     _bottomSplitBg.frame = CGRectPosition(_bottomSplit.frame, 0, 0);
     
-    _commentsLabel.frame = CGRectPosition(_commentsLabel.frame, 10.0f, 0);
+    _commentsLabel.frame = CGRectPosition(_commentsLabel.frame, 10.0f, 10.0f);
     _createConference.frame = CGRectMake(_commentsLabel.frame.origin.x + _commentsLabel.frame.size.width + 10.0f, _commentsLabel.frame.origin.y + 5.0f, _commentsLabel.frame.size.width, 30.0f);
     
     _conferenceMetaView.frame = CGRectMake(0, _commentsLabel.frame.origin.y + _commentsLabel.frame.size.height, _bottomSplit.frame.size.width, _bottomSplitHeight - _commentsLabel.frame.size.height);

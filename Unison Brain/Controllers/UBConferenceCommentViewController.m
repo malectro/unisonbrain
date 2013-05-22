@@ -21,6 +21,7 @@
 @interface UBConferenceCommentViewController () {
     CGFloat _codesControllerPosition;
     BOOL _codesControllerHidden;
+    UBCodeScoreCell *_lastSelectedCell;
 }
 
 @property (nonatomic) UBCodesViewController *codesController;
@@ -200,12 +201,11 @@
         [self.codesController setSelection:@[codeScore.code]];
     }
     
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
     if (_codesControllerHidden) {
         [self showCodesView];
     }
     else {
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
         [self hideCodesView];
     }
 }
