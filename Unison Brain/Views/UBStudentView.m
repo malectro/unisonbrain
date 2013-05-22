@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "UBFunctions.h"
+#import "UBShadowView.h"
 
 #define kLeftColumnWidth 400.0f
 #define kBottomSplitHeight 300.0f
@@ -18,6 +19,7 @@
 @interface UBStudentView () {
     UIView *_bottomSplit;
     UIView *_bottomSplitBg;
+    UIView *_leftSplit;
     CGFloat _prevBottomSplitHeight;
     CGFloat _bottomSplitHeight;
 }
@@ -34,20 +36,23 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        _leftSplit = [[UBShadowView alloc] init];
+        [self addSubview:_leftSplit];
+        
+        _bottomSplit = [[UIView alloc] init];
+        [self addSubview:_bottomSplit];
+        
         _contribsLabel = [[UILabel alloc] init];
         _contribsLabel.text = @"Recent Contributions";
         _contribsLabel.font = [UIFont systemFontOfSize:28.0f];
         [_contribsLabel sizeToFit];
-        [self addSubview:_contribsLabel];
+        [_leftSplit addSubview:_contribsLabel];
         
         _codesLabel = [[UILabel alloc] init];
         _codesLabel.text = @"Code Progress";
         _codesLabel.font = [UIFont systemFontOfSize:28.0f];
         [_codesLabel sizeToFit];
         [self addSubview:_codesLabel];
-        
-        _bottomSplit = [[UIView alloc] init];
-        [self addSubview:_bottomSplit];
         
         _bottomSplitBg = [[UIView alloc] init];
         _bottomSplitBg.backgroundColor = [UIColor whiteColor];
@@ -90,9 +95,12 @@
 {
     CGFloat yValue = 0;
     
+    [self bringSubviewToFront:_leftSplit];
     [self bringSubviewToFront:_bottomSplit];
     
     yValue = _contribsLabel.frame.size.height + _contribsLabel.frame.origin.y + 10.0f;
+    
+    _leftSplit.frame = CGRectMake(0, 0, kLeftColumnWidth, self.frame.size.height - _bottomSplitHeight);
     
     _contribsLabel.frame = CGRectPosition(_contribsLabel.frame, 10.0f, 10.0f);
     
@@ -110,7 +118,7 @@
     _bottomSplitBg.frame = CGRectPosition(_bottomSplit.frame, 0, 0);
     
     _commentsLabel.frame = CGRectPosition(_commentsLabel.frame, 10.0f, 0);
-    _createConference.frame = CGRectMake(_commentsLabel.frame.origin.x + _commentsLabel.frame.size.width + 10.0f, _commentsLabel.frame.origin.y, _commentsLabel.frame.size.width, 30.0f);
+    _createConference.frame = CGRectMake(_commentsLabel.frame.origin.x + _commentsLabel.frame.size.width + 10.0f, _commentsLabel.frame.origin.y + 5.0f, _commentsLabel.frame.size.width, 30.0f);
     
     _conferenceMetaView.frame = CGRectMake(0, _commentsLabel.frame.origin.y + _commentsLabel.frame.size.height, _bottomSplit.frame.size.width, _bottomSplitHeight - _commentsLabel.frame.size.height);
     
@@ -142,7 +150,7 @@
     }
     
     _contributionsView = contributionsView;
-    [self addSubview:contributionsView];
+    [_leftSplit addSubview:contributionsView];
 }
 
 - (void)setCodesView:(UIView *)codesView
