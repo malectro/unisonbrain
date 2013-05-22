@@ -123,7 +123,9 @@
 
 - (UITableViewCell *)allocCell:(NSString *)identifier
 {
-    return [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    cell.textLabel.font = [UIFont systemFontOfSize:20.0f];
+    return cell;
 }
 
 - (void)addRowSelectionTarget:(id)target action:(SEL)action

@@ -131,6 +131,7 @@
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.textLabel.font = [UIFont systemFontOfSize:20.0f];
     }
     
     id item = [self tableView:tableView itemForIndexPath:indexPath];

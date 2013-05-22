@@ -103,7 +103,7 @@
     [headerView addSubview:headerButton];
     
     self.subjectControl = [[UISegmentedControl alloc] initWithItems:[self.subjects valueForKey:@"name"]];
-    self.subjectControl.frame = CGRectMake(700.0f, 5.0f, 300.0f, 30.0f);
+    self.subjectControl.frame = CGRectMake(310.0f, 5.0f, 700.0f, 30.0f);
     [self.subjectControl setTitleTextAttributes:@{UITextAttributeFont: [UIFont systemFontOfSize:16.0f]} forState:UIControlStateNormal];
     [headerView addSubview:self.subjectControl];
     [self.subjectControl addTarget:self action:@selector(changedSubject) forControlEvents:UIControlEventValueChanged];

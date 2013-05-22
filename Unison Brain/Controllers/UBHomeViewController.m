@@ -26,6 +26,7 @@
 @property UBSessionsViewController *sessionsViewController;
 @property UBStudentListViewController *studentsViewController;
 @property UBHomeView *homeView;
+@property (nonatomic) UIBarButtonItem *logoutButton;
 
 @end
 
@@ -46,6 +47,9 @@
         _studentsViewController.delegate = self;
         [self addChildViewController:_studentsViewController];
         
+        _logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Log Out" style:UIBarButtonItemStylePlain target:self action:@selector(logOut)];
+        self.navigationItem.rightBarButtonItem = _logoutButton;
+        
         self.title = @"Unison Home";
     }
     return self;
@@ -62,7 +66,8 @@
     
     self.homeView.sessionsView = _sessionsViewController.view;
     self.homeView.studentsView = _studentsViewController.view;
-    self.homeView.teacherNameLabel.text = [UBUser currentUser].teacher.fname;
+    //self.homeView.teacherNameLabel.text = [UBUser currentUser].teacher.fname;
+    
     [self.homeView.createSessionButton addTarget:self action:@selector(createSession) forControlEvents:UIControlEventTouchDown];
     
     _studentsViewController.allowsMultipleSelection = NO;
@@ -74,7 +79,8 @@
     [super viewWillAppear:animated];
     
     self.sessionsViewController.teacher = [UBUser currentTeacher];
-    self.homeView.teacherNameLabel.text = [UBUser currentUser].teacher.name;
+    //self.homeView.teacherNameLabel.text = [UBUser currentUser].teacher.name;
+    self.title = [NSString stringWithFormat:@"Unison Home - %@", [UBUser currentTeacher].name];
 }
 
 - (void)didReceiveMemoryWarning
@@ -91,6 +97,11 @@
     
     UBSessionViewController *sessionViewController = [[UBSessionViewController alloc] initWithSession:session];
     [self.navigationController pushViewController:sessionViewController animated:YES];
+}
+
+- (void)logOut
+{
+    // log out
 }
 
 # pragma mark - UB Search List Delegate Methods
