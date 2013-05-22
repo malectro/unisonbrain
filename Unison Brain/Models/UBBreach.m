@@ -55,7 +55,10 @@
     
     dict[@"time"] = [UBDate toNum:self.time];
     
-    dict[@"code_type_id"] = self.codeType.id;
+    if (self.codeType) {
+        dict[@"code_type_id"] = self.codeType.id;
+    }
+    
     dict[@"code_ids"] = [self.codes.allObjects valueForKey:@"id"];
     
     dict[@"contributions"] = [self.contributions.allObjects valueForKey:@"asDict"];
