@@ -50,6 +50,8 @@
     _homeViewController = [[UBHomeViewController alloc] init];
     _mainNav = [[UINavigationController alloc] initWithRootViewController:_homeViewController];
     
+    [self.window setRootViewController:_mainNav];
+    
     if (![UBUser currentUser].loggedIn) {
         [_mainNav presentViewController:_loginViewController animated:NO completion:nil];
         _rootViewController = _loginViewController;
@@ -57,14 +59,11 @@
     }
     else {
         _rootViewController = _homeViewController;
-        [_mainNav setViewControllers:@[_homeViewController] animated:YES];
         [self fetchServerStuff];
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(authenticated) name:kLoginSuccessNotifName object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(expired) name:kLoginExpiredNotifName object:nil];
-    
-    [self.window setRootViewController:_mainNav];
     
     return YES;
 }

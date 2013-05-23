@@ -69,7 +69,7 @@ static UBUser *currentUser;
 - (void)logIn:(NSString *)email password:(NSString *)password success:(void (^)())success failure:(void (^)())failure
 {
     [UBRequest post:@"session/auth" data:@{@"email": email, @"password": password} callback:^(NSDictionary *data) {
-        if (data[@"token"]) {
+        if (data[@"token"] && data[@"teacher"] && data[@"uid"]) {
             _token = data[@"token"];
             _teacher = [UBTeacher findOrCreateWithDict:data[@"teacher"]];
             [_teacher save];
