@@ -48,9 +48,10 @@
     
     _loginViewController = [[UBLoginViewController alloc] init];
     _homeViewController = [[UBHomeViewController alloc] init];
-    _mainNav = [[UINavigationController alloc] initWithRootViewController:_loginViewController];
+    _mainNav = [[UINavigationController alloc] initWithRootViewController:_homeViewController];
     
     if (![UBUser currentUser].loggedIn) {
+        [_mainNav presentViewController:_loginViewController animated:NO completion:nil];
         _rootViewController = _loginViewController;
         _mainNav.navigationBarHidden = YES;
     }
@@ -73,7 +74,8 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         if (_rootViewController == _loginViewController) {
             _mainNav.navigationBarHidden = NO;
-            [_mainNav setViewControllers:@[_homeViewController] animated:YES];
+            [_mainNav dismissViewControllerAnimated:YES completion:nil];
+            _rootViewController = _homeViewController;
         }
     });
     [self fetchServerStuff];
@@ -83,7 +85,10 @@
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         if (_rootViewController != _loginViewController) {
+            _mainNav.navigationBarHidden = YES;
             [_mainNav presentViewController:_loginViewController animated:YES completion:nil];
+            _rootViewController = _loginViewController;
+            //[_mainNav presentViewController:_loginViewController animated:YES completion:nil];
         }
     });
 }

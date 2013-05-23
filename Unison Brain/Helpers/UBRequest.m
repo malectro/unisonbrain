@@ -112,9 +112,10 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = method;
     
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:[NSString stringWithFormat:@"Token token=\"%@\"", [UBUser currentUser].token] forHTTPHeaderField:@"Authorization"];
+    
     if (data != nil) {
-        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        [request setValue:[NSString stringWithFormat:@"Token token=\"%@\"", @"hello"] forHTTPHeaderField:@"Authorization"];
         request.HTTPBody = data;
     }
     
@@ -128,10 +129,18 @@
             jsonObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
         }
         
-        if (callback != nil) {
-            dispatch_async(dispatch_get_main_queue(), ^{ 
-                callback(jsonObject);
-            });
+        if ([jsonObject isKindOfClass:[NSDictionary class]] || [jsonObject isKindOfClass:[NSArray class]]) {
+            if ([jsonObject isKindOfClass:[NSDictionary class]] && jsonObject[@"error"] && [jsonObject[@"error"] isEqualToString:@"bad_token"]) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kLoginExpiredNotifName object:nil];
+                });
+            } else {
+                if (callback != nil) {
+                    dispatch_async(dispatch_get_main_queue(), ^{ 
+                        callback(jsonObject);
+                    });
+                }
+            }
         }
     }];
 }
