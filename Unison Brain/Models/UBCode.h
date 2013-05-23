@@ -17,6 +17,7 @@
 @interface UBCode : UBModel
 
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * text;
 @property (nonatomic, retain) NSNumber * year;
 @property (nonatomic, retain) NSSet *breaches;
 @property (nonatomic, retain) NSSet *codeScores;

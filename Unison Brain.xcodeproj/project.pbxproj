@@ -64,6 +64,8 @@
 		86A3876816D42804008CA93B /* UBContributionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A3876716D42804008CA93B /* UBContributionsViewController.m */; };
 		86B6B68916C2F6E60027F087 /* UBAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B6B68816C2F6E60027F087 /* UBAlert.m */; };
 		86B6B68C16C31D190027F087 /* UBContributionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B6B68B16C31D190027F087 /* UBContributionCell.m */; };
+		86C434AB174E5CE900925240 /* UBInfoPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C434AA174E5CE900925240 /* UBInfoPopover.m */; };
+		86C434AE174E654600925240 /* UBCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C434AD174E654600925240 /* UBCodeViewController.m */; };
 		86C8D2511741BCCD00A8A4F7 /* UBArrayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C8D2501741BCCD00A8A4F7 /* UBArrayTableViewController.m */; };
 		86C8D2541741D04D00A8A4F7 /* UBSelectPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C8D2531741D04C00A8A4F7 /* UBSelectPopover.m */; };
 		86D0516116C82AAA00BF026A /* UBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D0516016C82AAA00BF026A /* UBRequest.m */; };
@@ -182,6 +184,10 @@
 		86B6B68816C2F6E60027F087 /* UBAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBAlert.m; path = Helpers/UBAlert.m; sourceTree = "<group>"; };
 		86B6B68A16C31D190027F087 /* UBContributionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBContributionCell.h; path = Views/UBContributionCell.h; sourceTree = "<group>"; };
 		86B6B68B16C31D190027F087 /* UBContributionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBContributionCell.m; path = Views/UBContributionCell.m; sourceTree = "<group>"; };
+		86C434A9174E5CE900925240 /* UBInfoPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBInfoPopover.h; path = Controllers/UBInfoPopover.h; sourceTree = "<group>"; };
+		86C434AA174E5CE900925240 /* UBInfoPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBInfoPopover.m; path = Controllers/UBInfoPopover.m; sourceTree = "<group>"; };
+		86C434AC174E654600925240 /* UBCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBCodeViewController.h; path = Controllers/UBCodeViewController.h; sourceTree = "<group>"; };
+		86C434AD174E654600925240 /* UBCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBCodeViewController.m; path = Controllers/UBCodeViewController.m; sourceTree = "<group>"; };
 		86C8D24F1741BCCD00A8A4F7 /* UBArrayTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBArrayTableViewController.h; path = Controllers/UBArrayTableViewController.h; sourceTree = "<group>"; };
 		86C8D2501741BCCD00A8A4F7 /* UBArrayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBArrayTableViewController.m; path = Controllers/UBArrayTableViewController.m; sourceTree = "<group>"; };
 		86C8D2521741D04C00A8A4F7 /* UBSelectPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBSelectPopover.h; path = Controllers/UBSelectPopover.h; sourceTree = "<group>"; };
@@ -370,6 +376,8 @@
 				86C8D2501741BCCD00A8A4F7 /* UBArrayTableViewController.m */,
 				86C8D2521741D04C00A8A4F7 /* UBSelectPopover.h */,
 				86C8D2531741D04C00A8A4F7 /* UBSelectPopover.m */,
+				86C434A9174E5CE900925240 /* UBInfoPopover.h */,
+				86C434AA174E5CE900925240 /* UBInfoPopover.m */,
 			);
 			name = Prototypes;
 			sourceTree = "<group>";
@@ -402,6 +410,8 @@
 				86046B3D16DBB28B009F6468 /* UBConferenceCommentViewController.m */,
 				86046B3F16DBB832009F6468 /* UBConferencesViewController.h */,
 				86046B4016DBB833009F6468 /* UBConferencesViewController.m */,
+				86C434AC174E654600925240 /* UBCodeViewController.h */,
+				86C434AD174E654600925240 /* UBCodeViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -624,6 +634,8 @@
 				86C8D2541741D04D00A8A4F7 /* UBSelectPopover.m in Sources */,
 				8634E478174D257C000F5F09 /* UBShadowView.m in Sources */,
 				8634E47B174D361D000F5F09 /* UBColor.m in Sources */,
+				86C434AB174E5CE900925240 /* UBInfoPopover.m in Sources */,
+				86C434AE174E654600925240 /* UBCodeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

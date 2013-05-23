@@ -13,6 +13,7 @@
     <entity name="UBCode" representedClassName="UBCode" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="updatedAt" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="breaches" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBBreach" inverseName="codes" inverseEntity="UBBreach" syncable="YES"/>
@@ -96,7 +97,7 @@
     </entity>
     <elements>
         <element name="UBBreach" positionX="160" positionY="192" width="128" height="165"/>
-        <element name="UBCode" positionX="160" positionY="192" width="128" height="165"/>
+        <element name="UBCode" positionX="160" positionY="192" width="128" height="180"/>
         <element name="UBCodeScore" positionX="160" positionY="192" width="128" height="150"/>
         <element name="UBCodeType" positionX="160" positionY="192" width="128" height="120"/>
         <element name="UBConference" positionX="160" positionY="192" width="128" height="180"/>

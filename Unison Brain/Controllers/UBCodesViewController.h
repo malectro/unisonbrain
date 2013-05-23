@@ -16,4 +16,6 @@
 
 @property (nonatomic) UBSubject *subject;
 
+@property (nonatomic) UIPopoverController *popover;
+
 @end

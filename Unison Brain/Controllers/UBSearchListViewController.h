@@ -26,9 +26,11 @@
 
 - (id)initWithItems:(NSArray *)items;
 
+- (UITableViewCell *)allocCell:(NSString *)identifier;
 - (void)configureCell:(UITableViewCell *)cell withItem:(id)item;
 - (BOOL)filterItem:(id)item bySearch:(NSString *)searchText;
 - (void)setSelection:(NSArray *)selectedItems;
+- (id)tableView:(UITableView *)tableView itemForIndexPath:(NSIndexPath *)indexPath;
 
 @end
 

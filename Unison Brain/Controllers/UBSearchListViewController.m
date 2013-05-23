@@ -135,14 +135,20 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.textLabel.font = [UIFont systemFontOfSize:20.0f];
+        cell = [self allocCell:CellIdentifier];
     }
     
     id item = [self tableView:tableView itemForIndexPath:indexPath];
     
     [self configureCell:cell withItem:item];
     
+    return cell;
+}
+
+- (UITableViewCell *)allocCell:(NSString *)identifier
+{
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    cell.textLabel.font = [UIFont systemFontOfSize:20.0f];
     return cell;
 }
 

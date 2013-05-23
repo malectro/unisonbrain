@@ -15,6 +15,7 @@
 @implementation UBCode
 
 @dynamic name;
+@dynamic text;
 @dynamic codeType;
 @dynamic subject;
 @dynamic year;
@@ -35,6 +36,7 @@
 {
     return @{@"name": @"name",
              @"year": @"year",
+             @"text": @"text",
              @"subject": [UBSubject class]};
 }
 
