@@ -28,8 +28,6 @@
 @property (nonatomic) UBSelectPopover *popover;
 @property (nonatomic) UBCodeScoreCell *selectedCodeScoreCell;
 @property (nonatomic) NSArray *subjects;
-@property (nonatomic) UISegmentedControl *subjectControl;
-
 
 @end
 

@@ -73,6 +73,8 @@
     
     self.studentView.conferenceMetaView.delegate = self;
     [self.conferencesController addRowSelectionTarget:self action:@selector(selectConference:)];
+    
+    [self.conferenceController.subjectControl addTarget:self action:@selector(changedSubject) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -110,7 +112,13 @@
 {
     _selectedConference = conference;
     self.conferenceController.conference = conference;
+    self.codesController.subject = conference.subject;
     [self.studentView showConferenceView];
+}
+
+- (void)changedSubject
+{
+    self.codesController.subject = self.conferenceController.conference.subject;
 }
 
 @end

@@ -11,7 +11,11 @@
 #import "UBUser.h"
 #import "Reachability.h"
 
+#ifdef DEBUG
 #define kHostName @"http://localhost:3000"
+#else
+#define kHostName @"http://unison.herokuapp.com"
+#endif
 
 @interface UBRequest ()
 
@@ -128,6 +132,8 @@
         else {
             jsonObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
         }
+        
+        NSLog(@"json %@", jsonObject);
         
         if ([jsonObject isKindOfClass:[NSDictionary class]] || [jsonObject isKindOfClass:[NSArray class]]) {
             if ([jsonObject isKindOfClass:[NSDictionary class]] && jsonObject[@"error"] && [jsonObject[@"error"] isEqualToString:@"bad_token"]) {

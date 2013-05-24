@@ -16,6 +16,7 @@
 @interface UBConferenceCommentViewController : UBModelTableViewController<UBSearchListViewDelegate>
 
 @property (nonatomic) UBConference *conference;
+@property (nonatomic) UISegmentedControl *subjectControl;
 
 - (id)initWithConference:(UBConference *)conference;
 

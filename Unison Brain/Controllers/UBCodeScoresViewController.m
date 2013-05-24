@@ -51,6 +51,20 @@
     return [NSPredicate predicateWithFormat:@"conference.student = %@", self.student];
 }
 
+- (void)setSubject:(UBSubject *)subject
+{
+    _subject = subject;
+    
+    if (_subject != nil) {
+        self.subjects = @[_subject];
+    } else {
+        self.subjects = [[UBSubject all] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO]]];
+    }
+    
+    _groupedCodeScores = nil;
+    [self.tableView reloadData];
+}
+
 #pragma mark - Table view data source
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section

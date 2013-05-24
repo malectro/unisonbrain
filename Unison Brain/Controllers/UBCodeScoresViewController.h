@@ -9,10 +9,12 @@
 #import "UBModelTableViewController.h"
 
 @class UBStudent;
+@class UBSubject;
 
 @interface UBCodeScoresViewController : UBModelTableViewController
 
 @property (nonatomic) UBStudent *student;
+@property (nonatomic) UBSubject *subject;
 
 - (id)initWithStudent:(UBStudent *)student;
 
