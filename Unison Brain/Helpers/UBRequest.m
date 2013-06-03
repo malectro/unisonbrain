@@ -38,19 +38,34 @@
     return requester;
 }
 
++ (void)get:(NSString *)path callback:(void (^)(id))handler failure:(void (^)(id))failure
+{
+    [[self ubr] get:path callback:handler failure:failure];
+}
+
++ (void)post:(NSString *)path data:(NSDictionary *)dataDict callback:(void (^)(id))handler failure:(void (^)(id))failure
+{
+    [[self ubr] post:path data:dataDict callback:handler failure:failure];
+}
+
++ (void)put:(NSString *)path data:(NSDictionary *)dataDict callback:(void (^)(id))handler failure:(void (^)(id))failure
+{
+    [[self ubr] put:path data:dataDict callback:handler failure:failure];
+}
+
 + (void)get:(NSString *)path callback:(void (^)(id))handler
 {
-    [[self ubr] get:path callback:handler];
+    [[self ubr] get:path callback:handler failure:nil];
 }
 
 + (void)post:(NSString *)path data:(NSDictionary *)dataDict callback:(void (^)(id))handler
 {
-    [[self ubr] post:path data:dataDict callback:handler];
+    [[self ubr] post:path data:dataDict callback:handler failure:nil];
 }
 
 + (void)put:(NSString *)path data:(NSDictionary *)dataDict callback:(void (^)(id))handler
 {
-    [[self ubr] put:path data:dataDict callback:handler];
+    [[self ubr] put:path data:dataDict callback:handler failure:nil];
 }
 
 - (id)init
@@ -77,25 +92,31 @@
     return self;
 }
 
+// sugar methods
+
 - (void)get:(NSString *)path callback:(void (^)(id))handler
 {
-    [self request:path method:@"GET" data:nil callback:handler];
+    [self get:path callback:handler failure:nil];
 }
 
 - (void)post:(NSString *)path data:(NSDictionary *)dataDict callback:(void (^)(id))handler
 {
-    NSError *error = nil;
-    NSData *data = [NSJSONSerialization dataWithJSONObject:dataDict options:0 error:&error];
-    
-    if (data == nil) {
-        NSLog(@"Could not serialize dictionary for POST request. %@", dataDict);
-        abort();
-    }
-    
-    [self request:path method:@"POST" data:data callback:handler];
+    [self post:path data:dataDict callback:handler failure:nil];
 }
 
 - (void)put:(NSString *)path data:(NSDictionary *)dataDict callback:(void (^)(id))handler
+{
+    [self put:path data:dataDict callback:handler failure:nil];
+}
+
+// methods
+
+- (void)get:(NSString *)path callback:(void (^)(id))handler failure:(void (^)(id))failure
+{
+    [self request:path method:@"GET" data:nil callback:handler failure:failure];
+}
+
+- (void)post:(NSString *)path data:(NSDictionary *)dataDict callback:(void (^)(id))handler failure:(void (^)(id))failure
 {
     NSError *error = nil;
     NSData *data = [NSJSONSerialization dataWithJSONObject:dataDict options:0 error:&error];
@@ -105,10 +126,23 @@
         abort();
     }
     
-    [self request:path method:@"PUT" data:data callback:handler];
+    [self request:path method:@"POST" data:data callback:handler failure:failure];
 }
 
-- (void)request:(NSString *)path method:(NSString *)method data:(NSData *)data callback:(void (^)(id))callback
+- (void)put:(NSString *)path data:(NSDictionary *)dataDict callback:(void (^)(id))handler failure:(void (^)(id))failure
+{
+    NSError *error = nil;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:dataDict options:0 error:&error];
+    
+    if (data == nil) {
+        NSLog(@"Could not serialize dictionary for POST request. %@", dataDict);
+        abort();
+    }
+    
+    [self request:path method:@"PUT" data:data callback:handler failure:failure];
+}
+
+- (void)request:(NSString *)path method:(NSString *)method data:(NSData *)data callback:(void (^)(id))callback failure:(void (^)(id))failure
 {
     path = [path stringByAppendingString:@".json"];
     
@@ -125,6 +159,8 @@
     
     [NSURLConnection sendAsynchronousRequest:request queue:_operationQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         id jsonObject = nil;
+        NSString *errorMsg = nil;
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
         
         if (data == nil) {
             // not connected!
@@ -135,16 +171,29 @@
         
         NSLog(@"json %@", jsonObject);
         
-        if ([jsonObject isKindOfClass:[NSDictionary class]] || [jsonObject isKindOfClass:[NSArray class]]) {
-            if ([jsonObject isKindOfClass:[NSDictionary class]] && jsonObject[@"error"] && [jsonObject[@"error"] isEqualToString:@"bad_token"]) {
+        if (httpResponse.statusCode > 399) {
+            if (failure) {
+                if ([jsonObject isKindOfClass:[NSDictionary class]]) {
+                    errorMsg = jsonObject[@"error"];
+                }
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [[NSNotificationCenter defaultCenter] postNotificationName:kLoginExpiredNotifName object:nil];
+                    failure(errorMsg);
                 });
-            } else {
-                if (callback != nil) {
-                    dispatch_async(dispatch_get_main_queue(), ^{ 
-                        callback(jsonObject);
+            }
+        }
+        else {
+            if ([jsonObject isKindOfClass:[NSDictionary class]] || [jsonObject isKindOfClass:[NSArray class]]) {
+                if ([jsonObject isKindOfClass:[NSDictionary class]] && jsonObject[@"error"] && [jsonObject[@"error"] isEqualToString:@"bad_token"]) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [[NSNotificationCenter defaultCenter] postNotificationName:kLoginExpiredNotifName object:nil];
                     });
+                } else {
+                    if (callback != nil) {
+                        dispatch_async(dispatch_get_main_queue(), ^{ 
+                            callback(jsonObject);
+                        });
+                    }
                 }
             }
         }

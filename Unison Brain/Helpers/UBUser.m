@@ -91,6 +91,9 @@ static UBUser *currentUser;
             
             [[NSNotificationCenter defaultCenter] postNotificationName:kLoginFailureNotifName object:nil];
         }
+    } failure:^(NSString *errorSTring) {
+        failure();
+        [[NSNotificationCenter defaultCenter] postNotificationName:kLoginFailureNotifName object:nil];
     }];
 }
 
