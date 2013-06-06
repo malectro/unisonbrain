@@ -97,4 +97,14 @@ static UBUser *currentUser;
     }];
 }
 
+- (void)logOut
+{
+    _token = nil;
+    _teacher = nil;
+    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"uid"];
+    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"token"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kLoginExpiredNotifName object:nil];
+}
+
 @end

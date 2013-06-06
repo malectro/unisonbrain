@@ -101,7 +101,7 @@
 
 - (void)logOut
 {
-    // log out
+    [[UBUser currentUser] logOut];
 }
 
 # pragma mark - UB Search List Delegate Methods

@@ -27,5 +27,6 @@
 - (id)initWithTeacher:(UBTeacher *)teacher;
 
 - (void)logIn:(NSString *)username password:(NSString *)password success:(void (^)())success failure:(void (^)())failure;
+- (void)logOut;
 
 @end
