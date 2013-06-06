@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "860268D516B9811D002C6577"
                BuildableName = "Unison Brain.app"
-               BlueprintName = "Unison Brain"
-               ReferencedContainer = "container:Unison Brain.xcodeproj">
+               BlueprintName = "unison"
+               ReferencedContainer = "container:unison.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "860268FA16B9811D002C6577"
                BuildableName = "Unison BrainTests.octest"
-               BlueprintName = "Unison BrainTests"
-               ReferencedContainer = "container:Unison Brain.xcodeproj">
+               BlueprintName = "unisonTests"
+               ReferencedContainer = "container:unison.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "860268D516B9811D002C6577"
             BuildableName = "Unison Brain.app"
-            BlueprintName = "Unison Brain"
-            ReferencedContainer = "container:Unison Brain.xcodeproj">
+            BlueprintName = "unison"
+            ReferencedContainer = "container:unison.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "860268D516B9811D002C6577"
             BuildableName = "Unison Brain.app"
-            BlueprintName = "Unison Brain"
-            ReferencedContainer = "container:Unison Brain.xcodeproj">
+            BlueprintName = "unison"
+            ReferencedContainer = "container:unison.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "860268D516B9811D002C6577"
             BuildableName = "Unison Brain.app"
-            BlueprintName = "Unison Brain"
-            ReferencedContainer = "container:Unison Brain.xcodeproj">
+            BlueprintName = "unison"
+            ReferencedContainer = "container:unison.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

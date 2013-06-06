@@ -111,10 +111,10 @@
 		860268DB16B9811D002C6577 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		860268DD16B9811D002C6577 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		860268DF16B9811D002C6577 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		860268E316B9811D002C6577 /* Unison Brain-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unison Brain-Info.plist"; sourceTree = "<group>"; };
+		860268E316B9811D002C6577 /* unison-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "unison-Info.plist"; sourceTree = "<group>"; };
 		860268E516B9811D002C6577 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		860268E716B9811D002C6577 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		860268E916B9811D002C6577 /* Unison Brain-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Unison Brain-Prefix.pch"; sourceTree = "<group>"; };
+		860268E916B9811D002C6577 /* unison-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "unison-Prefix.pch"; sourceTree = "<group>"; };
 		860268EA16B9811D002C6577 /* UBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UBAppDelegate.h; sourceTree = "<group>"; };
 		860268EB16B9811D002C6577 /* UBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UBAppDelegate.m; sourceTree = "<group>"; };
 		860268ED16B9811D002C6577 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 		860268F416B9811D002C6577 /* Unison_Brain.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Unison_Brain.xcdatamodel; sourceTree = "<group>"; };
 		860268FB16B9811D002C6577 /* Unison BrainTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unison BrainTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		860268FC16B9811D002C6577 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		8602690516B9811D002C6577 /* Unison BrainTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unison BrainTests-Info.plist"; sourceTree = "<group>"; };
+		8602690516B9811D002C6577 /* unisonTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "unisonTests-Info.plist"; sourceTree = "<group>"; };
 		8602690716B9811D002C6577 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8602690916B9811D002C6577 /* Unison_BrainTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Unison_BrainTests.h; sourceTree = "<group>"; };
 		8602690A16B9811D002C6577 /* Unison_BrainTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Unison_BrainTests.m; sourceTree = "<group>"; };
@@ -335,10 +335,10 @@
 		860268E216B9811D002C6577 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				860268E316B9811D002C6577 /* Unison Brain-Info.plist */,
+				860268E316B9811D002C6577 /* unison-Info.plist */,
 				860268E416B9811D002C6577 /* InfoPlist.strings */,
 				860268E716B9811D002C6577 /* main.m */,
-				860268E916B9811D002C6577 /* Unison Brain-Prefix.pch */,
+				860268E916B9811D002C6577 /* unison-Prefix.pch */,
 				860268ED16B9811D002C6577 /* Default.png */,
 				860268EF16B9811D002C6577 /* Default@2x.png */,
 				860268F116B9811D002C6577 /* Default-568h@2x.png */,
@@ -359,7 +359,7 @@
 		8602690416B9811D002C6577 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8602690516B9811D002C6577 /* Unison BrainTests-Info.plist */,
+				8602690516B9811D002C6577 /* unisonTests-Info.plist */,
 				8602690616B9811D002C6577 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -472,9 +472,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		860268D516B9811D002C6577 /* Unison Brain */ = {
+		860268D516B9811D002C6577 /* unison */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8602690E16B9811D002C6577 /* Build configuration list for PBXNativeTarget "Unison Brain" */;
+			buildConfigurationList = 8602690E16B9811D002C6577 /* Build configuration list for PBXNativeTarget "unison" */;
 			buildPhases = (
 				860268D216B9811D002C6577 /* Sources */,
 				860268D316B9811D002C6577 /* Frameworks */,
@@ -484,14 +484,14 @@
 			);
 			dependencies = (
 			);
-			name = "Unison Brain";
+			name = unison;
 			productName = "Unison Brain";
 			productReference = 860268D616B9811D002C6577 /* Unison Brain.app */;
 			productType = "com.apple.product-type.application";
 		};
-		860268FA16B9811D002C6577 /* Unison BrainTests */ = {
+		860268FA16B9811D002C6577 /* unisonTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8602691116B9811D002C6577 /* Build configuration list for PBXNativeTarget "Unison BrainTests" */;
+			buildConfigurationList = 8602691116B9811D002C6577 /* Build configuration list for PBXNativeTarget "unisonTests" */;
 			buildPhases = (
 				860268F616B9811D002C6577 /* Sources */,
 				860268F716B9811D002C6577 /* Frameworks */,
@@ -503,7 +503,7 @@
 			dependencies = (
 				8602690216B9811D002C6577 /* PBXTargetDependency */,
 			);
-			name = "Unison BrainTests";
+			name = unisonTests;
 			productName = "Unison BrainTests";
 			productReference = 860268FB16B9811D002C6577 /* Unison BrainTests.octest */;
 			productType = "com.apple.product-type.bundle";
@@ -518,7 +518,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Kyle Warren";
 			};
-			buildConfigurationList = 860268D116B9811D002C6577 /* Build configuration list for PBXProject "Unison Brain" */;
+			buildConfigurationList = 860268D116B9811D002C6577 /* Build configuration list for PBXProject "unison" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -530,8 +530,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				860268D516B9811D002C6577 /* Unison Brain */,
-				860268FA16B9811D002C6577 /* Unison BrainTests */,
+				860268D516B9811D002C6577 /* unison */,
+				860268FA16B9811D002C6577 /* unisonTests */,
 			);
 		};
 /* End PBXProject section */
@@ -655,7 +655,7 @@
 /* Begin PBXTargetDependency section */
 		8602690216B9811D002C6577 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 860268D516B9811D002C6577 /* Unison Brain */;
+			target = 860268D516B9811D002C6577 /* unison */;
 			targetProxy = 8602690116B9811D002C6577 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -742,9 +742,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Unison Brain/Unison Brain-Prefix.pch";
-				INFOPLIST_FILE = "Unison Brain/Unison Brain-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Unison Brain/unison-Prefix.pch";
+				INFOPLIST_FILE = "Unison Brain/unison-Info.plist";
+				PRODUCT_NAME = unison;
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
@@ -754,9 +754,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Unison Brain/Unison Brain-Prefix.pch";
-				INFOPLIST_FILE = "Unison Brain/Unison Brain-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Unison Brain/unison-Prefix.pch";
+				INFOPLIST_FILE = "Unison Brain/unison-Info.plist";
+				PRODUCT_NAME = unison;
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
@@ -772,8 +772,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Unison Brain/Unison Brain-Prefix.pch";
-				INFOPLIST_FILE = "Unison BrainTests/Unison BrainTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "Unison BrainTests/unisonTests-Info.plist";
+				PRODUCT_NAME = unisonTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -789,8 +789,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Unison Brain/Unison Brain-Prefix.pch";
-				INFOPLIST_FILE = "Unison BrainTests/Unison BrainTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "Unison BrainTests/unisonTests-Info.plist";
+				PRODUCT_NAME = unisonTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -799,7 +799,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		860268D116B9811D002C6577 /* Build configuration list for PBXProject "Unison Brain" */ = {
+		860268D116B9811D002C6577 /* Build configuration list for PBXProject "unison" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8602690C16B9811D002C6577 /* Debug */,
@@ -808,7 +808,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8602690E16B9811D002C6577 /* Build configuration list for PBXNativeTarget "Unison Brain" */ = {
+		8602690E16B9811D002C6577 /* Build configuration list for PBXNativeTarget "unison" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8602690F16B9811D002C6577 /* Debug */,
@@ -817,7 +817,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8602691116B9811D002C6577 /* Build configuration list for PBXNativeTarget "Unison BrainTests" */ = {
+		8602691116B9811D002C6577 /* Build configuration list for PBXNativeTarget "unisonTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8602691216B9811D002C6577 /* Debug */,

@@ -20,9 +20,10 @@
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     if (self) {
         _textField = [[UITextField alloc] init];
+        _textField.placeholder = @"Write a comment...";
         _textField.delegate = self;
         [self addSubview:_textField];
-        
+         
         _scoreControl = [[UISegmentedControl alloc] initWithItems:@[@"1", @"2", @"3", @"4"]];
         [_scoreControl addTarget:self action:@selector(changedScore) forControlEvents:UIControlEventValueChanged];
         [self addSubview:_scoreControl];
