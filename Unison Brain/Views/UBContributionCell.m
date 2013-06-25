@@ -27,6 +27,7 @@
         _textField.backgroundColor = [UIColor clearColor];
         _textField.font = [UIFont systemFontOfSize:14.0f];
         _textField.contentInset = UIEdgeInsetsMake(-7.0f, -7.0f, -7.0f, -7.0f);
+        [_textField setReturnKeyType:UIReturnKeyDone];
         //_textField.placeholder = @"Contribution...";
         _textField.delegate = self;
         
@@ -77,10 +78,19 @@
     }
 }
 
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if ([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    return YES;
+}
+
 - (BOOL)textViewShouldReturn:(UITextView *)textField
 {
     [textField resignFirstResponder];
-    return YES;
+    return NO;
 }
 
 - (CGFloat)textWidth

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "860268D516B9811D002C6577"
-               BuildableName = "Unison Brain.app"
+               BuildableName = "unison.app"
                BlueprintName = "unison"
                ReferencedContainer = "container:unison.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "860268FA16B9811D002C6577"
-               BuildableName = "Unison BrainTests.octest"
+               BuildableName = "unisonTests.octest"
                BlueprintName = "unisonTests"
                ReferencedContainer = "container:unison.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "860268D516B9811D002C6577"
-            BuildableName = "Unison Brain.app"
+            BuildableName = "unison.app"
             BlueprintName = "unison"
             ReferencedContainer = "container:unison.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "860268D516B9811D002C6577"
-            BuildableName = "Unison Brain.app"
+            BuildableName = "unison.app"
             BlueprintName = "unison"
             ReferencedContainer = "container:unison.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "860268D516B9811D002C6577"
-            BuildableName = "Unison Brain.app"
+            BuildableName = "unison.app"
             BlueprintName = "unison"
             ReferencedContainer = "container:unison.xcodeproj">
          </BuildableReference>

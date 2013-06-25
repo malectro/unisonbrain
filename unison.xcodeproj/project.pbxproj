@@ -121,7 +121,7 @@
 		860268EF16B9811D002C6577 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		860268F116B9811D002C6577 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		860268F416B9811D002C6577 /* Unison_Brain.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Unison_Brain.xcdatamodel; sourceTree = "<group>"; };
-		860268FB16B9811D002C6577 /* Unison BrainTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unison BrainTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		860268FB16B9811D002C6577 /* Unison BrainTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Unison BrainTests.octest"; path = unisonTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		860268FC16B9811D002C6577 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		8602690516B9811D002C6577 /* unisonTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "unisonTests-Info.plist"; sourceTree = "<group>"; };
 		8602690716B9811D002C6577 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -760,7 +760,7 @@
 				GCC_PREFIX_HEADER = "Unison Brain/unison-Prefix.pch";
 				INFOPLIST_FILE = "Unison Brain/unison-Info.plist";
 				PRODUCT_NAME = unison;
-				PROVISIONING_PROFILE = "4D692790-F7C5-41AC-BB9B-5839B5A9D204";
+				PROVISIONING_PROFILE = "8B547A7C-56D2-401B-BB5B-DD858A6334DB";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
