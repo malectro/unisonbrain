@@ -73,10 +73,18 @@
         
         _createConference = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [_createConference setTitle:@"New" forState:UIControlStateNormal];
-        //_createConference.titleEdgeInsets = UIEdgeInsetsMake(2.0f, <#CGFloat left#>, <#CGFloat bottom#>, <#CGFloat right#>)
+        
+        //_createConference.frame = CGRectMake(_createConference.frame.origin.x, _createConference.frame.origin.y, 40.0f, _createConference.frame.size.height);
+        //_createConference.titleEdgeInsets = UIEdgeInsetsMake(2.0f, 3.0f, <#CGFloat bottom#>, <#CGFloat right#>)
         //_createConference.titleLabel.font = [UIFont systemFontOfSize:18.0f];
+        
         [_createConference sizeToFit];
         [_bottomSplit addSubview:_createConference];
+        
+        _editConference = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_editConference setTitle:@"Edit" forState:UIControlStateNormal];
+        [_editConference sizeToFit];
+        [_bottomSplit addSubview:_editConference];
         
         _conferenceMetaView = [[UIScrollView alloc] init];
         _conferenceMetaView.pagingEnabled = YES;
@@ -118,7 +126,11 @@
     _bottomSplitBg.frame = CGRectPosition(_bottomSplit.frame, 0, 0);
     
     _commentsLabel.frame = CGRectPosition(_commentsLabel.frame, 10.0f, 10.0f);
-    _createConference.frame = CGRectMake(_commentsLabel.frame.origin.x + _commentsLabel.frame.size.width + 10.0f, _commentsLabel.frame.origin.y + 5.0f, _commentsLabel.frame.size.width, 30.0f);
+    
+    _createConference.frame = CGRectMake(_commentsLabel.frame.origin.x + _commentsLabel.frame.size.width + 10.0f, _commentsLabel.frame.origin.y + 3.0f, _createConference.frame.size.width, 30.0f);
+    
+    _editConference.frame = CGRectMake(_commentsLabel.frame.origin.x + _commentsLabel.frame.size.width + _createConference.frame.size.width + 15.0f, _commentsLabel.frame.origin.y + 3.0f, _editConference.frame.size.width, 30.0f);
+
     
     _conferenceMetaView.frame = CGRectMake(0, _commentsLabel.frame.origin.y + _commentsLabel.frame.size.height, _bottomSplit.frame.size.width, _bottomSplitHeight - _commentsLabel.frame.size.height);
     

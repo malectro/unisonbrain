@@ -34,6 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 }
 
 - (NSArray *)sortDescriptors
@@ -52,7 +53,7 @@
     UBConference *conf = [self conferenceAtIndexPath:indexPath];
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", [UBDate stringFromDateMedium:conf.time], conf.notes];
-    cell.textLabel.font = [UIFont systemFontOfSize:20.0f];
+    cell.textLabel.font = [UIFont systemFontOfSize:18.0f];
     
     if (conf.complete) {
         cell.detailTextLabel.text = @"complete";
@@ -61,17 +62,26 @@
     }
     cell.detailTextLabel.font = [UIFont systemFontOfSize:16.0f];
     cell.detailTextLabel.textColor = [UIColor grayColor];
+    
 }
 
 - (UITableViewCell *)allocCell:(NSString *)identifier
 {
-    return [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
+    
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:identifier];
+    [cell setIndentationWidth:130.0f];
+    
+    return cell;
 }
+
 
 - (UBConference *)conferenceAtIndexPath:(NSIndexPath *)indexPath
 {
     return [self.fetchedResultsController objectAtIndexPath:indexPath];
 }
+
+
+
 
 
 @end

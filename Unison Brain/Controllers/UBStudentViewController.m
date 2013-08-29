@@ -40,6 +40,7 @@
             self.student = student;
         }
         
+        
         _contributionsController = [[UBContributionsViewController alloc] initWithPerson:self.student];
         [self addChildViewController:_contributionsController];
         
@@ -47,10 +48,14 @@
         [self addChildViewController:_codesController];
         
         _conferencesController = [[UBConferencesViewController alloc] initWithStudent:self.student];
+        
         [self addChildViewController:_conferencesController];
         
         _conferenceController = [[UBConferenceCommentViewController alloc] initWithConference:[UBConference create]];
+        
         [self addChildViewController:_conferenceController];
+                
+        
     }
     return self;
 }
@@ -69,7 +74,9 @@
     self.studentView.conferencesView = self.conferencesController.view;
     self.studentView.conferenceView = self.conferenceController.view;
     
-    [self.studentView.createConference addTarget:self action:@selector(createConference) forControlEvents:UIControlEventTouchDown];
+    [self.studentView.createConference addTarget:self action:@selector(createConference) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.studentView.editConference addTarget:self action:@selector(editConference) forControlEvents:UIControlEventTouchUpInside];
     
     self.studentView.conferenceMetaView.delegate = self;
     [self.conferencesController addRowSelectionTarget:self action:@selector(selectConference:)];
@@ -106,6 +113,26 @@
     conference.student = self.student;
     conference.teacher = [UBUser currentTeacher];
     [self selectConference:conference];
+}
+
+- (void) editConference
+{
+    
+    NSLog(@"greetings from sunny editConference");
+    
+    if (self.conferencesController.isEditing == NO) {
+    
+        [self.conferencesController.tableView setEditing:YES animated:YES];
+        [self.conferencesController.tableView reloadData];
+        [self.studentView.editConference setTitle:@"Done" forState:UIControlStateNormal];
+        }
+    
+    else {
+        [self.conferencesController.tableView setEditing:NO animated:YES];
+        [self.conferencesController.tableView reloadData];
+        [self.studentView.editConference setTitle:@"Edit" forState:UIControlStateNormal];
+    }
+        
 }
 
 - (void)selectConference:(UBConference *)conference

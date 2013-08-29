@@ -180,14 +180,30 @@
     return [self.fetchedResultsController objectAtIndexPath:indexPath];
 }
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    /// IF DELETE, DELETE SELF
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        UBModel * itemToDelete = [self itemAtIndexPath:indexPath];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [itemToDelete destroy];
+        [tableView reloadData];
+
+        
+    }
+    
+}
 
 
 /*
