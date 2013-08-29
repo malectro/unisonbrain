@@ -117,21 +117,18 @@
 
 - (void) editConference
 {
+        
+    if (self.conferencesController.tableView.isEditing) {
+        [self.conferencesController.tableView setEditing:NO animated:YES];
+        [self.conferencesController.tableView reloadData];
+        [self.studentView.editConference setTitle:@"Edit" forState:UIControlStateNormal];
+        }
     
-    NSLog(@"greetings from sunny editConference");
-    
-    if (self.conferencesController.isEditing == NO) {
-    
+    else {
         [self.conferencesController.tableView setEditing:YES animated:YES];
         [self.conferencesController.tableView reloadData];
         [self.studentView.editConference setTitle:@"Done" forState:UIControlStateNormal];
         }
-    
-    else {
-        [self.conferencesController.tableView setEditing:NO animated:YES];
-        [self.conferencesController.tableView reloadData];
-        [self.studentView.editConference setTitle:@"Edit" forState:UIControlStateNormal];
-    }
         
 }
 

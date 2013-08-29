@@ -196,10 +196,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
         UBModel * itemToDelete = [self itemAtIndexPath:indexPath];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [itemToDelete destroy];
-        [tableView reloadData];
-
         
     }
     
