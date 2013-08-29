@@ -26,7 +26,8 @@
         [self addSubview:_textField];
         
                                                    
-        _scoreControl = [[UISegmentedControl alloc] initWithItems:@[@"1",@"2",@"3", @"4"]];
+        _scoreControl = [[UISegmentedControl alloc] initWithItems:@[@"1",@"2",@"3",@"4"]];
+        [_scoreControl setImage:[UIImage imageWithContentsOfFile:@"red"] forSegmentAtIndex:0];
         
         
         [_scoreControl addTarget:self action:@selector(changedScore) forControlEvents:UIControlEventValueChanged];

@@ -73,6 +73,8 @@
         
         _createConference = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [_createConference setTitle:@"New" forState:UIControlStateNormal];
+        _createConference.titleLabel.font = [UIFont systemFontOfSize:14.0f];
+
         
         //_createConference.frame = CGRectMake(_createConference.frame.origin.x, _createConference.frame.origin.y, 40.0f, _createConference.frame.size.height);
         //_createConference.titleEdgeInsets = UIEdgeInsetsMake(2.0f, 3.0f, <#CGFloat bottom#>, <#CGFloat right#>)
@@ -83,6 +85,7 @@
         
         _editConference = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [_editConference setTitle:@"Edit" forState:UIControlStateNormal];
+        _editConference.titleLabel.font = [UIFont systemFontOfSize:14.0f];
         [_editConference sizeToFit];
         [_bottomSplit addSubview:_editConference];
         

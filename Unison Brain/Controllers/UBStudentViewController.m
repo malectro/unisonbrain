@@ -120,12 +120,14 @@
         
     if (self.conferencesController.tableView.isEditing) {
         [self.conferencesController.tableView setEditing:NO animated:YES];
+        [self.conferenceController.tableView setEditing:NO animated:YES];
         [self.conferencesController.tableView reloadData];
         [self.studentView.editConference setTitle:@"Edit" forState:UIControlStateNormal];
         }
     
     else {
         [self.conferencesController.tableView setEditing:YES animated:YES];
+        [self.conferenceController.tableView setEditing:YES animated:YES];
         [self.conferencesController.tableView reloadData];
         [self.studentView.editConference setTitle:@"Done" forState:UIControlStateNormal];
         }

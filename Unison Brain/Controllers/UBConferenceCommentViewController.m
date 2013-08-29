@@ -73,30 +73,10 @@
     
     //[headerView addSubview:headerLabel];
     
-    UIButton *headerButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    
-    UIColor *color = [UIColor blueColor];
-    CGRect rect = CGRectMake(0, 0, 1.0f, 1.0f);
-    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
-    [color setFill];
-    UIRectFill(rect);
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
+    UIButton *headerButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    headerButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
     [headerButton setTitle:@"New Comment" forState:UIControlStateNormal];
-    headerButton.titleLabel.font = [UIFont systemFontOfSize:16.0f];
-    headerButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    headerButton.titleEdgeInsets = UIEdgeInsetsMake(0, 10.0f, 0, 0);
-    [headerButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [headerButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-    [headerButton setBackgroundImage:image forState:UIControlStateHighlighted];
-    [headerButton sizeToFit];
-    headerButton.frame = CGRectMake(0, 0, 0, 44.0f);
-    
-    headerButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    headerButton.titleLabel.font = [UIFont systemFontOfSize:16.0f];
-    [headerButton setTitle:@"New Comment" forState:UIControlStateNormal];
-    headerButton.frame = CGRectMake(10.0f, 5.0f, 200.0f, 30.0f);
+    headerButton.frame = CGRectMake(10.0f, 5.0f, 150.0f, 30.0f);
     
     [headerButton addTarget:self action:@selector(createCodeScore) forControlEvents:UIControlEventTouchUpInside];
     

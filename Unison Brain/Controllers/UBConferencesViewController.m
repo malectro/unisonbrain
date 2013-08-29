@@ -68,7 +68,7 @@
 - (UITableViewCell *)allocCell:(NSString *)identifier
 {
     
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:identifier];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
     [cell setIndentationWidth:130.0f];
     
     return cell;

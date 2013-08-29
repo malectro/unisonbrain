@@ -9,6 +9,8 @@
 #import "UBCodeScore.h"
 #import "UBCode.h"
 #import "UBConference.h"
+#import "UBAppDelegate.h"
+
 
 
 @implementation UBCodeScore
@@ -52,6 +54,14 @@ NSArray *notions;
     
     return dict;
 }
+
+- (void)destroy
+{
+    // kill self
+    [[UBAppDelegate moc] deleteObject:self];
+
+}
+
 
 - (void)save
 {
