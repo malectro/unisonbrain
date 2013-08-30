@@ -55,15 +55,16 @@
         [self addSubview:_codesLabel];
         
         _bottomSplitBg = [[UIView alloc] init];
-        _bottomSplitBg.backgroundColor = [UIColor whiteColor];
         _bottomSplitBg.layer.shadowColor = [UIColor blackColor].CGColor;
+        _bottomSplitBg.backgroundColor = [UIColor whiteColor];
         _bottomSplitBg.layer.shadowRadius = 10.0f;
-        _bottomSplitBg.layer.shadowOpacity = 0.5f;
+        _bottomSplitBg.layer.shadowOpacity = 0.3f;
         _bottomSplitBg.layer.shouldRasterize = YES;
         [_bottomSplit addSubview:_bottomSplitBg];
         
         _commentsLabel = [[UILabel alloc] init];
         _commentsLabel.text = @"Conferences";
+        _commentsLabel.backgroundColor = [UIColor clearColor];
         _commentsLabel.font = [UIFont systemFontOfSize:28.0f];
         [_commentsLabel sizeToFit];
         [_bottomSplit addSubview:_commentsLabel];
@@ -74,7 +75,7 @@
         _createConference = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [_createConference setTitle:@"New" forState:UIControlStateNormal];
         _createConference.titleLabel.font = [UIFont systemFontOfSize:14.0f];
-
+        _createConference.backgroundColor = [UIColor clearColor];
         
         //_createConference.frame = CGRectMake(_createConference.frame.origin.x, _createConference.frame.origin.y, 40.0f, _createConference.frame.size.height);
         //_createConference.titleEdgeInsets = UIEdgeInsetsMake(2.0f, 3.0f, <#CGFloat bottom#>, <#CGFloat right#>)
@@ -86,6 +87,7 @@
         _editConference = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [_editConference setTitle:@"Edit" forState:UIControlStateNormal];
         _editConference.titleLabel.font = [UIFont systemFontOfSize:14.0f];
+        _editConference.backgroundColor = [UIColor clearColor];
         [_editConference sizeToFit];
         [_bottomSplit addSubview:_editConference];
         
@@ -142,7 +144,7 @@
     }
     
     if (self.conferenceView != nil) {
-        self.conferenceView.frame = CGRectPosition(_conferenceMetaView.frame, _conferenceMetaView.frame.size.width, 0);
+       self.conferenceView.frame = CGRectPosition(_conferenceMetaView.frame, _conferenceMetaView.frame.size.width, 0);
     }
     
     _conferenceMetaView.contentSize = CGSizeMake(_conferenceMetaView.frame.size.width * 2, _conferenceMetaView.frame.size.height);

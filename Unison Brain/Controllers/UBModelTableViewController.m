@@ -32,7 +32,7 @@
     
     self = [super init];
     if (self) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:style];
+        _tableView = [[TPKeyboardAvoidingTableView alloc] initWithFrame:CGRectZero style:style];
         _modelName = @"UBSession";
         _targets = @[];
     }
@@ -124,7 +124,8 @@
 - (UITableViewCell *)allocCell:(NSString *)identifier
 {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    cell.textLabel.font = [UIFont systemFontOfSize:20.0f];
+    cell.textLabel.font = [UIFont systemFontOfSize:18.0f];
+
     return cell;
 }
 
@@ -197,6 +198,7 @@
         
         UBModel * itemToDelete = [self itemAtIndexPath:indexPath];
         [itemToDelete destroy];
+        
         
     }
     

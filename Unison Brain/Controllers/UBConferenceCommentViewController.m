@@ -89,6 +89,7 @@
     [self.subjectControl addTarget:self action:@selector(changedSubject) forControlEvents:UIControlEventValueChanged];
     
     self.tableView.tableHeaderView = headerView;
+    
 }
 
 - (void)viewDidLayoutSubviews

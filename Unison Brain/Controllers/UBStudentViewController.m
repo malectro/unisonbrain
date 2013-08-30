@@ -113,6 +113,10 @@
     conference.student = self.student;
     conference.teacher = [UBUser currentTeacher];
     [self selectConference:conference];
+    
+    //trying to defeat weird 8/29 sync bug with this:
+    [conference save];
+
 }
 
 - (void) editConference
