@@ -230,7 +230,7 @@
 {
     // kill self
     [[UBAppDelegate moc] deleteObject:self];
-    //[self save];
+    [self save];
     
 }
     

@@ -91,7 +91,7 @@
     }
     else {
         _textLabel.textColor = [UIColor grayColor];
-        [_tagList setLabelBackgroundColor:[UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.00]];
+        [_tagList setLabelBackgroundColor:[UIColor colorWithRed:0.97 green:0.97 blue:0.97 alpha:1.00]];
         //[_tagList setTextColor:[UIColor blackColor]];
 
         
