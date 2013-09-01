@@ -7,6 +7,8 @@
 //
 
 #import "UBModelTableViewController.h"
+#import "UBCode.h"
+
 
 @class UBStudent;
 @class UBSubject;
@@ -15,6 +17,8 @@
 
 @property (nonatomic) UBStudent *student;
 @property (nonatomic) UBSubject *subject;
+@property (nonatomic) UIPopoverController *popover;
+
 
 - (id)initWithStudent:(UBStudent *)student;
 

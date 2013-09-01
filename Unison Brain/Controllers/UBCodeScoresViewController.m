@@ -7,9 +7,9 @@
 //
 
 #import "UBCodeScoresViewController.h"
+#import "UBCodeViewController.h"
 
 #import "UBDate.h"
-
 #import "UBStudent.h"
 #import "UBCodeScore.h"
 #import "UBCode.h"
@@ -185,5 +185,32 @@
     UITableView *tableView = self.tableView;
     [tableView reloadData];
 }
+
+#pragma mark - Table view delegate
+
+
+- (UITableViewCell *)allocCell:(NSString *)identifier
+{
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    cell.textLabel.font = [UIFont systemFontOfSize:20.0f];
+    cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    UBCode *code = [self codeForIndexPath:indexPath];
+    
+    CGRect rect = cell.frame;
+    rect.origin.y += 20.0f;
+    
+    self.popover = [[UIPopoverController alloc] initWithContentViewController:[[UBCodeViewController alloc] initWithCode:code]];
+    self.popover.contentViewController.view.frame = CGRectMake(0, 0, 300.0f, 300.0f);
+    self.popover.popoverContentSize = self.popover.contentViewController.view.frame.size;
+    [self.popover presentPopoverFromRect:rect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
+
+
 
 @end
