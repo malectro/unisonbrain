@@ -83,13 +83,13 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     UBCode *code = [self tableView:tableView itemForIndexPath:indexPath];
     
-    CGRect rect = cell.frame;
-    rect.origin.y += 20.0f;
-    
+    CGRect rect = CGRectMake(cell.bounds.origin.x+205, cell.bounds.origin.y+8, 50, 30);
+        
     self.popover = [[UIPopoverController alloc] initWithContentViewController:[[UBCodeViewController alloc] initWithCode:code]];
-    self.popover.contentViewController.view.frame = CGRectMake(0, 0, 300.0f, 300.0f);
+    self.popover.contentViewController.view.frame = CGRectMake(0, 0, 270.0f, self.popover.contentViewController.view.frame.size.height+50.0f);
     self.popover.popoverContentSize = self.popover.contentViewController.view.frame.size;
-    [self.popover presentPopoverFromRect:rect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    [self.popover presentPopoverFromRect:rect inView:cell permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
+
 }
 
 

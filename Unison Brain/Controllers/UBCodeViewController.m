@@ -16,6 +16,9 @@
 
 @implementation UBCodeViewController
 
+@synthesize contentSize;
+
+
 - (id)init
 {
     self = [super init];
@@ -27,11 +30,7 @@
         self.descriptionLabel.numberOfLines = 0;
         self.descriptionLabel.font = [UIFont systemFontOfSize:16.0f];
         
-        /* //In progress styling
-        NSMutableAttributedString *styledDescription = [[NSMutableAttributedString alloc] initWithString:self.nameLabel.text attributes:[NSDictionary dictionaryWithObject:[UIFont systemFontOfSize:16.0f] forKey:@"NSFontAttributeName"]];
-        NSAttributedString * text = [[NSAttributedString alloc] initWithString:self.descriptionLabel.text];
-        [styledDescription appendAttributedString:text];
-         */
+        [self configureView];
 
     
     }
@@ -43,25 +42,46 @@
     self = [self init];
     if (self) {
         self.code = code;
+        [self configureView];
+        
     }
     return self;
+}
+
+- (void) configureView {
+    self.view = self.scrollView = [[UIScrollView alloc] init];
+    self.scrollView.contentInset = UIEdgeInsetsMake(2.0f, 2.0f, 2.0f, 9.0f);
+    
+    self.scrollView.backgroundColor = [UIColor whiteColor];
+    [self.scrollView addSubview:self.nameLabel];
+    [self.scrollView addSubview:self.descriptionLabel];
+    
+    CGSize descriptionSize = CGSizeMake(250.0f, 1000000.0f);
+    contentSize = [self.descriptionLabel.text sizeWithFont:self.descriptionLabel.font constrainedToSize:descriptionSize lineBreakMode:NSLineBreakByWordWrapping];
+    
+    if (contentSize.height<400.0f) {
+        self.scrollView.frame = CGRectMake(0.0f, 0.0f, self.scrollView.frame.size.width, contentSize.height);
+    }
+    
+    else{
+        self.scrollView.frame = CGRectMake(0.0f, 0.0f, self.scrollView.frame.size.width, 400.0f);
+    }
+
+    
 }
 
 - (void)loadView
 {
     
-    self.view = self.scrollView = [[UIScrollView alloc] init];
+
+    [super loadView];
+
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.scrollView.backgroundColor = [UIColor whiteColor];
-    
-    
-    [self.scrollView addSubview:self.nameLabel];
-    [self.scrollView addSubview:self.descriptionLabel];
+
 }
 
 
@@ -69,14 +89,13 @@
 {
     [super viewWillLayoutSubviews];
     
-    CGSize descriptionSize = CGSizeMake(self.scrollView.frame.size.width, 100000000.0f);
-    descriptionSize = [self.descriptionLabel.text sizeWithFont:self.descriptionLabel.font constrainedToSize:descriptionSize lineBreakMode:NSLineBreakByWordWrapping];
-   
+    
     
     self.nameLabel.frame = CGRectMake(5.0f, 5.0f, self.scrollView.frame.size.width, 30.0f);
-    self.descriptionLabel.frame = CGRectMake(5.0f, self.nameLabel.frame.size.height, descriptionSize.width, 80.0f);
+    self.descriptionLabel.frame = CGRectMake(5.0f, self.nameLabel.frame.size.height, contentSize.width, contentSize.height);
+    
+    
 
-    self.scrollView.contentInset = UIEdgeInsetsMake(3.0f, 3.0f, 3.0f, 3.0f);
     
     
     

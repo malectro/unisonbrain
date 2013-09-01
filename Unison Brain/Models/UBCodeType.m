@@ -31,4 +31,11 @@
              @"codes": [UBCode class]};
 }
 
++ (NSArray *)sessionBreachTypes
+{
+    
+    //[self all];
+    
+}
+
 @end

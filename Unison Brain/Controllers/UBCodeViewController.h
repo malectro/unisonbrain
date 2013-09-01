@@ -16,7 +16,8 @@
 @property (nonatomic) UIScrollView *scrollView;
 @property (nonatomic) UILabel *nameLabel;
 @property (nonatomic) UILabel *descriptionLabel;
-@property (nonatomic) NSMutableAttributedString *styledDescription;
+@property (nonatomic) CGSize contentSize;
+
 
 - (id)initWithCode:(UBCode *)code;
 
