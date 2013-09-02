@@ -12,6 +12,7 @@
 #import "UBContribution.h"
 #import "UBPerson.h"
 #import "UBSession.h"
+#import "UBAppDelegate.h"
 
 #import "UBDate.h"
 
@@ -92,6 +93,12 @@
 {
     NSLog(@"Breaches are meant to be embedded in sessions. Do not invoke save on a breach.");
     abort();
+}
+
+- (void)destroy
+{
+    self.session = nil;
+    [[UBAppDelegate moc] deleteObject:self];
 }
 
 @end

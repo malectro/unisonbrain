@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="11G63" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12E55" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="UBBreach" representedClassName="UBBreach" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="updatedAt" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="codes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBCode" inverseName="breaches" inverseEntity="UBCode" syncable="YES"/>
         <relationship name="codeType" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UBCodeType" inverseName="breaches" inverseEntity="UBCodeType" syncable="YES"/>
-        <relationship name="contributions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBContribution" inverseName="breach" inverseEntity="UBContribution" syncable="YES"/>
+        <relationship name="contributions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="UBContribution" inverseName="breach" inverseEntity="UBContribution" syncable="YES"/>
         <relationship name="people" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBPerson" inverseName="breaches" inverseEntity="UBPerson" syncable="YES"/>
         <relationship name="session" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UBSession" inverseName="breaches" inverseEntity="UBSession" syncable="YES"/>
     </entity>
@@ -43,7 +43,7 @@
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="updatedAt" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="codeScores" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBCodeScore" inverseName="conference" inverseEntity="UBCodeScore" syncable="YES"/>
+        <relationship name="codeScores" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="UBCodeScore" inverseName="conference" inverseEntity="UBCodeScore" syncable="YES"/>
         <relationship name="student" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UBStudent" inverseName="conferences" inverseEntity="UBStudent" syncable="YES"/>
         <relationship name="subject" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UBSubject" inverseName="conferences" inverseEntity="UBSubject" syncable="YES"/>
         <relationship name="teacher" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UBTeacher" inverseName="conferences" inverseEntity="UBTeacher" syncable="YES"/>
@@ -74,7 +74,7 @@
         <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="updatedAt" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="breaches" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBBreach" inverseName="session" inverseEntity="UBBreach" syncable="YES"/>
+        <relationship name="breaches" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="UBBreach" inverseName="session" inverseEntity="UBBreach" syncable="YES"/>
         <relationship name="people" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UBPerson" inverseName="sessions" inverseEntity="UBPerson" syncable="YES"/>
         <relationship name="subject" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UBSubject" inverseName="sessions" inverseEntity="UBSubject" syncable="YES"/>
     </entity>

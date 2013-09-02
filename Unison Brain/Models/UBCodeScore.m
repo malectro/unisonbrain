@@ -62,4 +62,10 @@ NSArray *notions;
     abort();
 }
 
+- (void)destroy
+{
+    self.conference = nil;
+    [[UBAppDelegate moc] deleteObject:self];
+}
+
 @end
