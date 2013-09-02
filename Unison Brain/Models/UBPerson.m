@@ -45,7 +45,7 @@
 
 - (void)fetchContributions
 {
-    [UBContribution fetchUrl:[NSString stringWithFormat:@"people/%@/contributions", self.id]];
+    [UBContribution fetchUrl:[NSString stringWithFormat:@"people/%@/contributions", self.id] replace:self.contributions handler:nil];
 }
 
 @end

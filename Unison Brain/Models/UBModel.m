@@ -108,7 +108,7 @@
 
 + (void)fetchAll
 {
-    [self fetchUrl:[self modelUrl]];
+    [self fetchUrl:[self modelUrl] replace:[NSSet setWithArray:[self all]] handler:nil];
 }
 
 + (void)fetchUrl:(NSString *)url

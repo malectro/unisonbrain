@@ -38,12 +38,12 @@
 
 - (void)fetchSessions
 {
-    [UBSession fetchUrl:[NSString stringWithFormat:@"students/%@/sessions", self.id]];
+    [UBSession fetchUrl:[NSString stringWithFormat:@"students/%@/sessions", self.id] replace:self.sessions handler:nil];
 }
 
 - (void)fetchConferences
 {
-    [UBConference fetchUrl:[NSString stringWithFormat:@"students/%@/conferences", self.id]];
+    [UBConference fetchUrl:[NSString stringWithFormat:@"students/%@/conferences", self.id] replace:self.conferences handler:nil];
 }
 
 - (void)fetchCodeScores

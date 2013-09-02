@@ -55,13 +55,6 @@ NSArray *notions;
     return dict;
 }
 
-- (void)destroy
-{
-    // kill self
-    [[UBAppDelegate moc] deleteObject:self];
-
-}
-
 
 - (void)save
 {

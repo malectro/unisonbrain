@@ -22,6 +22,7 @@
 + (void)fetchAll;
 + (void)fetchUrl:(NSString *)url;
 + (void)fetchUrl:(NSString *)url handler:(void (^) (NSArray *))handler;
++ (void)fetchUrl:(NSString *)url replace:(NSSet *)squashed handler:(void (^)(NSArray *))handler;
 
 + (NSString *)modelName;
 + (NSString *)modelUrl;
