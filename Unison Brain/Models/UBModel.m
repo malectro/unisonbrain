@@ -187,6 +187,9 @@
                     NSArray *toMap = dict[key];
                     NSMutableSet *relations = [NSMutableSet setWithSet:[self valueForKey:key]];
                     
+                    // probably need a better solution for this
+                    [relations removeAllObjects];
+                    
                     for (id relation in toMap) {
                         if ([relation isKindOfClass:[NSString class]]) {
                             model = [keyMap[key] find:relation];

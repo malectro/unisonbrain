@@ -56,6 +56,17 @@ static UBUser *currentUser;
     return self;
 }
 
+- (void)reloadTeacher
+{
+    if (self.teacher) {
+        _teacher = [UBTeacher find:self.teacher.id];
+        
+        if (!_teacher) {
+            [self logOut];
+        }
+    }
+}
+
 - (BOOL)loggedIn
 {
     if (self.teacher) {

@@ -78,7 +78,9 @@
 {
     [super viewWillAppear:animated];
     
+    [[UBUser currentUser] reloadTeacher];
     self.sessionsViewController.teacher = [UBUser currentTeacher];
+    self.studentsViewController.teacher = [UBUser currentTeacher];
     //self.homeView.teacherNameLabel.text = [UBUser currentUser].teacher.name;
     self.title = [NSString stringWithFormat:@"Unison Home - %@", [UBUser currentTeacher].name];
 }
