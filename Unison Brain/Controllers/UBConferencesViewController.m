@@ -60,9 +60,9 @@
     } else {
         cell.detailTextLabel.text = @"incomplete";
     }
+    
     cell.detailTextLabel.font = [UIFont systemFontOfSize:16.0f];
     cell.detailTextLabel.textColor = [UIColor grayColor];
-    
 }
 
 - (UITableViewCell *)allocCell:(NSString *)identifier
@@ -79,8 +79,6 @@
 {
     return [self.fetchedResultsController objectAtIndexPath:indexPath];
 }
-
-
 
 
 

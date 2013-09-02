@@ -118,9 +118,29 @@
 
 + (void)fetchUrl:(NSString *)url handler:(void (^)(NSArray *))handler
 {
+    [self fetchUrl:url replace:nil handler:handler];
+}
+
++ (void)fetchUrl:(NSString *)url replace:(NSSet *)squashed handler:(void (^)(NSArray *))handler
+{
+    if (squashed == nil) {
+        squashed = [NSSet set];
+    }
+    
     [UBRequest get:url callback:^(NSArray *models) {
+        UBModel *model = nil;
+        NSMutableSet *toDelete = [NSMutableSet setWithSet:squashed];
+        
         for (NSDictionary *dict in models) {
-            [self findOrCreateWithDict:dict];
+            model = [self findOrCreateWithDict:dict];
+            
+            if ([toDelete containsObject:model]) {
+                [toDelete removeObject:model];
+            }
+        }
+        
+        for (model in toDelete) {
+            [[UBAppDelegate moc] deleteObject:model];
         }
         
         [[UBAppDelegate moc] save:nil];
