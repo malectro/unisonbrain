@@ -39,7 +39,7 @@
 {
     [super layoutSubviews];
     
-    _name.frame = CGRectMake(10.0f, 10.0f, 250.0f, 20.0f);
+    _name.frame = CGRectMake(10.0f, 10.0f, 170.0f, 20.0f);
     _section.frame = CGRectMake(_name.frame.size.width + 10.0f, 10.0f, 60.0f, 20.0f);
     _tagList.frame = CGRectMake(_name.frame.size.width + _section.frame.size.width + 10.0f, 10.0f, 180.0f, 20.0f);
     

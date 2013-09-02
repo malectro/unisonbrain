@@ -86,16 +86,27 @@
     NSString *sesh1d = @"No Session";
     NSString *sesh2d = @"No Session";
     
+    int recentSessionCount = 0;
+    
     if (sortedSessions.count>0) {
         UBSession *sesh1 = sortedSessions[0];
         sesh1d = [UBDate stringFromDateShort:sesh1.time];
+        if ([UBDate wasThisWeek:sesh1.time]) recentSessionCount++;
     }
+    
     if (sortedSessions.count>1) {
         UBSession *sesh2 = sortedSessions[1];
         sesh2d = [UBDate stringFromDateShort:sesh2.time];
+        if ([UBDate wasThisWeek:sesh2.time]) recentSessionCount++;
     }
     
     [cell.tagList setTags:@[sesh1d, sesh2d]];
+    if (recentSessionCount == 2) [cell.tagList setLabelBackgroundColor:[UIColor colorWithHue:0.5f saturation:0.2f brightness:0.9f alpha:1.0f]];
+    else if (recentSessionCount == 1) [cell.tagList setLabelBackgroundColor:[UIColor colorWithHue:0.13f saturation:0.2f brightness:0.9f alpha:1.0f]];
+    else [cell.tagList setLabelBackgroundColor:[UIColor colorWithHue:0.95f saturation:0.2f brightness:0.9f alpha:1.0f]];
+    
+
+    
 }
 
 

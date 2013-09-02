@@ -13,6 +13,9 @@
 + (NSString *)stringFromDate:(NSDate *)date format:(NSString *)format;
 + (NSString *)stringFromDateMedium:(NSDate *)date;
 + (NSString *)stringFromDateShort:(NSDate *)date;
++ (BOOL)wasThisWeek:(NSDate *)date;
++ (BOOL)wasLastTwoWeeks:(NSDate *)date;
+
 
 + (NSNumber *)toNum:(NSDate *)time;
 

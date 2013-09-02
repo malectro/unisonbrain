@@ -33,10 +33,27 @@
     return [self stringFromDate:date format:@"MMM d"];
 }
 
-
 + (NSNumber *)toNum:(NSDate *)time
 {
     return [NSNumber numberWithInteger:[time timeIntervalSince1970]];
 }
+
++ (BOOL)wasThisWeek:(NSDate *)date{
+    
+    int timeInt = [date timeIntervalSinceDate:date];
+    if (timeInt<605000) return YES;
+    else return NO;
+    
+}
+
++ (BOOL)wasLastTwoWeeks:(NSDate *)date{
+    
+    int timeInt = [date timeIntervalSinceDate:date];
+    if (timeInt<1209600) return YES;
+    else return NO;
+    
+    
+}
+
 
 @end
