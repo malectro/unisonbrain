@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		270DCB3317D42B5C007CC999 /* UBStudentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 270DCB3217D42B5C007CC999 /* UBStudentCell.m */; };
 		271E2AB716C80436009D4CE2 /* ConferenceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 271E2AB616C80436009D4CE2 /* ConferenceView.xib */; };
 		271E2ABA16C840A9009D4CE2 /* UBCodeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 271E2AB916C840A8009D4CE2 /* UBCodeType.m */; };
 		271E2ABD16C867A1009D4CE2 /* UBDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 271E2ABC16C867A1009D4CE2 /* UBDatePickerViewController.m */; };
@@ -104,6 +105,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		270DCB3117D42B5C007CC999 /* UBStudentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBStudentCell.h; path = Views/UBStudentCell.h; sourceTree = "<group>"; };
+		270DCB3217D42B5C007CC999 /* UBStudentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBStudentCell.m; path = Views/UBStudentCell.m; sourceTree = "<group>"; };
 		271E2AB616C80436009D4CE2 /* ConferenceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ConferenceView.xib; path = Views/ConferenceView.xib; sourceTree = "<group>"; };
 		271E2AB816C840A7009D4CE2 /* UBCodeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBCodeType.h; path = "Unison Brain/Models/UBCodeType.h"; sourceTree = "<group>"; };
 		271E2AB916C840A8009D4CE2 /* UBCodeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBCodeType.m; path = "Unison Brain/Models/UBCodeType.m"; sourceTree = "<group>"; };
@@ -461,6 +464,8 @@
 				8687035A16D036A6009DA8B6 /* UBLoginView.m */,
 				86A3876016D3E49B008CA93B /* UBStudentView.h */,
 				86A3876116D3E49B008CA93B /* UBStudentView.m */,
+				270DCB3117D42B5C007CC999 /* UBStudentCell.h */,
+				270DCB3217D42B5C007CC999 /* UBStudentCell.m */,
 				867E7AC016DD27A9002FF33F /* UBCodeScoreCell.h */,
 				867E7AC116DD27A9002FF33F /* UBCodeScoreCell.m */,
 				8634E476174D257C000F5F09 /* UBShadowView.h */,
@@ -678,6 +683,7 @@
 				39F253DD17D1407600DD1D17 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				39F253DE17D1407600DD1D17 /* TPKeyboardAvoidingTableView.m in Sources */,
 				39F253E117D1455C00DD1D17 /* TPKeyboardAvoidingCollectionView.m in Sources */,
+				270DCB3317D42B5C007CC999 /* UBStudentCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
