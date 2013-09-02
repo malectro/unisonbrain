@@ -53,6 +53,11 @@
     [[self ubr] put:path data:dataDict callback:handler failure:failure];
 }
 
++ (void)destroy:(NSString *)path callback:(void (^)(id))handler failure:(void (^)(id))failure
+{
+    [[self ubr] destroy:path callback:handler failure:failure];
+}
+
 + (void)get:(NSString *)path callback:(void (^)(id))handler
 {
     [[self ubr] get:path callback:handler failure:nil];
@@ -66,6 +71,11 @@
 + (void)put:(NSString *)path data:(NSDictionary *)dataDict callback:(void (^)(id))handler
 {
     [[self ubr] put:path data:dataDict callback:handler failure:nil];
+}
+
++ (void)destroy:(NSString *)path callback:(void (^)(id))handler
+{
+    [[self ubr] destroy:path callback:handler failure:nil];
 }
 
 - (id)init
@@ -109,6 +119,11 @@
     [self put:path data:dataDict callback:handler failure:nil];
 }
 
+- (void)destroy:(NSString *)path callback:(void (^)(id))handler
+{
+    [self destroy:path callback:handler failure:nil];
+}
+
 // methods
 
 - (void)get:(NSString *)path callback:(void (^)(id))handler failure:(void (^)(id))failure
@@ -140,6 +155,11 @@
     }
     
     [self request:path method:@"PUT" data:data callback:handler failure:failure];
+}
+
+- (void)destroy:(NSString *)path callback:(void (^)(id))handler failure:(void (^)(id))failure
+{
+    [self request:path method:@"DELETE" data:nil callback:handler failure:failure];
 }
 
 - (void)request:(NSString *)path method:(NSString *)method data:(NSData *)data callback:(void (^)(id))callback failure:(void (^)(id))failure

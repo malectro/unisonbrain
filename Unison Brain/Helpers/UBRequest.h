@@ -13,17 +13,21 @@
 + (void)get:(NSString *)path callback:(void (^)(id))handler;
 + (void)post:(NSString *)path data:(NSDictionary *)dataDict callback:(void (^)(id))handler;
 + (void)put:(NSString *)path data:(NSDictionary *)dataDict callback:(void (^)(id))handler;
++ (void)destroy:(NSString *)path callback:(void (^)(id))handler;
 
 - (void)get:(NSString *)path callback:(void (^)(id)) handler;
 - (void)post:(NSString *)path data:(NSDictionary *)dataDict callback:(void (^)(id))handler;
 - (void)put:(NSString *)path data:(NSDictionary *)dataDict callback:(void (^)(id))handler;
+- (void)destroy:(NSString *)path callback:(void (^)(id))handler;
 
 + (void)get:(NSString *)path callback:(void (^)(id))handler failure:(void (^)(id))failure;
 + (void)post:(NSString *)path data:(NSDictionary *)dataDict callback:(void (^)(id))handler failure:(void (^)(id))failure;
 + (void)put:(NSString *)path data:(NSDictionary *)dataDict callback:(void (^)(id))handler failure:(void (^)(id))failure;
++ (void)destroy:(NSString *)path callback:(void (^)(id))handler failure:(void (^)(id))failure;
 
-- (void)get:(NSString *)path callback:(void (^)(id)) handler;
+- (void)get:(NSString *)path callback:(void (^)(id)) handler failure:(void (^)(id))failure;
 - (void)post:(NSString *)path data:(NSDictionary *)dataDict callback:(void (^)(id))handler failure:(void (^)(id))failure;
 - (void)put:(NSString *)path data:(NSDictionary *)dataDict callback:(void (^)(id))handler failure:(void (^)(id))failure;
+- (void)destroy:(NSString *)path callback:(void (^)(id))handler failure:(void (^)(id))failure;
 
 @end

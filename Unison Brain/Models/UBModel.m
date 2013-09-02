@@ -229,9 +229,13 @@
 - (void)destroy
 {
     // kill self
-    [[UBAppDelegate moc] deleteObject:self];
-    [self save];
+    NSString *url = [[self class] modelUrl];
+    url = [url stringByAppendingFormat:@"/%@", self.id];
     
+    [UBRequest destroy:url callback:^(id dict) {
+        [[UBAppDelegate moc] deleteObject:self];
+        [self save];
+    }];
 }
     
 - (void)sync
