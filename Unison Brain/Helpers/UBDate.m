@@ -27,6 +27,13 @@
     return [self stringFromDate:date format:@"MMM d, HH:mm"];
 }
 
+
++ (NSString *)stringFromDateShort:(NSDate *)date
+{
+    return [self stringFromDate:date format:@"MMM d"];
+}
+
+
 + (NSNumber *)toNum:(NSDate *)time
 {
     return [NSNumber numberWithInteger:[time timeIntervalSince1970]];
