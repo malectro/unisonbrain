@@ -18,6 +18,7 @@
 #import "UBSessionsViewController.h"
 #import "UBSessionViewController.h"
 #import "UBStudentViewController.h"
+#import "UBHomeStudentListControllerViewController.h"
 
 #import "UBHomeView.h"
 
@@ -43,7 +44,7 @@
         _sessionsViewController = [[UBSessionsViewController alloc] initWithTeacher:[UBUser currentUser].teacher];
         [self addChildViewController:_sessionsViewController];
         
-        _studentsViewController = [[UBStudentListViewController alloc] initWithTeacher:[UBUser currentTeacher]];
+        _studentsViewController = [[UBHomeStudentListControllerViewController alloc] initWithTeacher:[UBUser currentTeacher]];
         _studentsViewController.delegate = self;
         [self addChildViewController:_studentsViewController];
         

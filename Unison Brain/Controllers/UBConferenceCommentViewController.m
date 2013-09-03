@@ -90,6 +90,8 @@
     
     self.tableView.tableHeaderView = headerView;
     
+    [self.conference save];
+    
 }
 
 - (void)viewDidLayoutSubviews
@@ -111,6 +113,8 @@
     [UIView animateWithDuration:0.2f animations:^{
         self.codesController.view.frame = CGRectMake(_codesControllerPosition, 0, 400.0f, self.view.frame.size.height);
     }];
+    [self.conference save];
+
 }
 
 - (void)hideCodesView
@@ -119,6 +123,8 @@
     [UIView animateWithDuration:0.2f animations:^{
         self.codesController.view.frame = CGRectMake(_codesControllerPosition, 0, 400.0f, self.view.frame.size.height);
     }];
+    [self.conference save];
+
 }
 
 - (void)setConference:(UBConference *)conference

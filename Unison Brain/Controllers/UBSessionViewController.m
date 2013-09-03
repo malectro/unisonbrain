@@ -429,6 +429,7 @@
     [self.sessionView.breachesView beginUpdates];
     [self.sessionView.breachesView endUpdates];
     [self.sessionView doneTyping];
+    [self.session save];
     //[self.sessionView.breachesView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 

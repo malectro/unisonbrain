@@ -18,6 +18,7 @@
 		27ABD4F216C995870051411E /* DWTagList.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ABD4F116C995870051411E /* DWTagList.m */; };
 		27ABD4F316C995870051411E /* DWTagList.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ABD4F116C995870051411E /* DWTagList.m */; };
 		39812F2D17D55949009706A0 /* UBContributionSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39812F2C17D55949009706A0 /* UBContributionSearchCell.m */; };
+		3989A5C117D6417300CC9518 /* UBHomeStudentListControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3989A5C017D6417300CC9518 /* UBHomeStudentListControllerViewController.m */; };
 		39D3EFD317CFA316003475DC /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 39D3EFCD17CFA316003475DC /* green.png */; };
 		39D3EFD417CFA316003475DC /* green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39D3EFCE17CFA316003475DC /* green@2x.png */; };
 		39D3EFD517CFA316003475DC /* orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 39D3EFCF17CFA316003475DC /* orange.png */; };
@@ -121,6 +122,8 @@
 		27ABD4F116C995870051411E /* DWTagList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWTagList.m; sourceTree = "<group>"; };
 		39812F2B17D55949009706A0 /* UBContributionSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBContributionSearchCell.h; path = Views/UBContributionSearchCell.h; sourceTree = "<group>"; };
 		39812F2C17D55949009706A0 /* UBContributionSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBContributionSearchCell.m; path = Views/UBContributionSearchCell.m; sourceTree = "<group>"; };
+		3989A5BF17D6417300CC9518 /* UBHomeStudentListControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBHomeStudentListControllerViewController.h; path = Controllers/UBHomeStudentListControllerViewController.h; sourceTree = "<group>"; };
+		3989A5C017D6417300CC9518 /* UBHomeStudentListControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBHomeStudentListControllerViewController.m; path = Controllers/UBHomeStudentListControllerViewController.m; sourceTree = "<group>"; };
 		39D3EFCD17CFA316003475DC /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green.png; sourceTree = "<group>"; };
 		39D3EFCE17CFA316003475DC /* green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green@2x.png"; sourceTree = "<group>"; };
 		39D3EFCF17CFA316003475DC /* orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orange.png; sourceTree = "<group>"; };
@@ -429,6 +432,8 @@
 				860C519C16BC349800C16B65 /* UBSessionViewController.m */,
 				860C51A416C04A3E00C16B65 /* UBStudentListViewController.h */,
 				860C51A516C04A3E00C16B65 /* UBStudentListViewController.m */,
+				3989A5BF17D6417300CC9518 /* UBHomeStudentListControllerViewController.h */,
+				3989A5C017D6417300CC9518 /* UBHomeStudentListControllerViewController.m */,
 				863F417816C4393A00DACB64 /* UBCodesViewController.h */,
 				863F417916C4393A00DACB64 /* UBCodesViewController.m */,
 				8687035616D0367D009DA8B6 /* UBLoginViewController.h */,
@@ -690,6 +695,7 @@
 				39F253E117D1455C00DD1D17 /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				270DCB3317D42B5C007CC999 /* UBStudentCell.m in Sources */,
 				39812F2D17D55949009706A0 /* UBContributionSearchCell.m in Sources */,
+				3989A5C117D6417300CC9518 /* UBHomeStudentListControllerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
