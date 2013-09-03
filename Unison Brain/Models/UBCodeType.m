@@ -35,7 +35,16 @@
 + (NSArray *)urBreachTypes
 {
    // RETURN array of codeTypes in subject Unison
-    return [self all];
+    NSMutableArray *types = [[NSMutableArray alloc]init];
+    
+    for (UBCodeType *type in [self all]) {
+        if ([type.name isEqualToString:@"Social Process"])[types addObject:type];
+        else if ([type.name isEqualToString:@"Decoding"])[types addObject:type];
+        else if ([type.name isEqualToString:@"Genre"])[types addObject:type];
+        else if ([type.name isEqualToString:@"Comprehension"])[types addObject:type];
+    }
+    
+    return types;
 
 }
 
