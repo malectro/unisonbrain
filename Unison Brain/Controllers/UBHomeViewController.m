@@ -64,11 +64,15 @@
 {
     [super viewDidLoad];
     
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(createSession)];
+    
+    
+    
+    
     self.homeView.sessionsView = _sessionsViewController.view;
     self.homeView.studentsView = _studentsViewController.view;
     //self.homeView.teacherNameLabel.text = [UBUser currentUser].teacher.fname;
-    
-    [self.homeView.createSessionButton addTarget:self action:@selector(createSession) forControlEvents:UIControlEventTouchDown];
+    //[self.homeView.createSessionButton addTarget:self action:@selector(createSession) forControlEvents:UIControlEventTouchDown];
     
     _studentsViewController.allowsMultipleSelection = NO;
     _studentsViewController.allowsSelectionGrouping = NO;

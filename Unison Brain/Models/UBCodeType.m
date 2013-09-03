@@ -10,6 +10,7 @@
 
 #import "UBCode.h"
 
+
 @implementation UBCodeType
 
 @dynamic name;
@@ -31,11 +32,11 @@
              @"codes": [UBCode class]};
 }
 
-+ (NSArray *)sessionBreachTypes
++ (NSArray *)urBreachTypes
 {
-    
-    //[self all];
-    
+   // RETURN array of codeTypes in subject Unison
+    return [self all];
+
 }
 
 @end

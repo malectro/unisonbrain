@@ -27,6 +27,9 @@
 + (NSString *)modelName;
 + (NSString *)modelUrl;
 + (NSArray *)modelSort;
++ (NSFetchRequest *)modelRequest;
++ (NSArray *)modelResults:(NSFetchRequest *)fetchRequest;
+
 + (NSDictionary *)keyMap;
 - (NSDictionary *)asDict;
 

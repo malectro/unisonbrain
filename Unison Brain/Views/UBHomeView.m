@@ -11,7 +11,8 @@
 
 #import "UBColor.h"
 
-#define kLeftSplitWidth 600.0f
+#define kLeftSplitWidth 512.0f
+#define kTopSplitHeight 450.0f
 
 @interface UBHomeView ()
 
@@ -41,23 +42,26 @@
         
         _sessionsLabel = [[UILabel alloc] init];
         _sessionsLabel.text = @"Recent Sessions";
-        _sessionsLabel.font = [UIFont systemFontOfSize:30.0f];
+        _sessionsLabel.font = [UIFont systemFontOfSize:26.0f];
         [self addSubview:_sessionsLabel];
         
         _studentsLabel = [[UILabel alloc] init];
         _studentsLabel.text = @"Your Students";
-        _studentsLabel.font = [UIFont systemFontOfSize:30.0f];
+        _studentsLabel.font = [UIFont systemFontOfSize:26.0f];
         [self addSubview:_studentsLabel];
         
         _announcementsLabel = [[UILabel alloc] init];
-        _announcementsLabel.text = @"Announcements";
-        _announcementsLabel.font = [UIFont systemFontOfSize:30.0f];
+        _announcementsLabel.text = @"Data, Statistics & Announcements TK";
+        _announcementsLabel.font = [UIFont systemFontOfSize:20.0f];
         [self addSubview:_announcementsLabel];
         
+        
+        /*
         _createSessionButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [_createSessionButton setTitle:@"Create a Session" forState:UIControlStateNormal];
         [_createSessionButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [self addSubview:_createSessionButton];
+         */
         
         _studentsBorder = [[UIView alloc] init];
         _studentsBorder.backgroundColor = [UBColor borderColor];
@@ -72,34 +76,41 @@
 
 - (void)layoutSubviews
 {
+    
+    // 1st Column
+
     CGFloat yHeight = 0;
-    
     _teacherNameLabel.frame = CGRectZero;
-    
-    _sessionsLabel.frame = CGRectMake(10.0f, 0, kLeftSplitWidth - 10.0f, 40.0f);
-    yHeight += _sessionsLabel.frame.size.height + _sessionsLabel.frame.origin.y;
-    
-    yHeight += 5.0f;
-    _createSessionButton.frame = CGRectMake(10.0f, yHeight, 200.0f, 30.0f);
-    yHeight += _createSessionButton.frame.size.height;
-    
+    _sessionsLabel.frame = CGRectMake(10.0f, 0, kLeftSplitWidth - 11.0f, 40.0f);
+    _createSessionButton.frame = CGRectMake(250.0f, 6.0f, 160.0f, 30.0f);
+    yHeight += _sessionsLabel.frame.size.height + _sessionsLabel.frame.origin.y + 5.0f;
+
     if (_sessionsView != nil) {
-        _sessionsView.frame = CGRectMake(0, yHeight, kLeftSplitWidth, 250.0f);
+        _sessionsView.frame = CGRectMake(0, yHeight, kLeftSplitWidth-1.0f, kTopSplitHeight-yHeight);
         yHeight += _sessionsView.frame.size.height;
     }
     
-    _studentsBorder.frame = CGRectMake(0, yHeight, kLeftSplitWidth, 1.0f);
-    _studentsLabel.frame = CGRectMake(10.0f, yHeight, kLeftSplitWidth - 10.0f, 50.0f);
-    yHeight += _studentsLabel.frame.size.height;
+    
+    // Announcements
+    _announcementsLabel.frame = CGRectMake(10.0f, kTopSplitHeight, self.frame.size.width, 40.0f);
+    // rest of announcement text goes here
+
+    
+    // 2nd Column
+    yHeight = 0;
+
+    _studentsLabel.frame = CGRectMake(kLeftSplitWidth + 5.0f, yHeight, kLeftSplitWidth - 10.0f, 50.0f);
+    yHeight += _studentsLabel.frame.size.height + 5.0f;
     
     if (_studentsView != nil) {
-        _studentsView.frame = CGRectMake(0, yHeight, kLeftSplitWidth, self.frame.size.height - yHeight);
+        _studentsView.frame = CGRectMake(kLeftSplitWidth, yHeight, kLeftSplitWidth, kTopSplitHeight - yHeight);
         yHeight += _studentsView.frame.size.height;
     }
     
-    _leftSplitBorder.frame = CGRectMake(kLeftSplitWidth, 0, 1.0f, self.frame.size.height);
+    _leftSplitBorder.frame = CGRectMake(kLeftSplitWidth-1.0f, 0, 1.0f, kTopSplitHeight);
+    _studentsBorder.frame = CGRectMake(0, kTopSplitHeight, self.frame.size.width, 1.0f);
+
     
-    _announcementsLabel.frame = CGRectMake(kLeftSplitWidth + 10.0f, 0, self.frame.size.width - kLeftSplitWidth - 10.0f, 40.0f);
 }
 
 - (void)setSessionsView:(UITableView *)sessionsView

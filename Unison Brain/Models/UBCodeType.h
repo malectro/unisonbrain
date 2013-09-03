@@ -16,5 +16,6 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSSet *codes;
 
++ (NSArray *)urBreachTypes;
 
 @end

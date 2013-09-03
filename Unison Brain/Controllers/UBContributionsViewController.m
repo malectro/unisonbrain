@@ -33,6 +33,8 @@
     return self;
 }
 
+
+
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -61,7 +63,14 @@
 {
     UBContribution *contribution = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", [UBDate stringFromDateMedium:contribution.time], contribution.text];
-    cell.textLabel.font = [UIFont systemFontOfSize:20.0f];
+    cell.textLabel.font = [UIFont systemFontOfSize:16.0f];
+}
+
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return NO;
 }
 
 @end

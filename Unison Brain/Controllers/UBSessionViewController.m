@@ -357,8 +357,10 @@
         
     UIActionSheet *typeChooser = [[UIActionSheet alloc]initWithTitle:@"Choose Type" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
     
-    for (int i=0; i < [UBCodeType all].count; i++){
-        NSString *name = [[UBCodeType all][i] valueForKey:@"name"];
+    NSArray *types = [UBCodeType urBreachTypes];
+    
+    for (int i=0; i < types.count; i++){
+        NSString *name = [types[i] valueForKey:@"name"];
         [typeChooser addButtonWithTitle:name];
     }
     

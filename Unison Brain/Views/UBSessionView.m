@@ -15,8 +15,8 @@
 #import "UBShadowView.h"
 
 
-#define LEFT_WIDTH 770.0f
-#define RIGHT_WIDTH (1024.0f - 770.0f)
+#define LEFT_WIDTH 790.0f
+#define RIGHT_WIDTH (1024.0f - 790.0f)
 
 @interface UBSessionView ()
 

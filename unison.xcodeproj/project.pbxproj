@@ -17,6 +17,7 @@
 		271E2B1216C95F5C009D4CE2 /* appicon~ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 271E2B1116C95F5B009D4CE2 /* appicon~ipad@2x.png */; };
 		27ABD4F216C995870051411E /* DWTagList.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ABD4F116C995870051411E /* DWTagList.m */; };
 		27ABD4F316C995870051411E /* DWTagList.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ABD4F116C995870051411E /* DWTagList.m */; };
+		39812F2D17D55949009706A0 /* UBContributionSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39812F2C17D55949009706A0 /* UBContributionSearchCell.m */; };
 		39D3EFD317CFA316003475DC /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 39D3EFCD17CFA316003475DC /* green.png */; };
 		39D3EFD417CFA316003475DC /* green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39D3EFCE17CFA316003475DC /* green@2x.png */; };
 		39D3EFD517CFA316003475DC /* orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 39D3EFCF17CFA316003475DC /* orange.png */; };
@@ -118,6 +119,8 @@
 		271E2B1116C95F5B009D4CE2 /* appicon~ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appicon~ipad@2x.png"; sourceTree = "<group>"; };
 		27ABD4F016C995870051411E /* DWTagList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWTagList.h; sourceTree = "<group>"; };
 		27ABD4F116C995870051411E /* DWTagList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWTagList.m; sourceTree = "<group>"; };
+		39812F2B17D55949009706A0 /* UBContributionSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBContributionSearchCell.h; path = Views/UBContributionSearchCell.h; sourceTree = "<group>"; };
+		39812F2C17D55949009706A0 /* UBContributionSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBContributionSearchCell.m; path = Views/UBContributionSearchCell.m; sourceTree = "<group>"; };
 		39D3EFCD17CFA316003475DC /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green.png; sourceTree = "<group>"; };
 		39D3EFCE17CFA316003475DC /* green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green@2x.png"; sourceTree = "<group>"; };
 		39D3EFCF17CFA316003475DC /* orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orange.png; sourceTree = "<group>"; };
@@ -458,6 +461,8 @@
 				271E2AB616C80436009D4CE2 /* ConferenceView.xib */,
 				86B6B68A16C31D190027F087 /* UBContributionCell.h */,
 				86B6B68B16C31D190027F087 /* UBContributionCell.m */,
+				39812F2B17D55949009706A0 /* UBContributionSearchCell.h */,
+				39812F2C17D55949009706A0 /* UBContributionSearchCell.m */,
 				86547C1F16C56867000D54F1 /* UBBreachHeaderView.h */,
 				86547C2016C56867000D54F1 /* UBBreachHeaderView.m */,
 				8687035916D036A6009DA8B6 /* UBLoginView.h */,
@@ -684,6 +689,7 @@
 				39F253DE17D1407600DD1D17 /* TPKeyboardAvoidingTableView.m in Sources */,
 				39F253E117D1455C00DD1D17 /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				270DCB3317D42B5C007CC999 /* UBStudentCell.m in Sources */,
+				39812F2D17D55949009706A0 /* UBContributionSearchCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

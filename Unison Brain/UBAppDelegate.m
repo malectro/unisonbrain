@@ -50,6 +50,8 @@
     _homeViewController = [[UBHomeViewController alloc] init];
     _mainNav = [[UINavigationController alloc] initWithRootViewController:_homeViewController];
     
+
+    
     [self.window setRootViewController:_mainNav];
     
     if (![UBUser currentUser].loggedIn) {
@@ -61,6 +63,8 @@
         _rootViewController = _homeViewController;
         [self fetchServerStuff];
     }
+    
+ 
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(authenticated) name:kLoginSuccessNotifName object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(expired) name:kLoginExpiredNotifName object:nil];
