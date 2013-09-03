@@ -153,7 +153,15 @@
 - (void)didDragCommentsLabel:(UIPanGestureRecognizer *)gesture
 {
     _bottomSplitHeight = _prevBottomSplitHeight - [gesture translationInView:self].y;
-    _bottomSplit.frame = CGRectMake(0, self.frame.size.height - _bottomSplitHeight, self.frame.size.width, _bottomSplitHeight);
+    
+    //zero check!
+    int splitNewY = self.frame.size.height - _bottomSplitHeight;
+    if (splitNewY<0) {
+        splitNewY = 0;
+        _bottomSplitHeight = self.frame.size.height;
+    }
+    
+    _bottomSplit.frame = CGRectMake(0, splitNewY, self.frame.size.width, _bottomSplitHeight);
     
     if (gesture.state == UIGestureRecognizerStateEnded) {
         _prevBottomSplitHeight = _bottomSplitHeight;
