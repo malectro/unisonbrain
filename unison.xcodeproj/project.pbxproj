@@ -801,12 +801,12 @@
 		8602690F16B9811D002C6577 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Kyle Warren (G6J3JC8JFS)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: FIRE-WORKS FILM, LLC (H7YJK7P8FH)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Unison Brain/unison-Prefix.pch";
 				INFOPLIST_FILE = "Unison Brain/unison-Info.plist";
 				PRODUCT_NAME = unison;
-				PROVISIONING_PROFILE = "C70EDB3C-06DC-4E78-B694-5D87FA5EF246";
+				PROVISIONING_PROFILE = "8CBAC0B0-7DBE-4D9D-B27A-1647AD3269F5";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
@@ -815,12 +815,12 @@
 		8602691016B9811D002C6577 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Kyle Warren (Q6NC64Q7HC)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: FIRE-WORKS FILM, LLC (H7YJK7P8FH)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Unison Brain/unison-Prefix.pch";
 				INFOPLIST_FILE = "Unison Brain/unison-Info.plist";
 				PRODUCT_NAME = unison;
-				PROVISIONING_PROFILE = "8B547A7C-56D2-401B-BB5B-DD858A6334DB";
+				PROVISIONING_PROFILE = "8CBAC0B0-7DBE-4D9D-B27A-1647AD3269F5";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
