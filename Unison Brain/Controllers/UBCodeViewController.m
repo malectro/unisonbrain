@@ -91,7 +91,7 @@
     
     
     
-    self.nameLabel.frame = CGRectMake(5.0f, 5.0f, self.scrollView.frame.size.width, 30.0f);
+    self.nameLabel.frame = CGRectMake(5.0f, 5.0f, self.scrollView.frame.size.width, 33.0f);
     self.descriptionLabel.frame = CGRectMake(5.0f, self.nameLabel.frame.size.height, contentSize.width, contentSize.height);
     
     

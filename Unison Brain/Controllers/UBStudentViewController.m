@@ -99,6 +99,7 @@
     _student = student;
     self.title = student.name;
     [_student fetchConferences];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -137,6 +138,15 @@
         }
         
 }
+
+- (NSArray *)sortDescriptors {
+    
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    return sortDescriptors;
+}
+
 
 - (void)selectConference:(UBConference *)conference
 {
