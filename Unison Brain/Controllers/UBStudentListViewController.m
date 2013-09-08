@@ -105,6 +105,7 @@
     else if (recentSessionCount == 1) [cell.tagList setLabelBackgroundColor:[UIColor colorWithHue:0.13f saturation:0.2f brightness:0.9f alpha:1.0f]];
     else [cell.tagList setLabelBackgroundColor:[UIColor colorWithHue:0.95f saturation:0.2f brightness:0.9f alpha:1.0f]];
     
+    [cell layoutSubviews];
 
     
 }
