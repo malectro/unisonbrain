@@ -34,11 +34,9 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-<<<<<<< HEAD
+
 	<string>1.3</string>
-=======
-	<string>1.2</string>
->>>>>>> 20953caec6d0b037b1a275ecc0ad4c302826bcc5
+
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIRequiredDeviceCapabilities</key>
