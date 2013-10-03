@@ -129,13 +129,11 @@
     else if (recentSessionCount == 1) [cell.tagList setLabelBackgroundColor:[UIColor colorWithHue:0.13f saturation:0.2f brightness:0.9f alpha:1.0f]];
     else [cell.tagList setLabelBackgroundColor:[UIColor colorWithHue:0.95f saturation:0.2f brightness:0.9f alpha:1.0f]];
     
-<<<<<<< HEAD
+
     [cell.tagSession setTags: @[conf3d]];
     [cell.tagSession setLabelBackgroundColor:[UIColor colorWithHue:0.5f saturation:0.0f brightness:0.9f alpha:1.0f]];
-=======
     [cell layoutSubviews];
 
->>>>>>> 20953caec6d0b037b1a275ecc0ad4c302826bcc5
     
 }
 

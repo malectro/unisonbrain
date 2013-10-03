@@ -259,7 +259,7 @@
     
     [UBRequest destroy:url callback:^(id dict) {
         [[UBAppDelegate moc] deleteObject:self];
-        [self save];
+      //  [self save];
     }];
 }
     
