@@ -448,7 +448,7 @@
 
     }
     else {
-        UBCodeType *type = [UBCodeType all][buttonIndex];
+        UBCodeType *type = [UBCodeType urBreachTypes][buttonIndex];
         [self createBreachWithType:type];
     }
 }

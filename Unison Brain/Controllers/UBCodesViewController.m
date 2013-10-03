@@ -52,6 +52,14 @@
     return cell;
 }
 
+- (NSArray *)sortDescriptors {
+    
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    return sortDescriptors;
+}
+
 - (void)configureCell:(UITableViewCell *)cell withItem:(UBCode *)code
 {
     cell.textLabel.text = code.name;

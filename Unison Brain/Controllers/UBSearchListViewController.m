@@ -21,7 +21,8 @@
     self = [super init];
     if (self) {
         if (items != nil) {
-            self.items = items;
+            self.items = [items sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO]]];
+
         }
         
         _allowsMultipleSelection = NO;
@@ -80,8 +81,20 @@
     _filteredItems = [NSMutableArray arrayWithCapacity:_items.count];
     _selectedItems = [NSMutableArray arrayWithCapacity:_items.count];
     _deselectedItems = [NSMutableArray arrayWithArray:_items];
+    
+    [self sortItems];
+    
     [self.tableView reloadData];
+    
     //[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (void)sortItems{
+    
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    NSArray *sorted = [_deselectedItems sortedArrayUsingDescriptors:@[sortDescriptor]];
+    _deselectedItems = [NSMutableArray arrayWithArray:sorted];
+    
 }
 
 - (void)setSelection:(NSArray *)selectedItems
@@ -94,7 +107,10 @@
     
     _deselectedItems = [NSMutableArray arrayWithArray:_items];
     [_deselectedItems removeObjectsInArray:_selectedItems];
+    
     [self.tableView reloadData];
+    
+
     
     // i can't BELIEVE i have to do this
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
@@ -115,6 +131,7 @@
     [_selectedItems removeObjectsInArray:items];
     _deselectedItems = [NSMutableArray arrayWithArray:_items];
     [_deselectedItems removeObjectsInArray:_selectedItems];
+
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

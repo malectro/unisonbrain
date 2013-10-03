@@ -48,7 +48,7 @@
 
 - (NSPredicate *)predicate
 {
-    return [NSPredicate predicateWithFormat:@"conference.student = %@", self.student];
+    return [NSPredicate predicateWithFormat:@"(code.year == %@)", self.student, self.student.section];
 }
 
 - (void)setSubject:(UBSubject *)subject
@@ -95,7 +95,7 @@
         cell.textLabel.text = [NSString stringWithFormat:@"%@ - No score", code.name];
     }
 
-    cell.textLabel.font = [UIFont systemFontOfSize:20.0f];
+    cell.textLabel.font = [UIFont systemFontOfSize:18.0f];
 }
 
 - (UBSubject *)subjectForSection:(NSInteger)section
