@@ -119,6 +119,13 @@
     [self.navigationController pushViewController:studentViewController animated:YES];
 }
 
+- (void) reloadData {
+    
+    [self.sessionsViewController.tableView reloadData];
+    [self.studentsViewController.tableView reloadData];
+    
+    
+}
 
 @end
 

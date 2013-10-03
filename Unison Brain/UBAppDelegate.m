@@ -82,6 +82,7 @@
         }
     });
     [self fetchServerStuff];
+    [_homeViewController reloadData];
 }
 
 - (void)expired

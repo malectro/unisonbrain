@@ -11,4 +11,7 @@
 
 @interface UBHomeViewController : UIViewController<UBSearchListViewDelegate>;
 
+- (void) reloadData;
+
+
 @end

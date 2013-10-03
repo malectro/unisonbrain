@@ -13,6 +13,7 @@
 #import "UBTeacher.h"
 #import "UBDate.h"  
 #import "UBSession.h"
+#import "UBConference.h"
 #import "UBStudentCell.h"
 
 @interface UBStudentListViewController ()
@@ -73,7 +74,12 @@
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%@ IN people", self.teacher];
     
+    NSPredicate *confPredicate = [NSPredicate predicateWithFormat:@"%@ IN teacher", self.teacher];
+    
     NSSet *thisTeacherSessions = [[NSSet alloc]init];
+    NSSet *thisTeacherConferences = [[NSSet alloc]init];
+
+    /// SORTED SESSIONS
     
     if (student.sessions) {
         thisTeacherSessions = [student.sessions filteredSetUsingPredicate:predicate];
@@ -82,9 +88,21 @@
     NSSortDescriptor *descriptor1 = [NSSortDescriptor sortDescriptorWithKey:@"time" ascending:YES];
     NSArray *sortedSessions = [thisTeacherSessions sortedArrayUsingDescriptors:@[descriptor1]];
 
+    
+    /// SORTED CONFERENCES
+    
+    if (student.conferences) {
+        thisTeacherConferences = [student.conferences filteredSetUsingPredicate:confPredicate];
+    }
+    
+    NSSortDescriptor *descriptor2 = [NSSortDescriptor sortDescriptorWithKey:@"time" ascending:YES];
+    NSArray *sortedConferences = [thisTeacherConferences sortedArrayUsingDescriptors:@[descriptor2]];
+
+    
 
     NSString *sesh1d = @"No Session";
     NSString *sesh2d = @"No Session";
+    NSString *conf3d = @"No Conferences";
     
     int recentSessionCount = 0;
     
@@ -100,12 +118,19 @@
         if ([UBDate wasThisWeek:sesh2.time]) recentSessionCount++;
     }
     
+    if (sortedConferences.count>0) {
+        UBConference *conf = sortedConferences[0];
+        conf3d = [UBDate stringFromDateShort:conf.time];
+    }
+
+    
     [cell.tagList setTags:@[sesh1d, sesh2d]];
     if (recentSessionCount == 2) [cell.tagList setLabelBackgroundColor:[UIColor colorWithHue:0.5f saturation:0.2f brightness:0.9f alpha:1.0f]];
     else if (recentSessionCount == 1) [cell.tagList setLabelBackgroundColor:[UIColor colorWithHue:0.13f saturation:0.2f brightness:0.9f alpha:1.0f]];
     else [cell.tagList setLabelBackgroundColor:[UIColor colorWithHue:0.95f saturation:0.2f brightness:0.9f alpha:1.0f]];
     
-
+    [cell.tagSession setTags: @[conf3d]];
+    [cell.tagSession setLabelBackgroundColor:[UIColor colorWithHue:0.5f saturation:0.0f brightness:0.9f alpha:1.0f]];
     
 }
 

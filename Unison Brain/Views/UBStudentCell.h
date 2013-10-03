@@ -15,6 +15,8 @@
 
 @property (nonatomic) UBStudent *student;
 @property (nonatomic, readonly) DWTagList *tagList;
+@property (nonatomic, readonly) DWTagList *tagSession;
+
 @property (nonatomic, readonly) UILabel *name;
 @property (nonatomic, readonly) UILabel *section;
 
