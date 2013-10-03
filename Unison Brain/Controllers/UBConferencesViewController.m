@@ -9,7 +9,8 @@
 #import "UBConferencesViewController.h"
 
 #import "UBDate.h"
-
+#import "UBPerson.h"
+#import "UBTeacher.h"
 #import "UBConference.h"
 
 @interface UBConferencesViewController ()
@@ -52,13 +53,20 @@
 {
     UBConference *conf = [self conferenceAtIndexPath:indexPath];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@ %@", conf.teacher, [UBDate stringFromDateMedium:conf.time], conf.notes];
-    cell.textLabel.font = [UIFont systemFontOfSize:18.0f];
+    
+    NSString *teacerhName  = [conf.teacher name];
+    
+    if (conf.teacher == [UBUser currentTeacher]) {
+        teacerhName = @"You";
+    }
+    
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ with %@", [UBDate stringFromDateMedium:conf.time], teacerhName, conf.notes];
+    cell.textLabel.font = [UIFont systemFontOfSize:14.0f];
     
     if (conf.complete) {
-        cell.detailTextLabel.text = @"complete";
+        cell.textLabel.text = @"Complete";
     } else {
-        cell.detailTextLabel.text = @"incomplete";
+        cell.textLabel.text = @"Incomplete";
     }
     
     cell.detailTextLabel.font = [UIFont systemFontOfSize:16.0f];
@@ -73,7 +81,7 @@
 - (UITableViewCell *)allocCell:(NSString *)identifier
 {
     
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:identifier];
     [cell setIndentationWidth:130.0f];
     
     return cell;

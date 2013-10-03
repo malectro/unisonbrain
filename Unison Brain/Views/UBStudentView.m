@@ -50,7 +50,7 @@
         
         _codesLabel = [[UILabel alloc] init];
         _codesLabel.text = @"Code Progress";
-        _codesLabel.font = [UIFont systemFontOfSize:28.0f];
+        _codesLabel.font = [UIFont systemFontOfSize:25.0f];
         [_codesLabel sizeToFit];
         [self addSubview:_codesLabel];
         
@@ -65,7 +65,7 @@
         _commentsLabel = [[UILabel alloc] init];
         _commentsLabel.text = @"Conferences";
         _commentsLabel.backgroundColor = [UIColor clearColor];
-        _commentsLabel.font = [UIFont systemFontOfSize:28.0f];
+        _commentsLabel.font = [UIFont systemFontOfSize:25.0f];
         [_commentsLabel sizeToFit];
         [_bottomSplit addSubview:_commentsLabel];
         
@@ -130,11 +130,11 @@
     _bottomSplit.frame = CGRectMake(0, self.frame.size.height - _bottomSplitHeight, self.frame.size.width, _bottomSplitHeight);
     _bottomSplitBg.frame = CGRectPosition(_bottomSplit.frame, 0, 0);
     
-    _commentsLabel.frame = CGRectPosition(_commentsLabel.frame, 10.0f, 10.0f);
+    _commentsLabel.frame = CGRectPosition(_commentsLabel.frame, 10.0f, 12.0f);
     
-    _createConference.frame = CGRectMake(_commentsLabel.frame.origin.x + _commentsLabel.frame.size.width + 10.0f, _commentsLabel.frame.origin.y + 3.0f, _createConference.frame.size.width, 30.0f);
+    _createConference.frame = CGRectMake(_commentsLabel.frame.origin.x + _commentsLabel.frame.size.width + 10.0f, _commentsLabel.frame.origin.y + 1.0f, _createConference.frame.size.width, 30.0f);
     
-    _editConference.frame = CGRectMake(_commentsLabel.frame.origin.x + _commentsLabel.frame.size.width + _createConference.frame.size.width + 15.0f, _commentsLabel.frame.origin.y + 3.0f, _editConference.frame.size.width, 30.0f);
+    _editConference.frame = CGRectMake(_commentsLabel.frame.origin.x + _commentsLabel.frame.size.width + _createConference.frame.size.width + 15.0f, _commentsLabel.frame.origin.y + 1.0f, _editConference.frame.size.width, 30.0f);
 
     
     _conferenceMetaView.frame = CGRectMake(0, _commentsLabel.frame.origin.y + _commentsLabel.frame.size.height, _bottomSplit.frame.size.width, _bottomSplitHeight - _commentsLabel.frame.size.height);

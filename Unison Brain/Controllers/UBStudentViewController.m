@@ -92,6 +92,7 @@
         [_selectedConference save];
         [_selectedConference sync];
     }
+    
 }
 
 - (void)setStudent:(UBStudent *)student

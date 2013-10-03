@@ -59,6 +59,8 @@
         
         _listController = [[UBStudentListViewController alloc] initWithTeacher:[UBUser currentTeacher]];
         _listController.delegate = self;
+        _listController.allowsMultipleSelection = YES;
+        _listController.allowsSelectionGrouping = YES;
         [self addChildViewController:_listController];
         
         _codesController = [[UBCodesViewController alloc] initWithItems:nil];

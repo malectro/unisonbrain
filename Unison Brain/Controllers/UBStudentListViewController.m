@@ -50,8 +50,8 @@
 {
     [super viewDidLoad];
     
-    self.allowsMultipleSelection = YES;
-    self.allowsSelectionGrouping = YES;
+    //self.allowsMultipleSelection = NO;
+    //self.allowsSelectionGrouping = NO;
 }
 
 - (UITableViewCell *)allocCell:(NSString *)identifier
@@ -74,7 +74,7 @@
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%@ IN people", self.teacher];
     
-    NSPredicate *confPredicate = [NSPredicate predicateWithFormat:@"%@ == teacher", self.teacher];
+    NSPredicate *confPredicate = [NSPredicate predicateWithFormat:@"%@ == teacher AND complete == YES", self.teacher];
     
     NSSet *thisTeacherSessions = [[NSSet alloc]init];
     NSSet *thisTeacherConferences = [[NSSet alloc]init];

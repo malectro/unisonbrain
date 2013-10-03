@@ -45,8 +45,12 @@
         [self addChildViewController:_sessionsViewController];
         
         _studentsViewController = [[UBHomeStudentListControllerViewController alloc] initWithTeacher:[UBUser currentTeacher]];
+        
         _studentsViewController.delegate = self;
         [self addChildViewController:_studentsViewController];
+        
+        [_studentsViewController setAllowsMultipleSelection:NO];
+
         
         _logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Log Out" style:UIBarButtonItemStylePlain target:self action:@selector(logOut)];
         self.navigationItem.rightBarButtonItem = _logoutButton;
@@ -67,27 +71,42 @@
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(createSession)];
     
-    
-    
+    [_studentsViewController.tableView reloadData];
+
     
     self.homeView.sessionsView = _sessionsViewController.view;
     self.homeView.studentsView = _studentsViewController.view;
     //self.homeView.teacherNameLabel.text = [UBUser currentUser].teacher.fname;
     //[self.homeView.createSessionButton addTarget:self action:@selector(createSession) forControlEvents:UIControlEventTouchDown];
     
-    _studentsViewController.allowsMultipleSelection = NO;
-    _studentsViewController.allowsSelectionGrouping = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
+    [self.studentsViewController.tableView setAllowsMultipleSelection:NO];
+
     [[UBUser currentUser] reloadTeacher];
+    
+    [self reloadData];
+    
     self.sessionsViewController.teacher = [UBUser currentTeacher];
     self.studentsViewController.teacher = [UBUser currentTeacher];
+    
+    [_studentsViewController setAllowsMultipleSelection:NO];
+
+    
     //self.homeView.teacherNameLabel.text = [UBUser currentUser].teacher.name;
     self.title = [NSString stringWithFormat:@"Unison Home - %@", [UBUser currentTeacher].name];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    
+    [self.studentsViewController.tableView deselectRowAtIndexPath:[self.studentsViewController.tableView indexPathForSelectedRow] animated:NO];
+    
+    [self.studentsViewController.searchDisplayController setActive:NO];
 }
 
 - (void)didReceiveMemoryWarning
@@ -117,6 +136,9 @@
 {
     UBStudentViewController *studentViewController = [[UBStudentViewController alloc] initWithStudent:item];
     [self.navigationController pushViewController:studentViewController animated:YES];
+    
+    [self.studentsViewController.tableView deselectRowAtIndexPath:[self.studentsViewController.tableView indexPathForSelectedRow] animated:NO];
+
 }
 
 - (void) reloadData {
