@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		270DCB3317D42B5C007CC999 /* UBStudentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 270DCB3217D42B5C007CC999 /* UBStudentCell.m */; };
-		271E2AB716C80436009D4CE2 /* ConferenceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 271E2AB616C80436009D4CE2 /* ConferenceView.xib */; };
 		271E2ABA16C840A9009D4CE2 /* UBCodeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 271E2AB916C840A8009D4CE2 /* UBCodeType.m */; };
 		271E2ABD16C867A1009D4CE2 /* UBDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 271E2ABC16C867A1009D4CE2 /* UBDatePickerViewController.m */; };
 		271E2B0C16C95F3B009D4CE2 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 271E2B0B16C95F3A009D4CE2 /* Default-Landscape@2x~ipad.png */; };
@@ -109,7 +108,6 @@
 /* Begin PBXFileReference section */
 		270DCB3117D42B5C007CC999 /* UBStudentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBStudentCell.h; path = Views/UBStudentCell.h; sourceTree = "<group>"; };
 		270DCB3217D42B5C007CC999 /* UBStudentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBStudentCell.m; path = Views/UBStudentCell.m; sourceTree = "<group>"; };
-		271E2AB616C80436009D4CE2 /* ConferenceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ConferenceView.xib; path = Views/ConferenceView.xib; sourceTree = "<group>"; };
 		271E2AB816C840A7009D4CE2 /* UBCodeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UBCodeType.h; path = "Unison Brain/Models/UBCodeType.h"; sourceTree = "<group>"; };
 		271E2AB916C840A8009D4CE2 /* UBCodeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UBCodeType.m; path = "Unison Brain/Models/UBCodeType.m"; sourceTree = "<group>"; };
 		271E2ABB16C867A0009D4CE2 /* UBDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UBDatePickerViewController.h; sourceTree = "<group>"; };
@@ -463,7 +461,6 @@
 				860C519616BC24E500C16B65 /* UBHomeView.m */,
 				860C519E16BC525200C16B65 /* UBSessionView.h */,
 				860C519F16BC525200C16B65 /* UBSessionView.m */,
-				271E2AB616C80436009D4CE2 /* ConferenceView.xib */,
 				86B6B68A16C31D190027F087 /* UBContributionCell.h */,
 				86B6B68B16C31D190027F087 /* UBContributionCell.m */,
 				39812F2B17D55949009706A0 /* UBContributionSearchCell.h */,
@@ -593,7 +590,6 @@
 				860268EE16B9811D002C6577 /* Default.png in Resources */,
 				860268F016B9811D002C6577 /* Default@2x.png in Resources */,
 				860268F216B9811D002C6577 /* Default-568h@2x.png in Resources */,
-				271E2AB716C80436009D4CE2 /* ConferenceView.xib in Resources */,
 				271E2B0C16C95F3B009D4CE2 /* Default-Landscape@2x~ipad.png in Resources */,
 				271E2B0E16C95F3F009D4CE2 /* Default-Landscape~ipad.png in Resources */,
 				271E2B1016C95F55009D4CE2 /* appicon~ipad.png in Resources */,
