@@ -7,12 +7,14 @@
 //
 
 #import "UBModelTableViewController.h"
+#import "UBUser.h"
 
 @class UBStudent;
 
 @interface UBConferencesViewController : UBModelTableViewController
 
 @property (nonatomic) UBStudent *student;
+
 
 - (id)initWithStudent:(UBStudent *)student;
 

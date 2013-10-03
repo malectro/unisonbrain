@@ -52,7 +52,7 @@
 {
     UBConference *conf = [self conferenceAtIndexPath:indexPath];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", [UBDate stringFromDateMedium:conf.time], conf.notes];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@ %@", conf.teacher, [UBDate stringFromDateMedium:conf.time], conf.notes];
     cell.textLabel.font = [UIFont systemFontOfSize:18.0f];
     
     if (conf.complete) {
@@ -63,6 +63,11 @@
     
     cell.detailTextLabel.font = [UIFont systemFontOfSize:16.0f];
     cell.detailTextLabel.textColor = [UIColor grayColor];
+    
+    
+    if (conf.teacher != [UBUser currentUser].teacher) {
+        cell.backgroundColor = [UIColor colorWithHue:1.0f saturation:0.0f brightness:0.95f alpha:1.0f];
+    }
 }
 
 - (UITableViewCell *)allocCell:(NSString *)identifier

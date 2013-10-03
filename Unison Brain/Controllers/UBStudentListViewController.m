@@ -74,7 +74,7 @@
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%@ IN people", self.teacher];
     
-    NSPredicate *confPredicate = [NSPredicate predicateWithFormat:@"%@ IN teacher", self.teacher];
+    NSPredicate *confPredicate = [NSPredicate predicateWithFormat:@"%@ == teacher", self.teacher];
     
     NSSet *thisTeacherSessions = [[NSSet alloc]init];
     NSSet *thisTeacherConferences = [[NSSet alloc]init];
