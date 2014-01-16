@@ -46,8 +46,8 @@
 
 - (UITableViewCell *)allocCell:(NSString *)identifier
 {
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    cell.textLabel.font = [UIFont systemFontOfSize:20.0f];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+    cell.textLabel.font = [UIFont systemFontOfSize:17.0f];
     cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     return cell;
 }
@@ -63,6 +63,7 @@
 - (void)configureCell:(UITableViewCell *)cell withItem:(UBCode *)code
 {
     cell.textLabel.text = code.name;
+    cell.detailTextLabel.text = code.text;
 }
 
 - (BOOL)filterItem:(UBCode *)code bySearch:(NSString *)searchText

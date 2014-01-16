@@ -107,7 +107,6 @@
     
     _deselectedItems = [NSMutableArray arrayWithArray:_items];
     [_deselectedItems removeObjectsInArray:_selectedItems];
-    
     [self.tableView reloadData];
     
 
@@ -131,6 +130,9 @@
     [_selectedItems removeObjectsInArray:items];
     _deselectedItems = [NSMutableArray arrayWithArray:_items];
     [_deselectedItems removeObjectsInArray:_selectedItems];
+    [self sortItems];
+    
+
 
 }
 
