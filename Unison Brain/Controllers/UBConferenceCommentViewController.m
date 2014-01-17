@@ -35,7 +35,7 @@
 
 @implementation UBConferenceCommentViewController
 
-@synthesize codeScoresView;
+@synthesize codeScoresController, conferencesController;
 
 - (id)initWithConference:(UBConference *)conference
 {
@@ -256,7 +256,8 @@
 - (void)shouldUpdateCodeScores
 {
     
-    [codeScoresView.tableView reloadData];
+    [codeScoresController reload];
+    [conferencesController reload];
     
 }
 

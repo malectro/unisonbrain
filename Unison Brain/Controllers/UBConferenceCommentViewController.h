@@ -9,6 +9,7 @@
 #import "UBModelTableViewController.h"
 #import "UBSearchListViewController.h"
 #import "UBCodeScoresViewController.h"
+#import "UBConferencesViewController.h"
 #import "UBStudentView.h"
 
 
@@ -19,7 +20,8 @@
 
 @property (nonatomic) UBConference *conference;
 @property (nonatomic) UISegmentedControl *subjectControl;
-@property (weak) UBCodeScoresViewController *codeScoresView;
+@property (nonatomic) UBCodeScoresViewController *codeScoresController;
+@property (nonatomic) UBConferencesViewController *conferencesController;
 @property (nonatomic) UBStudentView *studentView;
 
 

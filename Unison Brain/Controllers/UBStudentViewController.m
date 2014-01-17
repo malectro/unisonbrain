@@ -53,8 +53,9 @@
         
         _conferenceController = [[UBConferenceCommentViewController alloc] initWithConference:[UBConference create]];
         
-        //conference comment needs to signal codeScores to update
-        _conferenceController.codeScoresView = _codesController;
+        //conference comment needs to signal codeScores and conferences to update
+        _conferenceController.codeScoresController = _codesController;
+        _conferenceController.conferencesController = _conferencesController;
         
         [self addChildViewController:_conferenceController];
                 
@@ -69,6 +70,7 @@
     
     //conference comment needs to trigger auto-scroll _studentView's placement of comments
     self.conferenceController.studentView = _studentView;
+    
 }
 
 - (void)viewDidLoad

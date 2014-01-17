@@ -10,6 +10,7 @@
 #import "UBCodeScoresViewController.h"
 #import "UBDate.h"
 #import "UBStudent.h"
+#import "UBTeacher.h"
 #import "UBCodeScore.h"
 #import "UBCode.h"
 #import "UBConference.h"
@@ -37,6 +38,11 @@
     return self;
 }
 
+- (void) viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+}
+
 - (NSArray *)sortDescriptors
 {
     NSSortDescriptor *sortDescriptor3 = [NSSortDescriptor sortDescriptorWithKey:@"conference.time" ascending:NO];
@@ -47,7 +53,19 @@
 
 - (NSPredicate *)predicate
 {
-    return [NSPredicate predicateWithFormat:@"(code.year == %@)", self.student, self.student.section];
+    if (self.student.section) {
+        
+        // HOW TO ADD CODE YEAR FILTERING HERE??
+        
+        NSString *sectionFirstLetter = [self.student.section substringToIndex:1];
+        int sectionNum = [sectionFirstLetter integerValue];
+        NSLog(@"student is year %@",sectionFirstLetter);
+        return [NSPredicate predicateWithFormat:@"conference.student == %@",self.student, sectionNum];
+        
+    }
+    
+    
+    else return [NSPredicate predicateWithFormat:@"conference.student == %@",self.student];
 }
 
 - (void)setSubject:(UBSubject *)subject
@@ -88,16 +106,23 @@
     UBCodeScore *codeScore = [self codeScoreAtIndexPath:indexPath];
     UBCode *code = [self codeForIndexPath:indexPath];
     
+    if (code.text.length > 75) {
+        NSString *shortText = [NSString stringWithFormat:@"%@...",[code.text substringToIndex: MIN(75, [code.text length])]];
+        cell.detailTextLabel.text = shortText;
+    }    
+    else cell.detailTextLabel.text = code.text;
+
+    
     if (codeScore) {
-        cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@ - %@ - %@", code.name, codeScore.score, codeScore.comment, [UBDate stringFromDateMedium:codeScore.conference.time]];
+        cell.textLabel.text = [NSString stringWithFormat:@"%@: %@ • %@ • %@ - %@", code.name, codeScore.score, codeScore.comment, codeScore.conference.teacher.lname, [UBDate stringFromDateShort:codeScore.conference.time]];
         cell.detailTextLabel.text = code.text;
     }
     else {
-        cell.textLabel.text = [NSString stringWithFormat:@"%@ - No score", code.name];
-        cell.detailTextLabel.text = code.text;
+        cell.textLabel.text = [NSString stringWithFormat:@"%@: No score", code.name];
     }
 
-    //cell.textLabel.font = [UIFont systemFontOfSize:18.0f];
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:14.0f];
+    cell.detailTextLabel.font = [UIFont systemFontOfSize:12.0f];
 }
 
 - (UBSubject *)subjectForSection:(NSInteger)section
