@@ -91,13 +91,13 @@
 }
 
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField:(UITextField *)theComment
+- (void)textFieldDidBeginEditing:(UITextField *)theComment
 {
     self.codeScore.comment = theComment.text;
 }
 
 
-- (void)textFieldDidEndEditing:(UITextField *)textField:(UITextField *)theComment
+- (void)textFieldDidEndEditing:(UITextField *)theComment
 {
     self.codeScore.comment = theComment.text;
 
