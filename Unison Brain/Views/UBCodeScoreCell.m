@@ -88,6 +88,7 @@
 - (void)changedScore
 {
     self.codeScore.score = [NSNumber numberWithInteger:_scoreControl.selectedSegmentIndex + 1];
+    [self.conferenceController shouldUpdateCodeScores];
 }
 
 
@@ -100,6 +101,8 @@
 - (void)textFieldDidEndEditing:(UITextField *)theComment
 {
     self.codeScore.comment = theComment.text;
+    [self.conferenceController shouldUpdateCodeScores];
+
 
 }
 

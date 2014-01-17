@@ -14,7 +14,7 @@
 #import "UBShadowView.h"
 #import "UBBottomSplitView.h"
 #define kLeftColumnWidth 400.0f
-#define kBottomSplitHeight 350.0f
+#define kBottomSplitHeight 325.0f
 
 @interface UBStudentView () {
     UBBottomSplitView *_bottomSplit;
@@ -42,6 +42,7 @@
         
         _bottomSplit = [[UBBottomSplitView alloc] init];
         _bottomSplit.studentView = self;
+
         [self addSubview:_bottomSplit];
         
         _contribsLabel = [[UILabel alloc] init];
@@ -57,6 +58,7 @@
         [self addSubview:_codesLabel];
         
         _bottomSplitBg = [[UIView alloc] init];
+        
         _bottomSplitBg.layer.shadowColor = [UIColor blackColor].CGColor;
         _bottomSplitBg.backgroundColor = [UIColor whiteColor];
         _bottomSplitBg.layer.shadowRadius = 10.0f;
@@ -233,7 +235,7 @@
 {
     
     _prevBottomSplitHeight = _bottomSplitHeight;
-    _bottomSplitHeight = self.frame.size.height -20;
+    _bottomSplitHeight = self.frame.size.height -40;
     [self layoutSubviews];
 }
 

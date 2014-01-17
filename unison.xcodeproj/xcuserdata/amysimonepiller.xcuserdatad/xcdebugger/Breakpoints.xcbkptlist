@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Unison Brain/Controllers/UBCodeScoresViewController.m"
-         timestampString = "411660836.14231"
+         timestampString = "411661657.998127"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "227"
-         endingLineNumber = "227"
+         startingLineNumber = "225"
+         endingLineNumber = "225"
          landmarkName = "-tableView:accessoryButtonTappedForRowWithIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>

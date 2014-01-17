@@ -98,6 +98,13 @@
     
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    self.codeScoresController = nil;
+    self.conferencesController = nil;
+    [super viewWillDisappear:animated];
+}
+
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
@@ -117,6 +124,7 @@
     [UIView animateWithDuration:0.2f animations:^{
         self.codesController.view.frame = CGRectMake(_codesControllerPosition, 0, 400.0f, self.view.frame.size.height);
     }];
+    self.codesController.subject = self.conference.subject;
     [self.conference save];
 
 }
@@ -256,9 +264,8 @@
 - (void)shouldUpdateCodeScores
 {
     
-    [codeScoresController reload];
-    [conferencesController reload];
-    
+    //[self.codesController reloadInputViews];
+    [self reloadInputViews];
 }
 
 - (void)shouldAutoscroll

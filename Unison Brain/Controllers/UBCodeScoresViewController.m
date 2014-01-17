@@ -53,14 +53,14 @@
 
 - (NSPredicate *)predicate
 {
+    
     if (self.student.section) {
         
         // HOW TO ADD CODE YEAR FILTERING HERE??
-        
-        NSString *sectionFirstLetter = [self.student.section substringToIndex:1];
-        int sectionNum = [sectionFirstLetter integerValue];
-        NSLog(@"student is year %@",sectionFirstLetter);
-        return [NSPredicate predicateWithFormat:@"conference.student == %@",self.student, sectionNum];
+       //NSString *sectionFirstLetter = [self.student.section substringToIndex:1];
+        //int sectionNum = [sectionFirstLetter integerValue];
+        //NSLog(@"student is year %@",sectionFirstLetter);
+        return [NSPredicate predicateWithFormat:@"conference.student == %@",self.student];
         
     }
     
@@ -106,16 +106,11 @@
     UBCodeScore *codeScore = [self codeScoreAtIndexPath:indexPath];
     UBCode *code = [self codeForIndexPath:indexPath];
     
-    if (code.text.length > 75) {
-        NSString *shortText = [NSString stringWithFormat:@"%@...",[code.text substringToIndex: MIN(75, [code.text length])]];
-        cell.detailTextLabel.text = shortText;
-    }    
-    else cell.detailTextLabel.text = code.text;
+    cell.detailTextLabel.text = code.text;
 
     
     if (codeScore) {
         cell.textLabel.text = [NSString stringWithFormat:@"%@: %@ • %@ • %@ - %@", code.name, codeScore.score, codeScore.comment, codeScore.conference.teacher.lname, [UBDate stringFromDateShort:codeScore.conference.time]];
-        cell.detailTextLabel.text = code.text;
     }
     else {
         cell.textLabel.text = [NSString stringWithFormat:@"%@: No score", code.name];
