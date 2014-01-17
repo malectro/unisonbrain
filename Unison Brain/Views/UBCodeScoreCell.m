@@ -90,10 +90,20 @@
     self.codeScore.score = [NSNumber numberWithInteger:_scoreControl.selectedSegmentIndex + 1];
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField:(UITextField *)theComment
 {
-    self.codeScore.comment = textField.text;
+    self.codeScore.comment = theComment.text;
 }
+
+
+- (void)textFieldDidEndEditing:(UITextField *)textField:(UITextField *)theComment
+{
+    self.codeScore.comment = theComment.text;
+
+}
+
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {

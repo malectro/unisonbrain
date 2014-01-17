@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TPKeyboardAvoidingScrollView.h"
+//#import "TPKeyboardAvoidingScrollView.h"
 
 @interface UBStudentView : UIView
 
@@ -20,5 +20,9 @@
 
 - (void)showConferencesView;
 - (void)showConferenceView;
+- (void)autoscrollComments;
+- (void)bottomSplitShouldAvoidKeyboard;
+
+
 
 @end

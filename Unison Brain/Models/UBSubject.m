@@ -38,7 +38,7 @@
 - (NSArray *)sortedCodes
 {
     if (_sortedCodes == nil) {
-        NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
+        NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
         _sortedCodes = [self.codes sortedArrayUsingDescriptors:@[descriptor]];
     }
     

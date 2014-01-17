@@ -6,9 +6,8 @@
 //  Copyright (c) 2013 Kyle Warren. All rights reserved.
 //
 
-#import "UBCodeScoresViewController.h"
 #import "UBCodeViewController.h"
-
+#import "UBCodeScoresViewController.h"
 #import "UBDate.h"
 #import "UBStudent.h"
 #import "UBCodeScore.h"
@@ -81,6 +80,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self subjectForSection:section].codes.count;
+    
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
@@ -90,12 +90,14 @@
     
     if (codeScore) {
         cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@ - %@ - %@", code.name, codeScore.score, codeScore.comment, [UBDate stringFromDateMedium:codeScore.conference.time]];
+        cell.detailTextLabel.text = code.text;
     }
     else {
         cell.textLabel.text = [NSString stringWithFormat:@"%@ - No score", code.name];
+        cell.detailTextLabel.text = code.text;
     }
 
-    cell.textLabel.font = [UIFont systemFontOfSize:18.0f];
+    //cell.textLabel.font = [UIFont systemFontOfSize:18.0f];
 }
 
 - (UBSubject *)subjectForSection:(NSInteger)section
@@ -191,8 +193,8 @@
 
 - (UITableViewCell *)allocCell:(NSString *)identifier
 {
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    cell.textLabel.font = [UIFont systemFontOfSize:20.0f];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+    cell.textLabel.font = [UIFont systemFontOfSize:16.0f];
     cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     return cell;
 }

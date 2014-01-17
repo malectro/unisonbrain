@@ -7,8 +7,10 @@
 //
 
 #import "UBModelTableViewController.h"
-
 #import "UBSearchListViewController.h"
+#import "UBCodeScoresViewController.h"
+#import "UBStudentView.h"
+
 
 @class UBConference;
 @class UBCodeScoreCell;
@@ -17,9 +19,20 @@
 
 @property (nonatomic) UBConference *conference;
 @property (nonatomic) UISegmentedControl *subjectControl;
+@property (weak) UBCodeScoresViewController *codeScoresView;
+@property (nonatomic) UBStudentView *studentView;
+
+
 
 - (id)initWithConference:(UBConference *)conference;
 
 - (void)touchedNotionForCodeScore:(UBCodeScoreCell *)codeScore;
+
+- (void)shouldUpdateCodeScores;
+
+- (void)shouldAutoscroll;
+
+- (void)shouldAvoidKeyboard;
+
 
 @end

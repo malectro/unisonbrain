@@ -12,7 +12,7 @@
 #import "UBColor.h"
 
 #define kLeftSplitWidth 512.0f
-#define kTopSplitHeight 450.0f
+#define kTopSplitHeight 660.0f
 
 @interface UBHomeView ()
 

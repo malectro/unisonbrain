@@ -12,7 +12,7 @@
 @interface UBModelTableViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,NSFetchedResultsControllerDelegate>
 
 
-@property (nonatomic, readonly) TPKeyboardAvoidingTableView *tableView;
+@property (nonatomic, readonly) UITableView *tableView;
 @property (nonatomic, readonly) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic) NSString *modelName;
 @property (nonatomic, readonly) NSPredicate *predicate;

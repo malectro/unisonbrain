@@ -53,6 +53,9 @@
         
         _conferenceController = [[UBConferenceCommentViewController alloc] initWithConference:[UBConference create]];
         
+        //conference comment needs to signal codeScores to update
+        _conferenceController.codeScoresView = _codesController;
+        
         [self addChildViewController:_conferenceController];
                 
         
@@ -63,6 +66,9 @@
 - (void)loadView
 {
     self.view = _studentView = [[UBStudentView alloc] init];
+    
+    //conference comment needs to trigger auto-scroll _studentView's placement of comments
+    self.conferenceController.studentView = _studentView;
 }
 
 - (void)viewDidLoad
@@ -82,11 +88,13 @@
     [self.conferencesController addRowSelectionTarget:self action:@selector(selectConference:)];
     
     [self.conferenceController.subjectControl addTarget:self action:@selector(changedSubject) forControlEvents:UIControlEventValueChanged];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    
     
     if (_selectedConference != nil) {
         [_selectedConference save];

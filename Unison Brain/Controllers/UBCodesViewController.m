@@ -47,7 +47,7 @@
 - (UITableViewCell *)allocCell:(NSString *)identifier
 {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
-    cell.textLabel.font = [UIFont systemFontOfSize:17.0f];
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:14.0f];
     cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     return cell;
 }

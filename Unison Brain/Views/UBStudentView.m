@@ -12,12 +12,12 @@
 
 #import "UBFunctions.h"
 #import "UBShadowView.h"
-
+#import "UBBottomSplitView.h"
 #define kLeftColumnWidth 400.0f
-#define kBottomSplitHeight 300.0f
+#define kBottomSplitHeight 350.0f
 
 @interface UBStudentView () {
-    UIView *_bottomSplit;
+    UBBottomSplitView *_bottomSplit;
     UIView *_bottomSplitBg;
     UIView *_leftSplit;
     CGFloat _prevBottomSplitHeight;
@@ -36,10 +36,12 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        
         _leftSplit = [[UBShadowView alloc] init];
         [self addSubview:_leftSplit];
         
-        _bottomSplit = [[UIView alloc] init];
+        _bottomSplit = [[UBBottomSplitView alloc] init];
+        _bottomSplit.studentView = self;
         [self addSubview:_bottomSplit];
         
         _contribsLabel = [[UILabel alloc] init];
@@ -104,6 +106,7 @@
     return self;
 }
 
+
 - (void)layoutSubviews
 {
     CGFloat yValue = 0;
@@ -128,6 +131,7 @@
     }
     
     _bottomSplit.frame = CGRectMake(0, self.frame.size.height - _bottomSplitHeight, self.frame.size.width, _bottomSplitHeight);
+    
     _bottomSplitBg.frame = CGRectPosition(_bottomSplit.frame, 0, 0);
     
     _commentsLabel.frame = CGRectPosition(_commentsLabel.frame, 10.0f, 12.0f);
@@ -216,6 +220,21 @@
 - (void)showConferenceView
 {
     [self.conferenceMetaView scrollRectToVisible:self.conferenceView.frame animated:YES];
+}
+
+- (void)autoscrollComments
+{
+    // set conference view to ideal height of conference comment bar...
+    _bottomSplitHeight = _prevBottomSplitHeight;
+    [self layoutSubviews];
+}
+
+- (void)bottomSplitShouldAvoidKeyboard
+{
+    
+    _prevBottomSplitHeight = _bottomSplitHeight;
+    _bottomSplitHeight = self.frame.size.height -20;
+    [self layoutSubviews];
 }
 
 @end

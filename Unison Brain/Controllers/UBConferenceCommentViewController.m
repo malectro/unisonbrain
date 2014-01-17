@@ -13,10 +13,11 @@
 #import "UBCodeScore.h"
 #import "UBConference.h"
 #import "UBSubject.h"
-
 #import "UBSelectPopover.h"
 #import "UBCodeScoreCell.h"
 #import "UBCodesViewController.h"
+
+
 
 @interface UBConferenceCommentViewController () {
     CGFloat _codesControllerPosition;
@@ -31,7 +32,10 @@
 
 @end
 
+
 @implementation UBConferenceCommentViewController
+
+@synthesize codeScoresView;
 
 - (id)initWithConference:(UBConference *)conference
 {
@@ -248,5 +252,19 @@
     self.conference.subject = subject;
     self.codesController.subject = subject;
 }
+
+- (void)shouldUpdateCodeScores
+{
+    
+    [codeScoresView.tableView reloadData];
+    
+}
+
+- (void)shouldAutoscroll
+{
+    [self.studentView autoscrollComments];
+    
+}
+
 
 @end
