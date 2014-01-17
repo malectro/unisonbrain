@@ -68,8 +68,18 @@
 
 - (BOOL)filterItem:(UBCode *)code bySearch:(NSString *)searchText
 {
-    NSComparisonResult result = [code.name compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchText length])];
-    return result == NSOrderedSame;
+    NSComparisonResult resultA = [code.name compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch|NSLiteralSearch|NSNumericSearch) range:NSMakeRange(0, [searchText length])];
+    
+    NSComparisonResult resultB = [code.text compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch|NSLiteralSearch|NSNumericSearch) range:NSMakeRange(0, [searchText length])];
+
+    BOOL result = false;
+    if (resultA == NSOrderedSame || resultB == NSOrderedSame) {
+        result = true;
+    }
+    
+    //NSLog(@"%d, %c, %c", result, resultA, resultB);
+    
+    return result;
 }
 
 - (void)reloadCodes
